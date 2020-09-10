@@ -1,0 +1,43 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Tracking with controller based on separation principle for system \textup {\hbox {\mathsurround \z@ \normalfont (\ignorespaces \ref {eq:ILC:Sys_ex1}\unskip \@@italiccorr )}}\relax }}{9}{figure.caption.7}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Tracking with LQR Controller (without ILC Algorithm), and tracking with Right Inverse Model Algorithm for the system \textup {\hbox {\mathsurround \z@ \normalfont (\ignorespaces \ref {eq:ILC:Sys_ex1}\unskip \@@italiccorr )}}\relax }}{13}{figure.caption.8}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Error evolution calculated with \textup {\hbox {\mathsurround \z@ \normalfont (\ignorespaces \ref {eq:ILC:ex_IA1}\unskip \@@italiccorr )}} in Right Inverse Model Algorithm for \ref {ex:ILC:IAvsSDA}\relax }}{16}{figure.caption.13}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Application of the result of RIA for \ref {eq:ILC:Sys_ex1} for $N = 40$\relax }}{17}{figure.caption.14}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Error evolution calculated with \textup {\hbox {\mathsurround \z@ \normalfont (\ignorespaces \ref {eq:ILC:ex_IA2}\unskip \@@italiccorr )}} in Right Inverse Model Algorithm for \ref {eq:ILC:Sys_ex1}\relax }}{18}{figure.caption.15}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Error evolution with Steepest Descent Algorithm for the system \textup {\hbox {\mathsurround \z@ \normalfont (\ignorespaces \ref {eq:ILC:Sys_ex1}\unskip \@@italiccorr )}}\relax }}{21}{figure.caption.16}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Reference signal tracking with Steepest Descent Algorithm for the system \textup {\hbox {\mathsurround \z@ \normalfont (\ignorespaces \ref {eq:ILC:Sys_ex1}\unskip \@@italiccorr )}}\relax }}{22}{figure.caption.17}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Error evolution for classical SDA and SoE for system \textup {\hbox {\mathsurround \z@ \normalfont (\ignorespaces \ref {eq:ILC:Sys_ex1}\unskip \@@italiccorr )}}\relax }}{24}{figure.caption.18}%
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Uncertain system as feedback interconnection of LFR and the uncertainty $\hat {\Delta }$\relax }}{28}{figure.caption.19}%
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Example \ref {Ex:ex2}. $u_0 = .1$, $r(t)$ is random for $t = 0, 1, 2, \dots , N$.\relax }}{37}{figure.caption.20}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.2}{\ignorespaces \relax }}{38}{figure.caption.21}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Example \ref {ex:Unc}. $u(0) = .1$, $r(t)$ is random for $t = 0, 1, 2, \dots , N$.\relax }}{39}{figure.caption.22}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Linear Fractional Representation: open loop\relax }}{40}{figure.caption.24}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Linear Fractional Representation\relax }}{40}{figure.caption.25}%
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }

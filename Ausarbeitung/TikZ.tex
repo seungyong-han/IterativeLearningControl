@@ -1,0 +1,130 @@
+\begin{figure}
+	\begin{center}
+		\begin{tikzpicture}[>=stealth]
+		%coordinates
+		\coordinate (orig)   at (0,0);
+
+		\coordinate (AroneA) at (-3,1.5);
+		\coordinate (ArtwoA) at (5,.5);
+		\coordinate (ArthrA) at (-1.5,.5);
+		\coordinate (LLA)    at (0,0);
+		\coordinate (LLD)    at (1.2,4);
+	
+		%nodes
+		\node[draw, minimum width=2cm, minimum height=2cm, anchor=south west, align=center, fill = gray!20] (A) at (LLA) {$\left[\begin{array}{c|c c}
+			A & B_1 & B_2 \\\hline C_1 & D_{11} & D_{12} \\ C_2 & D_{21} & D_{22}
+			\end{array}\right]$};
+		\node[draw, minimum width=1.2cm, minimum height=1cm, anchor=south west, text width=1cm, align=center ,fill = yellow!20] (D) at (LLD) {$\Delta$};
+
+		\draw[->] (ArthrA) -- node[above]{$u_k$} ($(A.180) + (0,-1/2)$);
+		\draw[->]  ($(A.east) - (0,.5)$) -- node[above]{$y_{k}$}(ArtwoA);
+		
+		\draw[->] ($(A.0) + (0,1/2)$) -| ++ (1,1.5) -- node[right, pos=0.2]{$z_k$}++ (0,1.5) -- ($(D.east)$);		
+		\draw[->] ($(D.west)$) -| ++ (-2.3,-1.5) -- node[left, pos=0.2]{$w_k$} ++ (0,-1.5) -- ($(A.180) + (0,1/2)$);
+		\end{tikzpicture}
+		
+	\end{center}
+	
+\end{figure}
+
+
+
+\begin{figure}
+	\begin{center}
+		\begin{tikzpicture}[>=stealth]
+		%coordinates
+		\coordinate (orig)   at (0,0);
+		
+		\coordinate (AroneA) at (-3,1.5);
+		\coordinate (ArtwoA) at (5.2,.5);
+		\coordinate (ArthrA) at (-2,.5);
+		\coordinate (ArfA) at (-2,1.5);
+		\coordinate (ArfiveA) at (5.2,1.5);		
+		\coordinate (LLA)    at (0,0);
+		\coordinate (LLD)    at (.51,4);
+		
+		%nodes
+		\node[draw, minimum width=2cm, minimum height=2cm, anchor=south west,  align=center, fill = gray!20] (A) at (LLA) {$\left[\begin{array}{c|c c}
+			A & B_1 & B_2 \\\hline C_1 & D_{11} & D_{12} \\ C_2 & D_{21} & D_{22}
+			\end{array}\right]$};
+%		\node[draw, minimum width=1.2cm, minimum height=1cm, anchor=south west, text width=1cm, align=center ,fill = yellow!20] (D) at (LLD) {$\Delta$};
+		
+		\draw[->] (ArthrA) -- node[above]{$u_k$} ($(A.180) + (0,-1/2)$);
+		\draw[->]  ($(A.east) - (0,.5)$) -- node[above]{$y_k$}(ArtwoA);
+		
+		\draw[->] (ArfA) -- node[above]{$w_k$} ($(A.180) - (0,-1/2)$);
+		\draw[->]  ($(A.east) + (0,.5)$) -- node[above]{$z_k$}(ArfiveA);
+		
+%		\draw[->] ($(A.0) + (0,1/2)$) -| ++ (1,1.5) -- node[right, pos=0.2]{$z_k$}++ (0,1.5) -- ($(D.east)$);		
+%		\draw[->] ($(D.west)$) -| ++ (-1.5,-1.5) -- node[left, pos=0.2]{$w_k$} ++ (0,-1.5) -- ($(A.180) + (0,1/2)$);
+		\end{tikzpicture}
+	\end{center}
+	\caption{Linear Fractional Representation: open loop}
+\end{figure}
+
+
+
+\begin{figure}
+	\begin{center}
+		\begin{subfigure}{.5\textwidth}
+			\centering 			
+			\begin{tikzpicture}[>=stealth]
+			%coordinates
+			\coordinate (orig)   at (0,0);
+			
+			\coordinate (AroneA) at (-3,1.5);
+			\coordinate (ArtwoA) at (4.2,.5);
+			\coordinate (ArthrA) at (-2,.5);
+			\coordinate (LLA)    at (0,0);
+			\coordinate (LLD)    at (.51,4);
+			
+			%nodes
+			\node[draw, minimum width=2cm, minimum height=2cm, anchor=south west, text width=2cm, align=center, fill = gray!20] (A) at (LLA) {$\left[\begin{array}{c|c}
+				A & B \\\hline C & D
+				\end{array}\right]$};
+			\node[draw, minimum width=1.2cm, minimum height=1cm, anchor=south west, text width=1cm, align=center ,fill = yellow!20] (D) at (LLD) {$\Delta$};
+			
+			\draw[->] (ArthrA) -- node[above]{$u_k$} ($(A.180) + (0,-1/2)$);
+			\draw[->]  ($(A.east) - (0,.5)$) -- node[above]{$y_k$}(ArtwoA);
+			
+			\draw[->] ($(A.0) + (0,1/2)$) -| ++ (1,1.5) -- node[right, pos=0.2]{$z_k$}++ (0,1.5) -- ($(D.east)$);		
+			\draw[->] ($(D.west)$) -| ++ (-1.5,-1.5) -- node[left, pos=0.2]{$w_k$} ++ (0,-1.5) -- ($(A.180) + (0,1/2)$);
+			\end{tikzpicture} \caption{Closed loop}
+		\end{subfigure}
+		\vspace{1cm}
+		
+		\begin{subfigure}{.5\textwidth}
+			\centering
+			\begin{tikzpicture}[>=stealth]
+			%coordinates
+			\coordinate (orig)   at (0,0);
+			
+			\coordinate (AroneA) at (-3,1.5);
+			\coordinate (ArtwoA) at (5.2,.5);
+			\coordinate (ArthrA) at (-2,.5);
+			\coordinate (ArfA) at (-2,1.5);
+			\coordinate (ArfiveA) at (5.2,1.5);		
+			\coordinate (LLA)    at (0,0);
+			\coordinate (LLD)    at (.51,4);
+			
+			%nodes
+			\node[draw, minimum width=2cm, minimum height=2cm, anchor=south west,  align=center, fill = gray!20] (A) at (LLA) {$\left[\begin{array}{c|c c}
+				A & B_1 & B_2 \\\hline C_1 & D_{11} & D_{12} \\ C_2 & D_{21} & D_{22}
+				\end{array}\right]$};
+			%		\node[draw, minimum width=1.2cm, minimum height=1cm, anchor=south west, text width=1cm, align=center ,fill = yellow!20] (D) at (LLD) {$\Delta$};
+			
+			\draw[->] (ArthrA) -- node[above]{$u_k$} ($(A.180) + (0,-1/2)$);
+			\draw[->]  ($(A.east) - (0,.5)$) -- node[above]{$y_k$}(ArtwoA);
+			
+			\draw[->] (ArfA) -- node[above]{$w_k$} ($(A.180) - (0,-1/2)$);
+			\draw[->]  ($(A.east) + (0,.5)$) -- node[above]{$z_k$}(ArfiveA);
+			
+			%		\draw[->] ($(A.0) + (0,1/2)$) -| ++ (1,1.5) -- node[right, pos=0.2]{$z_k$}++ (0,1.5) -- ($(D.east)$);		
+			%		\draw[->] ($(D.west)$) -| ++ (-1.5,-1.5) -- node[left, pos=0.2]{$w_k$} ++ (0,-1.5) -- ($(A.180) + (0,1/2)$);
+			\end{tikzpicture}
+			\caption{Open loop}
+		\end{subfigure}
+		
+	\end{center}
+	\caption{Linear Fractional Representation}
+\end{figure}

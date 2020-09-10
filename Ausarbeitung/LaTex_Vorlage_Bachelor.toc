@@ -1,0 +1,27 @@
+\contentsline {section}{Abbildungsverzeichnis\vspace {0pt}}{I}{chapter*.2}
+\contentsline {section}{Tabellenverzeichnis\vspace {0pt}}{II}{chapter*.3}
+\contentsline {section}{Abk\"urzungsverzeichnis\vspace {0pt}}{IV}{section*.5}
+\contentsline {section}{Symbolverzeichnis\vspace {0pt}}{V}{section*.6}
+\contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}Zielsetzung}{1}{section.1.2}
+\contentsline {section}{\numberline {1.3}Aufbau der Arbeit}{1}{section.1.3}
+\contentsline {chapter}{\numberline {2}Stand der Technik}{3}{chapter.2}
+\contentsline {chapter}{\numberline {3}Grundlagen und Definitionen}{5}{chapter.3}
+\contentsline {section}{\numberline {3.1}Model of Dynamical System and Frequency Domain}{5}{section.3.1}
+\contentsline {section}{\numberline {3.2}Supervectors and Matrix Model}{5}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Definition of Matrix Model}{5}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Properties of Matrix Model}{5}{subsection.3.2.2}
+\contentsline {chapter}{\numberline {4}Unit Memory Algorithm}{7}{chapter.4}
+\contentsline {section}{\numberline {4.1}Monotone Konvergenz}{8}{section.4.1}
+\contentsline {section}{\numberline {4.2}Konvergenzkriterien}{8}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Konvergenzkriterien f\"ur State Space Model}{8}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Relaxation Methods}{9}{subsection.4.2.2}
+\contentsline {section}{\numberline {4.3}Robustheit}{10}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Robustheit in der Sicht der Zustandsunsicherheit}{11}{subsection.4.3.1}
+\contentsline {chapter}{\numberline {5}Zusammenfassung und Ausblick}{13}{chapter.5}
+\contentsline {section}{Literaturverzeichnis}{V}{chapter*.7}
+\contentsline {section}{Anhang}{VI}{chapter*.7}
+\contentsline {section}{\numberline {.1}Beweise}{VI}{section.Alph0.1}
+\contentsline {subsection}{\numberline {.1.1}Beweis 1}{VI}{subsection.Alph0.1.1}
+\contentsline {section}{Eidesstattliche Erkl\"arung}{VII}{section*.8}

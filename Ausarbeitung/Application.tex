@@ -1,0 +1,10 @@
+\chapter{Application}
+
+
+	In example \ref{ex:ILC:IAcrushes} the Inverse Model Algorithm is not applicable since large $N$. 	
+	That means, we need a trade off between the time horizon and robustness. 
+	But there is a problem of the sample time for the most models: mostly we choose the sample time very small (e.g. $10^{-3}$s), and hence even for one second of the simulation we get $N = 1000$. Even if we have SISO system, the matrix $G$ will have $10^6$ elements. Our algorithms become unusable for real applications since they need vast masses of memory.   
+	
+	We solve this problem by application of the algorithms iterative, for smaller number of time steps. Only the initial condition for each iteration must be adopted. 
+	
+	
