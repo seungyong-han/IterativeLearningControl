@@ -92,10 +92,10 @@ We take as a reference $r(\dot)$ the pulse signal and set $N = 20$.
 
 With controller based on separation principle we get the tracking, illustrated in  Figure \ref{img:ILC:LQR_control}.
 \begin{figure}[ht]
-	\label{img:ILC:LQR_control}
 	\centering
 	\includegraphics[width=\textwidth]{fig/LQR_ex.jpg}
 	\caption{Tracking with controller based on separation principle for system \eqref{eq:ILC:Sys_ex1}}
+	\label{img:ILC:LQR_control}
 \end{figure}
 \end{example}
 
@@ -320,16 +320,13 @@ e_k &= r - y_k,
 $u_{0} \in \R^{l(N+1)},  \; k =0, \,  1, \, 2, \dots $ .
 This is again a discrete-time system, with time increment $k$. 
 
-To achieve a good tracking we need to ensure the norm $||e_k||$ to be small for large $k$. 
-A better tracking can be achieved, if the convergence is monotone, i.e. 
+To achieve a good tracking at trial $k$ we need to ensure the norm $||e_k||$ is small. 
+The tracking behavior improves for consecutive iterations if the sequence $||e_k||$ is monotonically decreasing, i.e., 
 \begin{align}
 ||e_{k+1} || < ||e_k|| \text{ for all } k \geq 0.
 \end{align}
+Note that in this case the sequence $||e_k||$ is guaranteed to converge. If the sequence even converges to zero we say that perfect tracking is achieved asymptotically.
 
-The asymptotically perfect tracking means
-\begin{align}
-\lim_{k\to\infty} ||e_k|| = 0.
-\end{align}
 
 We have already seen, that it is not always possible to achieve zero convergence. In Algorithm \ref{alg: leftInv} the perfect tracking is possible, if the reference signal $r$ is feasible. In common the convergence properties can also depend on the choice $u_0$.
 
@@ -625,7 +622,7 @@ An algorithm, which does not require the model inversion, might be here of use.
 %
 %The choice of $\beta$ is identical to this in Algorithm \ref{alg: rightInv}.
 
-\section{Gradient Algorithms}
+	 \section{Gradient Algorithms}
 We can begin to define a new algorithm with the requirements on it. We want this algorithm to be monotonic convergent, so we can easily decide on termination criterion. 
 
 The direct calculation provides 
@@ -662,44 +659,60 @@ Recall, that for $R = I$ and $Q = I$ the matrices $G^\star$ and $K^\star$ are ju
 Applying the weighted norms on \eqref{eq:monConv} provides
 \begin{align}
 \begin{split}
-||e_{k+1} ||_Q^2 &= ||e_k + (e_{k+1} - e_k)||_Q^2 = \\
-& = ||e_k||_Q^2 + 2\langle e_k, e_{k+1} - e_k \rangle_Q + ||e_{k+1} - e_k||_Q^2\\
-& = ||e_k||_Q^2 + 2\langle e_k, (I - G K ) e_k - e_k \rangle_Q + ||(I - GK) e_k - e_k||_Q^2 \\
-& = ||e_k||_Q^2 - 2 \langle e_k, G K  e_k \rangle_Q + ||GK e_k||_Q^2\\
-& < ||e_k||_Q^2, \; \text{ if } ||GK e_k||_Q^2 < 2 \langle e_k, GK e_k\rangle_Q. 
+||e_{k+1} ||_Q^2 &= ||e_k - G K e_k||_Q^2 = ||e_k||_Q - 2\langle e_k , G K e_k \rangle_Q^2 + ||G K e_k||_Q^2 \\ 
+&\leq ||e_k||_Q^2, \text{ if } ||GK e_k||_Q^2 < 2 \langle e_k, GK e_k\rangle_Q. 
 \end{split}
 \end{align}
 
 The last inequality is equivalent to 
 \begin{align}
-\frac{1}{2}e_k^T K^T G^T Q GK e_k < e_k^T GK e_k, 
+\frac{1}{2}e_k^T K^T G^T Q GK e_k < e_k^T Q GK e_k, 
 \end{align}
-which is satisfied if 
+
+If we set $K = \beta G^{\star}$ it results in 
 \begin{align}
-(G K )^\star G K  \prec G K + (GK)^\star.
+\label{eq:ILC:SDA_Herleitung}
+\beta^2 (G G^{\star})^T Q (G G^{\star}) \prec \beta Q G G^{\star} + \beta (Q G G^{\star})^T.
 \end{align}
-%with
+
+Since the matrix $Q$ is positive definite, we can find a matrix $Q^{1/2}$, such that $Q = Q^{1/2}Q^{1/2}$. We define the positive definite, symmetric matrix
+\begin{align}
+H:= Q^{1/2} G G^{\star} Q^{-1/2} = Q^{1/2} G R^{-1}G^T Q^{1/2}. 
+\end{align}
+With congruence transformation we can rewrite \eqref{eq:ILC:SDA_Herleitung} as 
+\begin{align}
+\beta^2 H^T H \prec \beta (H + H^T) \Leftrightarrow  \beta H^2 \prec 2.
+\end{align}
+
+This is satisfied, if $\beta \in (0, \lama(H))$. 
+
+
+%which is satisfied if 
 %\begin{align}
-%(GK)^\star = K^\star G^\star.
+%(G K )^\star G K  \prec G K + (GK)^\star.
 %\end{align}
-
-If we set $K = \beta G^\star$ for some scalar $\beta > 0$, the last matrix inequality becomes 
-\begin{align}
-\beta (G G^\star)^2 - 2 G G^\star \prec 0.
-\end{align}
-
-We choose  $\beta \in (0, \tilde{\beta})$, with  $\tilde{\beta} = \frac{2}{\sigma_{\max}^2}$. The $\sigma_{\max}:= \sigma_{\max}(G) = \sigma_{\max}(G^\star) := \sqrt{\lama(G G^\star)}$ denotes here the square root taken over the maximum eigenvalue of the matrix $G G^\star$.%denotes here the maximum singular value of the matrix $G$. 
-
-Then the last inequality is fulfilled, since 
-\begin{align}
-\begin{split}
-\lambda_{\max}\left( \frac{1}{\sigma_{\max} ^2}(G G^\star)^2 \right)  = \frac{1}{\sigma_{\max}^2} \sigma_{\max}^4 = \sigma_{\max}^2 = \lama(GG^\star).
-\end{split}
-\end{align} 
-and hence
-\begin{align}
-\frac{1}{2}\beta (G G^\star)^2 - G^\star G  \prec \frac{1}{\sigma_{\max}^2} (G^\star G)^2 - G G^\star \preceq 0.
-\end{align}
+%%with
+%%\begin{align}
+%%(GK)^\star = K^\star G^\star.
+%%\end{align}
+%
+%If we set $K = \beta G^\star$ for some scalar $\beta > 0$, the last matrix inequality becomes 
+%\begin{align}
+%\beta (G G^\star)^2 - 2 G G^\star \prec 0.
+%\end{align}
+%
+%We choose  $\beta \in (0, \tilde{\beta})$, with  $\tilde{\beta} = \frac{2}{\sigma_{\max}^2}$. The $\sigma_{\max}:= \sigma_{\max}(G) = \sigma_{\max}(G^\star) := \sqrt{\lama(G G^\star)}$ denotes here the square root taken over the maximum eigenvalue of the matrix $G G^\star$.%denotes here the maximum singular value of the matrix $G$. 
+%
+%Then the last inequality is fulfilled, since 
+%\begin{align}
+%\begin{split}
+%\lambda_{\max}\left( \frac{1}{\sigma_{\max} ^2}(G G^\star)^2 \right)  = \frac{1}{\sigma_{\max}^2} \sigma_{\max}^4 = \sigma_{\max}^2 = \lama(GG^\star).
+%\end{split}
+%\end{align} 
+%and hence
+%\begin{align}
+%\frac{1}{2}\beta (G G^\star)^2 - G^\star G  \prec \frac{1}{\sigma_{\max}^2} (G^\star G)^2 - G G^\star \preceq 0.
+%\end{align}
 
 
 This choice of $K$ determines the \textit{Steepest Descent Algorithm}
@@ -723,26 +736,26 @@ This choice of $K$ determines the \textit{Steepest Descent Algorithm}
 	\end{align} 
 	is guaranteed if
 	\begin{align*}
-	0 <\beta < \frac{2}{\sigma_{\max}^2}.
+	0 <\beta < \lama(H).
 	\end{align*}
 	Here $P_{\ker[G^\star]}$ denotes the positive orthogonal projection operator onto $\ker[G^\star]$.
 	In particular, the zero convergence is attainable, if $e_0 \in \im [G G^\star]$. 
 \end{alg} 
 \begin{proof}
-%	We consider the matrix $L:= ( I -\beta G G^\star)$. Since $0 <\beta < \frac{2}{\sigma_{\max}^2}$, it holds the relation
-%	\begin{align}
-%	(1 - \beta || G^\star ||^2 )I &\preceq (I - \beta G G^\star),\\
-%	&\Downarrow\\
-%	\label{eq:alg:proof1}
-%	\underbrace{(2 - \beta ||G^\star||^2)}_{> 0} I &\preceq (I + L).
-%	\end{align}
-%	Hence the matrix $I + L$ has an inverse.
-%	 
-%	We take an arbitrary $e_0 \in \im [G G^\star]$. Then $e_0 \in \im [I - L]$, so it must exist some $w_0 \in \R^{m (N+1)}$, such that 
-%	\begin{align}
-%	e_0 = (I - L)w_0 \text{ and } w_0 = (I + L)w_1
-%	\end{align}
-%	for some $w_1 \in \R^{m(N+1)}$. 
+	We consider the matrix $L:= ( I -\beta G G^\star)$. Since $0 <\beta < \frac{2}{\sigma_{\max}^2}$, it holds the relation
+	\begin{align}
+	(1 - \beta || G^\star ||^2 )I &\preceq (I - \beta G G^\star),\\
+	&\Downarrow\\
+	\label{eq:alg:proof1}
+	\underbrace{(2 - \beta ||G^\star||^2)}_{> 0} I &\preceq (I + L).
+	\end{align}
+	Hence the matrix $I + L$ has an inverse.
+	 
+	We take an arbitrary $e_0 \in \im [G G^\star]$. Then $e_0 \in \im [I - L]$, so it must exist some $w_0 \in \R^{m (N+1)}$, such that 
+	\begin{align}
+	e_0 = (I - L)w_0 \text{ and } w_0 = (I + L)w_1
+	\end{align}
+	for some $w_1 \in \R^{m(N+1)}$. 
 	
 	As next, since $L^\star = L$, for any $p \in \N$ it holds: 
 	\begin{align}
@@ -954,19 +967,27 @@ This algorithm has the same convergence properties as Algorithm \ref{alg: SDA}, 
 With the previous algorithms we can achieve a better tracking for repetitively executed processes.  But they do not accent the special features of the model. For example, we can not manage the non-minimum-phase zeros, which can impact the convergence rate \cite{ILC}. 
 If we consider the plant structure and construct a feedback controller, and then converts it into a steepest descent-like algorithm, we possibly can achieve better performance and robustness properties. 
 
-More precisely, we consider a forward path compensator $K_c$ in a unity negative feedback system for \eqref{eq:GP}. 
-The design criteria for $K_c$ include the closed-loop stability and the ability to track, albeit approximately, the reference signal $r$. With this compensator, depending on the model, we can remedy the plant properties such as oscillation, loop interaction, or the effects of non-minimum-phase zeros. 
+Let us denote with $G(z)$ the transfer matrix in variable $z$ of the system $(A,B,C,D)$, and with $G$ the supervector matrix. 
 
-We denote the closed-loop matrix $T$ and sensitivity matrix $S$ of the resultant closed-loop system by
+More precisely, we consider a forward path compensator $K_c(z))$ in a unity negative feedback system for \eqref{eq:GP}. 
+The design criteria for $K_c(z)$ include the closed-loop stability and the ability to track, albeit approximately, the reference signal $r$. With this compensator, depending on the model, we can remedy the plant properties such as oscillation, loop interaction, or the effects of non-minimum-phase zeros. 
+
+We denote the complementary sensitivity of the resulting closed loop with $T(z)$ and sensitivity with $S(z)$:
 \begin{align}
-T = (I + G K_c)^{-1}G K_c \text{ and } S  = I - T =  (I + G K_c)^{-1}.
+T(z) = (I + G(z) K_c(z))^{-1}G(z) K_c(z) \text{ and } S(z)  = I - T(z) =  (I + G(z) K_c(z))^{-1}, 
+\end{align}
+
+and define the controller
+\begin{align}
+K_0(z) = K_c(z) S(z). 
 \end{align}
 
 Then the compensated Steepest Descent Algorithm is given as follows. 
 
 \begin{alg}
 	\label{alg: FBDesign}
-	The compensated Steepest Descent Algorithm is  is characterized by choosing  $K = \beta K_c S$, $\beta \in \R$. 
+	For the matrices describe above we define the supervector description, and work with this as follows:
+	the compensated Steepest Descent Algorithm is  is characterized by choosing  $K = \beta K_0$, $\beta \in \R$. 
 	The iterative law is given via 
 	\begin{align}
 	\label{eq:errFBDesign}
@@ -997,7 +1018,7 @@ y = Tr.
 \end{align}
 We get a perfect tracking, if $T = I$, which is not achievable by feedback control. Still, we can assume a good tracking if $||T|| \approx 1$. 
 
-Therefore if $K_c$ provides excellent feedback control of $G$, then rapid convergence could be attained with a choice of gain $\beta \approx 1$. % if and the dominant frequency content of the reference $r$ lies in the bandwidth of the closed loop system $T$
+Therefore if $K_c$ provides excellent feedback control of $G$, then rapid convergence could be attained with a choice of gain $\beta \approx 1$ \cite{ILC}. % if and the dominant frequency content of the reference $r$ lies in the bandwidth of the closed loop system $T$
 
 
 

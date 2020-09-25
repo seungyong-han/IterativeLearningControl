@@ -23,8 +23,8 @@ Here $A \in \mathbb{R}^{n\times n}$, $B \in \mathbb{R}^{n \times l}$, $C \in \R^
 
 
 We aim to find a ''good'' input signal $u(t)$, such that the reference $r(t)$ is tracked possibly well for all $t \geq 0$. With other words, it means, that the error norm $||e(\cdot)||$ must stay small in some  $||\cdot||$, e.g. the $L_2$-norm.
-We can achieve it by finding of a stabilizing controller. To be able to construct it, we must first clearly define what stability means. Since let us first formulate the common definitions and entertain ideas of a stabilizing controller construction. 
-%Since this definition is usually formulated over an infinite time horizon, let us for a moment consider the case $t \geq 0$. 
+We can achieve it by finding a stabilizing controller -- such that our system state goes not to infinity over time $t$. 
+To design it, we must first clearly define what stability means. Since let us first formulate the common definitions and entertain ideas of a stabilizing controller construction. 
 
 \section{Definitions}
 
@@ -107,10 +107,10 @@ We can achieve it by finding of a stabilizing controller. To be able to construc
 
 
 In the same way we want to define (asymptotic) stabilizability and detectability. 
-
-First, a discrete time system \eqref{eq:GP} or the pair $(A, B)$ is (asymptotically) stabilizable, if there exists a matrix $F$, such that $A - BF$ is (asymptotically) stable.
-
+\begin{defi}
+A a discrete time system $(A, B, C, D)$ or the pair $(A, B)$ is (asymptotically) stabilizable, if there exists a matrix $F$, such that $A - BF$ is (asymptotically) stable.
 The system or the pair $(A,C)$ is detectable, if $(A^T, C^T)$ is assymptotically stabilizable. 
+\end{defi}
 
 
 
@@ -137,16 +137,18 @@ But what is a ''good'' choice for $F$? One option is the so-called Linear-Quadra
 V(u(\cdot)) = \sum_{t = 0}^\infty \left( (x(t))^T Q (x(t)) + u(t)^T R u(t)\right),
 \end{align}
 overall stabilizing piecewise constant input signals $u(\cdot) \in \R^m$, and with $x(\cdot)$ satisfying \eqref{eq:GP} (with $C = I$ and $D = 0$). 
-$Q \succ 0$ and $R \succ 0$ are here some weighting matrices. 
+$Q \succ 0$ and $R \succ 0$ are here some weighting matrices, and allow us  to weight elements in input and output signals. For example, if we want one of the inputs have more impact on the system as another, or one output must be driven faster. 
 
 The solution of this optimal control problem can be found by choosing 
 \begin{align}
-F = (R + B^T P B)^{-1}B^TPA,
+\label{eq:Basics:F}
+F = (R + B^T P B)^{-1}B^TPA.
 \end{align}
 where $P$ is a unique symmetric positive definite matrix, the stabilizing solution of the discrete time algebraic Riccati equation
 \begin{align}
  A^TA - A^T P B (R + B^T P B)^{-1} B^T P A + Q - P = 0.%TODO: QUELLE!!!!!
 \end{align}
+Stabilizing solution means, that from \eqref{eq:Basics:F} resulting matrix $(A - BF)$ is stable, and hence this solution stabilizes our system. 
 
 
 

@@ -52,6 +52,8 @@
 \usetikzlibrary{calc}
 \usepackage{xspace} 
 \usepackage{subcaption}
+\usepackage{listings}
+
 
 \usepackage[citestyle=numeric,bibstyle=numeric]{biblatex}
 \addbibresource{Bib.bib} 
@@ -76,6 +78,7 @@
 \onehalfspacing
 %\setstretch{1.5} %Zeilenabstand (1,5)
 
+%\includeonly{Application}
 %\includeonly{DiscreteTimeController}
 %\includeonly{Basics}
 %\includeonly{Questions}
@@ -104,17 +107,17 @@ Universität Stuttgart\\
 
 \vspace{2.5cm}
 
-\Large \textbf{BACHELORARBEIT}
+\Large \textbf{Projektarbeit}
 
 \vspace{2cm}
 
-\large\textbf{im Bachelorstudiengang \\Mathematik}\\
+\large\textbf{im Bachelorstudiengang \\Simulation Technology}\\
 
 \vspace{3cm}
 
 \fbox{\parbox{\columnwidth}{
 \begin{center}
-\large \textbf{TITEL DER ARBEIT}
+\large \textbf{Iterative Learning Control}
 \end{center}}}
 
 
@@ -255,17 +258,16 @@ Zweitgutachter/in: & ....\\
 \pagenumbering{arabic}
 
 
-\include{Recall} 
+%\newcommand{\comp}[1]{\begin{lstlisting}#1\end{lstlisting}}
+
+%\include{Recall} 
 \include{Basics}
 \include{ILC_Algorithms}
-%\include{Application}
+\include{Application}
 \include{Robustness}
-\include{Examples}
-\include{TikZ}
-\include{Questions}
-%-------------------------------------------------------------------
-\chapter{Zusammenfassung und Ausblick}
-%-------------------------------------------------------------------------------
+%\include{Examples}
+%\include{TikZ}
+%\include{Questions}
 
 Hier können auch Schlußfolgerungen präsentiert und ein Ausblick gegeben werden.
 
@@ -318,6 +320,9 @@ Ich erkläre, dass ich meine Bachelor-Arbeit [\emph{Titel der Arbeit}] selbststän
 $\overline{~~~~~~~~~\mbox{(Name des Kandidaten)}~~~~~~~~~}$
 \end{flushright}
 
+%-------------------------------------------------------------------
+\chapter{Zusammenfassung und Ausblick}
+%-------------------------------------------------------------------------------
 
 
 

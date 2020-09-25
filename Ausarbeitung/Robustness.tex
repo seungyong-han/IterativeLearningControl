@@ -297,7 +297,7 @@ On the other hand, one can directly see, that the system is stable for all $\alp
 \end{exam}
 
 This example motivates to devise another method for ensuring the stability of the uncertain systems. 
-Much more elegant results we can reach using Full-Block S-Procedure. 
+Much more elegant results we can reach by considering stability using Lyapunov techniques. 
 
  
 
@@ -502,7 +502,7 @@ with
 \end{pmatrix}.
 \end{align}
 
-If we choose a permutation matrix $\c{P}$, such that 
+We choose a permutation matrix $\c{P}$, such that 
 \begin{align}
 \label{eq:rob:PDelta}
 \Delta_\text{perm}= 
@@ -514,50 +514,42 @@ If we choose a permutation matrix $\c{P}$, such that
 & & & \delta_\tau I_{(p_\tau \cdot N)}
 \end{pmatrix}.
 \end{align}
-the convergence properties of the algorithm are not impacted: $G(\Delta)$ in \eqref{eq:rob:y = G(Delta) + d(Delta)} can be rewritten as 
-\begin{align}
-G(\Delta) &= G_1 + G_2  \c{P}^T \c{P} \Delta(I - G_4 \c{P}^T \c{P} \Delta)^{-1}G_3 \\
-&= 
-(\c{P}\Delta) \star \left[\left(\begin{array}{c | c}
-G_1 & G_2 \\ \hline
-G_3 & G_4
-\end{array}\right)\begin{pmatrix}
-I & \\ & \c{P}^T
-\end{pmatrix}\right],
-\end{align}
-and the uncertain vector $d(\Delta)$ as 
-\begin{align}
-d(\Delta) &= G_2\c{P}^T\c{P} \Delta (I - G_4\c{P}^T\c{P}\Delta)^{-1} d_2 + d_1 \\
-&= 
-(\c{P}\Delta) \star \left[\left(\begin{array}{c | c}
-d_1 & G_2  \\ \hline
-d_2 & G_4 
-\end{array}\right)\begin{pmatrix}
-I & \\ & \c{P}^T
-\end{pmatrix}\right].
-\end{align}
 
-Hence we can use the structure as in \eqref{eq:rob:PDelta} without loss of generality.
-The multiplier set can be chosen as 
+If we choose the multiplier set 
 \begin{align}
 \mathbb{P}_\tau =\left\{\begin{array}{c|c}
-\begin{pmatrix}
+  \begin{pmatrix}
+  I_{\tau(N+1)} \\ \c{P}
+  \end{pmatrix}^T  
+  \begin{pmatrix}
 S & R \\ R^T & -S
 \end{pmatrix}
+\begin{pmatrix}
+I_{\tau (N+1)} \\ \c{P}
+\end{pmatrix}
 & \; \begin{array}{c} S = \diag(S_1, S_2, \dots, S_\tau)\succeq 0,\\ R = \diag(R_1, R_2, \dots, R_\tau), R + R^T = 0\end{array} \end{array}
-\right\}.
+\right\},
 \end{align}
-
-For $P_\tau \in \mathbb{P}_\tau$
+then for $P_\tau \in \mathbb{P}_\tau$ is the following relation satisfied
 \begin{align}
 \begin{pmatrix}
-I \\ \Delta_\text{perm}
+I \\ \Delta
 \end{pmatrix}^T
 P_\tau
 \begin{pmatrix}
-I \\ \Delta_\text{perm}
+I \\ \Delta
 \end{pmatrix}
-= 
+&=
+\begin{pmatrix}
+I \\ \Delta_\text{perm}
+\end{pmatrix}^T
+\begin{pmatrix}
+S & R \\ R^T & -S
+\end{pmatrix}
+\begin{pmatrix}
+I \\ \Delta_\text{perm}
+\end{pmatrix}\\
+&= 
 \begin{pmatrix}
 (1 - \delta_1^2)S_1 & & &\\
 & (1 - \delta_2^2) S_2 & & \\
@@ -565,6 +557,63 @@ I \\ \Delta_\text{perm}
 & & & (1- \delta_\tau^2) S_\tau
 \end{pmatrix}.
 \end{align}
+
+
+
+
+
+%
+%the convergence properties of the algorithm are not impacted: $G(\Delta)$ in \eqref{eq:rob:y = G(Delta) + d(Delta)} can be rewritten as 
+%\begin{align}
+%G(\Delta) &= G_1 + G_2  \c{P}^T \c{P} \Delta(I - G_4 \c{P}^T \c{P} \Delta)^{-1}G_3 \\
+%&= 
+%(\c{P}\Delta) \star \left[\left(\begin{array}{c | c}
+%G_1 & G_2 \\ \hline
+%G_3 & G_4
+%\end{array}\right)\begin{pmatrix}
+%I & \\ & \c{P}^T
+%\end{pmatrix}\right],
+%\end{align}
+%and the uncertain vector $d(\Delta)$ as 
+%\begin{align}
+%d(\Delta) &= G_2\c{P}^T\c{P} \Delta (I - G_4\c{P}^T\c{P}\Delta)^{-1} d_2 + d_1 \\
+%&= 
+%(\c{P}\Delta) \star \left[\left(\begin{array}{c | c}
+%d_1 & G_2  \\ \hline
+%d_2 & G_4 
+%\end{array}\right)\begin{pmatrix}
+%I & \\ & \c{P}^T
+%\end{pmatrix}\right].
+%\end{align}
+%
+%Hence we can use the structure as in \eqref{eq:rob:PDelta} without loss of generality.
+%The multiplier set can be chosen as 
+%\begin{align}
+%\mathbb{P}_\tau =\left\{\begin{array}{c|c}
+%\begin{pmatrix}
+%S & R \\ R^T & -S
+%\end{pmatrix}
+%& \; \begin{array}{c} S = \diag(S_1, S_2, \dots, S_\tau)\succeq 0,\\ R = \diag(R_1, R_2, \dots, R_\tau), R + R^T = 0\end{array} \end{array}
+%\right\}.
+%\end{align}
+%
+%For $P_\tau \in \mathbb{P}_\tau$
+%\begin{align}
+%\begin{pmatrix}
+%I \\ \Delta_\text{perm}
+%\end{pmatrix}^T
+%P_\tau
+%\begin{pmatrix}
+%I \\ \Delta_\text{perm}
+%\end{pmatrix}
+%= 
+%\begin{pmatrix}
+%(1 - \delta_1^2)S_1 & & &\\
+%& (1 - \delta_2^2) S_2 & & \\
+%& & \ddots & \\
+%& & & (1- \delta_\tau^2) S_\tau
+%\end{pmatrix}.
+%\end{align}
 
 
 
