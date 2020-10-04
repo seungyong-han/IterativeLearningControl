@@ -19,7 +19,7 @@ J = J';
 if(N<5)
     r_vec = ones(N+1, 1);
 else
-    r_vec = get_pulse(N, floor(N/4));
+    r_vec = get_pulse(N, 5);
 end
 
 
@@ -49,13 +49,14 @@ for i = 1:N
     y_sv = [y_sv; y];
 end
 
-% Plot
-close all
-hold on
-plot(0:N-1, y_sv);
-plot(0:N-1, r_vec);
-legend('output $y(t)$', 'reference signal', 'interpreter', 'latex');
-xlabel('time $t$', 'interpreter', 'latex');
-ylabel('output and reference');
-xlim([0, N-1]);
-hold off
+%Plot
+% close all
+% fig = figure; 
+% hold on
+% plot(0:N-1, y_sv);
+% plot(0:N-1, r_vec);
+% legend('output $y(t)$', 'reference signal', 'interpreter', 'latex');
+% xlabel('time $t$', 'interpreter', 'latex');
+% ylabel('output and reference');
+% xlim([0, N-1]);
+% hold off

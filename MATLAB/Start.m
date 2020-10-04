@@ -1,4 +1,3 @@
-%% Yalmip and MOSEK are required 
 addpath('help_fcns');
 addpath('Algorithms');
 addpath('scripts');

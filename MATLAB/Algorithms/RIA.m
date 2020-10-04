@@ -20,19 +20,20 @@ function [u_inf, e_inf, y_inf, impr,iteration_number, error_history] = RIA(G,d, 
 
 
 %check if the matrix G has full row rank
-if rank(full(G))~=length(G(:,1))
-    disp('Error: G has not full row rank. Can not compute right inverse')
-    u_inf = -1;
-    e_inf = -1;
-    y_inf = -1;
-    impr = -1;
-    iteration_number = -1;
-    error_history = -1;
-else %write the algorithm down because of other error calculation 
+% if rank(full(G))~=length(G(:,1))
+%     disp('Error: G has not full row rank. Can not compute right inverse')
+%     u_inf = -1;
+%     e_inf = -1;
+%     y_inf = -1;
+%     impr = -1;
+%     iteration_number = -1;
+%     error_history = -1;
+%else %write the algorithm down because of other error calculation 
     beta_max = 2;
     beta = beta*beta_max;
     beta = beta*2;
-    K0 = pinv(full(G));
+    %K0 = pinv(full(G));
+    K0 = G\eye(length(G));
     K0 = sparse(K0);
 
     u = u0;
@@ -50,8 +51,8 @@ else %write the algorithm down because of other error calculation
     while cont
         iteration_number = iteration_number + 1;
         u_new = u + beta*K0*e;
-        e_new = (1 - beta)*e;
-        %e_new = r - G*u_new - d; for demonstration non-stability
+        %e_new = (1 - beta)*e;
+        e_new = r - G*u_new - d; %for demonstration non-stability
 
         if norm(e - e_new)<10^-6
             cont = 0;
@@ -73,7 +74,7 @@ else %write the algorithm down because of other error calculation
         end
 
 
-    end
+ %   end
 
     if mod(iteration_number,5) ~= 0
             cell_nb = cell_nb + 1;

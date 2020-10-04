@@ -1,6 +1,23 @@
 %Angeblich falsch
 
-function [u_inf, e_inf, y_inf, impr, iteration_number, error_history] = FD(G,d, Kc,beta,r, u0, do_plot)
+function [u_inf, e_inf, y_inf, impr, iteration_number, error_history] = FD(sys, x0, u0, do_plot)
+
+systemnames='sys';
+[A, B, C, D] = ssdata(sys);
+l = length(B(1, :));
+m = length(C(:, 1)); 
+sys = tf(sys);
+
+inputvar='[r;u]';
+outputvar='[sys-r;r-sys]';
+input_to_Gd='[u]';
+
+P=sysic;
+K = hinfsyn(P, m, l); 
+
+
+
+
 
 
 

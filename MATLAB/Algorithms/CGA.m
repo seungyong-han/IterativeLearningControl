@@ -34,6 +34,9 @@ while cont
     %calculate u_new and e_new with update rules
     u_new = u + beta*K0*e;
     e_new = (eye(length(e0)) - betaGK0)*e;
+
+    
+    
     
     %Termination criterion
     if norm(e - e_new)<10^-6
@@ -46,8 +49,9 @@ while cont
         disp("currErrordiff:")
         norm(e_new - e)
     end
-    u = u_new;
-    e = e_new;
+
+    
+
     
     %save data over each 5 iteration for plots
     if mod(iteration_number,5) == 0
@@ -56,6 +60,9 @@ while cont
         e_inf{cell_nb} = norm(e_new);
         y_inf{cell_nb} = G*u_new + d;
     end
+    
+    e = e_new;
+    u = u_new;
     
     
 end

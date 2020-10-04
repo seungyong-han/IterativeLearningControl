@@ -1,4 +1,4 @@
-function plotresults(error_history, iteration_number, Algorithm, logscale, xshift, yshift)
+function p = plotresults(error_history, iteration_number, Algorithm, logscale, xshift, yshift, color)
     
     switch Algorithm
         case('RIA')
@@ -26,7 +26,7 @@ hold on
     
     nb = length(error_history);
     iteration_number = nb; 
-    plot(1:nb, error_history);
+    p = plot(1:nb, error_history, 'Color', color, 'DisplayName', name);
     plot([iteration_number, iteration_number], [0, error_history(nb)], '--', 'color', 'black');
     plot([0, iteration_number],[error_history(nb), error_history(nb)], '--', 'color', 'black');
     
@@ -34,5 +34,8 @@ hold on
     text(iteration_number + xshift,error_history(nb)+yshift,['\textbf{', name, '}', char(10), 'Iteration number: ',num2str(iteration_number), char(10), 'error: ', num2str(error_history(nb))], 'interpreter', 'latex');
     ylabel('abs error');
     xlabel('iteration');
+    
+    plot(iteration_number, error_history(end), 'o', 'LineWidth', 8, 'Color', color);
+    
 hold off
 end
