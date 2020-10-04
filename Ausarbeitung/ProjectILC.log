@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.26)  1 OCT 2020 18:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.26)  4 OCT 2020 21:35
 entering extended mode
 **./ProjectILC.tex
 (ProjectILC.tex
@@ -1431,7 +1431,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 
 (ProjectILC.lof
 
-LaTeX Warning: Reference `ex:ILC:IAvsSDA' on page I undefined on input line 11.
+LaTeX Warning: Reference `eq:ILC:Ex1_IA20' on page I undefined on input line 9.
 
 
 )
@@ -1537,10 +1537,10 @@ Chapter 2.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [5]
-<fig/LQR_ex.jpg, id=267, 5781.6pt x 2927.93875pt>
+<fig/LQR_ex.jpg, id=253, 5781.6pt x 2927.93875pt>
 File: fig/LQR_ex.jpg Graphic file (type jpg)
 <use fig/LQR_ex.jpg>
-Package pdftex.def Info: fig/LQR_ex.jpg  used on input line 96.
+Package pdftex.def Info: fig/LQR_ex.jpg  used on input line 89.
 (pdftex.def)             Requested size: 441.01773pt x 223.33878pt.
 
 [6]
@@ -1548,124 +1548,111 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [7 <./fig/LQR_ex.jpg>] [8]
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 215.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 202.
 
+
+Package caption Warning: \label without proper reference on input line 214.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `img:ILC:Ex1_IA20' on page 9 undefined on input line 2
+11.
+
+<fig/Ex1_IA20.jpg, id=294, 3854.4pt x 2062.70625pt>
+File: fig/Ex1_IA20.jpg Graphic file (type jpg)
+<use fig/Ex1_IA20.jpg>
+Package pdftex.def Info: fig/Ex1_IA20.jpg  used on input line 215.
+(pdftex.def)             Requested size: 441.01773pt x 235.99446pt.
+
+LaTeX Warning: Reference `eq:ILC:Ex1_IA20' on page 9 undefined on input line 21
+6.
+
+
+LaTeX Warning: Reference `eq:ILC:Ex1_IA20' on page 9 undefined on input line 21
+6.
+
+<fig/Ex1_IA50.jpg, id=296, 4015.0pt x 2149.02875pt>
+File: fig/Ex1_IA50.jpg Graphic file (type jpg)
+<use fig/Ex1_IA50.jpg>
+Package pdftex.def Info: fig/Ex1_IA50.jpg  used on input line 223.
+(pdftex.def)             Requested size: 441.01773pt x 236.03319pt.
+[9 <./fig/Ex1_IA20.jpg>] [10 <./fig/Ex1_IA50.jpg>]
+<fig/ex1_PIA.jpg, id=326, 3854.4pt x 2062.70625pt>
+File: fig/ex1_PIA.jpg Graphic file (type jpg)
+<use fig/ex1_PIA.jpg>
+Package pdftex.def Info: fig/ex1_PIA.jpg  used on input line 289.
+(pdftex.def)             Requested size: 441.01773pt x 235.99446pt.
+ [11 <./fig/ex1_PIA.jpg>]
+[12] [13] [14]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [9]
-[10]
-<fig/RIA.jpg, id=328, 3854.4pt x 1998.46625pt>
-File: fig/RIA.jpg Graphic file (type jpg)
-<use fig/RIA.jpg>
-Package pdftex.def Info: fig/RIA.jpg  used on input line 298.
-(pdftex.def)             Requested size: 441.01773pt x 228.64476pt.
- [11 <./fig/RIA.jpg>] [12]
-<fig/IA_N40.jpg, id=359, 1686.3pt x 1264.725pt>
-File: fig/IA_N40.jpg Graphic file (type jpg)
-<use fig/IA_N40.jpg>
-Package pdftex.def Info: fig/IA_N40.jpg  used on input line 428.
-(pdftex.def)             Requested size: 441.01773pt x 330.75056pt.
-
-
-LaTeX Warning: Reference `ex:ILC:IAvsSDA' on page 13 undefined on input line 42
-9.
-
-
-LaTeX Warning: Reference `ex:ILC:IAvsSDA' on page 13 undefined on input line 42
-9.
-
-<fig/IA_N40_output.jpg, id=362, 1686.3pt x 1264.725pt>
-File: fig/IA_N40_output.jpg Graphic file (type jpg)
-<use fig/IA_N40_output.jpg>
-Package pdftex.def Info: fig/IA_N40_output.jpg  used on input line 435.
-(pdftex.def)             Requested size: 441.01773pt x 330.75056pt.
-<fig/IA_N40_errorEv2.jpg, id=365, 1686.3pt x 1264.725pt>
-File: fig/IA_N40_errorEv2.jpg Graphic file (type jpg)
-<use fig/IA_N40_errorEv2.jpg>
-Package pdftex.def Info: fig/IA_N40_errorEv2.jpg  used on input line 443.
-(pdftex.def)             Requested size: 441.01773pt x 330.75056pt.
-[13 <./fig/IA_N40.jpg>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [14 <./fig/IA_N40_output.jpg>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [15 <./fig/IA_N40_errorEv2.jpg>]
-Underfull \vbox (badness 1616) has occurred while \output is active []
-
- [16]
-[17]
-<fig/SDA_N40.jpg, id=425, 3011.25pt x 1767.60374pt>
-File: fig/SDA_N40.jpg Graphic file (type jpg)
-<use fig/SDA_N40.jpg>
-Package pdftex.def Info: fig/SDA_N40.jpg  used on input line 852.
-(pdftex.def)             Requested size: 441.01773pt x 258.87175pt.
-<fig/SDA_N40_output.jpg, id=428, 3011.25pt x 1767.60374pt>
-File: fig/SDA_N40_output.jpg Graphic file (type jpg)
-<use fig/SDA_N40_output.jpg>
-Package pdftex.def Info: fig/SDA_N40_output.jpg  used on input line 859.
-(pdftex.def)             Requested size: 441.01773pt x 258.87175pt.
-
-Overfull \hbox (24.54855pt too wide) in paragraph at lines 876--877
+ [15]
+[16]
+<fig/Ex1_SDA50.jpg, id=404, 4015.0pt x 2149.02875pt>
+File: fig/Ex1_SDA50.jpg Graphic file (type jpg)
+<use fig/Ex1_SDA50.jpg>
+Package pdftex.def Info: fig/Ex1_SDA50.jpg  used on input line 581.
+(pdftex.def)             Requested size: 441.01773pt x 236.03319pt.
+ [17 <./fig/Ex1_SDA50.jpg>]
+Overfull \hbox (24.54855pt too wide) in paragraph at lines 605--606
 []\OT1/cmr/m/it/12 Assume, that the ma-trix $\OML/cmm/m/it/12 GG[]$ \OT1/cmr/m/
 it/12 has $\OML/cmm/m/it/12 q$ \OT1/cmr/m/it/12 non-zero or-dered eigen-val-ues
  $\OML/cmm/m/it/12 []; []; [] ; []$\OT1/cmr/m/it/12 .
  []
 
-[18] [19 <./fig/SDA_N40.jpg>]
-Underfull \vbox (badness 1490) has occurred while \output is active []
-
- [20 <./fig/SDA_N40_output.jpg>]
-<fig/Ex1_SDAvsES.jpg, id=457, 3011.25pt x 1767.60374pt>
+[18]
+<fig/Ex1_SDAvsES.jpg, id=430, 4015.0pt x 2149.02875pt>
 File: fig/Ex1_SDAvsES.jpg Graphic file (type jpg)
 <use fig/Ex1_SDAvsES.jpg>
-Package pdftex.def Info: fig/Ex1_SDAvsES.jpg  used on input line 955.
-(pdftex.def)             Requested size: 441.01773pt x 258.87175pt.
- [21]
-Underfull \vbox (badness 3386) has occurred while \output is active []
-
- [22 <./fig/Ex1_SDAvsES.jpg>]) [23]
+Package pdftex.def Info: fig/Ex1_SDAvsES.jpg  used on input line 684.
+(pdftex.def)             Requested size: 441.01773pt x 236.03319pt.
+ [19] [20 <./fig/Ex1_SDAvsES.jpg>]) [21]
 \openout2 = `Application.aux'.
 
- (Application.tex [24
+ (Application.tex [22
 
 
 
 ]
 Chapter 3.
-[25]
-<fig/Ex3_LQR.jpg, id=502, 3854.4pt x 2062.70625pt>
+[23]
+<fig/Ex3_LQR.jpg, id=475, 3854.4pt x 2062.70625pt>
 File: fig/Ex3_LQR.jpg Graphic file (type jpg)
 <use fig/Ex3_LQR.jpg>
 Package pdftex.def Info: fig/Ex3_LQR.jpg  used on input line 64.
 (pdftex.def)             Requested size: 441.01773pt x 235.99446pt.
- [26 <./fig/Ex3_LQR.jpg>]
-<fig/Satellite_SDA.jpg, id=515, 3011.25pt x 1767.60374pt>
+
+
+LaTeX Warning: Reference `ex:ILC:IAcrushes' on page 24 undefined on input line 
+72.
+
+[24 <./fig/Ex3_LQR.jpg>]
+<fig/Satellite_SDA.jpg, id=487, 3011.25pt x 1767.60374pt>
 File: fig/Satellite_SDA.jpg Graphic file (type jpg)
 <use fig/Satellite_SDA.jpg>
 Package pdftex.def Info: fig/Satellite_SDA.jpg  used on input line 87.
 (pdftex.def)             Requested size: 441.01773pt x 258.87175pt.
-) [27 <./fig/Satellite_SDA.jpg>]
+) [25 <./fig/Satellite_SDA.jpg>]
 \openout2 = `Robustness.aux'.
 
  (Robustness.tex
-[28
+[26
 
 
 
 ]
 Chapter 4.
-[29]
+[27]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [28]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [29]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [30]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [31]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [32]
-[33] [34] [35]
+[31] [32] [33]
 Overfull \hbox (21.63585pt too wide) detected at line 532
 []
  []
@@ -1673,18 +1660,18 @@ Overfull \hbox (21.63585pt too wide) detected at line 532
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [36])
-[37] [38
+ [34])
+[35] [36
 
-] [39
+] [37
 
-] [40
+] [38
 
-] [41] [42
+] [39] [40
 
 ]
 Appendix A.
-[43]
+[41]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 329.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 329.
  (ProjectILC.aux (Basics.aux) (ILC_Algorithms.aux) (Application.aux)
@@ -1692,7 +1679,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 329.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 329.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 329.
 Package rerunfilecheck Info: File `ProjectILC.out' has not changed.
-(rerunfilecheck)             Checksum: F8EA57446BB52E09B23F4DD5E8EBB972;1553.
+(rerunfilecheck)             Checksum: DE6631369FF58379738EDEFC0172442E;1553.
 
 
 LaTeX Warning: There were undefined references.
@@ -1703,10 +1690,10 @@ Package logreq Info: Writing requests to 'ProjectILC.run.xml'.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 329.
  ) 
 Here is how much of TeX's memory you used:
- 31832 strings out of 480799
- 601475 string characters out of 2895784
- 1256801 words of memory out of 3000000
- 46932 multiletter control sequences out of 15000+200000
+ 31817 strings out of 480799
+ 601239 string characters out of 2895784
+ 1256379 words of memory out of 3000000
+ 46919 multiletter control sequences out of 15000+200000
  557059 words of font info for 125 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,27n,66p,941b,1190s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1725,18 +1712,19 @@ fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Strel/AppData/Local/Programs
 cal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Stre
 l/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:
 /Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
-mr8.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/am
-sfonts/cm/cmsl12.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/ty
-pe1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Strel/AppData/Local/Pro
-grams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Strel/AppDa
-ta/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/User
-s/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/m
-sam10.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/
-amsfonts/symbols/msbm10.pfb>
-Output written on ProjectILC.pdf (51 pages, 2255535 bytes).
+mr7.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/am
+sfonts/cm/cmr8.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type
+1/public/amsfonts/cm/cmsl12.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Strel/AppData/Local/Prog
+rams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Strel/AppDat
+a/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/
+Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.p
+fb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfont
+s/symbols/msam10.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/symbols/msbm10.pfb>
+Output written on ProjectILC.pdf (49 pages, 2421840 bytes).
 PDF statistics:
- 795 PDF objects out of 1000 (max. 8388607)
+ 769 PDF objects out of 1000 (max. 8388607)
  255 named destinations out of 1000 (max. 500000)
- 255 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 245 words of extra memory for PDF output out of 10000 (max. 10000000)
 
