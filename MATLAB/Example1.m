@@ -5,7 +5,7 @@ B = [1; 2];
 C = [0 1];
 D = 2;
 
-N = 20;
+N = 50;
 b = .1;  
 
 % Find controller using separation principle
@@ -20,12 +20,35 @@ do_plot = 1;
 [A,B,C,D, N] = get_non0D_system(A,B,C,D, N)
 
 [G, d] = get_G(A-B*F, B, C - D*F, D, x0, N-1);
-%% IA vs LQR example
+%save_plot(fig, 'Ex1_LQR');
+rank(G)
+disp(['cond number = ',num2str(cond(G))]);
+% IA vs LQR example
 Ex1_IA;
-%% SDA vs SE example
+%save_plot(fig, 'IA_N40');
+%% SDA example
 Ex1_SDA;
+%save_plot(fig, 'SDA_N40');
+%%
+% Plot SDA output
+close all
+fig = figure; 
+hold on
+plot(0:N-1, y_inf2{end});
+plot(0:N-1, r_vec);
+legend('output $y(t)$ with SDA', 'reference signal', 'interpreter', 'latex');
+xlabel('time $t$', 'interpreter', 'latex');
+ylabel('output and reference');
+xlim([0, N-1]);
+hold off
+%save_plot(fig, 'SDA_N40_output');
+
+%% SDA example vs SE example
+Ex1_SDAvsES;
+save_plot(fig, 'Ex1_SDAvsES');
 %% Uncertaiy example for SDA
 Ex1_uncDemo_SDA; 
+save_plot(fig, 'Ex1_uncSDA');
 %% Uncertainty proof for SDA 
 Ex1_uncProof_SDA;
 %% Uncertainty proof for IA beta = .05 vs beta = .4
