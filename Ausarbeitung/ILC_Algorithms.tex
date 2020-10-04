@@ -6,12 +6,12 @@
 Let us imagine that we need to process the same action multiple times. 
 For example, a robot manipulator must put some objects in a box with high accuracy, while the objects to put are always located in the same place. If we already have some input sequence, which solves this issue, we can use the same data for the next iteration and get the same precision. The other possibility is to ''learn'' from the previous iteration and try to enhance the exactness, while the tracking objective $r(\cdot)$ stays the same over all iterations.
 
-More formally, we consider the system \eqref{eq:GP} over a finite time horizon $t = 0, 1, 2, \dots, N$, $N \in \N_0$. As we discussed in the previous chapter, we are interested in good tracking of the signal $r(\cdot)$. At first glance, the stability concept seems to be not necessary for $N < \infty$ . Still, in this thesis, it is the requirement we presuppose on the system \eqref{eq:GP}. The reason is that also the discrete system over finite horizon can produce vast signals for large $N$, if the system is not stable. Especially, it means, that $A$ has at least one eigenvalue larger that one, which implies very large norm of the matrices $A^t$ for $t = 0, 1, \dots, N$. This makes difficult the numerical calculations, since the solution of the difference equation \eqref{eq:GP} includes it. 
+More formally, we consider the system \eqref{eq:GP} over a finite time horizon $t = 0, 1, 2, \dots, N$, $N \in \N_0$. As we discussed in the previous chapter, we are interested in good tracking of the signal $r(\cdot)$. At first glance, the stability concept seems to be not necessary for $N < \infty$ . Still, in this thesis, it is the requirement we presuppose on considered system. The reason is that also the discrete system over finite horizon can produce vast signals for large $N$, if the system is not stable. Especially, it means, that $A$ has at least one eigenvalue larger that one, which implies very large norm of the matrices $A^t$ for $t = 0, 1, \dots, N$. This makes difficult the numerical calculations, since the solution of the difference equation \eqref{eq:GP} includes it. 
 
 Moreover, for our purposes, for stabilizable systems we can assume stability without loss of generality. 
 
-If the system is stabilizable, we can find such a matrix $F$, such that $(A + B F )$ is stable. 
-We define $u(t) = - Fx(t) + \t{u}(t)$, $t = 0,1,2, \dots, N$ with a new input signal $\t u (t) \in \R^l$. Then the system \eqref{eq:GP} has the form 
+If the system is stabilizable, we can find such a matrix $F$, such that $(A - B F )$ is stable. 
+We define $u(t) = - Fx(t) + \t{u}(t)$, $t = 0,1,2, \dots, N$ with a new input signal $\t u (t) \in \R^l$. Then the system \eqref{eq:GP} results in
 \begin{align}
 \begin{split}
 x(t+1) &= (A - B F)x(t) + B \t u (t), \\
@@ -56,7 +56,7 @@ J = \begin{pmatrix}
 1.8304  &  4.6385
 \end{pmatrix}. 
 \end{align}
-This matrices are calculated using discrete algebraic Riccati equation, while we set $Q = I_m$, $R = I_l$. 
+This matrices follow from the stabilizing solutions of the algebraic Riccati equations for $Q = I_m$, $R = I_l$. 
 
 Then we re-describe our system as
 \begin{align}
@@ -108,7 +108,7 @@ As one can see, the tracking in Example \ref{ex:ILC:LQR} is not perfect at all. 
 \end{align}
 This sequences are limited due to the finite time horizon. It seems to be an advantage. 
 
-Indeed, if we put the signals we got from simulation together, we get a big, but finite dimensional vector. That means, the standard tools from linear algebra can be applied. 
+Indeed, if we put the signals we got from simulation together, we get a large, but finite dimensional vector. That means, the standard tools from linear algebra can be applied. 
 
 As a matter of fact, we can express our whole simulated system as a linear equation. We call such vectors \textit{Supervectors}, and the whole system is said to be ''lifted''.
 
@@ -170,9 +170,8 @@ For example, if our system is uncertain and is described by $\t G$, but modeled 
 e = r - y = (I - \t G G^{-1} ) r. 
 \end{align}
 
-This error might be non-zero, even for a little model perturbations. 
-Besides, the matrix $G$ might be singular and do not have an inverse. 
-
+This error might be non-zero, even for a little model perturbation. 
+Besides, the matrix $G$ might be singular and do not have an inverse.      
 Still it can have a right or left inverse. 
 If we can reformulate this idea in a more robust way, we may get a good and simple applicable algorithm, which we call the inverse model algorithm.
 
@@ -305,8 +304,6 @@ The choice of $\beta$ is identical to this in Algorithm \ref{alg: rightInv}.
 
 Right and Left Inverse Model Algorithms belong to the class of so-called Unit Memory Algorithms. 
 
-Indeed, we can formulate such algorithms more general. 
-
 \section{Unit Memory Algorithm}
 
 We are interested in  the processes, which are executed repetitively. Let $k = 0, \, 1, \, 2, \, \dots $ be the number of completed iterations. Then we get a system 
@@ -320,7 +317,7 @@ e_k &= r - y_k,
 $u_{0} \in \R^{l(N+1)},  \; k =0, \,  1, \, 2, \dots $ .
 This is again a discrete-time system, with time increment $k$. 
 
-To achieve a good tracking at trial $k$ we need to ensure the norm $||e_k||$ is small. 
+To achieve a good tracking at trial $k$ we need to ensure that the norm $||e_k||$ is small. 
 The tracking behavior improves for consecutive iterations if the sequence $||e_k||$ is monotonically decreasing, i.e., 
 \begin{align}
 ||e_{k+1} || < ||e_k|| \text{ for all } k \geq 0.
@@ -393,9 +390,9 @@ Then our problem is reduced to finding a stabilizing controller $K$  with
 v_k = K e_k.
 \end{align} 
 
-We know how to work with such systems -- for example, LQR controller provides a good solution. This is a reliable method, but since the matrix $G$ can be large, it also can be too costly. Often we can achieve good results with much more simple methods. For example, we can reduce the number of parameters to be chosen. 
+We know how to work with such systems -- for example, LQR controller provides a good solution. This is a reliable method, but since the matrix $G$ can be large, it also can be costly. Often we can achieve good results with much more simple methods. For example, we can reduce the number of parameters to be chosen. 
 
-In the Algorithms \ref{alg: rightInv} and \ref{alg: leftInv}: we choose the fixed matrix $K_0$ and as right or left inverse of the matrix $G$, and leave the parameter $\beta$ to decide on. 
+In the Algorithms \ref{alg: rightInv} and \ref{alg: leftInv} we chose the fixed matrix $K_0$ and as right or left inverse of the matrix $G$, and left the parameter $\beta$ to decide on. 
 
 However, these algorithms have a big disadvantage: the numerical calculation might be inaccurate even for right and left inverse, -- or quite impossible if the matrix $G$ does not have full row/column rank. We illustrate it in the following example. 
 
@@ -684,7 +681,7 @@ With congruence transformation we can rewrite \eqref{eq:ILC:SDA_Herleitung} as
 \beta^2 H^T H \prec \beta (H + H^T) \Leftrightarrow  \beta H^2 \prec 2.
 \end{align}
 
-This is satisfied, if $\beta \in (0, \lama(H))$. 
+This is satisfied, if $\beta \in (0, 2/\lama(H))$. 
 
 
 %which is satisfied if 
@@ -742,7 +739,7 @@ This choice of $K$ determines the \textit{Steepest Descent Algorithm}
 	In particular, the zero convergence is attainable, if $e_0 \in \im [G G^\star]$. 
 \end{alg} 
 \begin{proof}
-	We consider the matrix $L:= ( I -\beta G G^\star)$. Since $0 <\beta < \frac{2}{\sigma_{\max}^2}$, it holds the relation
+	We consider the matrix $L:= ( I -\beta G G^\star)$. Since $0 <\beta < 2/\lama(H)$, it holds the relation
 	\begin{align}
 	(1 - \beta || G^\star ||^2 )I &\preceq (I - \beta G G^\star),\\
 	&\Downarrow\\
@@ -848,7 +845,7 @@ Again, using the $\varepsilon$-weighed $R(t) = \varepsilon^{2t}\tilde{R}$ with s
 %Again, using the $\varepsilon$-weighed $R(t) = \varepsilon^{2t}\tilde{R}$ with some fixed $\tilde{R}$, we can accent the input signals at some times $0\leq t_1 \leq t \leq t_2 \leq N$. This can be used if we want to limit the control action at some time intervals, or if we need to reflect the physical units used. 
 
 \begin{exam}
-	For the system \eqref{eq:ILC:Sys_ex1} we choose $N = 40$, $\beta = 0.0026$ and $R = I$, $Q = I$. The error evolution shows much more anticipated behavior (Figure \ref{img:ILC:SDA_N40}). The reference tracking is illustrated in Figure \ref{img:ILC:SDA_N40}. This time we have indeed the perfect following for the signal $r$. 
+	For the system \eqref{eq:ILC:Sys_ex1} we choose $N = 40$, $\beta = 0.0026$ and $R = I$, $Q = I$. The error evolution shows much more anticipated behavior (Figure \ref{img:ILC:SDA_N40}). The reference tracking is illustrated in Figure \ref{img:ILC:SDA_N40_output}. This time we have indeed the perfect following for the signal $r$. 
 	
 	\begin{figure}[ht]
 		\centering
@@ -918,12 +915,12 @@ Although conceptually interesting this algorithm is not well applicable for the 
 %The model errors can make this problem intolerable when elimination of eigenvector components will not be achieved in any iteration and/ or may be re-introduced in later iterations. 
 
 Also computing the eigenvalues can be numerically questionable. Moreover, to achieve the monotonic convergence we need to consider only the eigenvalues $\lambda > \frac{1}{\sigma_{\max}^2}$.
-If our model is inaccurate, and some eigenvalues are uncertain, it has directly impact on the iteration result. 
+If our model is inaccurate, and some eigenvalues are uncertain, it has directly impact on the algorithm result. 
 
 That all makes this algorithm not solid. Still, we can use the idea, to apply the eigenvalues of $G G^{\star}$ -- but not directly. We can try to ''pick'' the compatible eigenvalues.
 \begin{alg}
 	Choose a finite number $N_p + 1$ of points $p_0, p_1, \dots$ spread over the half-open interval $(\frac{1}{2}\sigma_{\max}^2, \sigma_{\max}^2]$. 
-	The Gradient Algorithm with Suppression of Eigenvalues is defined via choosing of the iteration-depending control law  $K_k = \beta_k G^\star e_k$, where 
+	The Gradient Algorithm with Suppression of Eigenvalues (SoE Algorithm) is defined via choosing of the iteration-depending control law  $K_k = \beta_k G^\star e_k$, where 
 	\begin{align}
 	\begin{split}
 	\beta_k &= \frac{1}{p_k} \text{ for } k = 0 , 1, \dots , N_p,\\
@@ -955,7 +952,7 @@ This algorithm has the same convergence properties as Algorithm \ref{alg: SDA}, 
 	This explained the better performance of the algorithm, and better convergence rate.  		
 	\begin{figure}[ht]
 		\centering
-		\includegraphics[width=\textwidth]{fig/SDAvsSE.jpg}
+		\includegraphics[width=\textwidth]{fig/Ex1_SDAvsES.jpg}
 		\caption{Error evolution for classical SDA and SoE for system \eqref{eq:ILC:Sys_ex1}}
 		\label{img:ILC:SDAvsSE}
 	\end{figure}
@@ -965,14 +962,14 @@ This algorithm has the same convergence properties as Algorithm \ref{alg: SDA}, 
 \section{Feedback Design}
 
 With the previous algorithms we can achieve a better tracking for repetitively executed processes.  But they do not accent the special features of the model. For example, we can not manage the non-minimum-phase zeros, which can impact the convergence rate \cite{ILC}. 
-If we consider the plant structure and construct a feedback controller, and then converts it into a steepest descent-like algorithm, we possibly can achieve better performance and robustness properties. 
+If we consider the plant structure and construct a feedback controller, and then convert it into a steepest descent-like algorithm, we possibly can achieve better performance and robustness properties. 
 
 Let us denote with $G(z)$ the transfer matrix in variable $z$ of the system $(A,B,C,D)$, and with $G$ the supervector matrix. 
 
-More precisely, we consider a forward path compensator $K_c(z))$ in a unity negative feedback system for \eqref{eq:GP}. 
+More precisely, we consider a forward path compensator $K_c(z)$ in a unity negative feedback system for \eqref{eq:GP}. 
 The design criteria for $K_c(z)$ include the closed-loop stability and the ability to track, albeit approximately, the reference signal $r$. With this compensator, depending on the model, we can remedy the plant properties such as oscillation, loop interaction, or the effects of non-minimum-phase zeros. 
 
-We denote the complementary sensitivity of the resulting closed loop with $T(z)$ and sensitivity with $S(z)$:
+We denote the complementary sensitivity of the resulting closed loop with $T(z)$ and its sensitivity with $S(z)$:
 \begin{align}
 T(z) = (I + G(z) K_c(z))^{-1}G(z) K_c(z) \text{ and } S(z)  = I - T(z) =  (I + G(z) K_c(z))^{-1}, 
 \end{align}
@@ -986,8 +983,8 @@ Then the compensated Steepest Descent Algorithm is given as follows.
 
 \begin{alg}
 	\label{alg: FBDesign}
-	For the matrices describe above we define the supervector description, and work with this as follows:
-	the compensated Steepest Descent Algorithm is  is characterized by choosing  $K = \beta K_0$, $\beta \in \R$. 
+	The controllers $K_0(z), K_c(z)$ and (complementary) sensitivity have its own state space form. We can use it and define the corresponding supermatrices 
+	$K_0$, $K_c$, $T$ and $S$. The compensated Steepest Descent Algorithm is  is characterized by choosing  $K = \beta K_0$, $\beta \in \R$. 
 	The iterative law is given via 
 	\begin{align}
 	\label{eq:errFBDesign}
@@ -1004,13 +1001,13 @@ Then the compensated Steepest Descent Algorithm is given as follows.
 	\end{align} 
 	is guaranteed if
 	\begin{align*}
-	0 <\beta < \frac{2}{\sigma_{\max}(T)^2}.
+	0 <\beta < \frac{2}{\lama(T T^*)}.
 \end{align*}
 $T^*$ stays here for conjugate transpose of the matrix $T$. 
 \end{alg}
 
-One can see, that the error evolution corresponds to this of the model $y = T \tilde{u} + d$ with input $\tilde{u} 
-\in \R^{m(N+1)}$, if we apply on it the Steepest Descent Algorithm.
+One can see, that the error evolution corresponds to this of the model $y = T \tilde{u} + d$ with input $\bar {u} 
+\in \R^{m(N+1)}$, if we apply the Steepest Descent Algorithm.
 
 The effect of the operator $T T^*$ can be seen by considering the closed-loop relation 
 \begin{align}

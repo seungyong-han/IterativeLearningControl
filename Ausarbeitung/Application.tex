@@ -57,16 +57,16 @@ For new system all the requirements we considered are satisfied. However, we do 
 	CB = 6.038\cdot 10^{-12} \neq 0. 
 	\end{align}
 	
-\textit{We calculate the solution with LQR. Result is illustrated in Figure \ref{img:Allp:Sat_LQR}.}
+\textit{We calculate the solution with LQR. Result is illustrated in Figure \ref{img:Appl:Sat_LQR}.}
 	
 	\begin{figure}[ht]
 		\centering
 		\includegraphics[width=\textwidth]{fig/Ex3_LQR.jpg}
 		\caption{LQR Solution for the system \eqref{eq:Appl:satellite_sys}}
-		\label{img:Allp:Sat_LQR}
+		\label{img:Appl:Sat_LQR}
 	\end{figure}
 	
-\textit{It looks like something we can improve. However, for $Ts = 10^{-3}$s we get $N = 3\cdot10^4$ time steps. The matrix $G$ has  $9\cdot10^8$ elements and can not easily be handled.}
+\textit{It looks like something we can improve. However, for $Ts = 10^{-3}$s we get $N = 10^3$ time steps even for one iteration second. The matrix $G$ has  $10^9$ elements and can not easily be handled.}
 \end{example}
 
 	In example \ref{ex:ILC:IAcrushes} the Inverse Model Algorithm is not applicable even for $N = 40$. 
@@ -75,12 +75,20 @@ For new system all the requirements we considered are satisfied. However, we do 
 		
 	We solve this problem by application the algorithms iterative, for smaller number of time steps. We only need to adapt the initial input condition and the reference signal: we split them in $N_{max}/N$ parts, and take each iteration the next one. Here $N_{\max}$ is the number of time steps in total, and $N$ is the number of time steps we put into the algorithms .
 	
-	The choice of $N$ is than another design  decision to be made. It must be not too large, since a used algorithm can became unstable, if it is too small, we probably will need more iterations in total. 
+	The choice of $N$ is than another design  decision to be made. It must be not too large, since a used algorithm can diverge, if it is too small, we probably will need more iterations in total. 
 	
 
 \begin{example}[contined]
-\textit{Let us use the Right Inverse Model Algorithm, and choose put each time $N =100$ elements into the algorithm. 
-We choose $\beta = .25$. The result is illustrated in the Figure TODO. }
+\textit{Let us use the Steepest descent algorithm, and choose put each time $N =100$ elements into the algorithm. 
+The result is depicted in the Figure \ref{img:Appl:Sat_SDA} We can see, that steepest descent algorithm converges very fast to tracking value, and even for 20 iterations we get perfect tracking. 
+}
+	\begin{figure}[ht]
+	\centering
+	\includegraphics[width=\textwidth]{fig/Satellite_SDA.jpg}
+	\caption{LQR Solution for the system \eqref{eq:Appl:satellite_sys}}
+	\label{img:Appl:Sat_SDA}
+\end{figure}
+
 
 
 \end{example}    

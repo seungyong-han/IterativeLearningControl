@@ -1,7 +1,7 @@
 \chapter{Robustness of the ILC Algorithms}
 If our model is not precisely known a chosen ILC algorithm might not provide the desired result. 
 Therefore it is useful to consider how robust the algorithms are. 
-In this thesis, we are going to consider the parametric uncertainty. That means, we do not know the true value of a real parameter (or the parameters) but know some range in which this parameter must lie. 
+In this thesis, we are going to consider the parametric uncertainty. That means, we do not know the true value of a real parameter (or the parameters) but know some range in which this parameter should lie. 
 
 We can normalize such uncertainties without loss of generality, as any uncertainty $\delta \in [a,b] \subset \R$ can be expressed as 
 \begin{align}
@@ -14,7 +14,7 @@ with $\hat{\delta} \in [-1,1]$, nominal value $\delta_0 \in \R$ and weight $w\in
 % with a matrix norm $|| \cdot ||$. With this norm, we can measure ''how much'' robust is our algorithm or system. Typically, one can bound this norm with 1, and put the scalings into the weights. {\color{red} Hier kommt vielleicht ein Beispiel, wie man das mit dem Rausziehen und den Weights macht}.
 %
 
-In order to guarantee the convergence of the algorithms despite such parametric uncertainties it is required that \eqref{eq:e_k}  stays stable for all possible uncertainties. 
+In order to guarantee the convergence of the algorithms despite such parametric uncertainties it is required that \eqref{eq:e_k}  stays stable for all possible value of parameters.
 
 Let us consider, how the uncertainty looks in the lifted system like and deliberate over the method to solve the robustness issue. 
 
@@ -76,7 +76,7 @@ A & B \\\hline C &D
 we can rewrite as a feedback interconnection of the system 
 $
 \left[\begin{array}{c|c c}
-A & B_1 & B_2 \\\hline
+A_1 & B_1 & B_2 \\\hline
 C_1 & D_{11} & D_{12} \\
 C_2 & D_{21} & D_{22}
 \end{array}\right]
@@ -87,7 +87,7 @@ Then the original system can be find as star product (or linear fractional trans
 \left[\begin{array}{c|c}
 A & B \\\hline C &D
 \end{array}\right] = \hat{\Delta} \star \left[\begin{array}{c|c c}
-A & B_1 & B_2 \\\hline
+A_1 & B_1 & B_2 \\\hline
 C_1 & D_{11} & D_{12} \\
 C_2 & D_{21} & D_{22}	
 \end{array}\right]
@@ -101,7 +101,7 @@ With LFR we rewrite the system \eqref{eq:GP} as
 \begin{align}
 \label{eq:uncABCD}
 \begin{split}
-x(t+1) &= A x(t) + B_1 u(t) + B_2 w(t), \\
+x(t+1) &= A_1 x(t) + B_1 u(t) + B_2 w(t), \\
 y(t)   &= C_1x(t) + D_{11} u(t) + D_{12} w(t), \\
 z(t)   &= C_2x(t) + D_{21} u(t) + D_{22}w(t),\\
 w(t) &= \hat{\Delta} z(t),\\
@@ -125,7 +125,7 @@ with error $e(\cdot) = r(\cdot) - y(\cdot)$.
 		
 		%nodes
 		\node[draw, minimum width=2cm, minimum height=2cm, anchor=south west, align=center, fill = gray!20] (A) at (LLA) {$\left[\begin{array}{c|c c}
-			A & B_1 & B_2 \\\hline C_1 & D_{11} & D_{12} \\ C_2 & D_{21} & D_{22}
+			A_1 & B_1 & B_2 \\\hline C_1 & D_{11} & D_{12} \\ C_2 & D_{21} & D_{22}
 			\end{array}\right]$};
 		\node[draw, minimum width=1.2cm, minimum height=1cm, anchor=south west, text width=1cm, align=center ,fill = yellow!20] (D) at (LLD) {$\hat{\Delta}$};
 		
@@ -152,20 +152,20 @@ G_1 &= \nonumber \\
 &=  \begin{pmatrix}
 	D_{11} & 0 & \cdots & 0 & 0 & 0 \\
 	C_1B_1 & D_{11} & \cdots & 0 & 0 & 0\\
-	C_1AB_1 & C_1B_1 & \cdots & 0 & 0 & 0\\
+	C_1A_1B_1 & C_1B_1 & \cdots & 0 & 0 & 0\\
 	\vdots & \vdots & \ddots & \vdots  & \vdots & \vdots \\
-	C_1A^{N-2} B_1 & C_1A^{N-3} B_1 &\dots &C_1B_1 & D_{11}& 0\\
-	C_1A^{N-1} B_1 & C_1A^{N-2} B_1 &\dots &C_1AB_1 & C_1B_1& D_{11}\\
+	C_1A_1^{N-2} B_1 & C_1A_1^{N-3} B_1 &\dots &C_1B_1 & D_{11}& 0\\
+	C_1A_1^{N-1} B_1 & C_1A_1^{N-2} B_1 &\dots &C_1A_1B_1 & C_1B_1& D_{11}\\
 \end{pmatrix},
 \end{align}
 \begin{align}G_2 & = \nonumber\\
 &= \begin{pmatrix}
 D_{12} & 0 & \cdots & 0 & 0 & 0 \\
 C_1B_2 & D_{12} & \cdots & 0 & 0 & 0\\
-C_1AB_2 & C_1B_2 & \cdots & 0 & 0 & 0\\
+C_1A_1B_2 & C_1B_2 & \cdots & 0 & 0 & 0\\
 \vdots & \vdots & \ddots & \vdots  & \vdots & \vdots \\
-C_1A^{N-2} B_2 & C_1A^{N-3} B_2 &\dots &C_1B_2 & D_{12}& 0\\
-C_1A^{N-1} B_2 & C_1A^{N-2} B_2 &\dots &C_1AB_2 & C_1B_2& D_{12}\\
+C_1A_1^{N-2} B_2 & C_1A_1^{N-3} B_2 &\dots &C_1B_2 & D_{12}& 0\\
+C_1A_1^{N-1} B_2 & C_1A_1^{N-2} B_2 &\dots &C_1A_1B_2 & C_1B_2& D_{12}\\
 \end{pmatrix},
 \end{align}
 \begin{align}
@@ -173,10 +173,10 @@ G_3 & = \nonumber\\
 &= \begin{pmatrix}
 D_{21} & 0 & \cdots & 0 & 0 & 0 \\
 C_2B_1 & D_{21} & \cdots & 0 & 0 & 0\\
-C_2AB_1 & C_2B_1 & \cdots & 0 & 0 & 0\\
+C_2A_1B_1 & C_2B_1 & \cdots & 0 & 0 & 0\\
 \vdots & \vdots & \ddots & \vdots  & \vdots & \vdots \\
-C_2A^{N-2} B_1 & C_2A^{N-3} B_1 &\dots &C_2B_1 & D_{21}& 0\\
-C_2A^{N-1} B_1 & C_2A^{N-2} B_1 &\dots &C_2AB_1 & C_2B_1& D_{21}\\
+C_2A_1^{N-2} B_1 & C_2A_1^{N-3} B_1 &\dots &C_2B_1 & D_{21}& 0\\
+C_2A_1^{N-1} B_1 & C_2A_1^{N-2} B_1 &\dots &C_2A_1B_1 & C_2B_1& D_{21}\\
 \end{pmatrix},
 \end{align}
 \begin{align}
@@ -184,21 +184,21 @@ G_4 & = \nonumber\\
 &= \begin{pmatrix}
 D_{22} & 0 & \cdots & 0 & 0 & 0 \\
 C_2B_2 & D_{22} & \cdots & 0 & 0 & 0\\
-C_2AB_2 & C_2B_2 & \cdots & 0 & 0 & 0\\
+C_2A_1B_2 & C_2B_2 & \cdots & 0 & 0 & 0\\
 \vdots & \vdots & \ddots & \vdots  & \vdots & \vdots \\
-C_2A^{N-2} B_2 & C_2A^{N-3} B_2 &\dots &C_2B_2 & D_{22}& 0\\
-C_2A^{N-1} B_2 & C_2A^{N-2} B_2 &\dots &C_2AB_2 & C_2B_2& D_{22}\\
+C_2A_1^{N-2} B_2 & C_2A_1^{N-3} B_2 &\dots &C_2B_2 & D_{22}& 0\\
+C_2A_1^{N-1} B_2 & C_2A_1^{N-2} B_2 &\dots &C_2A_1B_2 & C_2B_2& D_{22}\\
 \end{pmatrix},
 \end{align}
 and vectors 
 \begin{align}
 d_1 = \begin{pmatrix}
-C_1 x_0 \\ C_1A x_0 \\ C_1A^2 x_0 \\ \vdots \\ C_1A^Nx_0
+C_1 x_0 \\ C_1A_1 x_0 \\ C_1A_1^2 x_0 \\ \vdots \\ C_1A_1^Nx_0
 \end{pmatrix},
 \end{align}
 \begin{align}
 d_2 = \begin{pmatrix}
-C_2 x_0 \\ C_2A x_0 \\ C_2A^2 x_0 \\ \vdots \\ C_2A^Nx_0
+C_2 x_0 \\ C_2A_1 x_0 \\ C_2A_1^2 x_0 \\ \vdots \\ C_2A_1^Nx_0
 \end{pmatrix}.
 \end{align}
 $\Delta$ is here a block diagonal matrix 
@@ -404,7 +404,7 @@ and, additionally,
 
 If we can find such a matrix $P$, the stability of the system \eqref{eq:LekUnc} can be proven. 
 
-We formulate it as the following Theorem. 
+We formulate it as a Theorem. 
 
 \begin{theo}
 	\label{thm:stabViaP}
@@ -465,12 +465,12 @@ I & 0 \\ \c{A} &  \c{B}
 
 
 
-Hence, the robustness issue can be reduced to a certain LMI over a multiplier set $\mathbb{P}$. 
+So, the robustness issue can be reduced to a certain LMI over a multiplier set $\mathbb{P}$. 
 
 The choosing of the set $\mathbb{P}$ is here the cornerstone. It must be large enough, to be able to find such multiplier $P$, if the system is stable, but also adequate small, such that the searching action is not too costly. 
  
 Let us begin with a single uncertain parameter $\delta$. Then the uncertainty $\Delta = \delta I$ with $\delta \in [-1,\; 1]$. 
-A good choice for multiplier set is 
+A possible choice for multiplier set is 
 \begin{align}
 \mathbb{P}= \{ \begin{pmatrix}
 S & R \\ R^T & -S
@@ -530,7 +530,7 @@ I_{\tau (N+1)} \\ \c{P}
 & \; \begin{array}{c} S = \diag(S_1, S_2, \dots, S_\tau)\succeq 0,\\ R = \diag(R_1, R_2, \dots, R_\tau), R + R^T = 0\end{array} \end{array}
 \right\},
 \end{align}
-then for $P_\tau \in \mathbb{P}_\tau$ is the following relation satisfied
+then for $P_\tau \in \mathbb{P}_\tau$,  the following relation is satisfied
 \begin{align}
 \begin{pmatrix}
 I \\ \Delta
@@ -662,10 +662,10 @@ Hence, according to the Theorem \ref{thm:stabViaP}, the system is stable for all
 	\end{pmatrix}
 	\end{align}
 			
-	For $N = 23$ and $\beta = .1$ our system still stays robust for $\overline a = - \underline a = 2$. If we set $\beta = .4$, the system is not robust even for $\overline a = - \underline a = .1$. 
+	For $N = 23$ and $\beta = .1$ our system still stays robust for $\overline a = - \underline a = 2$. If we set $\beta = .4$, we can not ensure the robustness using Theorem \ref{thm:stabViaP} even for $\overline a = - \underline a = .1$. 
 	
 	However, the ability to find the adequate matrices $X$ and $P$ depends on the time horizon $N$. 
-	For $N = 20$, we get a much more robust system, for which the stability can be proven for $\overline a = - \underline a = 2$. 
+	For $N = 20$, we get a much more robust system, for which the stability can be proven for $\overline a = - \underline a = 5$. 
 	
 
 		

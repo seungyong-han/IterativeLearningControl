@@ -18,18 +18,18 @@ e(t) =r(t) - y(t)
 \end{align}
 at time $t  = 0, 1, 2, \dots$.
 
-Here $A \in \mathbb{R}^{n\times n}$, $B \in \mathbb{R}^{n \times l}$, $C \in \R^{m \times n}$, and $D \in \R^{m\times l}$ are real matrices, $r(t) \in \R^{m}$ is a reference signal at time $t$. For notation simplification, we write $(A, B,C,D)$ and mean it to be the discrete-time control system. m \eqref{eq:GP}.
+Here $A \in \mathbb{R}^{n\times n}$, $B \in \mathbb{R}^{n \times l}$, $C \in \R^{m \times n}$, and $D \in \R^{m\times l}$ are real matrices, $r(t) \in \R^{m}$ is a reference signal at time $t$. For notation simplification, we write $(A, B,C,D)$ and mean it to be the discrete-time control system \eqref{eq:GP}.
 
 
 
 We aim to find a ''good'' input signal $u(t)$, such that the reference $r(t)$ is tracked possibly well for all $t \geq 0$. With other words, it means, that the error norm $||e(\cdot)||$ must stay small in some  $||\cdot||$, e.g. the $L_2$-norm.
 We can achieve it by finding a stabilizing controller -- such that our system state goes not to infinity over time $t$. 
-To design it, we must first clearly define what stability means. Since let us first formulate the common definitions and entertain ideas of a stabilizing controller construction. 
+To design it, we must first clearly define what stability means. Since let us first formulate the common definitions and entertain ideas of a stabilizing controller design. 
 
 \section{Definitions}
 
 \begin{defi}
-	A discrete time difference system
+	A discrete time dynamical system
 	\begin{align}
 	\label{eq:x=Ax}
 	x(t+1) = A x(t)
@@ -48,7 +48,7 @@ To design it, we must first clearly define what stability means. Since let us fi
 	We call the matrix $A$ (asymptotically) stable, if the dynamical system \eqref{eq:x=Ax} is (asymptotically) stable.
 \end{defi}
 
-{\color{red} Theoreme habe ich rausgemacht, da ich sie eh nicht benutze.}
+
 %\begin{theo}
 %	A discrete time dynamical system \eqref{eq:x=Ax} is
 %	asymptotically stable, if and only if each eigenvalue $\lambda$ of the matrix $A$ lies within the unit circle: $\lambda \in \{x \in \R: \; |x|<1\}$.
@@ -120,7 +120,7 @@ The system or the pair $(A,C)$ is detectable, if $(A^T, C^T)$ is assymptotically
 
 
 We can find a stabilizing controller for \eqref{eq:GP} using feedback control.
-First let us consider the case $y(t) = x(t)$.
+First let us consider the case $y(\cdot) = x(\cdot)$.
 
 %It is very important, that we work with the (asymptotically) stable systems: if $||A||\geq 1$, the solution $x(\cdot)$ will diverge  for $t \to \infty$. 
 %
@@ -137,7 +137,7 @@ But what is a ''good'' choice for $F$? One option is the so-called Linear-Quadra
 V(u(\cdot)) = \sum_{t = 0}^\infty \left( (x(t))^T Q (x(t)) + u(t)^T R u(t)\right),
 \end{align}
 overall stabilizing piecewise constant input signals $u(\cdot) \in \R^m$, and with $x(\cdot)$ satisfying \eqref{eq:GP} (with $C = I$ and $D = 0$). 
-$Q \succ 0$ and $R \succ 0$ are here some weighting matrices, and allow us  to weight elements in input and output signals. For example, if we want one of the inputs have more impact on the system as another, or one output must be driven faster. 
+$Q \succ 0$ and $R \succ 0$ are here some weighting matrices, and allow us  to weight elements in input and output signals. For example, one of the inputs can impact the system as another, or one output must be driven faster. 
 
 The solution of this optimal control problem can be found by choosing 
 \begin{align}
@@ -197,7 +197,7 @@ Stabilizing solution means, that from \eqref{eq:Basics:F} resulting matrix $(A -
 %u = G^*x, \text{ where } G^* =R^{-1} G^T Q. 
 %\end{align}
 
-For the case $y(t) \neq x(t)$, we can additionally construct an observer to approximate the signal $x(\cdot)$. The  controller we get is said to be based on \textit{separation principle}.
+For the case $y(\cdot) \neq x(\cdot)$, we can additionally construct an observer to approximate the signal $x(\cdot)$. The  controller we get is said to be based on \textit{separation principle}.
 It requires the pair $(A,C)$ to be asymptotically detectable 
 which allows us to find a matrix $J$, such that $A - JC$ is asymptotically stable.
 
