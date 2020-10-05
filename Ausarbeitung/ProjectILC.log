@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.26)  4 OCT 2020 21:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.26)  5 OCT 2020 10:10
 entering extended mode
 **./ProjectILC.tex
 (ProjectILC.tex
@@ -1583,7 +1583,10 @@ File: fig/ex1_PIA.jpg Graphic file (type jpg)
 Package pdftex.def Info: fig/ex1_PIA.jpg  used on input line 289.
 (pdftex.def)             Requested size: 441.01773pt x 235.99446pt.
  [11 <./fig/ex1_PIA.jpg>]
-[12] [13] [14]
+[12] [13]
+Underfull \vbox (badness 6477) has occurred while \output is active []
+
+ [14]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [15]
@@ -1601,12 +1604,15 @@ it/12 has $\OML/cmm/m/it/12 q$ \OT1/cmr/m/it/12 non-zero or-dered eigen-val-ues
  []
 
 [18]
-<fig/Ex1_SDAvsES.jpg, id=430, 4015.0pt x 2149.02875pt>
+
+LaTeX Warning: Reference `alg: SDA' on page 19 undefined on input line 671.
+
+<fig/Ex1_SDAvsES.jpg, id=429, 4015.0pt x 2149.02875pt>
 File: fig/Ex1_SDAvsES.jpg Graphic file (type jpg)
 <use fig/Ex1_SDAvsES.jpg>
 Package pdftex.def Info: fig/Ex1_SDAvsES.jpg  used on input line 684.
 (pdftex.def)             Requested size: 441.01773pt x 236.03319pt.
- [19] [20 <./fig/Ex1_SDAvsES.jpg>]) [21]
+[19] [20 <./fig/Ex1_SDAvsES.jpg>]) [21]
 \openout2 = `Application.aux'.
 
  (Application.tex [22
@@ -1616,7 +1622,7 @@ Package pdftex.def Info: fig/Ex1_SDAvsES.jpg  used on input line 684.
 ]
 Chapter 3.
 [23]
-<fig/Ex3_LQR.jpg, id=475, 3854.4pt x 2062.70625pt>
+<fig/Ex3_LQR.jpg, id=477, 3854.4pt x 2062.70625pt>
 File: fig/Ex3_LQR.jpg Graphic file (type jpg)
 <use fig/Ex3_LQR.jpg>
 Package pdftex.def Info: fig/Ex3_LQR.jpg  used on input line 64.
@@ -1627,7 +1633,7 @@ LaTeX Warning: Reference `ex:ILC:IAcrushes' on page 24 undefined on input line
 72.
 
 [24 <./fig/Ex3_LQR.jpg>]
-<fig/Satellite_SDA.jpg, id=487, 3011.25pt x 1767.60374pt>
+<fig/Satellite_SDA.jpg, id=489, 3011.25pt x 1767.60374pt>
 File: fig/Satellite_SDA.jpg Graphic file (type jpg)
 <use fig/Satellite_SDA.jpg>
 Package pdftex.def Info: fig/Satellite_SDA.jpg  used on input line 87.
@@ -1690,10 +1696,10 @@ Package logreq Info: Writing requests to 'ProjectILC.run.xml'.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 329.
  ) 
 Here is how much of TeX's memory you used:
- 31817 strings out of 480799
- 601239 string characters out of 2895784
+ 31820 strings out of 480799
+ 601270 string characters out of 2895784
  1256379 words of memory out of 3000000
- 46919 multiletter control sequences out of 15000+200000
+ 46920 multiletter control sequences out of 15000+200000
  557059 words of font info for 125 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,27n,66p,941b,1190s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1722,9 +1728,9 @@ Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.p
 fb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfont
 s/symbols/msam10.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/ty
 pe1/public/amsfonts/symbols/msbm10.pfb>
-Output written on ProjectILC.pdf (49 pages, 2421840 bytes).
+Output written on ProjectILC.pdf (49 pages, 2421725 bytes).
 PDF statistics:
- 769 PDF objects out of 1000 (max. 8388607)
- 255 named destinations out of 1000 (max. 500000)
+ 771 PDF objects out of 1000 (max. 8388607)
+ 257 named destinations out of 1000 (max. 500000)
  245 words of extra memory for PDF output out of 10000 (max. 10000000)
 

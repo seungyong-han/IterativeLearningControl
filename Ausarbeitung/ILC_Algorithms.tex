@@ -450,11 +450,11 @@ If we set $K = \beta G^{\star}$ it results in
 \beta^2 (G G^{\star})^T Q (G G^{\star}) \prec \beta Q G G^{\star} + \beta (Q G G^{\star})^T.
 \end{align}
 
-Since the matrix $Q$ is positive definite, we can find a matrix $Q^{1/2}$, such that $Q = Q^{1/2}Q^{1/2}$. We define the positive definite, symmetric matrix
+Since the matrix $Q$ is positive definite, we can find a matrix $Q^{1/2}$, such that $Q = Q^{1/2}Q^{1/2}$. We define the positive semi-definite, symmetric matrix
 \begin{align}
 H:= Q^{1/2} G G^{\star} Q^{-1/2} = Q^{1/2} G R^{-1}G^T Q^{1/2}. 
 \end{align}
-With congruence transformation we can rewrite \eqref{eq:ILC:SDA_Herleitung} as 
+This is a congruence transformation over a symmetric matrix, and hence \eqref{eq:ILC:SDA_Herleitung} is equivalent to
 \begin{align}
 \beta^2 H^T H \prec \beta (H + H^T) \Leftrightarrow  \beta H^2 \prec 2.
 \end{align}
@@ -494,7 +494,7 @@ This choice of $K$ determines the \textit{Steepest Descent Algorithm}
 
 \subsection{Steepest Descent Algorithm}
 \begin{alg}
-	\label{alg: SDA}
+	\label{alg:SDA}
 	The Steepest Descent Algorithm is characterized by choosing $K = \beta G^\star$, where $\beta>0$ is a real scalar gain. The iterative law is given via 
 	\begin{align}
 	\label{eq:errSDA}
@@ -511,7 +511,7 @@ This choice of $K$ determines the \textit{Steepest Descent Algorithm}
 	\end{align} 
 	is guaranteed if
 	\begin{align*}
-	0 <\beta < \frac{2}{||G||_Q\cdot||G^\star||_R}
+	0 <\beta < \frac{2}{\lama(H)}
 	\end{align*}
 	In particular, the zero convergence is attainable, if $e_0 \in \im [G G^\star]$. 
 \end{alg} 
@@ -643,12 +643,12 @@ Let us consider the eigenvalues of the matrix $GG^\star$ and choose the gains $\
 Although conceptually interesting this algorithm is not well applicable for the real problems. One can see, that the small non-zero eigenvalues of $GG^\star$ will lead to very large values of $\beta_k$ and hence we get extremely large transient variations in error norm. 
 %The model errors can make this problem intolerable when elimination of eigenvector components will not be achieved in any iteration and/ or may be re-introduced in later iterations. 
 
-Also computing the eigenvalues can be numerically questionable. Moreover, to achieve the monotonic convergence we need to consider only the eigenvalues $\lambda > \frac{1}{\sigma_{\max}^2}$.
+Also computing the eigenvalues can be numerically questionable. Moreover, to achieve the monotonic convergence we need to consider only the eigenvalues $\lambda > \frac{1}{2}\lama(H)$.
 If our model is inaccurate, and some eigenvalues are uncertain, it has directly impact on the algorithm result. 
 
 That all makes this algorithm not solid. Still, we can use the idea, to apply the eigenvalues of $G G^{\star}$ -- but not directly. We can try to ''pick'' the compatible eigenvalues.
 \begin{alg}
-	Choose a finite number $N_p + 1$ of points $p_0, p_1, \dots$ spread over the half-open interval $(\frac{1}{2}\sigma_{\max}^2, \sigma_{\max}^2]$. 
+	Choose a finite number $N_p + 1$ of points $p_0, p_1, \dots$ spread over the half-open interval $(\frac{1}{2}\lama(H), \lama(H)]$. 
 	The Gradient Algorithm with Suppression of Eigenvalues (SoE Algorithm) is defined via choosing of the iteration-depending control law  $K_k = \beta_k G^\star e_k$, where 
 	\begin{align}
 	\begin{split}
@@ -668,14 +668,14 @@ That all makes this algorithm not solid. Still, we can use the idea, to apply th
 	\end{align}	
 \end{alg}
 
-This algorithm has the same convergence properties as Algorithm \ref{alg: SDA}, but potentially better convergence rates due to the eigenvalue suppression. Intuitively, the approach will increase the convergence speed in the first $N_p + 1$ iterations, if $N_p$ is large enough for good approximation of the interval $(\frac{1}{2} \sigma_{\max}^2, \sigma_{\max}^2]$.
+This algorithm has the same convergence properties as Algorithm \ref{alg: SDA}, but potentially better convergence rates due to the eigenvalue suppression. Intuitively, the approach will increase the convergence speed in the first $N_p + 1$ iterations, if $N_p$ is large enough for good approximation of the interval $(\frac{1}{2} \lama(H), \lama(H)]$.
 
 \begin{exam}
 	We apply the SoE Algorithm on the system \eqref{eq:ILC:Sys_ex1}. The error evolution we get is illustrated in Figure \ref{img:ILC:SDAvsSE}. The new algorithm needs only 148 iteration, while classical SDA terminates by 382 iterations. We also get a much better improvement $||e_0/e_\infty||$, while $e_\infty$  is meant to be the error in the last iteration. 
 	
-	In fact, for each eigenvalue $\lambda$ of $G G^\star$ holds 
+	In fact, for $Q = I_m$, $R = I_l$, for 36 of 51 eigenvalues $\lambda$ of $G G^\star$ holds 
 	\begin{align}
-	\lambda > \frac{2}{||G||_Q\cdot||G^\star||_R} = 0.264.
+	\lambda > \frac{1}{2}\lama(H) = 37.9048\, .
 	\end{align}
 	
 	This explained the better performance of the algorithm, and better convergence rate.  		
@@ -712,13 +712,13 @@ Then the compensated Steepest Descent Algorithm is given as follows.
 
 \begin{alg}
 	\label{alg: FBDesign}
-	The controllers $K_0(z), K_c(z)$ and (complementary) sensitivity have its own state space form. We can use it and define the corresponding supermatrices 
+	Write the transfer functions in supervector description as 
 	$K_0$, $K_c$, $T$ and $S$. The compensated Steepest Descent Algorithm is  is characterized by choosing  $K = \beta K_0$, $\beta \in \R$. 
 	The iterative law is given via 
 	\begin{align}
 	\label{eq:errFBDesign}
 	\begin{split}
-	u_{k+1} &= u_k + \beta K_c S T^* e_k, \\
+	u_{k+1} &= u_k + \beta K_0 T^* e_k, \\
 	e_{k+1} &= (I- \beta T T^*) e_{k}, \; k\geq 0,\\
 	u_0& \in \R^{l (N+1)}. 
 	\end{split}	
@@ -734,9 +734,12 @@ Then the compensated Steepest Descent Algorithm is given as follows.
 \end{align*}
 $T^*$ stays here for conjugate transpose of the matrix $T$. 
 \end{alg}
-
-One can see, that the error evolution corresponds to this of the model $y = T \tilde{u} + d$ with input $\bar {u} 
-\in \R^{m(N+1)}$, if we apply the Steepest Descent Algorithm.
+\begin{proof}
+	The proof is identical to this in Algorithm \ref{alg:SDA} if consider the system 
+	\begin{align}
+	\t y = T\t u + \t d.
+	\end{align}
+\end{proof}
 
 The effect of the operator $T T^*$ can be seen by considering the closed-loop relation 
 \begin{align}
