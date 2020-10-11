@@ -42,7 +42,6 @@ while cont
     if norm(e - e_new)<10^-6
         cont = 0;
     end
-    error_history = [error_history, norm(e_new)];
    
     %print current imprivement
     if(mod(iteration_number, 10000) == 0)
@@ -61,8 +60,10 @@ while cont
         y_inf{cell_nb} = G*u_new + d;
     end
     
-    e = e_new;
+    e = e_new; 
     u = u_new;
+    error_history = [error_history, norm(e)];
+
     
     
 end

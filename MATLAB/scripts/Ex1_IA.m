@@ -12,9 +12,9 @@ legend('$e_k$', 'interpreter', 'latex');
 close all
 fig = figure; 
 hold on
-plot(0:N-1, y_sv);
-plot(0:N-1, r, 'LineWidth', 1.8);
-plot(0:N-1, y_inf1{end});
+plot(0:N, y_sv);
+plot(0:N, r, 'LineWidth', 1.8);
+plot(0:N, y_inf1{end});
 legend('LQR', 'Reference', 'IA');
 xlim([0, N-1])
 hold off

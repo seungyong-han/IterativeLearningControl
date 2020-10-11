@@ -14,15 +14,14 @@ Ex1_LQR;
 % Define start values for the algorithms
 u0 = u_sv;
 r = r_vec;
-R = 1;
-Q = 1;
+
 do_plot = 1;
 [A,B,C,D, N] = get_non0D_system(A,B,C,D, N)
 
-[G, d] = get_G(A-B*F, B, C - D*F, D, x0, N-1);
+[G, d] = get_redG(A-B*F, B, C - D*F, D, x0, N);
 %save_plot(fig, 'Ex1_LQR');
-rank(G)
 disp(['cond number = ',num2str(cond(G))]);
+%%
 % IA vs LQR example
 Ex1_IA;
 %save_plot(fig, 'IA_N40');
@@ -54,3 +53,4 @@ Ex1_uncProof_SDA;
 %% Uncertainty proof for IA beta = .05 vs beta = .4
 N = 20;
 Ex1_uncProof_IA;
+%%

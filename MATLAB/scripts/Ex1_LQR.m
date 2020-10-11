@@ -1,10 +1,12 @@
-% Calculate stabilizing solutions for discrete algebraic Riccati equation
-P = dare(A, B, 1, 1);
-Q = dare(A', C', 1,1);
 
 % l-input m-output system
 l = length(B(1,:));
 m = length(C(:,1));
+
+% Calculate stabilizing solutions for discrete algebraic Riccati equation
+P = dare(A, B, eye(m) , eye(l));
+Q = dare(A', C', eye(m) , eye(l));
+
 
 %Calculate the matrices for separation principle based controller
 F = (eye(l) + B'*P*B)\eye(l);
@@ -19,7 +21,7 @@ J = J';
 if(N<5)
     r_vec = ones(N+1, 1);
 else
-    r_vec = get_pulse(N, 5);
+    r_vec = get_pulse(N+1, 5);
 end
 
 
@@ -37,7 +39,7 @@ M = M\eye(length(M));
 
 x_hat = x0;
 x = x0;
-for i = 1:N
+for i = 1:N+1
     r = r_vec(i);
     u = -F*x_hat + M*r; 
     y = C*x + D*u;
@@ -50,13 +52,13 @@ for i = 1:N
 end
 
 %Plot
-% close all
-% fig = figure; 
-% hold on
-% plot(0:N-1, y_sv);
-% plot(0:N-1, r_vec);
-% legend('output $y(t)$', 'reference signal', 'interpreter', 'latex');
-% xlabel('time $t$', 'interpreter', 'latex');
-% ylabel('output and reference');
-% xlim([0, N-1]);
-% hold off
+close all
+fig = figure; 
+hold on
+plot(0:N, y_sv);
+plot(0:N, r_vec);
+legend('LQR', 'reference signal', 'interpreter', 'latex');
+xlabel('time $t$', 'interpreter', 'latex');
+ylabel('output and reference');
+xlim([0, N-1]);
+hold off

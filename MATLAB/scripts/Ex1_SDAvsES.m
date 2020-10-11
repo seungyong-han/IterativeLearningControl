@@ -1,4 +1,6 @@
 %% Compare SDA and SE
+R = 1;
+Q = 1;
 
 hold on
 [u_inf2, e_inf2, y_inf2, impr2, iteration_number2, error_history2] = SDA(G,d, b,r, u0, R, Q,do_plot);

@@ -1,4 +1,3 @@
-function save_plot(figname, name)
-saveas(figname, ['Figures\', name, '.jpg']);
-saveas(figname, ['C:\Users\Strel\YandexDisk\Studium\SimTech\SimTech_Project\Ausarbeitung\fig', name, '.jpg']);
+function save_plot(name)
+saveas(gcf, fullfile('C:\Users\Strel\Documents\IterativeLearningControl_Ausarbeitung\Ausarbeitung\fig', name), 'jpg');
 end
