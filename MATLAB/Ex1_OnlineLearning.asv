@@ -2,7 +2,7 @@
 Gstr = {};
 dstr = {};
 for i = 1:N
-    [G,d] = get_redG(A-B*F, B, C-D*F, D, x0, i);
+    [G,d] = get_redG(A-B*F, B, C-D*F, D, x0, N);
     Gstr{i} = G;
     dstr{i} = d; 
 end
@@ -13,24 +13,22 @@ Gmdl = Gstr;%stays for the real plant -- eg y = Gmdl{i}*u + d equals
 %% IA
 beta = .1;
 
-beta_max = 2;
-beta = beta*beta_max;
-beta = beta*2;
-u = u0(1:2*l);
+u = u0(1:l);
 
-r0 = r_vec;
-r = r0(1:2*m);
+r0 = r;
+r = r0(1:m);
 
 for i = 1:N
     G = Gstr{i};
     d = dstr{i}; 
-
+    beta_max = 2;
+    beta = beta*beta_max;
+    beta = beta*2;
     K0 = pinv(full(G));
     %K0 = G\eye(length(G));
     K0 = sparse(K0);
 
-    e0 = r - Gmdl{i}*u - d; 
-    e = e0;
+    e0 = r - G*u - d; 
     cont = 1;
     iteration_number = 0;
     error_history = [norm(e0)];
@@ -55,16 +53,13 @@ for i = 1:N
             disp("currErrordiff:")
             norm(e_new - e)
         end
-        u = u_new; 
+        u = u_new;
         e = e_new;
     end
-    if i<N
-        u = [u; u0(i+1:(i+1)*l)];
-        r = r0(1:(i+2)*m); 
-    end
+    u = [u; u0(end - i*l:end)];
 end
 
-impr = norm(e0)/error_history(end);
+impr = norm(e0)/e_inf{length(e_inf)};
 
 if do_plot
     plot(0:iteration_number, error_history);
