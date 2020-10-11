@@ -49,7 +49,7 @@ We need to put the first iterations away and define a new initial condition $x(k
 
 For new system all the requirements we considered are satisfied. However, we do not get a better solution for $t = 0, 1, \dots, k^\star - 1$. 
 
-%TODO: change the example style 
+
 \begin{example}[continued]
 	
 \textit{For our system the relative degree is 1, as }
@@ -69,7 +69,7 @@ For new system all the requirements we considered are satisfied. However, we do 
 \textit{It looks like something we can improve. However, for $Ts = 10^{-3}$s we get $N = 10^3$ time steps even for one iteration second. The matrix $G$ has  $10^9$ elements and can not easily be handled.}
 \end{example}
 
-	In example \ref{ex:ILC:IAcrushes} the Inverse Model Algorithm is not applicable even for $N = 40$. 
+	In example \ref{ex:ILC:IAcrushes} the Inverse Model Algorithm is not applicable even for $N = 50$. 
 	That means, we need a trade off between the time horizon and robustness.
 	However, for real problems the sample times are mostly small, and hence even for one second of the simulation we get huge number for time horizon. Already for SISO system the matrix $G$ will have $N^2$ elements. Our algorithms become unusable for casual applications since they need vast masses of memory.	
 		

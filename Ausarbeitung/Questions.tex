@@ -1,253 +1,33 @@
 \chapter{Questions} 
 
-\section{Session 30.02.2020}
-System we consider 
+
+For SDA: 
+
 \begin{align}
-e_{k+1} = L(\Delta)e_k = \Delta \star L e_k.
+\begin{pmatrix}
+y_1 \\ y_2
+\end{pmatrix} = \begin{pmatrix}
+G_1 & 0 \\ G_3 & G_1
+\end{pmatrix}\begin{pmatrix}
+u_1 \\ u_2 
+\end{pmatrix} + \begin{pmatrix}
+d_1\\d_2
+\end{pmatrix}.
 \end{align}
 
-$L$ is already a closed loop, i.e. $L = N$ from RC. 
-Thm 6.19: If $\mu_{\mathbb{V}_e}(L) \leq 1 $, then RS and RP are guaranteed for all $\Delta \in \Delf$ with $||\Delta|| < 1$ (if well-defined). 
-
-%
-%
-%$P$ without uncertainty: 
-%\begin{align}
-%\left[
-%\begin{array}{c}
-%u_{k+1}\\ \hline y_k \\ \hline  e_k 
-%\end{array} \right] &= 
-%\left[\begin{array}{c|c|cc}
-%I & I & 0 & 0 \\
-%\hline
-%G & 0 & 0 & I\\
-%\hline
-%-G & 0 & I & -I
-%\end{array}\right]
-%\left[\begin{array}{c}
-%u_k \\ \hline v_k \\ \hline r \\ d 
-%\end{array}\right]\\
-%v_k &= K e_k = K(r - Gu_k - d) = -KGu_k + Kr - Kd
-%\end{align}
-%
-%%$P \star K $ without uncertainty:
-%%\begin{align}
-%%\left[\begin{array}{c}
-%%u_{k+1} \\ 
-%%\hline e_k
-%%\end{array}\right] = 
-%%\left[\begin{array}{c | c c}
-%%(I-KG) & K & -K \\
-%%\hline
-%% -G & I & -I
-%%\end{array}\right]
-%%\left[\begin{array}{c}
-%%u_{k} \\ \hline  r \\ d
-%%\end{array}\right]
-%%\end{align}
-%
-%$P\star K$ with uncertainty: 
-%\begin{align}
-%\left[\begin{array}{c}
-%u_{k+1} \\\hline e_k \\ \hline z_k
-%\end{array}\right] &= 
-%\left[\begin{array}{c| c| c}
-%A & B_1 & B_2\\
-%\hline
-%C_1 & D_{11} & D_{12} \\
-%\hline
-%C_2 & D_{21} & D_{22}
-%\end{array}\right]
-%\left[\begin{array}{c}
-%u_k \\ \hline r \\ d   \\\hline w_k
-%\end{array}\right],\\
-%w_k &= \Delta (\delta) z_k.
-%\end{align}
-%
-%
-%
-%\textbf{Matrix seen by uncertainty}: $M = D_{22}$. 
-%\\
-%
-\textbf{Exercise}: $(I - D_{22} \Delta)^{-1}$ exists and is \textbf{stable} if there exists a matrix $P = P^T$, such that 
 \begin{align}
-\label{ex} 
-\begin{bmatrix}
-I\\
-\Delta(\delta)
-\end{bmatrix}^T 
-P
-\begin{bmatrix}
-I \\ \Delta(\delta)
-\end{bmatrix} \succeq 0,
-\text{ and }
-\begin{bmatrix}
-D_{22} \\ I 
-\end{bmatrix}^T
-P
-\begin{bmatrix}
-D_{22} \\ I
-\end{bmatrix} \prec 0. \tag{*}
+\begin{pmatrix}
+u_1 \\ u_2
+\end{pmatrix}_{k+1} =
+\begin{pmatrix}
+u_1 \\ u_2
+\end{pmatrix}_k + 
+\begin{pmatrix}
+G_1^* & G_3^* \\0 & G_1^*
+\end{pmatrix}\begin{pmatrix}
+e_1 \\ e_2
+\end{pmatrix}_k.
 \end{align}
-
-For real parametric uncertainty with one parameter $\Delta(\delta) = \delta I$: \eqref{ex} $\Rightarrow$ $(I - D_{22}\delta I )^{-1}$ exists and is  \textbf{stable}. 
-
-
-\begin{proof} $M = D_{22}$. 
-	Consider $\{\delta I: \delta \in [-1,1]\} \subset \Delta\!\!\!\!\Delta = \{\delta I : \delta \in \C, |\delta| < 1\}$.
-	Suppose there exists some $\delta_0 \in \C$, $|\delta_0| < 1$, such that there exists some $\lambda \in \C$, $|\lambda|>1$, $\lambda \in \eig(I - M\delta_0)$. 
-	\begin{align*}
-	\Rightarrow& \exists x\neq 0: \; (I - M \delta_0 ) x = \lambda x \Rightarrow M \delta_0 x = (1-  \lambda) x 
-	\Rightarrow \frac{1-\lambda}{\delta_0} \in \eig(M). \\
-	\text{ If }& \left|\frac{1- \lambda}{\delta_0}\right| \geq 1 \Rightarrow M \text{ is unstable } \text{\Lightning}.\\
-	\text{ If }& \left|\frac{1 - \lambda}{\delta_0}\right| < 1 \Rightarrow \frac{1 - \lambda}{\delta_0}I \in \Delta\!\!\!\!\Delta \Rightarrow \frac{-1 +\lambda}{\delta_0}I \in \Delta\!\!\!\!\Delta \Rightarrow \det\left(I + M \frac{-1 + \lambda}{\delta_0}\right) \neq 0 \Rightarrow \frac{1 - \lambda}{\delta_0} \notin \eig(M) \text{\Lightning}.
-	\end{align*}
-\end{proof}
-%
-%
-%For real parametric uncertainty $\Delta(\delta) = \delta I$, $\delta \in [-1, \, 1],$
-%\begin{align}
-%\mathbb{P} = \{P = \begin{bmatrix}
-%Q & S \\
-%S^T & -Q
-%\end{bmatrix}: Q \preceq 0, S = -S^T \},.
-%\end{align}
-%
-%
-%For $\Delta = \begin{bmatrix}
-%\delta_1 I & & & \\
-%& \delta_2 I & & \\
-%& & \ddots & \\
-%& & & \delta_\tau I
-%\end{bmatrix}$:
-%\begin{align}
-%\mathbb{P} = \left\{\begin{array}{c|c}
-% P = \left[
-% \begin{array}{c| c c c c}
-%P_0 & & & &\\
-%\hline
-%& P_1 & & & \\
-%& & P_2 & & \\
-%& & & \ddots &\\
-%& & & & P_\tau
-%\end{array}
-%\right] &
-%P_i \succeq 0
-%\end{array}
-%\right\}
-%\end{align}
-%
-%
-%\par\noindent\rule{\textwidth}{0.4pt}
-%\section{From last session:}
-%
-%\begin{align}
-%e_{k+1} = L(\delta) e_k.
-%\end{align}
-%Need:
-%\begin{align}
-%\label{sess}
-%||L(\delta)||<1 \Leftrightarrow L(\delta)^T L(\delta) < I \Leftrightarrow 
-%\begin{bmatrix}
-%I \\ L(\delta)
-%\end{bmatrix}^T 
-%\begin{bmatrix}
-%-I  & 0 \\ 0 & I
-%\end{bmatrix}
-%\begin{bmatrix}
-%I \\ L(\delta)
-%\end{bmatrix}<0 \; \forall \delta \in [-1,\,1]. \tag{$\circ$}
-%\end{align}
-%
-%\begin{align*}
-%\begin{bmatrix}
-%e_{k+1} \\ z_k 
-%\end{bmatrix} &= 
-%\left[\begin{array}{c | c}
-%\c{A} & \c{B} \\\hline
-%\c{C} & \c{D}
-%\end{array}\right] 
-%\begin{bmatrix}
-%e_k \\ w_k
-%\end{bmatrix}\\
-%L(\delta) &= \Delta(\delta)\star \left[\begin{array}{c | c}
-%\c{A} & \c{B} \\\hline
-%\c{C} & \c{D}
-%\end{array}\right]
-%\end{align*}
-%
-%
-%
-%
-%
-%\begin{align}
-%\label{qeq1}
-%\eqref{sess} \Leftarrow \exists P = P^T: 
-%\begin{bmatrix}
-%I & 0 \\ \c{A} &  \c{B}
-%\end{bmatrix}^T\begin{bmatrix}
-%-I & 0 \\ 0 & I
-%\end{bmatrix} 
-%\begin{bmatrix}
-%I & 0 \\ \c{A} &  \c{B}
-%\end{bmatrix} + 
-%\begin{bmatrix}
-%\c{C} & \c{D} \\ 0 & I
-%\end{bmatrix}^T
-%P
-%\begin{bmatrix}
-%\c{C} & \c{D} \\ 0 & I
-%\end{bmatrix} \prec 0, \\
-%\begin{bmatrix}
-%I \\ \Delta(\delta) 
-%\end{bmatrix}^T P \begin{bmatrix}
-%I \\ \Delta(\delta) 
-%\end{bmatrix} \succeq 0 \; \forall \delta \in [-1,\, 1]. \nonumber 
-%\end{align}
-%
-%For  $P = \begin{bmatrix}
-%P_1 & 0 \\ 0 & P_2
-%\end{bmatrix}, P_1 = P_1^T, P_2 = P_2^T$
-%\begin{align*}
-%\eqref{qeq1}
-%\Leftrightarrow \begin{bmatrix}
-%- I + \c{A}^T \c{A} & \c{A}^T \c{B} \\ \c{B}^T \c{A} & \c{B}^T \c{B}
-%\end{bmatrix} + 
-%\begin{bmatrix}
-%\c{C}^T P_1 \c{C} & \c{C}^T P_1 \c{D} \\ \c{D}^T P_1 \c{C} & \c{D}^T P_1 \c{D} + P_2  
-%\end{bmatrix}\prec 0,
-%\begin{bmatrix}
-%I \\ \Delta(\delta) 
-%\end{bmatrix}^T P \begin{bmatrix}
-%I \\ \Delta(\delta) 
-%\end{bmatrix} \succeq 0 \; \forall \delta \in [-1,\, 1].
-%\end{align*}
-%
-%
-%Discrete Lyapunov inequation: 
-%\begin{align*}
-%L^T X L - X \prec 0 \Leftrightarrow 
-%\begin{bmatrix}
-%I \\ L(\delta) 
-%\end{bmatrix}^T \begin{bmatrix}
-%-{\color{dgreen}X}& 0 \\ 0 &{\color{dgreen}X}
-%\end{bmatrix}
-%\begin{bmatrix}
-%I \\ L(\delta) 
-%\end{bmatrix} \prec 0, \text{ for } {\color{dgreen} X} \succ 0, \\
-%\Leftrightarrow 
-%\c{A}^T{\color{dgreen}X}\c{A} + \c{C}^T (I - \c{D} \Delta(\delta))^{-T} \c{B}^T \Delta(\delta) {\color{dgreen}X}\c{A} + 
-% \c{A}^T{\color{dgreen}X} \c{B} \Delta(\delta) ( I - \c{D}\Delta)^{-1}\c{C} +\\+  \c{C}^T (I - \c{D} \Delta(\delta))^{-T} \c{B}^T \Delta(\delta) {\color{dgreen}X} \c{B} \Delta(\delta) ( I - \c{D}\Delta)^{-1}\c{C} +  \c{C}^T (I - \c{D}) - {\color{dgreen} X}\prec 0
-%\end{align*}
-%
-%\begin{align*}
-%L(\delta) ^T L(\delta) - I = \c{A}^T\c{A} + \c{C}^T (I - \c{D} \Delta(\delta))^{-T} \c{B}^T \Delta(\delta) \c{A} + 
-%\c{A}^T \c{B} \Delta(\delta) ( I - \c{D}\Delta)^{-1}\c{C} +\\+  \c{C}^T (I - \c{D} \Delta(\delta))^{-T} \c{B}^T \Delta(\delta)  \c{B} \Delta(\delta) ( I - \c{D}\Delta)^{-1}\c{C} +  \c{C}^T (I - \c{D}) - I \stackrel{!}{\prec} 0.
-%\end{align*}
-%
-%
-%
-%
 
 
 
