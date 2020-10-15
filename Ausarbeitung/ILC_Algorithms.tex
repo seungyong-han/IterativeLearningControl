@@ -9,7 +9,6 @@ For example, a robot manipulator must put some objects in a box with high accura
 More formally, we consider the system \eqref{eq:GP} over a \textit{finite time horizon} $t = 0, 1, 2, \dots, N$, $N \in \N$. As we discussed in the previous chapter, we are interested in good tracking of the signal $r(\cdot)$. At first glance, the stability concept seems to be not necessary for $N < \infty$ . Still, in this thesis, it is the requirement we presuppose on considered system. The reason is that also the discrete system over finite horizon can produce vast signals for large $N$, if the system is not stable. Especially, it means, that $A$ has at least one eigenvalue larger that one, which implies very large norm of the matrices $A^t$ for $t \gg 1$. This makes difficult the numerical calculations, since the solution of the difference equation \eqref{eq:GP} includes it. 
 
 Moreover, for our purposes, for stabilizable systems we can assume stability without loss of generality. 
-
 If the system is stabilizable, we can find such a matrix $F$, such that $(A - B F )$ is stable. 
 We define $u(t) = - Fx(t) + \t{u}(t)$, $t = 0,1,2, \dots, N$ with a new input signal $\t u (t) \in \R^l$. Then the system \eqref{eq:GP} results in
 \begin{align}
@@ -47,7 +46,7 @@ This system is controllable and observable, and hence we can calculate the matri
 (A - BF) \text{ and } (A^T - C^T J) \text{ are stable}. 
 \end{align}
 
-With MATLAB we calculate the solutions f discrete algebraic Riccati equation (for $Q = I_m$, $R = I_l$) and get the shifting matrices 
+With MATLAB we calculate the solutions of discrete algebraic Riccati equation (for $Q = I_m$, $R = I_l$) and get the shifting matrices 
 \begin{align}
 F =\begin{pmatrix}
  1.9282   & 1.2679
@@ -58,7 +57,7 @@ J = \begin{pmatrix}
 \end{align}
 
 
-Then we re-describe our system as
+To make the considered system stable we re-describe our system as
 \begin{align}
 \label{eq:ILC:Sys_ex1}
 \begin{array}{c c c c c c c c c}
@@ -81,7 +80,7 @@ y(t)   &=& \begin{pmatrix}
 \end{array}
 \end{align} 
 
-We take as a reference $r(\dot)$ the pulse signal and set $N = 20$. 
+We take as a reference $r(\cdot)$ the pulse signal and set $N = 20$. 
 
 With controller based on separation principle (here shortly: LQR), we get the tracking illustrated in  Figure \ref{img:ILC:LQR_control}.
 \begin{figure}[ht]
@@ -99,26 +98,25 @@ As one can see, the tracking in Example \ref{ex:ILC:LQR} is not perfect at all. 
 &\{u(0), \, u(1), \,  u(2) \, \dots , \, u(N)\} \subset \R^l \label{eq:ILC:u_seq} \\
 &\{y(0), \, y(1), \, y(2) , \, \dots , \, y(N)\}\subset \R^m.\label{eq:ILC:y_seq}
 \end{align}
-This sequences are limited due to the finite time horizon. It seems to be an advantage. 
+On the finite time horizon of interest the behavior of system is described by the finite input and output sequences. It seems to be an advantage. 
 
 Indeed, if we put the signals we got from simulation together, we get a large, but finite dimensional vector. That means, the standard tools from linear algebra can be applied. 
 
-As a matter of fact, we can express our whole simulated system as a linear equation. We call such vectors \textit{Supervectors}, and the whole system is said to be ''lifted''.
+As a matter of fact, we can express our whole simulated system as a linear equation. We call such vectors \textit{Supervectors}, and the whole system is said to be \textit{lifted}.
 
 \section{Supervector description} 
 
-For the sequences \eqref{eq:ILC:u_seq} and \eqref{eq:ILC:y_seq} we define the supervectors
+\begin{defi}
+	Let $\{s(0), s(1), s(2), \dots s(N)\} \subset \R^{d}$ be a finite sequence. Then the supervector corresponding to this sequence is denoted by $s$ and is defined as 
 \begin{align}
-\label{eq:inoutsuper}
-u = \begin{pmatrix}
-u(0) \\ u(1) \\ u(2) \\ \vdots \\ u(N)
-\end{pmatrix} \in \R^{l(N+1)}, \;
-y = \begin{pmatrix}
-y(0) \\ y(1) \\ y(2) \\ \vdots \\ y(N)
-\end{pmatrix} \in \R^{m(N+1)}.
+s: = \begin{pmatrix}
+s(0) \\ s(1) \\ s(2) \\ \vdots \\ s(N)
+\end{pmatrix}.
 \end{align}
+\end{defi}
 
-Respectively, we determine supervectors $r\in \R^{m(N+1)}$ and $e\in \R^{m(N+1)}$. 
+In this way we define the supervectors $u \in \R^{l(N+1)} $ and $e$, $y$, $r \in \R^{m(N+1)}$. 
+Analogously, we determine supervectors $r\in \R^{m(N+1)}$ and $e\in \R^{m(N+1)}$. 
 
 For system \eqref{eq:GP} the relation between $u$ and $y$, and the error $e$ can be written in a linear matrix form 
 \begin{align}
@@ -148,6 +146,7 @@ C x_0 \\ CA x_0 \\ CA^2 x_0 \\ \vdots \\ CA^Nx_0
 \end{pmatrix} \in \R^{m(N+1)}.
 \end{align}
 
+Here is the requirement on $A$ to be stable highlighted. In opposite to vast values for unstable matrices, we get very small terms if $N \gg 1$. Intuitive, this terms can be neglected for all $p > k$ for some $1<k<N$. This usable since we can apply the sparse matrices. In the Chapter \ref{ch:Allpication} we will see, that this is a good tool for application purposes. 
 
 The system \eqref{eq:Gu + d} looks pretty simple. 
 If we know the signal $r$ we want to track, we can find a perfect solution by choosing 
@@ -165,7 +164,7 @@ e = r - y = (I - \t G G^{-1} ) r.
 This error might be non-zero, even for a little model perturbation. 
 %Besides, the matrix $G$ might be singular and do not have an inverse.      
 %Still it can have a right or left inverse. 
-If we can reformulate this idea in a more robust way, we may get a good and simple applicable algorithm, which we call the Inverse Model Algorithm.
+If we could reformulate this idea in a more robust way, we may get a good and simple applicable algorithm, which we call the Inverse Model Algorithm.
 
 \section{Inverse Model Algorithms}
 
@@ -208,7 +207,7 @@ For $\beta$ close to 0 or 2, we get slower convergence and better robustness. Fo
 	\label{ex:ILC:badIA}
 	In the system \eqref{eq:ILC:Sys_ex1} the matrix $D = 2$ is invertible, and we can apply IA.
 	
-	Result for $N = 20$ and $\beta = .1$ is illustrated in Figure  \ref{img:ILC:Ex1_IA20}.
+	Result for $N = 20$ and $\beta = 0.1$ is illustrated in Figure  \ref{img:ILC:Ex1_IA20}.
 			
 	\begin{figure}[ht]
 		\label{img:ILC:Ex1_IA20}
@@ -225,7 +224,7 @@ For $\beta$ close to 0 or 2, we get slower convergence and better robustness. Fo
 			\label{img:ILC:Ex1_IA50}
 		\end{figure}
 	
-	The reason might be the condition number of the matrix $G$, which equals 4.5041e+16. We see: even for a triangular matrix with non-zero eigenvalues, the matrix inversion can be not numerically adjustable.	
+	The reason might be the condition number of the matrix $G$, which equals 4.5041e+16. We see: even for a triangular matrix with non-zero eigenvalues, the matrix inversion can be numerically questionable.
 		
 		
 \end{exam}
@@ -274,7 +273,7 @@ We can modify this algorithm by taking the Moore-Penrose inverse. This is the so
 	0 <\beta < 2
 	\end{align*}
 	$P_{\ker[G^+]}$ denotes the positive orthogonal projection operator onto $\ker[G^+]$.
-	In particular, the zero convergence is attainable, if and only if the tracking signal $r$ is feasible.%$e_0 \in \im [G G^\star]$. 
+	In particular, the zero convergence is attainable, if and only if the tracking signal $r$ is feasible, that is there exists an input $\hat u$, such that $r = G \hat u$. %$e_0 \in \im [G G^\star]$. 
 \end{alg}
 \begin{proof}
 Proof wird hier stehen wenn es so passt 
@@ -299,7 +298,7 @@ However, it  only makes sense if the calculating afford or numerical stability a
 The pseudo inverse has its advantage to equal the right/left inverse, if it exists. Moreover, for right/left inverse we need to restrict the rank requirements, as it exists not for every matrix. 
 The algorithm can be applied for any matrix $G$. 
 
-(Pseudo) Inverse Algorithm belongs to the class of so-called Unit Memory Algorithms -- these are the algorithms, where we assume to 0''remember'' the last trial. 
+(Pseudo) Inverse Algorithm belongs to the class of so-called Unit Memory Algorithms -- these are the algorithms, where we assume to  ''remember'' the last trial. 
 
 \section{Unit Memory Algorithm}
 
@@ -311,8 +310,8 @@ y_{k} &= G u_k + d,  \\ %& &\text{ (The Input Update Rule)}
 e_k &= r - y_k, 
 \end{split}
 \end{align}
-$u_{0} \in \R^{l(N+1)},  \; k =0, \,  1, \, 2, \dots $ .
-This is again a discrete-time system, with time increment $k$. 
+$u_{0} \in \R^{l(N+1)},  \; k =0, \,  1, \, 2, \dots $.
+%This is again a discrete-time system, with time increment $k$. 
 
 To achieve a good tracking at trial $k$ we need to ensure that the norm $||e_k||$ is small. 
 The tracking behavior improves for consecutive iterations if the sequence $||e_k||$ is monotonically decreasing, i.e., 
@@ -397,8 +396,7 @@ However, as we have seen in Example \ref{ex:ILC:badIA}, the calculation of the  
 An algorithm, which does not require the model inversion, might be here of use. 
 
 	 \section{Gradient Algorithms}
-We can begin to define a new algorithm with the requirements on it. We want this algorithm to be monotonic convergent, so we can easily decide on termination criterion. 
-
+We can begin to define a new algorithm with the requirements on it. We want this algorithm to be monotonic convergent.
 The direct calculation provides 
 \begin{align}
 \label{eq:monConv}
@@ -412,7 +410,7 @@ We chose some positive definite weighting matrices $Q(t)$ and $R(t)$, $t = 0, 1,
 \label{eq:SkPrQR}
 \langle y,z\rangle_Q = \sum_{t = 0}^N y(t)^TQ(t)z(t), \; \langle u,v\rangle_R = \sum_{t = 0}^N u(t)^T R(t) v(t),
 \end{align}
-with $y(t), z(t) \in \R^{m}$, $u(t), v(t) \in \R^l$ for $t = 0,1,2, \dots, N$. 
+with $y(t), z(t) \in \R^{m}$, $u(t), v(t) \in \R^l$ for $t = 0,1,2, \dots, N$.
 
 We denote with $||\cdot||_Q$ and $||\cdot||_R$ the associated norms, and set
 \begin{align*}
@@ -441,25 +439,28 @@ Applying the weighted norms on \eqref{eq:monConv} provides
 
 The last inequality is equivalent to 
 \begin{align}
-\frac{1}{2}e_k^T K^T G^T Q GK e_k < e_k^T Q GK e_k, 
+e_k^T K^T G^T Q GK e_k < 2 e_k^T Q GK e_k.
 \end{align}
 
-If we set $K = \beta G^{\star}$ it results in 
+If we set $K = \beta G^{\star}$ this can be implicated by 
 \begin{align}
 \label{eq:ILC:SDA_Herleitung}
 \beta^2 (G G^{\star})^T Q (G G^{\star}) \prec \beta Q G G^{\star} + \beta (Q G G^{\star})^T.
 \end{align}
 
-Since the matrix $Q$ is positive definite, we can find a matrix $Q^{1/2}$, such that $Q = Q^{1/2}Q^{1/2}$. We define the positive semi-definite, symmetric matrix
+Since the matrix $Q$ is positive definite, we can find a positive definite 	 matrix $Q^{1/2}$, such that $Q = Q^{1/2}Q^{1/2}$. We define the positive semi-definite, symmetric matrix
 \begin{align}
 H:= Q^{1/2} G G^{\star} Q^{-1/2} = Q^{1/2} G R^{-1}G^T Q^{1/2}. 
 \end{align}
-This is a congruence transformation over a symmetric matrix, and hence \eqref{eq:ILC:SDA_Herleitung} is equivalent to
+Then 
 \begin{align}
-\beta^2 H^T H \prec \beta (H + H^T) \Leftrightarrow  \beta H^2 \prec 2.
+\label{eq:ILC:SDA_Herleitung2}
+\beta^2 H^T H \prec \beta (H + H^T) \Leftrightarrow  \beta^2  H\prec 2.
 \end{align}
 
-This is satisfied, if $\beta \in (0, 2/\lama(H))$. 
+is equivalent to \eqref{eq:ILC:SDA_Herleitung}, as this is a congruence transformation over a symmetric matrix.
+
+The relation \eqref{eq:ILC:SDA_Herleitung2} is satisfied,  if $\beta \in (0, 2/\lama(H))$. 
 
 
 %which is satisfied if 
@@ -490,7 +491,7 @@ This is satisfied, if $\beta \in (0, 2/\lama(H))$.
 %\end{align}
 
 
-This choice of $K$ determines the \textit{Steepest Descent Algorithm}
+This deliberation inspires the \textit{Steepest Descent Algorithm}. 
 
 \subsection{Steepest Descent Algorithm}
 \begin{alg}
@@ -511,9 +512,9 @@ This choice of $K$ determines the \textit{Steepest Descent Algorithm}
 	\end{align} 
 	is guaranteed if
 	\begin{align*}
-	0 <\beta < \frac{2}{\lama(H)}
+	0 <\beta < \frac{2}{\lama(H)}.
 	\end{align*}
-	In particular, the zero convergence is attainable, if $e_0 \in \im [G G^\star]$. 
+	Convergence to zero is assured in the case that $e_0 \in \im [G G^\star]$ holds.
 \end{alg} 
 \begin{proof}
 	We consider the matrix $L:= ( I -\beta G G^\star)$. Since $0 <\beta < 2/\lama(H)$, it holds the relation
@@ -525,7 +526,7 @@ This choice of $K$ determines the \textit{Steepest Descent Algorithm}
 	\end{align}
 	Hence the matrix $I + L$ has an inverse.
 	 
-	We take an arbitrary $e_0 \in \im [G G^\star]$. Then $e_0 \in \im [I - L]$, so it must exist some $w_0 \in \R^{m (N+1)}$, such that 
+	We take an arbitrary $e_0 \in \im [G G^\star]$. Then $e_0 \in \im [I - L]$, and hence there exists some $w_0 \in \R^{m (N+1)}$, such that 
 	\begin{align}
 	e_0 = (I - L)w_0 \text{ and } w_0 = (I + L)w_1
 	\end{align}
@@ -560,6 +561,8 @@ This yields the convergence of the series, if we let  $p \to \infty$: $\left(||e
 	\end{align}	
 \end{proof}
 
+
+
 An interesting observation is, that via this algorithms got input signal $u_\infty$ is the unique solution of the (minimum norm) optimization problem 
 \begin{align}
 u_\infty = \arg \min_{u \in \R^l(N+1)} \{|| u - u_0||_R^2: \text{ subject to } r = Gu + d\}.
@@ -568,7 +571,8 @@ One consequence is that the choice of $u_0$ has more significance than the simpl
 
 \textbf{Choice of the Weighting Matrices}
 
-With weighting matrices $Q$ and $R$ we can impact the behavior of the algorithm. For example, with the choice of the matrix $Q$ we can weight some elements of inputs and outputs signals, depending on their importance in measuring accuracies and convergence rates, or accent the relative importance of different time intervals in measuring tracking accuracy and required convergence rates. For rapidly convergence in the initial parts of the time interval, we can set $Q(t) = \varepsilon^{2t}\tilde{Q}$ with some time independent $\tilde{Q}$ and $\varepsilon \in (0,1)$. 
+The choice of the weighting matrices $Q$ and $R$ provides us additional degrees of freedom. 
+Using them we can impact the behavior of the algorithm. For example, with the choice of the matrix $Q$ we can weight some elements of inputs and outputs signals, depending on their importance in measuring accuracies and convergence rates, or accent the relative importance of different time intervals in measuring tracking accuracy and required convergence rates. For rapidly convergence in the initial parts of the time interval, we can set $Q(t) = \varepsilon^{2t}\tilde{Q}$ with some time independent $\tilde{Q}$ and $\varepsilon \in (0,1)$. 
 
 The choice of $R(\cdot)$ may arise out of the real need to converge to a minimum input energy solution. 
 Again, using the $\varepsilon$-weighed $R(t) = \varepsilon^{2t}\tilde{R}$ with some fixed $\tilde{R}$, we can accent the input signals at some times $0\leq t_1 \leq t \leq t_2 \leq N$. This can be used if we want to limit the control action at some time intervals, or if we need to reflect the physical units used. 
