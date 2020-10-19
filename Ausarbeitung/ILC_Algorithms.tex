@@ -432,8 +432,8 @@ Recall, that for $R = I$ and $Q = I$ the matrices $G^\star$ and $K^\star$ are ju
 Applying the weighted norms on \eqref{eq:monConv} provides
 \begin{align}
 \begin{split}
-||e_{k+1} ||_Q^2 &= ||e_k - G K e_k||_Q^2 = ||e_k||_Q - 2\langle e_k , G K e_k \rangle_Q^2 + ||G K e_k||_Q^2 \\ 
-&\leq ||e_k||_Q^2, \text{ if } ||GK e_k||_Q^2 < 2 \langle e_k, GK e_k\rangle_Q. 
+||e_{k+1} ||_Q^2 &= ||e_k - G K e_k||_Q^2 = ||e_k||_Q - 2\langle e_k , G K e_k \rangle_Q + ||G K e_k||_Q^2 \\ 
+&< ||e_k||_Q^2, \text{ if } ||GK e_k||_Q^2 < 2 \langle e_k, GK e_k\rangle_Q. 
 \end{split}
 \end{align}
 
@@ -448,47 +448,30 @@ If we set $K = \beta G^{\star}$ this can be implicated by
 \beta^2 (G G^{\star})^T Q (G G^{\star}) \prec \beta Q G G^{\star} + \beta (Q G G^{\star})^T.
 \end{align}
 
-Since the matrix $Q$ is positive definite, we can find a positive definite 	 matrix $Q^{1/2}$, such that $Q = Q^{1/2}Q^{1/2}$. We define the positive semi-definite, symmetric matrix
+Since the matrix $Q$ is positive definite, we can find a positive definite 	 matrix $Q^{1/2}$, such that $Q = Q^{1/2}Q^{1/2}$. 
+
+We write $Q^{-1/2}$ for $\left(Q^{1/2}\right)^{-1}$, and define a matrix 
 \begin{align}
-H:= Q^{1/2} G G^{\star} Q^{-1/2} = Q^{1/2} G R^{-1}G^T Q^{1/2}. 
+H :=  Q^{1/2} G G^\star Q^{-1/2}. 
 \end{align}
-Then 
+We observe the matrix $H$ has the same eigenvalues as $G G^{\star}$: 
 \begin{align}
-\label{eq:ILC:SDA_Herleitung2}
-\beta^2 H^T H \prec \beta (H + H^T) \Leftrightarrow  \beta^2  H\prec 2.
+\begin{split}
+\det (I - \lambda H) &= \det \left(I - \lambda Q^{1/2} G G^\star Q^{-1/2}\right) \\
+&= \det\left(Q^{1/2}\right)\det\left(I - \lambda G G^\star\right) \det\left(Q^{1/2}\right)^{-1} \\
+&= \det\left(I - G G^\star\right) \text{ for any } \lambda \in \R. 
+\end{split}
 \end{align}
 
-is equivalent to \eqref{eq:ILC:SDA_Herleitung}, as this is a congruence transformation over a symmetric matrix.
+We rewrite \eqref{eq:ILC:SDA_Herleitung} as 
+\begin{align}
+\beta^2 H^T H \prec \beta (H + H^T). 
+\end{align}
 
-The relation \eqref{eq:ILC:SDA_Herleitung2} is satisfied,  if $\beta \in (0, 2/\lama(H))$. 
-
-
-%which is satisfied if 
-%\begin{align}
-%(G K )^\star G K  \prec G K + (GK)^\star.
-%\end{align}
-%%with
-%%\begin{align}
-%%(GK)^\star = K^\star G^\star.
-%%\end{align}
-%
-%If we set $K = \beta G^\star$ for some scalar $\beta > 0$, the last matrix inequality becomes 
-%\begin{align}
-%\beta (G G^\star)^2 - 2 G G^\star \prec 0.
-%\end{align}
-%
-%We choose  $\beta \in (0, \tilde{\beta})$, with  $\tilde{\beta} = \frac{2}{\sigma_{\max}^2}$. The $\sigma_{\max}:= \sigma_{\max}(G) = \sigma_{\max}(G^\star) := \sqrt{\lama(G G^\star)}$ denotes here the square root taken over the maximum eigenvalue of the matrix $G G^\star$.%denotes here the maximum singular value of the matrix $G$. 
-%
-%Then the last inequality is fulfilled, since 
-%\begin{align}
-%\begin{split}
-%\lambda_{\max}\left( \frac{1}{\sigma_{\max} ^2}(G G^\star)^2 \right)  = \frac{1}{\sigma_{\max}^2} \sigma_{\max}^4 = \sigma_{\max}^2 = \lama(GG^\star).
-%\end{split}
-%\end{align} 
-%and hence
-%\begin{align}
-%\frac{1}{2}\beta (G G^\star)^2 - G^\star G  \prec \frac{1}{\sigma_{\max}^2} (G^\star G)^2 - G G^\star \preceq 0.
-%\end{align}
+This relation is fulfilled if 
+\begin{align}
+0 < \beta < \frac{2}{\lama(H)}. 
+\end{align}
 
 
 This deliberation inspires the \textit{Steepest Descent Algorithm}. 
@@ -517,48 +500,38 @@ This deliberation inspires the \textit{Steepest Descent Algorithm}.
 	Convergence to zero is assured in the case that $e_0 \in \im [G G^\star]$ holds.
 \end{alg} 
 \begin{proof}
-	We consider the matrix $L:= ( I -\beta G G^\star)$. Since $0 <\beta < 2/\lama(H)$, it holds the relation
-	\begin{align}
-	(1 - \beta || G^\star || \cdot || G || )I &\preceq (I - \beta G G^\star),\\
-	&\Downarrow\\
-	\label{eq:alg:proof1}
-	\underbrace{(2 - \beta || G^\star || \cdot || G || )}_{> 0} I &\preceq (I + L).
-	\end{align}
-	Hence the matrix $I + L$ has an inverse.
-	 
-	We take an arbitrary $e_0 \in \im [G G^\star]$. Then $e_0 \in \im [I - L]$, and hence there exists some $w_0 \in \R^{m (N+1)}$, such that 
-	\begin{align}
-	e_0 = (I - L)w_0 \text{ and } w_0 = (I + L)w_1
-	\end{align}
-	for some $w_1 \in \R^{m(N+1)}$. 
-	
-	As next, since $L^\star = L$, for any $p \in \N$ it holds: 
-	\begin{align}
-\begin{split}
-	\sum_{k = 0}^p ||e_k||^2 &= \sum_{k = 0}^p \langle L^k e_0, L^k, e_0  \rangle_Q = \sum_{k = 0}^p\langle e_0 , L^{2k}e_0\rangle_Q = \sum_{k = 0}^p \langle e_0, L^{2k} (I - L^2) w_1 \rangle_Q \\
-	&= \langle e_0, \left[\left(\sum_{k = 0}^p L^{2k}\right) (I - L^2)\right]w_1\rangle_Q = \langle e_0 , \left( I - L^{2(p+1)}\right)w_1\rangle \\
-	&\leq ||e_0||_Q ||w_1||_Q \left(1 + ||L||^{2(p+1)}\right) \leq 2 ||e_0||_Q ||w_1||_Q.
-\end{split}	\end{align}
-This yields the convergence of the series, if we let  $p \to \infty$: $\left(||e_k||^2\right)_k$ is a null sequence, what proofs  
-	\begin{align}
-	\lim_{k \to \infty}e_k = 0.
-	\end{align}
-	
-	Now, let $e_0 \in \R^{m(N+1)}$ be arbitrary. Since $\R^{m ( N+1)} = \ker [I - L] \oplus \im [I - L]$, we can write $e_0$ as 
-	\begin{align}
-	e_0 = e_{\ker} + e_{\im},
-	\end{align}
-	where $e_{\ker} \in \ker [I - L]$ and $e_{\im} \in \im [I - L]$ are uniquely defined.
-	
-	Hence 
-	\begin{align}
-	e_k = L^ke_{\im} + e_{\ker},
-	\end{align}
-	and as $L^ke_{\im}$ converges to 0 for $k \to \infty$.
-	This shows \eqref{eq:SDAErrLim}, as  
-	\begin{align}
-	\lim_{k \to \infty} e_k = e_{\ker} = P_{\ker[GG^\star]}e_0 = P_{\ker[G^\star]}e_0.
-	\end{align}	
+
+To prove the statement remember that, as $GG^\star$ is a symmetric matrix, we can write $e_0$ as 
+\begin{align}
+e_0 = e_{\im} + e_{\ker} \in \im(G G^\star) \oplus \ker(G G^\star). 
+\end{align}
+
+The symbol $\oplus$ denotes here the direct sum of two vector spaces. 
+
+In error evolution we get 
+\begin{align}
+e_{k+1} = (I - \beta G G^\star) e_k = (I - \beta G G^\star)^k e_{\im} + e_{\ker}.
+\end{align}
+
+For convergence to $e_{\ker}$ it is enough  to show that $\lama(I - \beta G G^\star) < 1$, because $(I - \beta G G^\star)$ is a symmetric matrix. 
+
+Let $\mu \in \R$ be an eigenvalue of the matrix $(I - \beta G G^{\star})$. Then there exists some $0 \neq v \in \R^{l (N+1)}$, such that 
+\begin{align}
+	(I -\beta G G^{\star})v = \mu v \Rightarrow G G^{\star} v = \frac{1 - \mu}{\beta}v. 
+\end{align}
+
+Since our choice of $\beta$, the inequality \eqref{eq:ILC:SDA_Herleitung} holds and implies 
+\begin{align}
+\beta^2 v^T (G G^\star)^T Q (G G^\star) \prec 2\beta v^T(Q G G^\star)v 
+\Rightarrow (1 - \mu)^2 ||v||_Q < 2 (1 - \mu) ||v||_Q. 
+\end{align}
+
+This is the case if and only if the absolute value of $(1 - \mu)$ is less than 2: 
+\begin{align}
+|1 - \mu| < 2. 
+\end{align}
+
+It concludes $|\mu|<1$, which proves the convergence. 
 \end{proof}
 
 
