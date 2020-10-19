@@ -4,8 +4,8 @@
 The listed algorithms have their theoretical benefits, but they might not be good for real issues. The numeric obstacles require the trade-offs between robustness, stability, and calculation time. The computer memory has limited capacity; systems discretization adds the plant errors. We considered the examples do not have a physical reference system. Now, we try to apply the algorithms on the more ''real'' plant and see the problems that occur. 
 
 
-
-	\begin{exam}
+\section{The case $D = 0$}
+		\begin{exam}
 		 We consider a dynamical system, which describes a flexible satellite. As known from \cite{SchRC} the continuous-time transfer function has the form  
 		\begin{align}
 		G(s) = \frac{.036(s + 25.28)}{s^2(s^2 + .0396s + 1)}. 
@@ -70,37 +70,35 @@ For new system all the requirements we considered are satisfied. However, we do 
 \textit{It looks like something we can improve. However, for $Ts = 10^{-3}$s we get $N = 10^3$ time steps even for one iteration second. The matrix $G$ has  $10^9$ elements and can not easily be handled.}
 \end{example}
 
+\section{Long time horizon}
+
 	In example \ref{ex:ILC:badIA} the Inverse Model Algorithm is not applicable even for $N = 50$. 
 	It means, we need a trade off between the time horizon and robustness.
-	However, for real problems the sample times are mostly small, and hence even for one second of the simulation we get huge number for time horizon. Already for SISO system the matrix $G$ will have $N^2$ elements. Our algorithms become unusable for casual applications since they need vast masses of memory.	We can reduce the memory demand by using the sparse matrices: the matrix $G$ is lower triangular, and we can save in this way a lot of space. However, in SDA we need the matrix $G G^{\star}$ to calculate the error $(e_k)_{k\geq0}$, which is not triangular anymore. Can we also here use the advantage of the sparse matrices? 
+	However, for real problems the sample times are mostly small, and hence even for one second of the simulation we get huge number for time horizon. Already for SISO system the matrix $G$ will have $N^2$ elements. Our algorithms become unusable for casual applications since they need vast masses of memory.	
 	
-	Let us look at the original system \ref{eq:GP}. At time $t$ the system output equals 
+	One possibility to reduce the wasted memory is to split our system in the smaller ones. Let us denote the time horizon length with $N_{\max}$, and choose an $N$ with $1<N\leq N_{\max}$. 
+	We can apply our algorithms on the systems with the same state space description, but different initial values. For simplicity, let us assume, that we can divide our time horizon $0,1,2,\dots, N_{\max}$ in $p$ equal parts with time horizon of length $N$, and the matrix $D = 0$. 
+	
+	Then the initial condition for the $p$-th application of the algorithm changes as 
 	\begin{align}
-	y(t) = C x(t) + D u(t) = C(A^t x_0 + \sum_{\tau = 0}^t A^{t - \tau} u(\tau)) + D u(t).
+	x_{0_p}= A^p x_0 + \sum_{\rho = 0}^{p - 1} \sum_{t = \rho (N + 1)}^{\rho (N+2)} A^{(N+2)\rho - t} B u(t). 
 	\end{align}
 	
-	Assuming that our model is stable,  we observe the ''past'' terms do not impact our output as mach as the newest ones. We can put this terms in the sum away and get the output 
+	However, for large values of $p$ the term $A^{(N+2)\rho - 1 }\approx 0$ for $\rho > p$.
+	We can estimate it as 
 	\begin{align}
-	\t y(t) = C\left(A^t x0 + \sum_{\tau = k}^t A^{t - \tau} u(\tau)\right) + D u(t). 
+	||x_{0_p}|| &\leq  \sum_{\rho = 0}^{p^{\star}} \sum_{t = \rho (N + 1)}^{\rho (N+2)} ||A^{(N+2)\rho - t} B u(t)|| \\
+	&+
+	\underbrace{\sum_{\rho = p^\star+1}^{p^{\star}} \sum_{t = \rho (N + 1)}^{\rho (N+2)} ||A^{(N+2)\rho - t} B u(t)||}_{\approx 0} + \underbrace{||A^p x_0||}_{\approx 0} 
 	\end{align}
+	for some $1<p^{\star}<p$ large enough, and then we need to calculate only the first $p^\star (N+2)$ terms, independent on groving $p$. 
 	
-	The error can be estimated as 
+	But what if $N < p^\star$? Our matrix $G$ contains then these small terms, which cause the bad condition number. 
+	We can remove them from $G$ as well -- this also has an advantage, that we can use the sparse matrices for calculations and decrease the used memory drastically. 
+	
+	To be able to chose this number $p^\star$, let us consider the ''reduced'' lifted system  
 	\begin{align}
-	||y(t) - \t y(t)|| &= ||C \sum_{\tau = 0}^k A^{t - \tau} B u(\tau)|| = 
-	||C \sum_{\tau = k}^t A^\tau u(t - \tau) B|| \\ \nonumber
-	&\leq ||C|| \, ||B|| \sum_{\tau = k}^t||A||^\tau ||u(t - \tau)||.
-	\end{align}
-	
-%	Using the spectral norm, the last inequation results in 
-%	\begin{align}
-%	||C|| \, ||B|| \sum_{\tau = k}^t||A||^\tau}||u(t - \tau)|| \leq ||C||\, ||B|| \frac{||A||^k - ||A||^t}{1 - ||A||}. 
-%	\end{align}
-	
-	Since our system $(A,B,C,D)$ is assumed to be stable, the last inequation converges for $t \to \infty$.
-	
-	So, we can reduce our system to 
-	\begin{align}
-	\t y = \t G + d, 
+	\t y = \t G + d 
 	\end{align}
 	with 
 	\begin{align}
@@ -109,114 +107,38 @@ For new system all the requirements we considered are satisfied. However, we do 
 	CB & D \\
 	C A B & CB & D\\
 	\vdots & \vdots & \vdots & \ddots \\
-	C A^{k-1} B & C A^{k-2}B & C A^{k-3}B &\dots& D \\
-	0           & C A^{k-1} B & C A^{k-2} B & \dots & CB & D\\
-	0 & 0 & C A^{k-1} B & \dots & CAB & CB & D \\
+	C A^{p^\star-1} B & C A^{p^\star-2}B & C A^{p^\star-3}B &\dots& D \\
+	0           & C A^{p^\star-1} B & C A^{p^\star-2} B & \dots & CB & D\\
+	0 & 0 & C A^{p^\star-1} B & \dots & CAB & CB & D \\
 	\vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \ddots \\
-	0 & 0 & 0 & \dots & C A^{k-1}& C A^{k-2}B& CA^{k-3}B &\dots & D
+	0 & 0 & 0 & \dots & C A^{p^\star-1}& C A^{p^\star-2}B& CA^{p^\star-3}B &\dots & D
 	\end{pmatrix}.
 	\end{align}
 	
-	Furthermore, for a given tolerance $\varepsilon>0$, this $k$ with the estimation 
+	Then for a given tolerance $\varepsilon>0$ and for time $t \in \{1,2, \dots , N_{\max}\}$, the difference between the ''normal'' and ''reduced'' output equals
 	\begin{align}
-	\varepsilon \geq ||C||\, ||B|| \frac{||A||^k - ||A||^N}{1 - ||A||} \geq ||C|| \, ||B|| \frac{||A||^k - ||A||^{\t N}}{1 - ||A||}
-	\end{align}
-	we see, that this $k$ does not change for groving $N$, if the normm $||A|| < 1$ -- this is 
-	
-	At the beginning of the Chapter \ref{ch:ILCAlg} we assumed the system $(A, B, C, D)$ to be stable. 
-	This has a consequence, that for large $p \gg 1$, term $C A^p B \approx 0$. With other words, after some $1<p<N$ we possibly can neglect the terms $C A^k B$ for $k = p, p+1, \dots, N$. Moreover, this number $p$ stays independent on the number of time steps $N$, if $p<N$. 
-	
-	\begin{theo}
-		For the system 
-		\begin{align}
-		\t y = \t G + d 
-		\end{align}
-		with 
-		\begin{align}
-		\t G = \begin{pmatrix}
-		D  \\
-		CB & D \\
-		C A B & CB & D\\
-		\vdots & \vdots & \vdots & \ddots \\
-		C A^{p-1} B & C A^{p-2}B & C A^{p-3}B &\dots& D \\
-		0           & C A^{p-1} B & C A^{p-2} B & \dots & CB & D\\
-		0 & 0 & C A^{p-1} B & \dots & CAB & CB & D \\
-		\vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \ddots \\
-		0 & 0 & 0 & \dots & C A^{p-1}& C A^{p-2}B& CA^{p-3}B &\dots & D
-		\end{pmatrix},
-		\end{align}
-		for some $1<p<N$
-		the error between the original system output $y$ and $\t y$ can be estimated as 
-		\begin{align}
-		||y - \t y|| \leq ||C||_1 \, ||B||_1 \frac{||A||_1^p - ||A||_1^{N}}{1 - ||A||_1}. 
-		\end{align}
-		
-		Furthermore, for a given tolerance $\varepsilon>0$, this $p$ does not change for groving $N$, if $p<N$. 
-		{\color{red} Abschaetzung ist sehr grob! Man kann sich was besseres ausdenken.}	
-		
-	\end{theo}
-\begin{proof}
-	We consider the two lifted matrices $G$ and $\t G$, where$\t G$ is a lower triangular matrix, with terms as in $G$, but where all $C A^k B$ for $k\geq p$ are set to 0 as given above. 
-	
-	Then the matrix $\t G \t G'$ as well as $\t G \t G^+$ also has less non-zero elements as the original one $G G'$, $G G^+$ -- and we can use the advantage of the sparse matrices. 
-	To see the error we get by this reduction, let us consider the difference of the outputs
-	\begin{align}
-	||y - \t y|| = ||G u + d - \t G u + d || = ||\Delta G u|| \leq ||\Delta G || ||u||, 
-	\end{align}
-	where 
-	\begin{align}
-	\Delta G = 
-\begin{pmatrix}
-	0  \\
-	0 & 0 \\
-	0 & 0 & 0\\
-	\vdots & \vdots & \vdots & \ddots \\
-	0 & 0 & 0 &\dots& 0 \\
-	C A^{p} B           & 0 & 0& \dots & 0 & 0\\
-	C A^{p+1} B & C A^{p} B & 0& \dots &0 & 0 & 0 \\
-	\vdots & \vdots & \ddots & \ddots & \vdots & \vdots & \vdots & \ddots \\
-	C A^{N-1} B & C A^{N-2} B & \dots & C A^p B& 0& 0 & 0 &\dots & 0
-	\end{pmatrix}
+	||y(t) - \t y(t)|| = ||\sum_{\tau = p^\star}^{t} C A^{\tau} B u(p^\star - \tau)|| \leq ||C|| \, ||B|| \sum_{\tau = p^\star}^t ||A||^\tau \max_{\eta = 0}^{p^\star}||u(\eta)||. 
 	\end{align}
 	
-	With other words, the matrix $\Delta G$ collects all the ''small'' terms. 
+	The input estimation $\max_{\eta = 0}^{p^\star}||u(\eta)||$ can be often replaced by some $||u_{\max}||$, where $u_{\max}$ is the largest possible input. 
 	
-	For example, for 1-norm we get 
-\begin{align}
-||\Delta G||_1  \leq ||C||_1\, ||B||_1 \sum_{l = p}^{N-1}||A||_1^l &= ||C||_1 \, ||B||_1 \frac{||A||_1^p - ||A||_1^N}{1 - ||A||_1} 
-\\
-&\leq ||C||_1 \, ||B||_1 \frac{||A||_1^p - ||A||_1^{\t N}}{1 - ||A||_1}
-\end{align}	
-for any $\t N > N$. That means, that even for a longer time horizon we still can use the same $p$ for reduced matrix, without increasing the error. 
-\end{proof}
+	Then for a given tolerance $\varepsilon$ we get 	
+	\begin{align}
+	\varepsilon \geq ||C||\, ||B|| \frac{||A||^{p^\star} - ||A||^{N_{\max}}}{1 - ||A||} ||u_{\max}|| \geq ||C|| \, ||B|| \frac{||A||^k - ||A||^{N_{\max} + \t N}}{1 - ||A||}||u_{\max}||.
+	\end{align}
+	for any $\t N \geq 0$. 
 	
-With sparse matrices we can reduce the used memory, but it still can be not enough for large $N$. That means, that we need to split our supervectors in the smaller ones, and hope, that the result is not much worse than the original one. 
-%
-%Let us denote with $\mathtt{N}$ the original time horizon, and with $N$ the part of it, we apply the algorithms on. 
-%
-%
-%	
-%	
-%	
-%	
-%	
-%	
-%
-%\begin{example}[contined]
-%\textit{Let us use the Steepest descent algorithm, and choose put each time $N =100$ elements into the algorithm. 
-%The result is depicted in the Figure \ref{img:Appl:Sat_SDA} We can see, that steepest descent algorithm converges very fast to tracking value, and even for 20 iterations we get perfect tracking. 
-%}
-%	\begin{figure}[ht]
-%	\centering
-%	\includegraphics[width=\textwidth]{fig/Satellite_SDA.jpg}
-%	\caption{LQR Solution for the system \eqref{eq:Appl:satellite_sys}}
-%	\label{img:Appl:Sat_SDA}
-%\end{figure}
-%
-%
-%
-%\end{example}    
-
+	We can see that for a groving time horizon our $p^\star$ stays the same, without need to determine it again. 
+	
+	\section{Online learning} 
+	TODO: ersetzen durch's Beispiel und sagen das als notiz
+	
+	In the real practice we usually do not have all the data immediately. We get the system output gradually over time, and hence we can apply only the input and output signals so-fare. That means we learn our system ''online'', and feed the current data we have already got. 
+	
+ 	As we have seen before, there is no need to calculate the reduced system for a groving time horizon length. 
+	
+	
+	
 	
 	
 	

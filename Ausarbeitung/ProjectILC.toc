@@ -32,20 +32,26 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {3}Application}{23}{chapter.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Robustness of the ILC Algorithms}{29}{chapter.4}%
+\contentsline {section}{\numberline {3.1}The case $D = 0$}{23}{section.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.1}Uncertain Lifted System}{29}{section.4.1}%
+\contentsline {section}{\numberline {3.2}Long time horizon}{25}{section.3.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}Full-Block S-Procedure}{33}{section.4.2}%
+\contentsline {section}{\numberline {3.3}Online learning}{26}{section.3.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Questions}{39}{chapter.5}%
+\contentsline {chapter}{\numberline {4}Robustness of the ILC Algorithms}{27}{chapter.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Anhang}{42}{chapter*.15}%
+\contentsline {section}{\numberline {4.1}Uncertain Lifted System}{27}{section.4.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {.1}Beweise}{42}{section.Alph0.1}%
+\contentsline {section}{\numberline {4.2}Full-Block S-Procedure}{31}{section.4.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {.1.1}Beweis 1}{42}{subsection.Alph0.1.1}%
+\contentsline {chapter}{\numberline {5}Questions}{37}{chapter.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Eidesstattliche Erkl\"arung}{43}{section*.16}%
+\contentsline {section}{Anhang}{40}{chapter*.15}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {A}Zusammenfassung und Ausblick}{45}{appendix.A}%
+\contentsline {section}{\numberline {.1}Beweise}{40}{section.Alph0.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {.1.1}Beweis 1}{40}{subsection.Alph0.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Eidesstattliche Erkl\"arung}{41}{section*.16}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {A}Zusammenfassung und Ausblick}{43}{appendix.A}%
