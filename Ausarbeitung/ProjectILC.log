@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.26)  20 OCT 2020 01:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.26)  25 OCT 2020 01:33
 entering extended mode
 **./ProjectILC.tex
 (ProjectILC.tex
@@ -1429,12 +1429,7 @@ LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\new@ifnextchar' on input line 171.
 
-(ProjectILC.lof
-
-LaTeX Warning: Reference `eq:ILC:Ex1_IA20' on page I undefined on input line 9.
-
-
-)
+(ProjectILC.lof)
 \tf@lof=\write7
 \openout7 = `ProjectILC.lof'.
 
@@ -1514,13 +1509,13 @@ LaTeX Warning: Hyper reference `acro:R' on page V undefined on input line 231.
  (Basics.tex
 Chapter 1.
 
-Underfull \vbox (badness 2564) has occurred while \output is active []
+Underfull \vbox (badness 3219) has occurred while \output is active []
 
  [1
 
 
 ]
-Overfull \hbox (3.87999pt too wide) in paragraph at lines 117--117
+Overfull \hbox (3.87999pt too wide) in paragraph at lines 120--120
 []\OT1/cmr/bx/n/17.28 Stabilizing Con-troller based on Sep-a-ra-tion Prin-
  []
 
@@ -1534,98 +1529,63 @@ Overfull \hbox (3.87999pt too wide) in paragraph at lines 117--117
 ]
 Chapter 2.
 [5]
-<fig/LQR_ex.jpg, id=271, 5781.6pt x 2927.93875pt>
-File: fig/LQR_ex.jpg Graphic file (type jpg)
-<use fig/LQR_ex.jpg>
-Package pdftex.def Info: fig/LQR_ex.jpg  used on input line 88.
-(pdftex.def)             Requested size: 441.01773pt x 223.33878pt.
- [6]
+<fig/Ex1_LQR.jpg, id=274, 3011.25pt x 1578.89874pt>
+File: fig/Ex1_LQR.jpg Graphic file (type jpg)
+<use fig/Ex1_LQR.jpg>
+Package pdftex.def Info: fig/Ex1_LQR.jpg  used on input line 85.
+(pdftex.def)             Requested size: 441.01773pt x 231.23524pt.
+ [6 <./fig/Ex1_LQR.jpg>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [7 <./fig/LQR_ex.jpg>] [8]
+ [7]
+[8]
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 201.
-
-
-Package caption Warning: \label without proper reference on input line 213.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `img:ILC:Ex1_IA20' on page 9 undefined on input line 2
-10.
-
-<fig/Ex1_IA20.jpg, id=310, 3854.4pt x 2062.70625pt>
-File: fig/Ex1_IA20.jpg Graphic file (type jpg)
-<use fig/Ex1_IA20.jpg>
-Package pdftex.def Info: fig/Ex1_IA20.jpg  used on input line 214.
-(pdftex.def)             Requested size: 441.01773pt x 235.99446pt.
-
-LaTeX Warning: Reference `eq:ILC:Ex1_IA20' on page 9 undefined on input line 21
-5.
-
-
-LaTeX Warning: Reference `eq:ILC:Ex1_IA20' on page 9 undefined on input line 21
-5.
-
-<fig/Ex1_IA50.jpg, id=312, 4015.0pt x 2149.02875pt>
-File: fig/Ex1_IA50.jpg Graphic file (type jpg)
-<use fig/Ex1_IA50.jpg>
-Package pdftex.def Info: fig/Ex1_IA50.jpg  used on input line 222.
-(pdftex.def)             Requested size: 441.01773pt x 236.03319pt.
-[9] [10 <./fig/Ex1_IA20.jpg> <./fig/Ex1_IA50.jpg>]
-<fig/ex1_PIA.jpg, id=342, 3854.4pt x 2062.70625pt>
-File: fig/ex1_PIA.jpg Graphic file (type jpg)
-<use fig/ex1_PIA.jpg>
-Package pdftex.def Info: fig/ex1_PIA.jpg  used on input line 288.
-(pdftex.def)             Requested size: 441.01773pt x 235.99446pt.
-
-Underfull \vbox (badness 5985) has occurred while \output is active []
-
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 196.
+<fig/Ex1_IA.jpg, id=313, 3011.25pt x 1578.89874pt>
+File: fig/Ex1_IA.jpg Graphic file (type jpg)
+<use fig/Ex1_IA.jpg>
+Package pdftex.def Info: fig/Ex1_IA.jpg  used on input line 207.
+(pdftex.def)             Requested size: 441.01773pt x 231.23524pt.
+<fig/Ex1_IAbad.jpg, id=317, 3011.25pt x 1578.89874pt>
+File: fig/Ex1_IAbad.jpg Graphic file (type jpg)
+<use fig/Ex1_IAbad.jpg>
+Package pdftex.def Info: fig/Ex1_IAbad.jpg  used on input line 215.
+(pdftex.def)             Requested size: 441.01773pt x 231.23524pt.
+ [9] [10 <./fig/Ex1_IA.jpg> <./fig/Ex1_IAbad.jpg>]
+<fig/Ex1_PIA.jpg, id=344, 3011.25pt x 1578.89874pt>
+File: fig/Ex1_PIA.jpg Graphic file (type jpg)
+<use fig/Ex1_PIA.jpg>
+Package pdftex.def Info: fig/Ex1_PIA.jpg  used on input line 282.
+(pdftex.def)             Requested size: 441.01773pt x 231.23524pt.
  [11]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 3884) has occurred while \output is active []
 
- [12 <./fig/ex1_PIA.jpg>]
+ [12 <./fig/Ex1_PIA.jpg>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [13]
-Underfull \vbox (badness 4353) has occurred while \output is active []
-
- [14]
-[15]
-Underfull \hbox (badness 10000) in paragraph at lines 503--503
+[14]
+Underfull \hbox (badness 10000) in paragraph at lines 501--501
 
  []
 
-[16]
-<fig/Ex1_SDA50.jpg, id=419, 4015.0pt x 2149.02875pt>
-File: fig/Ex1_SDA50.jpg Graphic file (type jpg)
-<use fig/Ex1_SDA50.jpg>
-Package pdftex.def Info: fig/Ex1_SDA50.jpg  used on input line 558.
-(pdftex.def)             Requested size: 441.01773pt x 236.03319pt.
- [17 <./fig/Ex1_SDA50.jpg>]
-Overfull \hbox (24.54855pt too wide) in paragraph at lines 582--583
-[]\OT1/cmr/m/it/12 Assume, that the ma-trix $\OML/cmm/m/it/12 GG[]$ \OT1/cmr/m/
-it/12 has $\OML/cmm/m/it/12 q$ \OT1/cmr/m/it/12 non-zero or-dered eigen-val-ues
- $\OML/cmm/m/it/12 []; []; [] ; []$\OT1/cmr/m/it/12 .
- []
-
-[18]
-
-LaTeX Warning: Reference `alg: SDA' on page 19 undefined on input line 648.
-
-<fig/Ex1_SDAvsES.jpg, id=444, 4015.0pt x 2149.02875pt>
-File: fig/Ex1_SDAvsES.jpg Graphic file (type jpg)
-<use fig/Ex1_SDAvsES.jpg>
-Package pdftex.def Info: fig/Ex1_SDAvsES.jpg  used on input line 661.
-(pdftex.def)             Requested size: 441.01773pt x 236.03319pt.
-[19] [20 <./fig/Ex1_SDAvsES.jpg>]) [21]
+[15] [16]
+<fig/Ex1_SDA.jpg, id=425, 3011.25pt x 1578.89874pt>
+File: fig/Ex1_SDA.jpg Graphic file (type jpg)
+<use fig/Ex1_SDA.jpg>
+Package pdftex.def Info: fig/Ex1_SDA.jpg  used on input line 569.
+(pdftex.def)             Requested size: 441.01773pt x 231.23524pt.
+ [17 <./fig/Ex1_SDA.jpg>] [18] [19]
+<fig/Ex1_SDAvsSoE.jpg, id=460, 3011.25pt x 1578.89874pt>
+File: fig/Ex1_SDAvsSoE.jpg Graphic file (type jpg)
+<use fig/Ex1_SDAvsSoE.jpg>
+Package pdftex.def Info: fig/Ex1_SDAvsSoE.jpg  used on input line 684.
+(pdftex.def)             Requested size: 441.01773pt x 231.23524pt.
+ [20 <./fig/Ex1_SDAvsSoE.jpg>])
+[21] [22]
 \openout2 = `Application.aux'.
 
- (Application.tex [22
-
-
-
-]
+ (Application.tex
 Chapter 3.
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
@@ -1638,8 +1598,12 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 
 Underfull \vbox (badness 3386) has occurred while \output is active []
 
- [23]
-<fig/Ex3_LQR.jpg, id=492, 3854.4pt x 2062.70625pt>
+ [23
+
+
+
+]
+<fig/Ex3_LQR.jpg, id=500, 3854.4pt x 2062.70625pt>
 File: fig/Ex3_LQR.jpg Graphic file (type jpg)
 <use fig/Ex3_LQR.jpg>
 Package pdftex.def Info: fig/Ex3_LQR.jpg  used on input line 65.
@@ -1716,42 +1680,40 @@ Package logreq Info: Writing requests to 'ProjectILC.run.xml'.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 329.
  ) 
 Here is how much of TeX's memory you used:
- 31849 strings out of 480799
- 601824 string characters out of 2895784
- 1258888 words of memory out of 3000000
- 46931 multiletter control sequences out of 15000+200000
+ 31851 strings out of 480799
+ 601829 string characters out of 2895784
+ 1259014 words of memory out of 3000000
+ 46933 multiletter control sequences out of 15000+200000
  559515 words of font info for 136 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,27n,66p,941b,1190s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmbx10.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cm/cmbx12.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/f
-onts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/Strel/AppData/Local/Progra
-ms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Strel/AppDat
-a/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users
-/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.
+/cm/cmbx12.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmbxti10.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Strel/AppData/Local/Progr
+ams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Strel/AppDat
+a/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users
+/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.
 pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfon
-ts/cm/cmmi12.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/
-public/amsfonts/cm/cmmi6.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/
-fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Strel/AppData/Local/Programs
-/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Strel/AppData/Lo
-cal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Stre
-l/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C
-:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
-cmr6.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/a
-msfonts/cm/cmr7.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/cm/cmr8.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmsl12.pfb><C:/Users/Strel/AppData/Local/Progr
-ams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Strel/AppDat
-a/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/
-Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pf
-b><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmti12.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/symbols/msam10.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 
-2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on ProjectILC.pdf (51 pages, 2264210 bytes).
+ts/cm/cmmi6.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/p
+ublic/amsfonts/cm/cmmi8.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Strel/AppData/Local/Programs/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Strel/AppData/Loc
+al/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Strel
+/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/
+Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
+r8.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/ams
+fonts/cm/cmsl12.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Strel/AppData/Local/Prog
+rams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Strel/AppDat
+a/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users
+/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/ms
+am10.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/a
+msfonts/symbols/msbm10.pfb>
+Output written on ProjectILC.pdf (51 pages, 1712900 bytes).
 PDF statistics:
- 805 PDF objects out of 1000 (max. 8388607)
+ 807 PDF objects out of 1000 (max. 8388607)
  269 named destinations out of 1000 (max. 500000)
  272 words of extra memory for PDF output out of 10000 (max. 10000000)
 

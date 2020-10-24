@@ -5,11 +5,13 @@
 We consider a  discrete time iteration
 \begin{align}
 \label{eq:GP}
+\begin{split}
 &\begin{array}{c c c c c}
 x(t+1) &= &A x(t)& + &B u(t)  \\
 y ( t) &= &C x(t)&  + &D u(t),\\ 
 \end{array}\\
 &\; \;\;x(0) =x_0 , \; \;  t \geq 0,
+\end{split}
 \end{align}
  with error 
 \begin{align}
@@ -23,7 +25,8 @@ Here $A \in \mathbb{R}^{n\times n}$, $B \in \mathbb{R}^{n \times l}$, $C \in \R^
 
 
 We aim to find a ''good'' input signal $u(t)$, such that the reference $r(t)$ is tracked possibly well for all $t \geq 0$. With other words, it means, that the error norm $||e(\cdot)||$ must stay small in some  $||\cdot||$, e.g. the $L_2$-norm.
-We can achieve it by finding a stabilizing controller -- such that our system state goes not to infinity over time $t$. 
+To find it we usually design a stabilizing controller 
+ -- such that our system state goes not to infinity over time $t$. 
 To design it, we must first clearly define what stability means. Since let us first formulate the common definitions and entertain ideas of a stabilizing controller design. 
 
 \section{Definitions}
@@ -127,7 +130,7 @@ First let us consider the case $y(\cdot) = x(\cdot)$.
 %
 %It is also important for finite time horizon: as we have seen before, the supervector description contains terms $A^j$ of power $j = 0, 1, 2, \dots , N-1$. For large $N$ the elements of the matrix $G$ become very large (in its absolute value) and are numerically not achievable. 
 
-Then the system \eqref{eq:GP} becomes stable, if we choose $u(t) = -Fx(t)$ with some matrix $F$, such that $(A - BF)$ is stable.
+Then the system \eqref{eq:GP} becomes stable, if we choose $u(t) = -Fx(t)$, $t \geq 0$, with some matrix $F$, such that $(A - BF)$ is stable.
 
 Clearly, if the system is (asymptotically) stabilizable, we can find such matrix $F$. 
 
@@ -136,15 +139,18 @@ But what is a ''good'' choice for $F$? One option is the so-called Linear-Quadra
 \label{eq:costFcn}
 V(u(\cdot)) = \sum_{t = 0}^\infty \left( (x(t))^T Q (x(t)) + u(t)^T R u(t)\right),
 \end{align}
-overall stabilizing piecewise constant input signals $u(\cdot) \in \R^m$, and with $x(\cdot)$ satisfying \eqref{eq:GP} (with $C = I$ and $D = 0$). 
-$Q \succ 0$ and $R \succ 0$ are here some weighting matrices, and allow us  to weight elements in input and output signals. For example, one of the inputs can impact the system as another, or one output must be driven faster. 
+overall stabilizing piecewise constant input signals $u(\cdot) \in \R^m$, and with $x(\cdot)$ satisfying \eqref{eq:GP} (for $C = I$ and $D = 0$). 
+$Q \succ 0$ and $R \succ 0$ are here weighing matrices, which allow us to decide how ''important'' the elements of the in- and output signals are.  
+Using them, we can make one input signal impact the system more than another or drive one of the output signals faster. 
 
-The solution of this optimal control problem can be found by choosing 
+Choosing the weighting matrices always depends on the system we work with and allows us to affect closed-loop behavior.   
+
+The optimal $u(\cdot)$ for minimizing of the cost function \eqref{eq:costFcn} is given via $u(t) = F x(t)$ with
 \begin{align}
 \label{eq:Basics:F}
 F = (R + B^T P B)^{-1}B^TPA.
 \end{align}
-where $P$ is a unique symmetric positive definite matrix, the stabilizing solution of the discrete time algebraic Riccati equation
+The matrix $P$ is a unique symmetric positive definite matrix, the stabilizing solution of the discrete time algebraic Riccati equation
 \begin{align}
  A^TA - A^T P B (R + B^T P B)^{-1} B^T P A + Q - P = 0.%TODO: QUELLE!!!!!
 \end{align}
@@ -198,30 +204,31 @@ Stabilizing solution means, that from \eqref{eq:Basics:F} resulting matrix $(A -
 %\end{align}
 
 For the case $y(\cdot) \neq x(\cdot)$, we can additionally construct an observer to approximate the signal $x(\cdot)$. The  controller we get is said to be based on \textit{separation principle}.
-It requires the pair $(A,C)$ to be asymptotically detectable 
-which allows us to find a matrix $J$, such that $A - JC$ is asymptotically stable.
+It requires the pair $(A,C)$ to be detectable. So, we can find a matrix $J$, for which $A - JC$ is asymptotically stable.
 
 We set 
 \begin{align}
-u= -F \hat{x}, \text{ with } \hat{x} \text{ given via dynamical system }
+u(\cdot)= -F \hat{x}(\cdot), \text{ with } \hat{x}(\cdot) \text{ given via dynamical system }
 \end{align}
 \begin{align}
 \hat{x}(t+1) &= A\hat{x}(t) + B u(t) + J (y - \hat{y}(t)), \\
 \hat{y}(t) & = C\hat{x}(t) + D u(t), \\
-\hat{x}(0)& = x_0, \; t = 0,1,2, \dots , N.
+\hat{x}(0)& = x_0, \; t \geq 0. 
 \end{align}
 With this observer system the estimation error can be calculated as \begin{align}
-\tilde{x}(t+1) = x(t+1) - \hat{x}(t+1) = (A - JC) \tilde{x}(t)
-\end{align} for $t \geq 0$ and hence $\hat{x} (\cdot)$ converges to $x(\cdot)$ at least asymptotically. 
+\tilde{x}(t+1) = x(t+1) - \hat{x}(t+1) = (A - JC) \tilde{x}(t), \, t \geq 0,
+\end{align} and hence $\hat{x} (\cdot)$ converges to $x(\cdot)$ at least asymptotically. 
 
-We set $M$ as a right inverse of the matrix 
+We elect
 \begin{align}
-D + (C - D F) (I - A + B F)^{-1} B
+u(\cdot) = -F\hat{x}(\cdot) + Mr(\cdot), 
 \end{align}
-Then the choice
+where $M$ is a right inverse of the matrix 
 \begin{align}
-u = -F\hat{x} + Mr, 
+D + (C - D F) (I - A + B F)^{-1} B.
 \end{align}
+
+This choice of input signal 
 solves tracking issue for constant $r(\cdot)$. It still can be used for piecewise constant $r(\cdot)$, if the signal does not change too fast.
 
 

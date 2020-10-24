@@ -26,7 +26,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.4.1}Steepest Descent Algorithm}{15}{subsection.2.4.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.4.2}Suppression of eigenvalues}{17}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.2}Suppression of eigenvalues}{18}{subsection.2.4.2}%
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2.5}Feedback Design}{20}{section.2.5}%
 \defcounter {refsection}{0}\relax 
