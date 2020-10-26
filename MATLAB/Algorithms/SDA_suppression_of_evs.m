@@ -17,7 +17,7 @@ function [u_inf, e_inf, y_inf, impr,iteration_number,error_history] = SDA_suppre
 
 
 G_star = sparse((R\eye(length(R)))*G'*Q);
-G_norm_2 = norm(full(G*G_star));
+G_norm_2 = max(abs(eig(G*G_star))); 
 beta_vec = linspace(.5*G_norm_2+.5*G_norm_2*10^-10, G_norm_2, 1000);
 beta_vec = 1./beta_vec;
 beta_const = 1/G_norm_2;

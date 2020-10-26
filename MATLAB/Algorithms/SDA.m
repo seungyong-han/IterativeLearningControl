@@ -20,7 +20,7 @@ function [u_inf, e_inf, y_inf, impr,iteration_number,error_history] = SDA(G,d, b
 
 G_star = sparse((R\eye(length(R)))*G'*Q);
 
-beta = beta*2/max(abs(eig(G*G_star)));
+beta = beta*2/max(abs(eig(G*G_star)));  
 [u_inf, e_inf, y_inf, impr,iteration_number,error_history] = CGA(G,d, G_star,beta,r, u0, do_plot);
 end
 

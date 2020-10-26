@@ -55,9 +55,9 @@ end
 
 close all
 hold on
-plot(time, y_sv);
 plot(time, r_vec);
-legend('output $y(t)$', 'reference signal', 'interpreter', 'latex');
+plot(time, y_sv);
+legend('reference', 'output $y(t)$', 'interpreter', 'latex');
 xlabel('time $t$ [s]', 'interpreter', 'latex');
 ylabel('output and reference');
 xlim([0, time(end)]);

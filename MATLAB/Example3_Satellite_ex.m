@@ -22,17 +22,14 @@ time = 0:Ts:time;
 Ex3_LQR;
 %% Define start values for the algorithms
 u = u_sv;
-r = r_vec;
 R = 1;
 Q = 1;
-do_plot = 1;
-[A,B,C,D, N] = get_non0D_system(A,B,C,D, N)
-A = A- B*F;
-C = C - D*F;
+Nmax = 3e4;
 
 %%
-
-Ex3_IA;
+do_plot = 1;
+%Ex3_IA;
+Ex3_IA; 
 
 
 

@@ -54,7 +54,7 @@ function [u_inf, e_inf, y_inf, impr,iteration_number, error_history] = RIA(G,d, 
         %e_new = (1 - beta)*e;
         e_new = r - G*u_new - d; %for demonstration non-stability
 
-        if norm(e - e_new)<10^-6
+        if norm(e - e_new)<10^-8
             cont = 0;
         end
         error_history = [error_history, norm(e_new)];

@@ -20,7 +20,7 @@ if(p<N)
     end
     d = kron(eye(N+1),C)*d;
 else
-    [G,d] = get_G(A, B, C, D, x0, N)
+    [G,d] = get_G(A, B, C, D, x0, N);
 end
 
 end

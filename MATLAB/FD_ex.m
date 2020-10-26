@@ -54,6 +54,7 @@ J = ((C * Q * C' + RQ) \ (C * Q * A'))';
 M = 5;
 rng default;
 r_vec = kron(rand(M, 1), ones(N/M, 1));
+r_vec = [r_vec; r_vec(end)]; 
 
 eig(A - B * F)
 eig(A - J*C)
@@ -73,7 +74,7 @@ M = M\eye(length(M));
 
 x_hat = x0;
 x = x0;
-for i = 1:N
+for i = 1:N+1
     r = r_vec(i);
     u = -F*x_hat + M*r; 
     y = C*x + D*u;
@@ -88,119 +89,99 @@ end
 % Plot
 close all
 hold on
-plot(0:N-1, y_sv);
-plot(0:N-1, r_vec);
+plot(0:N, y_sv);
+plot(0:N, r_vec);
 legend('output $y(t)$', 'reference signal', 'interpreter', 'latex');
 xlabel('time $t$', 'interpreter', 'latex');
 ylabel('output and reference');
 xlim([0, N-1]);
 hold off
 
-%% Inverse Algorithm
-u0 = u_sv;
-r = r_vec;
-R = 1;
-Q = 1;
-do_plot = 1;
-b = .1; 
-[G, d] = get_G(A-B*F, B, C - D*F, D, x0, N-1);
-close all
-[u_inf1, e_inf1, y_inf1, impr1, iteration_number1, error_history1] = IA(G,D, d, b,r, u0, do_plot, 1);
-xmax = iteration_number1;
-if(xmax>0)
-    xlim([0, xmax])
-end
-legend('$e_k$', 'interpreter', 'latex');
+%% Define new system 
+A = A - B*F; 
+C = C -D*F; 
+%%
+sys = ss(A,B,C,D,sample_time); 
+systemnames='sys';
+inputvar='[r;u]';
+outputvar='[sys-r; r-sys]';
+input_to_sys='[u]';
+P=sysic;
 
-% Plot results LQR vs IA 
-close all
-hold on
-plot(0:N-1, y_sv);
-plot(0:N-1, r, 'LineWidth', 1.8);
-plot(0:N-1, y_inf1{end}, '--');
-plot(0:N-1, y_inf1{1}, '--');
-plot(0:N-1, y_inf1{2}, '--');
-legend('LQR', 'Reference', 'IA');
-xlim([0, N-1])
-hold off
+Kc = hinfsyn(sys, 1, 1);
+cloop = lft(P, Kc);
+S = -cloop; %sensitivity
+T = 1 - S; 
+K = Kc*S; 
+%% Define the supermatrices 
+A_sys = A;  %save the matrices for the case they will be needed later 
+B_sys = B;
+C_sys = C; 
+D_sys = D;
 
 
-%% Get supervector form
-% Ob D = 0 ist sollte hier doch immer egal sein?
-% Ich glaube auch er definiert T als (I + GK)^{-1}GK
-% wobei G und K die supervektor matrizen sind..
-% Das sollte aber wohl auch im direkten zusammenhang zum den supervekoren
-% matrizen von T stehen. (hoffentlich)
+[A,B,C,D] = ssdata(sys); 
+[G, d] = get_G(A,B,C,D,zeros(length(A), 1), N); 
 
-Nmin = N; % The minimal possible time horizon over all systems
-[A, B, C, D] = ssdata(K);
-[A,B,C,D,N1] = get_non0D_system(A,B,C,D,N);
-K_sv = get_G(A, B, C, D, zeros(length(A)), N1); 
-if N1<Nmin
-    Nmin = N1;
-end
-    
-[A,B,C,D] = ssdata(T);
-[A,B,C,D,N1] = get_non0D_system(A,B,C,D,N);
-T_sv = get_G(A,B,C,D,zeros(length(A)), N1);
-if N1<Nmin
-    Nmin = N1;
-end
-[A,B,C,D] = ssdata(sys);
-[A,B,C,D,N1] = get_non0D_system(A,B,C,D,N);
-G = get_G(A,B,C,D,zeros(length(A)), N1);
-if N1<Nmin
-    Nmin = N1;
-end
+[A,B,C,D] = ssdata(T); 
+T_sv = get_G(A,B,C,D,zeros(length(A), 1), N); 
 
-%% Feedback design 
-cont = 1; %while-loop criterion 
+[A,B,C,D] = ssdata(S); 
+S_sv = get_G(A,B,C,D,zeros(length(A), 1), N); 
 
-% Compensate the matrices, sth all of them have the same dimension 
-T_sv = T_sv(length(T_sv) - Nmin + 1:end, length(T_sv) - Nmin + 1:end);
-K_sv = K_sv(length(K_sv) - Nmin + 1:end, length(K_sv) - Nmin + 1:end);
-G    = G   (length(G)    - Nmin + 1:end, length(G)    - Nmin + 1:end);
-T_sv_star = T_sv';
+[A,B,C,D] = ssdata(K); 
+K_sv = get_G(A,B,C,D,zeros(length(A), 1), N); 
 
-r = 3*ones(length(T_sv),1);%tracking value
-e = (eye(length(T_sv)) - T_sv)*r;%initial error
-u = zeros(length(T_sv),1);%initial input = 0
 
-%Calculate beta
-beta = .2;
-beta = beta/norm(T_sv)/norm(T_sv_star);
 
-%Preparation for iteration
-M = beta*K_sv*T_sv_star; %Matrix for input calculation
-Mt = eye(length(T_sv)) - beta*T_sv*T_sv_star; %Matrix for error calculation
+
+%% FB Design using reverse time simulation
+clc 
+
+[A,B,C,D] = ssdata(T); 
+n = length(A);
+b = .1;
+
+e = S_sv*r; %error
+p = zeros(n, N+1); %for inverse time simulation
+v = zeros(N+1, 1); %output of inverse time simulation 
+v(N+1) = D'*e(N+1);%p(:,N+1) = 0;
+
+error_history = norm(e);
+cont = 1;
 iteration_number = 0;
-error_history = [];
 
-%Iteration 
-while cont
-    %Calculaate new input and errorr
-    iteration_number = iteration_number + 1;
-    u_new = u + M*e;
-    e_new = Mt*e; 
+while cont 
     
-    %save the curent error norm
-    error_history = [error_history; norm(e_new)];
-
-    %termination criteria 
-    if(norm(e - e_new)<1e-5)
+    iteration_number = iteration_number + 1; 
+    %First without weights: R, Q = I -- should work in some way...
+    
+    %Compute the output of T'*e_k
+    for t = N:-1:1
+        p(:, t) = A'*p(:, t+1) + C'*e(t+1);%e_k
+        v(t) = B'*p(:, t) + D'*e(t);%e_k
+    end
+    
+    u_new = u + b*K_sv*v; 
+    e_new = r - G*u_new - d; 
+    error_history = [error_history, norm(e_new)]; 
+    if norm(e_new - e)<10^-6
         cont = 0;
     end
     
-    %print norm of current error difference
-    if mod(iteration_number, 100) == 0
-        disp(['curr_error_diff=', num2str(norm(e_new - e))]);
+    if mod(iteration_number, 1000) == 0
+         disp(['curr_error_difference: ', num2str(norm(e_new - e))]); 
     end
-    
-    %reassign the variables for further iterations 
+
     e = e_new;
-    u_bef = u; %u before for further calculations? 
-    u = u_new; 
+    u = u_new;
+
 end
+
+
+
+
+
 
 %% Display the results 
 disp(['e_inf = ', num2str(error_history(end))])

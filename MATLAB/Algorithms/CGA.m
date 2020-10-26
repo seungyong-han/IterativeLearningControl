@@ -33,13 +33,13 @@ while cont
     
     %calculate u_new and e_new with update rules
     u_new = u + beta*K0*e;
-    e_new = (eye(length(e0)) - betaGK0)*e;
+    e_new = r - G*u_new - d;%(eye(length(e0)) - betaGK0)*e;
 
     
     
     
     %Termination criterion
-    if norm(e - e_new)<10^-6
+    if norm(e - e_new)<10^-8
         cont = 0;
     end
    

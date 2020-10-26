@@ -43,11 +43,13 @@ hold off
 %save_plot(fig, 'SDA_N40_output');
 
 %% SDA example vs SE example
+
+Q = 1;
+R = 1;
+b = .1; 
 Ex1_SDAvsES;
-save_plot(fig, 'Ex1_SDAvsES');
 %% Uncertaiy example for SDA
 Ex1_uncDemo_SDA; 
-save_plot(fig, 'Ex1_uncSDA');
 %% Uncertainty proof for SDA 
 Ex1_uncProof_SDA;
 %% Uncertainty proof for IA beta = .05 vs beta = .4

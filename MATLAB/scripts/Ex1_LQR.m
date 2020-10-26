@@ -4,8 +4,11 @@ l = length(B(1,:));
 m = length(C(:,1));
 
 % Calculate stabilizing solutions for discrete algebraic Riccati equation
-P = dare(A, B, eye(m) , eye(l));
-Q = dare(A', C', eye(m) , eye(l));
+
+Rw = 2*eye(l); 
+Qw = 3*eye(m); 
+P = dare(A, B, Qw , Rw);
+Q = dare(A', C', Qw , Rw);
 
 
 %Calculate the matrices for separation principle based controller
@@ -17,11 +20,36 @@ J = J*C*Q*A';
 J = J'; 
 
 
-% tracking signal as pulse 
-if(N<5)
-    r_vec = ones(N+1, 1);
-else
-    r_vec = get_pulse(N+1, 5);
+if(N == 45 || N == 30 || N == 81)
+    r_vec = .3*ones(floor(N/3),1); 
+    r_vec = [r_vec; .5*ones(floor(N/3),1)]; 
+    r_vec = [r_vec; ones(floor(N/3),1)]; 
+    r_vec = [r_vec; 1];
+end
+if(N == 100)
+    r_vec = .3*ones(floor(N/3),1); 
+    r_vec = [r_vec; .5*ones(floor(N/3),1)]; 
+    r_vec = [r_vec; ones(floor(N/3),1)]; 
+    r_vec = [r_vec; 1; 1];
+end
+
+if(N == 50)
+    r_vec = .3*ones(17,1); 
+    r_vec = [r_vec; .5*ones(17,1)]; 
+    r_vec = [r_vec; ones(17,1)]; 
+end
+
+if(N == 40)
+    r_vec = .5*ones(N/2,1); 
+    r_vec = [r_vec; ones(N/2,1)]; 
+    %r_vec = [r_vec; ones(13,1)]; 
+    r_vec = [r_vec; 1];
+end
+
+if(N == 20)
+    r_vec = .5*ones(10,1); 
+    r_vec = [r_vec; ones(10,1)]; 
+    r_vec = [r_vec; 1];
 end
 
 
@@ -55,9 +83,9 @@ end
 close all
 fig = figure; 
 hold on
-plot(0:N, y_sv);
 plot(0:N, r_vec);
-legend('LQR', 'reference signal', 'interpreter', 'latex');
+plot(0:N, y_sv);
+legend('Reference', 'LQR', 'interpreter', 'latex');
 xlabel('time $t$', 'interpreter', 'latex');
 ylabel('output and reference');
 xlim([0, N-1]);
