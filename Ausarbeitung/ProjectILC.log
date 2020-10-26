@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.26)  25 OCT 2020 01:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.26)  25 OCT 2020 17:56
 entering extended mode
 **./ProjectILC.tex
 (ProjectILC.tex
@@ -1217,23 +1217,21 @@ th.
 \MDopostkern=\muskip23
 \MDodotkern=\muskip24
 )
-\c@example=\count455
 LaTeX Info: Redefining \Im on input line 247.
 LaTeX Info: Redefining \Re on input line 248.
 LaTeX Info: Redefining \div on input line 250.
 LaTeX Info: Redefining \ker on input line 257.
-\c@equationstore=\count456
-\c@proofnum=\count457
-\c@theo=\count458
-\c@alg=\count459
+\c@equationstore=\count455
+\c@proofnum=\count456
+\c@theo=\count457
 )
-\@quotelevel=\count460
-\@quotereset=\count461
+\@quotelevel=\count458
+\@quotereset=\count459
 
 ("C:\Users\Strel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3backend\l3backen
 d-pdfmode.def"
 File: l3backend-pdfmode.def 2020-05-05 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count462
+\l__kernel_color_stack_int=\count460
 \l__pdf_internal_box=\box91
 ) (ProjectILC.aux (Basics.aux) (ILC_Algorithms.aux)
 (Application.aux) (Robustness.aux) (Questions.aux))
@@ -1259,16 +1257,16 @@ LaTeX Font Info:    ... okay on input line 88.
 ("C:\Users\Strel\AppData\Local\Programs\MiKTeX 2.9\tex/context/base/mkii\supp-p
 df.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count463
+\scratchcounter=\count461
 \scratchdimen=\dimen301
 \scratchbox=\box92
-\nofMPsegments=\count464
-\nofMParguments=\count465
+\nofMPsegments=\count462
+\nofMParguments=\count463
 \everyMPshowfont=\toks45
-\MPscratchCnt=\count466
+\MPscratchCnt=\count464
 \MPscratchDim=\dimen302
-\MPnumerator=\count467
-\makeMPintoPDFobject=\count468
+\MPnumerator=\count465
+\makeMPintoPDFobject=\count466
 \everyMPtoPDFconversion=\toks46
 )
 ("C:\Users\Strel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/epstopdf-pkg\epsto
@@ -1344,7 +1342,7 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ettitlestring.sty"
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count469
+\c@section@level=\count467
 )
 LaTeX Info: Redefining \ref on input line 88.
 LaTeX Info: Redefining \pageref on input line 88.
@@ -1355,7 +1353,7 @@ LaTeX Info: Redefining \nameref on input line 88.
 
 
 ABD: EveryShipout initializing macros
-\c@lstlisting=\count470
+\c@lstlisting=\count468
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
 
@@ -1579,7 +1577,7 @@ Package pdftex.def Info: fig/Ex1_SDA.jpg  used on input line 569.
 <fig/Ex1_SDAvsSoE.jpg, id=460, 3011.25pt x 1578.89874pt>
 File: fig/Ex1_SDAvsSoE.jpg Graphic file (type jpg)
 <use fig/Ex1_SDAvsSoE.jpg>
-Package pdftex.def Info: fig/Ex1_SDAvsSoE.jpg  used on input line 684.
+Package pdftex.def Info: fig/Ex1_SDAvsSoE.jpg  used on input line 682.
 (pdftex.def)             Requested size: 441.01773pt x 231.23524pt.
  [20 <./fig/Ex1_SDAvsSoE.jpg>])
 [21] [22]
@@ -1595,26 +1593,26 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 7.
 
-
-Underfull \vbox (badness 3386) has occurred while \output is active []
-
- [23
+[23
 
 
 
 ]
-<fig/Ex3_LQR.jpg, id=500, 3854.4pt x 2062.70625pt>
-File: fig/Ex3_LQR.jpg Graphic file (type jpg)
-<use fig/Ex3_LQR.jpg>
-Package pdftex.def Info: fig/Ex3_LQR.jpg  used on input line 65.
-(pdftex.def)             Requested size: 441.01773pt x 235.99446pt.
-
-[24 <./fig/Ex3_LQR.jpg>]
-Overfull \hbox (7.94307pt too wide) detected at line 116
+<fig/ExSat_LQR.jpg, id=502, 3011.25pt x 1578.89874pt>
+File: fig/ExSat_LQR.jpg Graphic file (type jpg)
+<use fig/ExSat_LQR.jpg>
+Package pdftex.def Info: fig/ExSat_LQR.jpg  used on input line 68.
+(pdftex.def)             Requested size: 441.01773pt x 231.23524pt.
+ [24 <./fig/ExSat_LQR.jpg>]
+Overfull \hbox (7.94307pt too wide) detected at line 118
 []
  []
 
-[25]) [26]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [25])
+[26]
 \openout2 = `Robustness.aux'.
 
  (Robustness.tex
@@ -1680,10 +1678,10 @@ Package logreq Info: Writing requests to 'ProjectILC.run.xml'.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 329.
  ) 
 Here is how much of TeX's memory you used:
- 31851 strings out of 480799
- 601829 string characters out of 2895784
- 1259014 words of memory out of 3000000
- 46933 multiletter control sequences out of 15000+200000
+ 31842 strings out of 480799
+ 601769 string characters out of 2895784
+ 1258868 words of memory out of 3000000
+ 46924 multiletter control sequences out of 15000+200000
  559515 words of font info for 136 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,27n,66p,941b,1190s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1711,9 +1709,9 @@ a/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users
 /Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/ms
 am10.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/a
 msfonts/symbols/msbm10.pfb>
-Output written on ProjectILC.pdf (51 pages, 1712900 bytes).
+Output written on ProjectILC.pdf (51 pages, 1710039 bytes).
 PDF statistics:
- 807 PDF objects out of 1000 (max. 8388607)
+ 808 PDF objects out of 1000 (max. 8388607)
  269 named destinations out of 1000 (max. 500000)
  272 words of extra memory for PDF output out of 10000 (max. 10000000)
 

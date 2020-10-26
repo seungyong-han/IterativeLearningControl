@@ -49,7 +49,7 @@
 \newcommand{\Ysp}{\mathbb{R}^m}
 \newcommand{\Usp}{\mathbb{R}^l}
 
-\newcounter{example}
+
 \newenvironment{example}[1][]{%
 	
 	\ifthenelse{\equal{#1}{continued}}%
@@ -57,7 +57,7 @@
 		{\bfseries Example \theexample (continued\ldots)\quad}%
 	}%
 	{%
-		\refstepcounter{example}%
+		\refstepcounter{exam}%
 		{\bfseries Example \theexample \quad}%
 	}%
 }{}
@@ -421,7 +421,7 @@
 \newtheorem{rema}[theo]{Remark}
 \newtheorem{exam}[theo]{Example}
 \newtheorem{prob}[theo]{Problem}
-\newtheorem{alg}{Algorithm}
+\newtheorem{alg}[theo]{Algorithm}
 
 \newenvironment{proof}[1][Proof]{%\vspace{1.5ex}
 	\bf #1:\\ \rm}

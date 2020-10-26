@@ -10,7 +10,7 @@ The listed algorithms have their theoretical benefits, but they might not be goo
 		\begin{align}
 		G(s) = \frac{.036(s + 25.28)}{s^2(s^2 + .0396s + 1)}. 
 		\end{align}
-		As input we choose the torque on first mass, and as output is set the position $\theta_2$. 
+	
 		
 		Since we are working with discrete time systems, we discretize it for sample time $T_s = 10^{-3}$  and get the state space description 
 		\begin{align}
@@ -31,50 +31,53 @@ The listed algorithms have their theoretical benefits, but they might not be goo
 In this example, the matrix $D$ is zero, what makes our algorithms not applicable. 
 Moreover, the  $D$-part's neglecting is typical: the system output must mostly image the system state and not the known input we send. 
 
-To see more precisely, the input update rule has the form 
+Let us consider the output signal at time $1\leq t \leq N$:
 \begin{align}
-y(t) = C x(t) = C(A x(t) + B u(t)) \text{ for } t = 0, 1,2, \dots, N. 
+y(t) = C x(t) = CA x(t) + C B u(t).
 \end{align}
 
-With other words, the input $u(t)$ begins to impact the output by first iteration, if the matrix $CB$ is not a zero-matrix. That means, that the \textit{relative degree} of the system equals 1. We define it mathematically precise: 
+Here the ''new'' $D$-term is represented by the matrix $CB$, if it is not zero. 
+With other words, the input $u(t)$ begins to impact the output after the first time step. We say, that the  \textit{relative degree} of the system equals 1. We define it mathematically precise: 
 \begin{defi}
-	The relative degree of the system $(A, B, C, D)$ is 0 if $D \neq 0$. For $D = 0$ it is the smallest integer $k$ for which $	C A^{k-1} B \neq 0$.
+	The relative degree of the system $(A, B, C, D)$ is 0 if $D \neq 0$. For $D = 0$ it is the smallest integer $k^*$ for which $	C A^{k^*-1} B \neq 0$.
 \end{defi} 
-Let us denote it with $k^*$. Then the new system we consider can be written as 
+
+We put the first $k^*$ terms away and consider our dynamical system from time step $k^*$
 \begin{align}
+\begin{split}
 x(t+1) &= A x(t) + B u(t), \\
-y(t) &= C x(t) + C A^{k^*} B u(t),  \text{ for } t = k^*, k^* + 1, \dots N. 
+y(t) &= C A^{k^* + 1}x(t) + C A^{k^*} B u(t),  \text{ for } t = k^*, k^* + 1, \dots N. 
+\end{split}
 \end{align}
+The new initial condition equals $x(k^*)$, and the start input condition is $u(k^*)$. 
 
-We need to put the first iterations away and define a new initial condition $x(k^*)$. The start input condition is then $u(k^*)$. 
+We can not approve the input signal at the first time steps, but still can improve it for the rest of them. 
 
-For new system all the requirements we considered are satisfied. However, we do not get a better solution for $t = 0, 1, \dots, k^\star - 1$. 
-
-
-\begin{example}[continued]
-	
-\textit{For our system the relative degree is 1, as }
+\begin{exam}
+For our system \eqref{eq:Appl:satellite_sys} the relative degree is 1, as 
 	\begin{align}
 	CB = 6.038\cdot 10^{-12} \neq 0. 
 	\end{align}
-	
-\textit{We calculate the solution with LQR. Result is illustrated in Figure \ref{img:Appl:Sat_LQR}.}
+
+The small value of the term does not disturb us, as the whole system consists of the matrices with little element values. 
+
+We calculate the solution with LQR. Result is illustrated in Figure \ref{img:Appl:ExSat_LQR}.
 	
 	\begin{figure}[ht]
 		\centering
-		\includegraphics[width=\textwidth]{fig/Ex3_LQR.jpg}
+		\includegraphics[width=\textwidth]{fig/ExSat_LQR.jpg}
 		\caption{LQR Solution for the system \eqref{eq:Appl:satellite_sys}}
-		\label{img:Appl:Sat_LQR}
+		\label{img:Appl:ExSat_LQR}
 	\end{figure}
 	
-\textit{It looks like something we can improve. However, for $Ts = 10^{-3}$s we get $N = 10^3$ time steps even for one iteration second. The matrix $G$ has  $10^9$ elements and can not easily be handled.}
-\end{example}
+It looks like something we can improve. However, for $Ts = 10^{-3}$s we get $N = 10^3$ time steps even for one simulation second. The matrix $G$ has more than  $10^9$ elements and can not easily be handled.
+\end{exam}
 
 \section{Long time horizon}
 
-	In example \ref{ex:ILC:badIA} the Inverse Model Algorithm is not applicable even for $N = 50$. 
+	In Example \ref{ex:ILC:badIA} the Inverse Model Algorithm is not applicable even for $N = 50$. 
 	It means, we need a trade off between the time horizon and robustness.
-	However, for real problems the sample times are mostly small, and hence even for one second of the simulation we get huge number for time horizon. Already for SISO system the matrix $G$ will have $N^2$ elements. Our algorithms become unusable for casual applications since they need vast masses of memory.	
+	However, for real problems the sample times are mostly small, and hence even for one second of the simulation we get huge number for time horizon. Already for SISO system the matrix $G$ will have $(N + 1)^2$ elements. Our algorithms become unusable for casual applications since they need vast masses of memory.	
 	
 	One possibility to reduce the wasted memory is to split our system in the smaller ones. Let us denote the time horizon length with $N_{\max}$, and choose an $N$ with $1<N\leq N_{\max}$. 
 	We can apply our algorithms on the systems with the same state space description, but different initial values. For simplicity, let us assume, that we can divide our time horizon $0,1,2,\dots, N_{\max}$ in $p$ equal parts with time horizon of length $N$, and the matrix $D = 0$. 
@@ -84,7 +87,7 @@ For new system all the requirements we considered are satisfied. However, we do 
 	x_{0_p}= A^p x_0 + \sum_{\rho = 0}^{p - 1} \sum_{t = \rho (N + 1)}^{\rho (N+2)} A^{(N+2)\rho - t} B u(t). 
 	\end{align}
 	
-	However, for large values of $p$ the term $A^{(N+2)\rho - 1 }\approx 0$ for $\rho > p$.
+	However, for large values of $p$ and asymptotically stable $A$ the term $A^{(N+2)\rho - 1 }\approx 0$ for $\rho > p$.
 	We can estimate it as 
 	\begin{align}
 	||x_{0_p}|| &\leq  \sum_{\rho = 0}^{p^{\star}} \sum_{t = \rho (N + 1)}^{\rho (N+2)} ||A^{(N+2)\rho - t} B u(t)|| \\
@@ -93,14 +96,13 @@ For new system all the requirements we considered are satisfied. However, we do 
 	\end{align}
 	for some $1<p^{\star}<p$ large enough, and then we need to calculate only the first $p^\star (N+2)$ terms, independent on groving $p$. 
 	
-	But what if $N < p^\star$? Our matrix $G$ contains then these small terms, which cause the bad condition number. 
-	We can remove them from $G$ as well -- this also has an advantage, that we can use the sparse matrices for calculations and decrease the used memory drastically. 
+	But what if $N < p^\star$? Our matrix $G$ contains then these small terms, which cause the numerical instability e.g. though condition number enlarging. The neglecting of this terms does not have a solid impact on the calculation result, and it can help us to decrease the used memory, if we use the sparse matrices. 
 	
-	To be able to chose this number $p^\star$, let us consider the ''reduced'' lifted system  
+	So, how are we to chose this number $p^\star$? We consider the ''reduced'' lifted system (with neglected small terms)
 	\begin{align}
-	\t y = \t G + d 
+	\t y = \t G + d.
 	\end{align}
-	with 
+	The matrix 
 	\begin{align}
 	\t G = \begin{pmatrix}
 	D  \\
@@ -120,22 +122,16 @@ For new system all the requirements we considered are satisfied. However, we do 
 	||y(t) - \t y(t)|| = ||\sum_{\tau = p^\star}^{t} C A^{\tau} B u(p^\star - \tau)|| \leq ||C|| \, ||B|| \sum_{\tau = p^\star}^t ||A||^\tau \max_{\eta = 0}^{p^\star}||u(\eta)||. 
 	\end{align}
 	
-	The input estimation $\max_{\eta = 0}^{p^\star}||u(\eta)||$ can be often replaced by some $||u_{\max}||$, where $u_{\max}$ is the largest possible input. 
+	The estimation of the input signal norm $\max_{\eta = 0}^{p^\star}||u(\eta)||$ can be often replaced by some $||u_{\max}||$, where $u_{\max}$ is the input with the largest possible norm.  
 	
-	Then for a given tolerance $\varepsilon$ we get 	
+	If in a given norm $||A||<1$,  for a required tolerance $\varepsilon$ we get 	
 	\begin{align}
-	\varepsilon \geq ||C||\, ||B|| \frac{||A||^{p^\star} - ||A||^{N_{\max}}}{1 - ||A||} ||u_{\max}|| \geq ||C|| \, ||B|| \frac{||A||^k - ||A||^{N_{\max} + \t N}}{1 - ||A||}||u_{\max}||.
+	\varepsilon \geq ||C||\, ||B|| \frac{||A||^{p^\star} - ||A||^{t}}{1 - ||A||} ||u_{\max}|| \geq ||C|| \, ||B|| \frac{||A||^{p^*} - ||A||^{N_{\max}}}{1 - ||A||}||u_{\max}||. 
 	\end{align}
-	for any $\t N \geq 0$. 
 	
 	We can see that for a groving time horizon our $p^\star$ stays the same, without need to determine it again. 
 	
-	\section{Online learning} 
-	TODO: ersetzen durch's Beispiel und sagen das als notiz
-	
-	In the real practice we usually do not have all the data immediately. We get the system output gradually over time, and hence we can apply only the input and output signals so-fare. That means we learn our system ''online'', and feed the current data we have already got. 
-	
- 	As we have seen before, there is no need to calculate the reduced system for a groving time horizon length. 
+
 	
 	
 	
