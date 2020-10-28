@@ -11,29 +11,12 @@ clear all
 s = zpk('s');
 sample_time = 0.5*1e-1;
 sys = ss(0.036*(s+25.28)/(s^2*(s^2+0.0396*s+1)));
-N = 431;
-
-%Define plant 
 sys = c2d(sys,sample_time);
-systemnames='sys';
-inputvar='[r;u]';
-outputvar='[sys-r; r-sys]';
-input_to_sys='[u]';
-P=sysic;
 
-% Define Controller (from Lecture)
-K = ss(7.9212*(s+0.1818)*(s^2-0.2244*s+0.8981)/((s^2+3.899*s+4.745)*(s^2+1.039*s+3.395)));
-Kd = c2d(K,sample_time);
-Kc = Kd;
-
-% Define closed loop and sensitivity/compl. sensitivily 
-cloop = lft(P, Kc);
-
-S = -cloop;
-T = 1 - S; 
 
 
 %% LQR
+N = 431;
 [A, B, C, D] = ssdata(sys);
 [A,B,C,D, N] = get_non0D_system(A,B,C,D, N);
 N
@@ -110,16 +93,10 @@ P=sysic;
 
 Kc = hinfsyn(sys, 1, 1);
 cloop = lft(P, Kc);
-S = -cloop; %sensitivity
+S = -cloop; %sensitivity here
 T = 1 - S; 
 K = Kc*S; 
 %% Define the supermatrices 
-A_sys = A;  %save the matrices for the case they will be needed later 
-B_sys = B;
-C_sys = C; 
-D_sys = D;
-
-
 [A,B,C,D] = ssdata(sys); 
 [G, d] = get_G(A,B,C,D,zeros(length(A), 1), N); 
 
@@ -132,17 +109,51 @@ S_sv = get_G(A,B,C,D,zeros(length(A), 1), N);
 [A,B,C,D] = ssdata(K); 
 K_sv = get_G(A,B,C,D,zeros(length(A), 1), N); 
 
+%% FB with matrices 
+clc 
+u = u_sv;
+r = r_vec; 
+b = .1; 
+
+e = r - G*u - d; 
+cont = 1; 
+error_history = norm(e); 
+iteration_number = 0; 
+
+while cont
+   
+    iteration_number = iteration_number + 1; 
+    u_new = u + b*K_sv*T_sv'*e;
+    e_new = r -  G*u_new - d; 
+    
+    
+    if norm(e - e_new)<1e-6
+        cont = 0; 
+    end
+    
+    if mod(iteration_number, 1000) == 0
+         disp(['curr_error_difference: ', num2str(norm(e_new - e))]); 
+    end
+    error_history = [error_history; norm(e)]; 
+
+    e = e_new;
+    u = u_new;
+end
+
+
 
 
 
 %% FB Design using reverse time simulation
 clc 
 
+u = u_sv;
+r = r_vec;
 [A,B,C,D] = ssdata(T); 
 n = length(A);
 b = .1;
 
-e = S_sv*r; %error
+e = r - G*u - d; %error
 p = zeros(n, N+1); %for inverse time simulation
 v = zeros(N+1, 1); %output of inverse time simulation 
 v(N+1) = D'*e(N+1);%p(:,N+1) = 0;
@@ -186,8 +197,12 @@ end
 %% Display the results 
 disp(['e_inf = ', num2str(error_history(end))])
 
-plot(0:iteration_number-1, error_history);
+plot(0:length(error_history)-1, error_history);
 
 %%
-
-
+plot(0:N, G*u + d);
+hold on
+plot(0:N, r_vec);
+hold off
+%%
+[u_inf, e_inf, y_inf, impr,iteration_number,error_history] = SDA(G,d, .1,r_vec, u_sv, 1, 1, 1);

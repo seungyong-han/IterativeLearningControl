@@ -39,7 +39,7 @@ while cont
     
     
     %Termination criterion
-    if norm(e - e_new)<10^-8
+    if norm(e - e_new)<10^-6
         cont = 0;
     end
    
