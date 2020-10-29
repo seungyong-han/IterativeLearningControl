@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.26)  25 OCT 2020 17:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.26)  26 OCT 2020 09:45
 entering extended mode
 **./ProjectILC.tex
 (ProjectILC.tex
@@ -1527,7 +1527,7 @@ Overfull \hbox (3.87999pt too wide) in paragraph at lines 120--120
 ]
 Chapter 2.
 [5]
-<fig/Ex1_LQR.jpg, id=274, 3011.25pt x 1578.89874pt>
+<fig/Ex1_LQR.jpg, id=269, 3011.25pt x 1578.89874pt>
 File: fig/Ex1_LQR.jpg Graphic file (type jpg)
 <use fig/Ex1_LQR.jpg>
 Package pdftex.def Info: fig/Ex1_LQR.jpg  used on input line 85.
@@ -1539,51 +1539,61 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [8]
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
 (Font)              Font shape `U/lasy/m/n' tried instead on input line 196.
-<fig/Ex1_IA.jpg, id=313, 3011.25pt x 1578.89874pt>
+<fig/Ex1_IA.jpg, id=308, 3011.25pt x 1578.89874pt>
 File: fig/Ex1_IA.jpg Graphic file (type jpg)
 <use fig/Ex1_IA.jpg>
 Package pdftex.def Info: fig/Ex1_IA.jpg  used on input line 207.
 (pdftex.def)             Requested size: 441.01773pt x 231.23524pt.
-<fig/Ex1_IAbad.jpg, id=317, 3011.25pt x 1578.89874pt>
+<fig/Ex1_IAbad.jpg, id=312, 3011.25pt x 1578.89874pt>
 File: fig/Ex1_IAbad.jpg Graphic file (type jpg)
 <use fig/Ex1_IAbad.jpg>
 Package pdftex.def Info: fig/Ex1_IAbad.jpg  used on input line 215.
 (pdftex.def)             Requested size: 441.01773pt x 231.23524pt.
  [9] [10 <./fig/Ex1_IA.jpg> <./fig/Ex1_IAbad.jpg>]
-<fig/Ex1_PIA.jpg, id=344, 3011.25pt x 1578.89874pt>
-File: fig/Ex1_PIA.jpg Graphic file (type jpg)
-<use fig/Ex1_PIA.jpg>
-Package pdftex.def Info: fig/Ex1_PIA.jpg  used on input line 282.
-(pdftex.def)             Requested size: 441.01773pt x 231.23524pt.
- [11]
-Underfull \vbox (badness 3884) has occurred while \output is active []
-
- [12 <./fig/Ex1_PIA.jpg>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [13]
-[14]
-Underfull \hbox (badness 10000) in paragraph at lines 501--501
+Underfull \hbox (badness 10000) in paragraph at lines 272--272
 
  []
 
-[15] [16]
-<fig/Ex1_SDA.jpg, id=425, 3011.25pt x 1578.89874pt>
+
+LaTeX Warning: Reference `eq:ILC:errevol_PIA' on page 11 undefined on input lin
+e 273.
+
+
+Underfull \vbox (badness 1048) has occurred while \output is active []
+
+ [11]
+<fig/Ex1_PIA.jpg, id=352, 3011.25pt x 1578.89874pt>
+File: fig/Ex1_PIA.jpg Graphic file (type jpg)
+<use fig/Ex1_PIA.jpg>
+Package pdftex.def Info: fig/Ex1_PIA.jpg  used on input line 312.
+(pdftex.def)             Requested size: 441.01773pt x 231.23524pt.
+
+[12 <./fig/Ex1_PIA.jpg>] [13] [14] [15]
+Underfull \hbox (badness 10000) in paragraph at lines 531--531
+
+ []
+
+[16]
+Underfull \vbox (badness 1342) has occurred while \output is active []
+
+ [17]
+<fig/Ex1_SDA.jpg, id=427, 3011.25pt x 1578.89874pt>
 File: fig/Ex1_SDA.jpg Graphic file (type jpg)
 <use fig/Ex1_SDA.jpg>
-Package pdftex.def Info: fig/Ex1_SDA.jpg  used on input line 569.
+Package pdftex.def Info: fig/Ex1_SDA.jpg  used on input line 599.
 (pdftex.def)             Requested size: 441.01773pt x 231.23524pt.
- [17 <./fig/Ex1_SDA.jpg>] [18] [19]
-<fig/Ex1_SDAvsSoE.jpg, id=460, 3011.25pt x 1578.89874pt>
+
+[18 <./fig/Ex1_SDA.jpg>] [19]
+<fig/Ex1_SDAvsSoE.jpg, id=450, 3011.25pt x 1578.89874pt>
 File: fig/Ex1_SDAvsSoE.jpg Graphic file (type jpg)
 <use fig/Ex1_SDAvsSoE.jpg>
-Package pdftex.def Info: fig/Ex1_SDAvsSoE.jpg  used on input line 682.
+Package pdftex.def Info: fig/Ex1_SDAvsSoE.jpg  used on input line 712.
 (pdftex.def)             Requested size: 441.01773pt x 231.23524pt.
- [20 <./fig/Ex1_SDAvsSoE.jpg>])
-[21] [22]
+ [20] [21 <./fig/Ex1_SDAvsSoE.jpg>]) [22]
 \openout2 = `Application.aux'.
 
- (Application.tex
+
+(Application.tex
 Chapter 3.
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
@@ -1598,7 +1608,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 
 
 ]
-<fig/ExSat_LQR.jpg, id=502, 3011.25pt x 1578.89874pt>
+<fig/ExSat_LQR.jpg, id=498, 3011.25pt x 1578.89874pt>
 File: fig/ExSat_LQR.jpg Graphic file (type jpg)
 <use fig/ExSat_LQR.jpg>
 Package pdftex.def Info: fig/ExSat_LQR.jpg  used on input line 68.
@@ -1667,7 +1677,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 329.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 329.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 329.
 Package rerunfilecheck Info: File `ProjectILC.out' has not changed.
-(rerunfilecheck)             Checksum: DCFBF5549E5EA636EB908210469D5266;1785.
+(rerunfilecheck)             Checksum: 812A32A22B464C25AAD2426E678267AF;1723.
 
 
 LaTeX Warning: There were undefined references.
@@ -1678,8 +1688,8 @@ Package logreq Info: Writing requests to 'ProjectILC.run.xml'.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 329.
  ) 
 Here is how much of TeX's memory you used:
- 31842 strings out of 480799
- 601769 string characters out of 2895784
+ 31841 strings out of 480799
+ 601765 string characters out of 2895784
  1258868 words of memory out of 3000000
  46924 multiletter control sequences out of 15000+200000
  559515 words of font info for 136 fonts, out of 3000000 for 9000
@@ -1709,9 +1719,9 @@ a/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users
 /Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/ms
 am10.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/a
 msfonts/symbols/msbm10.pfb>
-Output written on ProjectILC.pdf (51 pages, 1710039 bytes).
+Output written on ProjectILC.pdf (51 pages, 1711429 bytes).
 PDF statistics:
- 808 PDF objects out of 1000 (max. 8388607)
- 269 named destinations out of 1000 (max. 500000)
- 272 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 804 PDF objects out of 1000 (max. 8388607)
+ 268 named destinations out of 1000 (max. 500000)
+ 264 words of extra memory for PDF output out of 10000 (max. 10000000)
 

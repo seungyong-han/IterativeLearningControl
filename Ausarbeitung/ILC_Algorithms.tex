@@ -269,7 +269,37 @@ We can modify this algorithm by taking the Moore-Penrose inverse. This is the so
 	In particular, the zero convergence is attainable, if and only if the tracking signal $r$ is feasible, that is there exists an input $\hat u$, such that $r = G \hat u$. %$e_0 \in \im [G G^\star]$. 
 \end{alg}
 \begin{proof}
-Proof wird hier stehen wenn es so passt 
+	
+	Recap the relation $(GG^+)^2 = GG^+GG^+ = GG^+$ the error evolution formula \eqref{eq:ILC:errevol_PIA} can be proven by mathematical induction: 
+	
+	for $k = 1$ it follows: 
+	\begin{align*}
+	e_1 = (I - \beta G G^+)e_0 = (I + GG^+ - GG^+ - \beta G G^+)e_0 = (I + \left[(1 - \beta) + 1\right]GG^+)e_0.
+	\end{align*}
+	
+	For $k \in \N$  
+	\begin{align*}
+	e_{k+1} &= ( I - \beta G G^+)e_k = ( I - \beta G G^+) (I+  \left[(1-\beta)^{k-1} - 1\right] G G^+) e_0 = \\
+	& = \left(I - \beta G G^+ + (1-\beta)^{k-1}GG^+ - GG^+ - \beta GG^+\left[(1 - \beta)^{k-1} - 1\right]GG^+\right)e_0=\\
+	& = \left(I - (\beta - (1-\beta)^{k-1} + \beta\left[(1 - \beta)^{k-1} - 1\right])G G^+\right)e_0\\
+	& = \left(I - \left(\beta - (1-\beta)^{k-1} + 1 + \beta(1-\beta)^{k-1} - \beta\right)GG^+\right)e_0\\
+	& = (I+  \left[(1-\beta)^k - 1\right] G G^+) e_0
+	\end{align*}
+	
+	To prove \eqref{eq:ILC:einfPIA}  recall that 
+	\begin{align*}
+	\R^{m(N+1)} = \im(G)\oplus \ker (G^+),
+	\end{align*}
+	$\oplus$ denotes here the direct sum of two vector spaces. 
+	Hence $e_0$ can be written as 
+	\begin{align*}
+	e_0 = G w_0 + v_0,
+	\end{align*}
+	where $v_0 = (I - G G^+)e_0 \in \ker (G^+)$  is uniquely defined and $w_0 = G^+ e_0 \in \R^{l(N+1)}$. It follows: 
+	\begin{align*}
+	e_{k} = (1+ \left[(1 - \beta)^{k-1} - 1\right]GG^+)e_0 = (1-\beta)^{k-1} G w_0 + v_0.
+	\end{align*}
+	Then for $\beta \in (0,2)$ the error $e_k$ converges to $v_0$ for $k \to \infty$. 
 \end{proof}
 
 \begin{exam}

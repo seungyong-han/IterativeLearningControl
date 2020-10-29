@@ -20,23 +20,21 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2.2}Inverse Model Algorithms}{8}{section.2.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.3}Unit Memory Algorithm}{12}{section.2.3}%
+\contentsline {section}{\numberline {2.3}Unit Memory Algorithm}{13}{section.2.3}%
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2.4}Gradient Algorithms}{14}{section.2.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.4.1}Steepest Descent Algorithm}{15}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.1}Steepest Descent Algorithm}{16}{subsection.2.4.1}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.4.2}Suppression of eigenvalues}{18}{subsection.2.4.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.5}Feedback Design}{20}{section.2.5}%
+\contentsline {section}{\numberline {2.5}Feedback Design}{21}{section.2.5}%
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {3}Application}{23}{chapter.3}%
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.1}The case $D = 0$}{23}{section.3.1}%
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.2}Long time horizon}{25}{section.3.2}%
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.3}Online learning}{26}{section.3.3}%
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {4}Robustness of the ILC Algorithms}{27}{chapter.4}%
 \defcounter {refsection}{0}\relax 
