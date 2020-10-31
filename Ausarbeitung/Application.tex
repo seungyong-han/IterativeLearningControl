@@ -82,23 +82,33 @@ It looks like something we can improve. However, for $Ts = 10^{-3}$s we get $N =
 	One possibility to reduce the wasted memory is to split our system in the smaller ones. Let us denote the time horizon length with $N_{\max}$, and choose an $N$ with $1<N\leq N_{\max}$. 
 	We can apply our algorithms on the systems with the same state space description, but different initial values. For simplicity, let us assume, that we can divide our time horizon $0,1,2,\dots, N_{\max}$ in $p$ equal parts with time horizon of length $N$, and the matrix $D = 0$. 
 	
-	Then the initial condition for the $p$-th application of the algorithm changes as 
+	Then after we ran $N$ iterations, we get for the next $N$ iterations the initial condition
 	\begin{align}
-	x_{0_p}= A^p x_0 + \sum_{\rho = 0}^{p - 1} \sum_{t = \rho (N + 1)}^{\rho (N+2)} A^{(N+2)\rho - t} B u(t). 
+	x_{0_{\rm{1}}} = A^{N} x(0) + \sum_{\tau = 0}^N A^{\tau}B u(t - \tau). 
 	\end{align}
 	
-	However, for large values of $p$ and asymptotically stable $A$ the term $A^{(N+2)\rho - 1 }\approx 0$ for $\rho > p$.
-	We can estimate it as 
+	For the next pass we adjust the next initial value as 
 	\begin{align}
-	||x_{0_p}|| &\leq  \sum_{\rho = 0}^{p^{\star}} \sum_{t = \rho (N + 1)}^{\rho (N+2)} ||A^{(N+2)\rho - t} B u(t)|| \\
-	&+
-	\underbrace{\sum_{\rho = p^\star+1}^{p^{\star}} \sum_{t = \rho (N + 1)}^{\rho (N+2)} ||A^{(N+2)\rho - t} B u(t)||}_{\approx 0} + \underbrace{||A^p x_0||}_{\approx 0} 
+	x_{0_{\rm{2}}} = A^{2N} x(0) + \sum_{\tau = 0}^{2N} A^{\tau}B u(t - \tau) = A^N x(N+1) + \sum_{\tau = 0}^N A^{\tau} B u(2N - \tau). 
 	\end{align}
-	for some $1<p^{\star}<p$ large enough, and then we need to calculate only the first $p^\star (N+2)$ terms, independent on groving $p$. 
 	
-	But what if $N < p^\star$? Our matrix $G$ contains then these small terms, which cause the numerical instability e.g. though condition number enlarging. The neglecting of this terms does not have a solid impact on the calculation result, and it can help us to decrease the used memory, if we use the sparse matrices. 
+	Doing so fare $1 \leq p^* \leq p$ algorithm trials, we get 
+	\begin{align}
+	x_{0_{p^*}} = A^N x((N+1)(p^* - 1)) + \sum_{\tau = 0}^N A^{\tau}B u(p^*N - \tau). 
+	\end{align}
 	
-	So, how are we to chose this number $p^\star$? We consider the ''reduced'' lifted system (with neglected small terms)
+	That means, we have no need to calculate even more than $N$ powers of $A$. 
+	
+	However, if the matrix is asymptotically stable, it might have an advantage to neglect some terms $C A^p B$ for $1<p<N$ large enough. 
+	It allows us to skip the little elements of the matrix $G$, which might lead to bad condition number. 
+
+	Another benefit is the use of sparse matrices. 	
+	Our matrix $G$ has a lower triangular structure, and even without any neglecting we can decrease the memory usage by saving only the elements of $G$, which are not zero. With ''reduces'' matrix $G$ we can maintain more space and hence choose a larger $N$ to divide our system in.
+	
+	The following theorem illustrates it and supposes a method for choosing of this $p^*$. 
+	
+	\begin{theo}
+	We consider the ''reduced'' lifted system 
 	\begin{align}
 	\t y = \t G + d.
 	\end{align}
@@ -114,24 +124,35 @@ It looks like something we can improve. However, for $Ts = 10^{-3}$s we get $N =
 	0 & 0 & C A^{p^\star-1} B & \dots & CAB & CB & D \\
 	\vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \ddots \\
 	0 & 0 & 0 & \dots & C A^{p^\star-1}& C A^{p^\star-2}B& CA^{p^\star-3}B &\dots & D
-	\end{pmatrix}.
+	\end{pmatrix},
 	\end{align}
+	with asymptotic stable $A$.
 	
-	Then for a given tolerance $\varepsilon>0$ and for time $t \in \{1,2, \dots , N_{\max}\}$, the difference between the ''normal'' and ''reduced'' output equals
+	Then the error $||y(t) - \t y(t)||$, $p^* < t$, can be estimated undepended on $t$ as 
 	\begin{align}
-	||y(t) - \t y(t)|| = ||\sum_{\tau = p^\star}^{t} C A^{\tau} B u(p^\star - \tau)|| \leq ||C|| \, ||B|| \sum_{\tau = p^\star}^t ||A||^\tau \max_{\eta = 0}^{p^\star}||u(\eta)||. 
+	||y(t) - \t y(t)|| < 2 ||C|| \, ||B|| \,  ||A^{p^*}||\, ||(I - A)^{-1}||\,||u_{\max}||, 
 	\end{align}
-	
-	The estimation of the input signal norm $\max_{\eta = 0}^{p^\star}||u(\eta)||$ can be often replaced by some $||u_{\max}||$, where $u_{\max}$ is the input with the largest possible norm.  
-	
-	If in a given norm $||A||<1$,  for a required tolerance $\varepsilon$ we get 	
+	with 
 	\begin{align}
-	\varepsilon \geq ||C||\, ||B|| \frac{||A||^{p^\star} - ||A||^{t}}{1 - ||A||} ||u_{\max}|| \geq ||C|| \, ||B|| \frac{||A||^{p^*} - ||A||^{N_{\max}}}{1 - ||A||}||u_{\max}||. 
+	||u_{\max}|| = \max_{\tau = 0}^{t - p^*} ||u(\tau)||. 
 	\end{align}
-	
-	We can see that for a groving time horizon our $p^\star$ stays the same, without need to determine it again. 
-	
 
+	\end{theo}	
+	\begin{proof}
+	Since $A$ is asymptotically stable, the inverse of $(I - A)$ exists. Simple calculation provides 
+		\begin{align}
+	\begin{split}
+			||y(t) - \t y(t)|| &= ||C \sum_{\tau = p^*}^t A^\tau B u(\tau)|| \leq ||C|| \, ||\sum_{\tau = p^*}^t A^\tau || \,||B|| \, ||u_{\max}|| \\
+			& = ||C|| \, ||B|| \, ||(A^{p^*} - A^{t + 1})(I - A)^{-1}|| \, ||u_{\max}|| \\
+			&  \leq 2 ||C|| \, ||B|| \, ||A^{p^*}|| \, ||(I - A)^{-1}|| \, ||u_{\max}||. 
+	\end{split}
+		\end{align}
+	\end{proof}
+
+	This theorem says, that it does not matter how large is our $N$: we still can estimate our output with the same $p^*$. 
+	Thou this estimation is not very precise, and hence is not a good tool for any system. 
+	
+	
 	
 	
 	
