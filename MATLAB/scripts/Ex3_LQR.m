@@ -1,10 +1,12 @@
-% Calculate stabilizing solutions for discrete algebraic Riccati equation
-P = dare(A, B, 1, 1);
-Q = dare(A', C', 1,1);
 
 % l-input m-output system
 l = length(B(1,:));
 m = length(C(:,1));
+
+% Calculate stabilizing solutions for discrete algebraic Riccati equation
+P = dare(A, B, 1,1);
+Q = dare(A', C', 1,1);
+
 
 %Calculate the matrices for separation principle based controller
 F = (eye(l) + B'*P*B)\eye(l);
@@ -13,6 +15,7 @@ F = F*B'*P*A;
 J = (eye(m) + C*Q*C')\eye(m);
 J = J*C*Q*A';
 J = J'; 
+
 
 
 % tracking signal as pulse 
@@ -57,9 +60,11 @@ close all
 hold on
 plot(time, r_vec);
 plot(time, y_sv);
+%grid off
+%plot(time, zeros(length(time),1), '--', 'color', 'black', 'LineWidth', 2)
 legend('reference', 'output $y(t)$', 'interpreter', 'latex');
 xlabel('time $t$ [s]', 'interpreter', 'latex');
 ylabel('output and reference');
 xlim([0, time(end)]);
-ylim([0, 1.2])
+ylim([-.1, 1.2])
 hold off

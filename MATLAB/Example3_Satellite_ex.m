@@ -3,12 +3,14 @@
 clc 
 clear all
 
+
 s = zpk('s');
 Ts = 1e-3;
 
 G = ss(0.036*(s+25.28)/(s^2*(s^2+0.0396*s+1)));
 Gd = c2d(G,Ts);
 [A,B,C,D] = ssdata(Gd);
+
 
 systemnames='Gd';
 

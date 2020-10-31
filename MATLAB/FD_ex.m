@@ -6,12 +6,16 @@ addpath('scripts');
 clc 
 clear all
 
+
 %% Define system and controller
 % Define system (from Lecture)
 s = zpk('s');
 sample_time = 0.5*1e-1;
 sys = ss(0.036*(s+25.28)/(s^2*(s^2+0.0396*s+1)));
-sys = c2d(sys,sample_time);
+sys = c2d(sys,sample_time); 
+%----------------------------------------------
+
+
 
 
 
@@ -84,16 +88,26 @@ hold off
 A = A - B*F; 
 C = C -D*F; 
 %%
+%----------------------------------------------
 sys = ss(A,B,C,D,sample_time); 
 systemnames='sys';
 inputvar='[r;u]';
-outputvar='[sys-r; r-sys]';
+outputvar='[sys-r; u; r-sys]';
 input_to_sys='[u]';
 P=sysic;
 
-Kc = hinfsyn(sys, 1, 1);
+% Slightly adjusted weight from RC lecture transformed to discrete-time 
+s = tf('s');
+M = 10;
+wb = 0.75;
+a = 1e-3;
+Wp = c2d((s/sqrt(M) + wb)^2/(s + wb*sqrt(a))^2, sample_time);
+
+% H infty design for weighted plant
+[Kc, ~, ga] = hinfsyn(blkdiag(Wp, 0.001, 1) * P, 1, 1);
+
 cloop = lft(P, Kc);
-S = -cloop; %sensitivity here
+S = -cloop(1, 1); %sensitivity here
 T = 1 - S; 
 K = Kc*S; 
 %% Define the supermatrices 
@@ -113,7 +127,7 @@ K_sv = get_G(A,B,C,D,zeros(length(A), 1), N);
 clc 
 u = u_sv;
 r = r_vec; 
-b = .1; 
+b = .7; 
 
 e = r - G*u - d; 
 cont = 1; 
@@ -151,7 +165,7 @@ u = u_sv;
 r = r_vec;
 [A,B,C,D] = ssdata(T); 
 n = length(A);
-b = .1;
+b = .7;
 
 e = r - G*u - d; %error
 p = zeros(n, N+1); %for inverse time simulation
@@ -181,8 +195,7 @@ while cont
     end
     
     if mod(iteration_number, 1000) == 0
-         disp(['curr_error_difference: ', num2str(norm(e_new - e))]); 
-    end
+      end
 
     e = e_new;
     u = u_new;
@@ -205,4 +218,4 @@ hold on
 plot(0:N, r_vec);
 hold off
 %%
-[u_inf, e_inf, y_inf, impr,iteration_number,error_history] = SDA(G,d, .1,r_vec, u_sv, 1, 1, 1);
+[u_inf, e_inf, y_inf, impr,iteration_number,error_history] = SDA(G,d, b,r_vec, u_sv, 1, 1, 1);
