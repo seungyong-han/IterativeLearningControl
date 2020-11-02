@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.26)  31 OCT 2020 17:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.26)  1 NOV 2020 17:04
 entering extended mode
 **./ProjectILC.tex
 (ProjectILC.tex
@@ -1614,20 +1614,21 @@ File: fig/ExSat_LQR.jpg Graphic file (type jpg)
 Package pdftex.def Info: fig/ExSat_LQR.jpg  used on input line 68.
 (pdftex.def)             Requested size: 441.01773pt x 231.23524pt.
  [24 <./fig/ExSat_LQR.jpg>]
-Overfull \hbox (7.94307pt too wide) detected at line 128
+Overfull \hbox (7.94307pt too wide) detected at line 130
 []
  []
 
 [25]
-Overfull \hbox (7.94307pt too wide) detected at line 174
-[]
+Overfull \hbox (7.88675pt too wide) in paragraph at lines 158--160
+[]\OT1/cmr/m/it/12 Four our sys-tem [] we have for $\OMS/cmsy/m/n/12 jj\OML/cmm
+/m/it/12 u[]\OMS/cmsy/m/n/12 jj  \OT1/cmr/m/n/12 1\OML/cmm/m/it/12 :\OT1/cmr/m
+/n/12 5$ $\OMS/cmsy/m/n/12 jj\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 (\OML/cmm/m/it/1
+2 t\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12   []\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\O
+T1/cmr/m/n/12 )\OMS/cmsy/m/n/12 jj \OML/cmm/m/it/12 < \OT1/cmr/m/n/12 5\OML/cmm
+/m/it/12 :\OT1/cmr/m/n/12 13 10[]$\OT1/cmr/m/it/12 . 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [26])
-[27]
+[26]) [27]
 \openout2 = `Robustness.aux'.
 
  (Robustness.tex [28
@@ -1693,10 +1694,10 @@ Package logreq Info: Writing requests to 'ProjectILC.run.xml'.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 329.
  ) 
 Here is how much of TeX's memory you used:
- 31850 strings out of 480799
- 601868 string characters out of 2895784
- 1258868 words of memory out of 3000000
- 46924 multiletter control sequences out of 15000+200000
+ 31851 strings out of 480799
+ 601870 string characters out of 2895784
+ 1258956 words of memory out of 3000000
+ 46926 multiletter control sequences out of 15000+200000
  559515 words of font info for 136 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,27n,66p,941b,1190s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1724,9 +1725,9 @@ a/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users
 /Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/ms
 am10.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/a
 msfonts/symbols/msbm10.pfb>
-Output written on ProjectILC.pdf (53 pages, 1715296 bytes).
+Output written on ProjectILC.pdf (53 pages, 1714797 bytes).
 PDF statistics:
- 821 PDF objects out of 1000 (max. 8388607)
- 277 named destinations out of 1000 (max. 500000)
+ 823 PDF objects out of 1000 (max. 8388607)
+ 276 named destinations out of 1000 (max. 500000)
  264 words of extra memory for PDF output out of 10000 (max. 10000000)
 

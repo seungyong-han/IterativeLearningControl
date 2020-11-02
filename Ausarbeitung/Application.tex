@@ -94,6 +94,7 @@ It looks like something we can improve. However, for $Ts = 10^{-3}$s we get $N =
 	
 	Doing so fare $1 \leq p^* \leq p$ algorithm trials, we get 
 	\begin{align}
+	\label{eq:Appl:new_x0}
 	x_{0_{p^*}} = A^N x((N+1)(p^* - 1)) + \sum_{\tau = 0}^N A^{\tau}B u(p^*N - \tau). 
 	\end{align}
 	
@@ -108,6 +109,7 @@ It looks like something we can improve. However, for $Ts = 10^{-3}$s we get $N =
 	The following theorem illustrates it and supposes a method for choosing of this $p^*$. 
 	
 	\begin{theo}
+		\label{thm:Appl:redSys}
 	We consider the ''reduced'' lifted system 
 	\begin{align}
 	\t y = \t G + d.
@@ -152,8 +154,30 @@ It looks like something we can improve. However, for $Ts = 10^{-3}$s we get $N =
 	This theorem says, that it does not matter how large is our $N$: we still can estimate our output with the same $p^*$. 
 	Thou this estimation is not very precise, and hence is not a good tool for any system. 
 	
+	\begin{exam}
+		Four our system \eqref{eq:ILC:Sys_ex1} we have for $||u_{\max}||\leq 1.5$ 
+		$||y(t) - \t y(t)|| < 5.13 \, 10^{-11}$. 
+		
+		TODO: Beispiel 
+		
+	\end{exam}
+
+\begin{exam}
+	For example \eqref{eq:Appl:satellite_sys} we can not easily apply Theorem \ref{thm:Appl:redSys}: for $p^* = 10 \, 000 $ the estimation refers 
+	\begin{align}
+	||y(t) - \t y(t)|| \leq 0.8879 \text{ for } p^* < t < N,
+	\end{align}
+	if $||u_{\max}|| \leq 1$.
+	
+	One can also try to adapt the controller, such that the closed loop matrix $A$ has the eigenvalues of smaller absolute value. However, in our case it does not seem to be a better solution: $H_\infty$ design does not provide a better applicable solution, and pole placement yields the matrix $F$ with very large values. 
+	
+	But we still can divide our system in the smaller parts and apply the formula \eqref{eq:Appl:new_x0}. 
+	
+	Choose $N = 100$, and simulate the system dynamics for 30 seconds with time step of $10^{-3}$. 
+	Given solution 
 	
 	
+\end{exam}
 	
 	
 	
