@@ -31,7 +31,6 @@ function [u_inf, e_inf, y_inf, impr,iteration_number, error_history] = RIA(G,d, 
 %else %write the algorithm down because of other error calculation 
     beta_max = 2;
     beta = beta*beta_max;
-    beta = beta*2;
     K0 = pinv(full(G));
     %K0 = G\eye(length(G));
     K0 = sparse(K0);

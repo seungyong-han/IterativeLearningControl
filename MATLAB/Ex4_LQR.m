@@ -3,10 +3,13 @@
 
 % Calculate stabilizing solutions for discrete algebraic Riccati equation
 
-Rw = diag([1, .1, 2]);
-Qw = diag([.1, .2,1, 1, 1]);
-P = dare(A, B, Qw , Rw);
-Q = dare(A', C', Qw , Rw);
+%Rw = diag([1, .1, 2]);
+%Qw = diag([.1, .2,1, 1, 1]);
+Qw = eye(length(A)); 
+Rw = eye(l); 
+
+P = dare(A, B, 1 , 1);
+Q = dare(A', C', 1 , 1);
 
 
 %Calculate the matrices for separation principle based controller
@@ -18,7 +21,6 @@ J = J*C*Q*A';
 J = J'; 
 %%
 
-r_vec = ones(m*(N+1), 1); 
 
 
 x0 = zeros(length(A), 1); 
@@ -31,12 +33,15 @@ y_sv = [];%output supervector
 TMP = (eye(length(A)) - A + B*F);
 TMP = TMP\eye(length(A));
 M = (C - D*F)*TMP*B + D;
-M = M\eye(length(M));
+M =pinv(M);
 
 x_hat = x0;
 x = x0;
 
-r_vec = reshape(r_vec, [m, N+1]);
+%r_vec = reshape(r_vec, [m, N+1]);
+r_vec = .1*ones(m*(N+1), 1); 
+r_vec = [ones(1, N+1); zeros(1, N+1); zeros(1, N+1)]
+
 for i = 1:N+1
     r = r_vec(:, i);
     u = -F*x_hat + M*r; 
@@ -55,8 +60,11 @@ close all
 fig = figure; 
 hold on
 y_out = reshape(y_sv, [m, N+1]); 
-plot(0:N, r_vec(3, :));
-plot(0:N, y_out(3, :));
+u_out = reshape(u_sv, [l, N+1]);
+r_out = reshape(r_vec,[m, N+1]);
+
+plot(0:N, r_vec(1, :));
+plot(0:N, y_out(1, :));
 legend('Reference', 'LQR', 'interpreter', 'latex');
 xlabel('time $t$', 'interpreter', 'latex');
 ylabel('output and reference');

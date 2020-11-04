@@ -5,7 +5,7 @@ B = [1; 2];
 C = [0 1];
 D = 2;
 
-N = 50;
+N = 100;
 b = .1;  
 
 % Find controller using separation principle
@@ -21,7 +21,8 @@ do_plot = 1;
 [G, d] = get_redG(A-B*F, B, C - D*F, D, x0, N);
 %save_plot(fig, 'Ex1_LQR');
 disp(['cond number = ',num2str(cond(G))]);
-%%
+
+f = @(p)(2*norm(C)*norm(B)*norm((eye(length(A)) - A)^-1)*norm(A^p));%
 % IA vs LQR example
 Ex1_IA;
 %save_plot(fig, 'IA_N40');
