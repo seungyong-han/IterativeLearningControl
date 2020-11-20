@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.26)  20 NOV 2020 08:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.26)  20 NOV 2020 09:27
 entering extended mode
 **./ProjectILC.tex
 (ProjectILC.tex
@@ -1519,28 +1519,10 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 ]
-Overfull \hbox (24.52443pt too wide) in paragraph at lines 50--52
-\OT1/cmr/m/n/12 form. We ''stock'' the se-quences $\OMS/cmsy/m/n/12 f\OML/cmm/m
-/it/12 u\OT1/cmr/m/n/12 (0)\OML/cmm/m/it/12 ; u\OT1/cmr/m/n/12 (1)\OML/cmm/m/it
-/12 ; u\OT1/cmr/m/n/12 (2)\OML/cmm/m/it/12 ; [] ; u\OT1/cmr/m/n/12 (\OML/cmm/m/
-it/12 N\OT1/cmr/m/n/12 )\OMS/cmsy/m/n/12 g$ \OT1/cmr/m/n/12 and $\OMS/cmsy/m/n/
-12 f\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 (0)\OML/cmm/m/it/12 ; y\OT1/cmr/m/n/12 (1
-)\OML/cmm/m/it/12 ; y\OT1/cmr/m/n/12 (2)\OML/cmm/m/it/12 ; [] ; y\OT1/cmr/m/n/1
-2 (\OML/cmm/m/it/12 N\OT1/cmr/m/n/12 )\OMS/cmsy/m/n/12 g$
- []
-
-
-Underfull \vbox (badness 4726) has occurred while \output is active []
+Underfull \vbox (badness 1472) has occurred while \output is active []
 
  [2]
-Overfull \hbox (9.19005pt too wide) in paragraph at lines 87--89
-\OT1/cmr/m/n/12 With other words, we put all the in-for-ma-tion about the sys-t
-em over time $\OML/cmm/m/it/12 t \OT1/cmr/m/n/12 = 0\OML/cmm/m/it/12 ; \OT1/cmr
-/m/n/12 1\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 2\OML/cmm/m/it/12 ; [] ; N$
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 2269) has occurred while \output is active []
 
  [3])
 [4]
@@ -1548,14 +1530,20 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  (Basics20.tex
 Chapter 2.
-
-Underfull \vbox (badness 3219) has occurred while \output is active []
-
- [5
+[5
 
 
 
 ]
+
+LaTeX Warning: Reference `eq:GP' on page 6 undefined on input line 134.
+
+
+LaTeX Warning: Reference `eq:GP' on page 6 undefined on input line 142.
+
+
+LaTeX Warning: Reference `eq:GP' on page 6 undefined on input line 151.
+
 [6]) [7]
 \openout2 = `ILC_Algorithms.aux'.
 
@@ -1565,25 +1553,41 @@ Underfull \vbox (badness 3219) has occurred while \output is active []
 
 ]
 Chapter 3.
+
+LaTeX Warning: Reference `eq:GP' on page 9 undefined on input line 12.
+
+
+LaTeX Warning: Reference `eq:GP' on page 9 undefined on input line 12.
+
+
+LaTeX Warning: Reference `eq:GP' on page 9 undefined on input line 16.
+
 [9]
-<fig/Ex1_LQR.jpg, id=331, 3011.25pt x 1578.89874pt>
+<fig/Ex1_LQR.jpg, id=320, 3011.25pt x 1578.89874pt>
 File: fig/Ex1_LQR.jpg Graphic file (type jpg)
 <use fig/Ex1_LQR.jpg>
 Package pdftex.def Info: fig/Ex1_LQR.jpg  used on input line 85.
 (pdftex.def)             Requested size: 441.01773pt x 231.23524pt.
  [10 <./fig/Ex1_LQR.jpg>]
+
+LaTeX Warning: Reference `eq:GP' on page 11 undefined on input line 118.
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [11]
+
+LaTeX Warning: Reference `eq:GP' on page 12 undefined on input line 168.
+
 [12]
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
 (Font)              Font shape `U/lasy/m/n' tried instead on input line 196.
-<fig/Ex1_IA.jpg, id=371, 3011.25pt x 1578.89874pt>
+<fig/Ex1_IA.jpg, id=358, 3011.25pt x 1578.89874pt>
 File: fig/Ex1_IA.jpg Graphic file (type jpg)
 <use fig/Ex1_IA.jpg>
 Package pdftex.def Info: fig/Ex1_IA.jpg  used on input line 207.
 (pdftex.def)             Requested size: 441.01773pt x 231.23524pt.
-<fig/Ex1_IAbad.jpg, id=375, 3011.25pt x 1578.89874pt>
+<fig/Ex1_IAbad.jpg, id=362, 3011.25pt x 1578.89874pt>
 File: fig/Ex1_IAbad.jpg Graphic file (type jpg)
 <use fig/Ex1_IAbad.jpg>
 Package pdftex.def Info: fig/Ex1_IAbad.jpg  used on input line 215.
@@ -1597,7 +1601,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 272--272
 Underfull \vbox (badness 1048) has occurred while \output is active []
 
  [15]
-<fig/Ex1_PIA.jpg, id=413, 3011.25pt x 1578.89874pt>
+<fig/Ex1_PIA.jpg, id=400, 3011.25pt x 1578.89874pt>
 File: fig/Ex1_PIA.jpg Graphic file (type jpg)
 <use fig/Ex1_PIA.jpg>
 Package pdftex.def Info: fig/Ex1_PIA.jpg  used on input line 312.
@@ -1612,29 +1616,39 @@ Underfull \hbox (badness 10000) in paragraph at lines 531--531
 Underfull \vbox (badness 1342) has occurred while \output is active []
 
  [21]
-<fig/Ex1_SDA.jpg, id=488, 3011.25pt x 1578.89874pt>
+<fig/Ex1_SDA.jpg, id=475, 3011.25pt x 1578.89874pt>
 File: fig/Ex1_SDA.jpg Graphic file (type jpg)
 <use fig/Ex1_SDA.jpg>
 Package pdftex.def Info: fig/Ex1_SDA.jpg  used on input line 599.
 (pdftex.def)             Requested size: 441.01773pt x 231.23524pt.
 
 [22 <./fig/Ex1_SDA.jpg>] [23]
-<fig/Ex1_SDAvsSoE.jpg, id=512, 3011.25pt x 1578.89874pt>
+<fig/Ex1_SDAvsSoE.jpg, id=499, 3011.25pt x 1578.89874pt>
 File: fig/Ex1_SDAvsSoE.jpg Graphic file (type jpg)
 <use fig/Ex1_SDAvsSoE.jpg>
 Package pdftex.def Info: fig/Ex1_SDAvsSoE.jpg  used on input line 712.
 (pdftex.def)             Requested size: 441.01773pt x 231.23524pt.
- [24] [25 <./fig/Ex1_SDAvsSoE.jpg>]) [26]
+ [24]
+
+LaTeX Warning: Reference `eq:GP' on page 25 undefined on input line 726.
+
+[25 <./fig/Ex1_SDAvsSoE.jpg>]) [26]
 \openout2 = `Robustness.aux'.
 
-
-(Robustness.tex
+ (Robustness.tex
 Chapter 4.
+
+LaTeX Warning: Reference `eq:GP' on page 27 undefined on input line 60.
+
 [27
 
 
 
 ]
+
+LaTeX Warning: Reference `eq:GP' on page 28 undefined on input line 101.
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [28]
@@ -1671,7 +1685,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 7.
 
 [37]
-<fig/ExSat_LQR.jpg, id=683, 3011.25pt x 1578.89874pt>
+<fig/ExSat_LQR.jpg, id=667, 3011.25pt x 1578.89874pt>
 File: fig/ExSat_LQR.jpg Graphic file (type jpg)
 <use fig/ExSat_LQR.jpg>
 Package pdftex.def Info: fig/ExSat_LQR.jpg  used on input line 68.
@@ -1729,10 +1743,10 @@ Package logreq Info: Writing requests to 'ProjectILC.run.xml'.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 330.
  ) 
 Here is how much of TeX's memory you used:
- 32171 strings out of 480799
- 604988 string characters out of 2895784
- 1261846 words of memory out of 3000000
- 47206 multiletter control sequences out of 15000+200000
+ 32162 strings out of 480799
+ 604853 string characters out of 2895784
+ 1261680 words of memory out of 3000000
+ 47203 multiletter control sequences out of 15000+200000
  560021 words of font info for 138 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,27n,66p,941b,1806s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1762,9 +1776,9 @@ rel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb
 cm/cmtt12.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pub
 lic/amsfonts/symbols/msam10.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2
 .9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on ProjectILC.pdf (58 pages, 1744057 bytes).
+Output written on ProjectILC.pdf (58 pages, 1741825 bytes).
 PDF statistics:
- 919 PDF objects out of 1000 (max. 8388607)
- 307 named destinations out of 1000 (max. 500000)
+ 902 PDF objects out of 1000 (max. 8388607)
+ 301 named destinations out of 1000 (max. 500000)
  304 words of extra memory for PDF output out of 10000 (max. 10000000)
 

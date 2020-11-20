@@ -41,14 +41,16 @@ x(0)& = &x_0, & &
 \end{split}
 \end{align}
 over a time horizon $t = 0, 1, 2, \dots, N$. $A$, $B$, $C$, and $D$ denote here the matrices of fitting dimensions.
-We are interested in the minimizing of the error 
+We are interested in the minimizing of the error between output $y(\cdot)$ and the tracking signal $r(\cdot)$
 \begin{align}
 \label{eq:Intro:error}
 e(t) = r(t) - y(t), \; t  = 0, 1, 2, \dots, N. 
 \end{align}
 
 An uncommon contemplation in this work is the final time horizon. 
-Together with discreteness of the the system it invites us to rewrite the system \eqref{eq:Intro:GP} in a more compact form. We ''stock'' the sequences $\{u(0), u(1), u(2), \dots, u(N)\}$ and $\{y(0), y(1), y(2), \dots, y(N)\}$ as 
+Together with discreteness of the the system it invites us to rewrite the system \eqref{eq:Intro:GP} in a more compact form. We ''stock'' the sequences 
+\begin{align*}\{u(0), u(1), u(2), \dots, u(N)\} \text{ and } \{y(0), y(1), y(2), \dots, y(N)\} \end{align*}
+as
 \begin{align*}
 u = \begin{pmatrix}
 u(0) \\ u(1) \\ \vdots \\ u(N)
@@ -60,13 +62,11 @@ y(0) \\ y(1) \\ \vdots \\ y(N)
 The resulting vectors $u$ and $y$ we call supervectors. 
 
 Then the system \eqref{eq:Intro:GP} can be expressed as 
-\begin{align}
-\label{eq:Intro:y = Gu + d}
+\begin{align*}
 y = G u + d, 
-\end{align}
+\end{align*}
 where 
-\begin{align}
-\label{eq:Intro:Gmatrix}
+\begin{align*}
 \begin{split}
 G &= G(A,B,C,D) = \\
 &=  \begin{pmatrix}
@@ -78,17 +78,17 @@ CA^{N-2} B & CA^{N-3} B &\dots &CB & D& 0\\
 CA^{N-1} B & CA^{N-2} B &\dots &CAB & CB& D\\
 \end{pmatrix} \in \R^{m(N+1)\times l(N+1)}.
 \end{split}
-\end{align}
+\end{align*}
 and 
-\begin{align}
+\begin{align*}
 d = d(C,A,x_0) = \begin{pmatrix}
 C x_0 \\ CA x_0 \\ CA^2 x_0 \\ \vdots \\ CA^Nx_0
 \end{pmatrix} \in \R^{m(N+1)}.
-\end{align}
-With other words, we put all the information about the system over time $t = 0, 1, 2, \dots, N$ in one linear equation. This form already inspires some of ILC algorithms, for example Pseudo Inverse Model Algorithm 
-\begin{align}
+\end{align*}
+With other words, we put all the information about the system at times $t = 0, 1,  \dots, N$ in one linear equation. This form already inspires some of ILC algorithms, for example Pseudo Inverse Model Algorithm 
+\begin{align*}
 u_{k+1} = u_k + \beta G G^+ e_k, 
-\end{align}
+\end{align*}
 where $G^+$ is the pseudo inverse of $G$ and $k$ denotes the trial of system run, $\beta \in (0,2)$.
 
 To make the notation less confusing, we denote with $u(t)$ the value of signal $u(\cdot)$ at time $t$, and with $u$ the corresponding supervector form. $u_k$ denotes the supervector at trial $k$ of algorithm running.

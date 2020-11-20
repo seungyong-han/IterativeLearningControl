@@ -1,26 +1,30 @@
 \chapter{Basics} 
 \label{ch:Basics}
-{\color{red}$<$Einfuehrung$>$}
 
-We consider a  discrete time iteration
-\begin{align}
-\label{eq:GP}
-\begin{split}
-&\begin{array}{c c c c c}
-x(t+1) &= &A x(t)& + &B u(t)  \\
-y ( t) &= &C x(t)&  + &D u(t),\\ 
-\end{array}\\
-&\; \;\;x(0) =x_0 , \; \;  t \geq 0,
-\end{split}
-\end{align}
- with error 
-\begin{align}
-\label{eq:error}
-e(t) =r(t) - y(t)
-\end{align}
-at time $t  = 0, 1, 2, \dots$.
+To understand the following Iterative Learning Control (ILC) algorithms, we need to make a departure to basic definitions we will use. 
+We consider the system \eqref{eq:Intro:GP}. Here $A \in \mathbb{R}^{n\times n}$, $B \in \mathbb{R}^{n \times l}$, $C \in \R^{m \times n}$, and $D \in \R^{m\times l}$ are real matrices, $r(t) \in \R^{m}$ is a reference signal at time $t$. For notation simplification, we write $(A, B,C,D)$ and mean it to be the discrete-time control system \eqref{eq:Intro:GP}.
 
-Here $A \in \mathbb{R}^{n\times n}$, $B \in \mathbb{R}^{n \times l}$, $C \in \R^{m \times n}$, and $D \in \R^{m\times l}$ are real matrices, $r(t) \in \R^{m}$ is a reference signal at time $t$. For notation simplification, we write $(A, B,C,D)$ and mean it to be the discrete-time control system \eqref{eq:GP}.
+
+
+%We consider a  discrete time iteration
+%\begin{align}
+%\label{eq:GP}
+%\begin{split}
+%&\begin{array}{c c c c c}
+%x(t+1) &= &A x(t)& + &B u(t)  \\
+%y ( t) &= &C x(t)&  + &D u(t),\\ 
+%\end{array}\\
+%&\; \;\;x(0) =x_0 , \; \;  t \geq 0,
+%\end{split}
+%\end{align}
+% with error 
+%\begin{align}
+%\label{eq:error}
+%e(t) =r(t) - y(t)
+%\end{align}
+%at time $t  = 0, 1, 2, \dots$.
+
+
 
 
 
@@ -31,6 +35,9 @@ To design it, we must first clearly define what stability means. Since let us fi
 
 \section{Definitions}
 
+
+The stability definition is usually given asymptotically. That means, we assume $N = \infty$. Only for definitions in this chapter, we make this assumption. We will see, that it quite make sense also for finite time horizon problems.  
+
 \begin{defi}
 	A discrete time dynamical system
 	\begin{align}
@@ -38,7 +45,7 @@ To design it, we must first clearly define what stability means. Since let us fi
 	x(t+1) = A x(t)
 	\end{align}
 	for $t \geq 0$ 
-	is said to be asymptotically stable, if for all initial condition $x(0) \in \R^n$
+	is said to be asymptotically stable, if for all initial conditions $x(0) \in \R^n$
 	\begin{align}
 	\lim_{t \to \infty} x(t) = 0
 	\end{align}	
@@ -47,66 +54,12 @@ To design it, we must first clearly define what stability means. Since let us fi
 	\begin{align}
 	\limsup_{t \to \infty} ||x(t)|| < \infty
 	\end{align}
-	for all	 initial condition $x(0) \in \R^n$.
+	for all	 initial conditions $x(0) \in \R^n$.
 	We call the matrix $A$ (asymptotically) stable, if the dynamical system \eqref{eq:x=Ax} is (asymptotically) stable.
 \end{defi}
 
 
-%\begin{theo}
-%	A discrete time dynamical system \eqref{eq:x=Ax} is
-%	asymptotically stable, if and only if each eigenvalue $\lambda$ of the matrix $A$ lies within the unit circle: $\lambda \in \{x \in \R: \; |x|<1\}$.
-%	
-%%	It is stable if for each eigenvalue $\lambda$ is satisfied: 
-%%	\begin{align}
-%%	\label{eq:stability}
-%%	\begin{split}
-%%	&\lambda \in \{z \in \C: \; |z|\leq 1\} \text{ and for all } \lambda \text{ with } |\lambda| = 1 \\
-%%	&\text{ the Jordan Block \cite{LAAG} of the eigenvalue has dimension 1}. 
-%%	\end{split} 
-%%	\end{align}
-%\end{theo}
-%\begin{proof}
-%	The solution of \eqref{eq:x=Ax} is 
-%	\begin{align}
-%	x(t) = A^t x_0.
-%	\end{align}
-%	
-%	With Jordan Normal Form we can find a matrix $T \in \GL_n(\R)$, and triangular matrix $\Lambda$, such that $\Lambda$ has the eigenvalues of $A$ on its diagonal and the following is fulfilled: 
-%\begin{align}
-%	A &= T^{-1} \Lambda T ,\\
-%	A^t &= T^{-1} \Lambda^t T. 
-%\end{align}
-%
-%Since all the eigenvalues of $A$ are smaller then one in its absolute value, $\Lambda^t \to 0$ for $t \to \infty$, and hence 
-%\begin{align}
-%\lim_{t \to \infty}x(t) =\lim_{t \to \infty} A^t x_0 =\lim_{t \to \infty} T^{-1} \Lambda^t T x_0 = 0.
-%\end{align}
-%	
-%\end{proof}
-%
-%We want to have an easy criteria to check, if a system is stable. This is possible, by examine the eigenvalues of the matrix $A$. 
-%But we formulate a more restrictive criteria, which is rather usable for us. 
-%%The less strong criteria can be defined via spectral norm
-%%\begin{align}
-%%\label{eq:specNorm}
-%%||A||_\lambda = \sigma_{\max}(A) = \sqrt{\lama (A^*A)} \text{ for } A \in \C^{m\times n}.
-%%\end{align}
-%%Here $A^*$ means complex conjugate transpose of matrix $A$, and $\lama$ is the maximal eigenvalue.
-%
-%\begin{theo}
-%	\label{thm:||A||<1}
-%	Let $||\cdot||: \C^{m \times n} \to \R^+$ be a consistent matrix norm . 
-%	
-%	A discrete dynamical system \eqref{eq:x=Ax} is asymptotically stable if the norm of the matrix $A$ is less unit: 
-%	\begin{align}
-%		||A|| <1.
-%	\end{align}
-%	It is stable, if 
-%	\begin{align}
-%	||A|| \leq 1.
-%	\end{align}
-%\end{theo}
-
+x
 
 
 In the same way we want to define (asymptotic) stabilizability and detectability. 
