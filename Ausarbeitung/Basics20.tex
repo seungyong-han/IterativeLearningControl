@@ -33,10 +33,10 @@ To find it we usually design a stabilizing controller
  -- such that our system state goes not to infinity over time $t$. 
 To design it, we must first clearly define what stability means. Since let us first formulate the common definitions and entertain ideas of a stabilizing controller design. 
 
-\section{Definitions}
+\section{Stability and stabilizability}
 
 
-The stability definition is usually given asymptotically. That means, we assume $N = \infty$. Only for definitions in this chapter, we make this assumption. We will see, that it quite make sense also for finite time horizon problems.  
+The stability definition is usually given asymptotically. That means, we assume $N = \infty$. Only for definitions in this section, we make this assumption. We will see, that it quite make sense also for finite time horizon problems.  
 
 \begin{defi}
 	A discrete time dynamical system
@@ -59,33 +59,79 @@ The stability definition is usually given asymptotically. That means, we assume 
 \end{defi}
 
 
-x
-
-
 In the same way we want to define (asymptotic) stabilizability and detectability. 
 \begin{defi}
 A a discrete time system $(A, B, C, D)$ or the pair $(A, B)$ is (asymptotically) stabilizable, if there exists a matrix $F$, such that $A - BF$ is (asymptotically) stable.
 The system or the pair $(A,C)$ is detectable, if $(A^T, C^T)$ is assymptotically stabilizable. 
 \end{defi}
 
+\section{Supervector description} 
+
+The supervectors are our most useful tool in this thesis. By ''stocking'' the signals together, we get a compact system representation in linear form. More precise, let us define what a supervector means.  
+
+
+\begin{defi}
+	Let $\{s(0), s(1), s(2), \dots s(N)\} \subset \R^{d}$ be a finite sequence. Then the supervector corresponding to this sequence is denoted by $s$ and is defined as 
+	\begin{align}
+	s: = \begin{pmatrix}
+	s(0) \\ s(1) \\ s(2) \\ \vdots \\ s(N)
+	\end{pmatrix}.
+	\end{align}
+\end{defi}
+
+In this way we define the supervectors $u \in \R^{l(N+1)} $ and $e$, $y$, $r \in \R^{m(N+1)}$.  
+
+For system \eqref{eq:Intro:GP} the relation between $u$ and $y$, and the error $e$ can be written as
+\begin{align}
+\label{eq:Gu + d}
+y &= Gu + d, \\
+e &= r - y.
+\end{align}
+The \textit{supermatrix} $G$ represents the state-space model and is given via  
+\begin{align}
+\label{eq:Gmatrix}
+\begin{split}
+G &= G(A,B,C,D) = \\
+&=  \begin{pmatrix}
+D & 0 & \cdots & 0 & 0 & 0 \\
+CB & D & \cdots & 0 & 0 & 0\\
+CAB & CB & \cdots & 0 & 0 & 0\\
+\vdots & \vdots & \ddots & \vdots  & \vdots & \vdots \\
+CA^{N-2} B & CA^{N-3} B &\dots &CB & D& 0\\
+CA^{N-1} B & CA^{N-2} B &\dots &CAB & CB& D\\
+\end{pmatrix} \in \R^{m(N+1)\times l(N+1)}.
+\end{split}
+\end{align}
+The vector $d$ depends on the initial condition $x_0$:
+\begin{align}
+d = d(C,A,x_0) = \begin{pmatrix}
+C x_0 \\ CA x_0 \\ CA^2 x_0 \\ \vdots \\ CA^Nx_0
+\end{pmatrix} \in \R^{m(N+1)}.
+\end{align}
+
+The stability requirement for $A$ is highlighted here. In opposite to vast values for unstable matrices, we get very small terms if $N \gg 1$. Intuitive, this terms can be neglected for all $p > p^\star$ for some $1<p^\star<N$. This is usable since we can apply the sparse matrices. In the Chapter \ref{ch:Allpication} we will derive an estimation in case of small terms neglecting. 
 
 
 \section{Stabilizing Controller}
-\label{sch:stabilizingController}
+\label{ch:stabilizingController}
 
-Following from its name the stabilizing controller is a one, which stabilizes the given system $(A,B,C,D)$. There are a bunch of different design methods, as a linear quadratic regulator, $H_\infty$ design or pole placement. 
+There are several ways to construct a stabilizing controller for the system $(A, B, C, D)$. It could be an LQR controller, $\c H_{\infty}$ design, pole placement or other methods.
 
-In our case we are more interested in better stabilizing properties, as in a good performance. The algorithms we will consider guarantee the convergence to a good input, but to apply this algorithms we also need some numerically stability. 
 
-We can find a stabilizing controller for \eqref{eq:GP} using feedback control.
-First let us consider the case $y(\cdot) = x(\cdot)$.
 
-%It is very important, that we work with the (asymptotically) stable systems: if $||A||\geq 1$, the solution $x(\cdot)$ will diverge  for $t \to \infty$. 
-%
-%
-%It is also important for finite time horizon: as we have seen before, the supervector description contains terms $A^j$ of power $j = 0, 1, 2, \dots , N-1$. For large $N$ the elements of the matrix $G$ become very large (in its absolute value) and are numerically not achievable. 
+At first glance, the stability concept seems to be not necessary for $N < \infty$ . Still, in this thesis, it is the requirement we presuppose on considered system. The reason is that also the discrete system over finite horizon can produce vast signals for large $N$, if the system is not stable. Especially, it means, that $A$ has at least one eigenvalue larger that one, which implies very large norm of the matrices $A^t$ for $t \gg 1$. This makes difficult the numerical calculations for matrix $G$, as well as the for the solution of \eqref{eq:Intro:GP}. 
 
-Then the system \eqref{eq:GP} becomes stable, if we choose $u(t) = -Fx(t)$, $t \geq 0$, with some matrix $F$, such that $(A - BF)$ is stable.
+ A good tracking is mostly the main goal in controller design. However, in our case we are more interested in better stabilizing properties, as in a good performance. The algorithms we will consider guarantee the convergence to a good input, but to apply this algorithms we also need some numerically stability. 
+
+The placement method is described in \cite{LKT}. More about $\c H_{\infty}$ design for discrete systems one finds in \cite{discrHinf} (TODO: change?). 
+We present here only the controller based on Separation Principle, as a most simple solution. Nevertheless, one should keep in mind, Separation Principle might be not the best solution for preparation to ILC algorithms. In the Chapter \ref{ch:Allpication} we will consider an example where it is the case. 
+
+\section{Separation Principle} 
+
+We can find a stabilizing controller for \eqref{eq:Intro:GP} using feedback control.
+Let us first consider the case $y(\cdot) = x(\cdot)$.
+
+Then the system \eqref{eq:Intro:GP} becomes stable, if we choose $u(t) = -Fx(t)$, $t \geq 0$, with some matrix $F$, such that $(A - BF)$ is stable.
 
 Clearly, if the system is (asymptotically) stabilizable, we can find such matrix $F$. 
 
@@ -107,56 +153,10 @@ F = (R + B^T P B)^{-1}B^TPA.
 \end{align}
 The matrix $P$ is a unique symmetric positive definite matrix, the stabilizing solution of the discrete time algebraic Riccati equation
 \begin{align}
- A^TA - A^T P B (R + B^T P B)^{-1} B^T P A + Q - P = 0.%TODO: QUELLE!!!!!
+ A^TA - A^T P B (R + B^T P B)^{-1} B^T P A + Q - P = 0 \text{ \cite{DAREandLMI} }.
 \end{align}
 Stabilizing solution means, that from \eqref{eq:Basics:F} resulting matrix $(A - BF)$ is stable, and hence this solution stabilizes our system. 
 
-
-
-
- 
-%We set 
-%\begin{align}
-%\label{eq:Q=(Q(t)...),R=(R(t)...)}
-%Q = \diag\left(Q(0), Q(1), \dots, Q(N)\right) \text{ and }R = \diag\left(R(0), R(1), R(2), \dots, R(N)\right).
-%\end{align}
-
-
-
-%The solution of this problem is given by choosing
-%\begin{align}
-%u(t) = -F(t) x(t),
-%\end{align}
-%where 
-%\begin{align}
-%F(t) = (R +B^TP(t+1)B)^{-1}(B^TP(t+1)A).
-%\end{align}
-%$P(t)$ is found iteratively by solving dynamic Riccati equation: 
-%\begin{align}
-%\begin{split}
-%P(t-1) &= A^TP(t) A - (A^T P(t) B)(R + B^TP(t)B)^{-1}(B^T P(t)A) + Q,\\
-%P(N) &= Q.
-%\end{split}
-%\end{align}
-%{\color{red} Quelle? Wiki sagt Chow, Gregory C. (1986). Analysis and Control of Dynamic Economic Systems. Krieger Publ. Co. Das Buch fand ich aber nicht.} 
-
-%The other way to find an optimal $u(\cdot)$ goes via supervectors: 
-%
-%Then the cost function $V$ can be rewritten as 
-%\begin{align}
-%V = ||x||_Q^2 + ||u||_R^2,
-%\end{align}
-%with norms $||\cdot||_Q$ and $||\cdot ||_R$ associated with scalar products 
-%\begin{align}
-%\label{eq:SkPrQR}
-%\langle y,z\rangle_Q = \sum_{t = 0}^N y(t)^TQ(t)z(t), \text{ and } \langle u,v\rangle_R = \sum_{t = 0}^N u(t)^T R(t) v(t).
-%\end{align}
-%
-%
-%Then the optimal solution is given \cite{ILCBook}, pp. 104-105, via 
-%\begin{align}
-%u = G^*x, \text{ where } G^* =R^{-1} G^T Q. 
-%\end{align}
 
 For the case $y(\cdot) \neq x(\cdot)$, we can additionally construct an observer to approximate the signal $x(\cdot)$. The  controller we get is said to be based on \textit{separation principle}.
 It requires the pair $(A,C)$ to be detectable. So, we can find a matrix $J$, for which $A - JC$ is asymptotically stable.
@@ -185,70 +185,3 @@ D + (C - D F) (I - A + B F)^{-1} B.
 
 This choice of input signal 
 solves tracking issue for constant $r(\cdot)$. It still can be used for piecewise constant $r(\cdot)$, if the signal does not change too fast.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
- 
- 
-
-
-
-
-
-
-
-
-
-%
-%
-%The form \eqref{eq:Gu + d} has a lot of useful properties, some of them we are going get to know in the next section. 
-%
-%\section{Properties of the Supervector Description} 
-%{\color{red}Wird kommen, wenn klar ist, welche Eigenschaften ich sicher brauche. Hier sind die ungefähre }
-%
-%Let $(A, B, C, D)$ be an $l-$input, $m-$output, state dimension $n$, linear, time-invariant, discrete, state space model of a dynamical system given as 
-%\begin{align}
-%x(t+1) &= A x(t) + B u (t), \: x(0) = x_0, \: t = 0, \, 1, \, 2, \, \dots, \, N-1\\
-%y(t)& = Cx(t) + D u(t), \: t = 0, \, 1, \, 2, \, \dots, \, N. 
-%\end{align}
-%
-%The benefit of the form \eqref{eq:Gu + d} is the possibility to work with the matrices $G$ in a similar way as with transfer matrices:
-%
-%\begin{theo}{}
-%	Let the systems  $(A_1, B_1, C_1, D_1)$ and $(A_2, B_2, C_2, D_2)$ be related in parallel interconnection: they both have the input $u(t)$, and the outputs $\hat{y}(t)$ and $\tilde{y}(t)$ are added to common output $y(t) = \hat{y}(t) + \tilde{y}(t)$. Then the supervector representation of the interconnection is given by 
-%		\begin{align}
-%		G(A_1, B_1, C_1, D_1) + G(A_2, B_2, C_2, D_2). 
-%		\end{align}
-%		
-%	Let the $r$-input $m$-ouput system $(A_1, B_1, C_1, D_1)$ and $l$-input $r$-ouput system $(A_2, B_2, C_2, D_2)$ be connected in the parallel interconnection. Then the supervector representation of the interconnection is given by 
-%	\begin{align}
-%	G(A_1, B_1, C_1, D_1)G(A_2, B_2, C_2, D_2). 
-%	\end{align}
-%\end{theo}
-%
-%The rank of $G(A,B,C,D)$ is closely related to the rank of $D$ matrix as follows: 
-%\begin{theo}
-%	\label{thm: relGandK}
-%	\begin{enumerate}
-%		\item $\ker (G) = \{0\}$ if and only if $\ker(D) = \{0\}$.
-%		\item $\im (G) = \R^{m(N+1)}$ if and only if $\im (D) = m$. 
-%	\end{enumerate}
-%\end{theo} 
-%
-%
-%\section{Noch ein schoenes Section}
-%{\color{red} Soll wohl noch irgendein Section kommen}
-
