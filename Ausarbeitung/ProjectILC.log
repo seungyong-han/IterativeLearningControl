@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.26)  20 NOV 2020 13:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.26)  20 NOV 2020 15:46
 entering extended mode
 **./ProjectILC.tex
 (ProjectILC.tex
@@ -1234,14 +1234,7 @@ File: l3backend-pdfmode.def 2020-05-05 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count460
 \l__pdf_internal_box=\box91
 ) (ProjectILC.aux (Introduction20.aux) (Basics20.aux)
-(ILC_Algorithms.aux
-
-LaTeX Warning: Label `eq:Gu + d' multiply defined.
-
-
-LaTeX Warning: Label `eq:Gmatrix' multiply defined.
-
-) (Robustness.aux) (Application.aux) (Questions.aux))
+(ILC_Algorithms.aux) (Robustness.aux) (Application.aux) (Questions.aux))
 \openout1 = `ProjectILC.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 88.
@@ -1582,135 +1575,110 @@ Underfull \vbox (badness 7291) has occurred while \output is active []
 
 ]
 Chapter 3.
-
-LaTeX Warning: Reference `eq:GP' on page 11 undefined on input line 12.
-
-
-LaTeX Warning: Reference `eq:GP' on page 11 undefined on input line 12.
-
-
-LaTeX Warning: Reference `eq:GP' on page 11 undefined on input line 16.
-
 [11]
-<fig/Ex1_LQR.jpg, id=346, 3011.25pt x 1578.89874pt>
-File: fig/Ex1_LQR.jpg Graphic file (type jpg)
-<use fig/Ex1_LQR.jpg>
-Package pdftex.def Info: fig/Ex1_LQR.jpg  used on input line 85.
-(pdftex.def)             Requested size: 441.01773pt x 231.23524pt.
- [12 <./fig/Ex1_LQR.jpg>]
-
-LaTeX Warning: Reference `eq:GP' on page 13 undefined on input line 118.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [13]
-
-LaTeX Warning: Reference `eq:GP' on page 14 undefined on input line 168.
-
-[14]
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 196.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 121.
 
 
-LaTeX Warning: Citation 'ILC' on page 15 undefined on input line 198.
+LaTeX Warning: Citation 'ILC' on page 12 undefined on input line 123.
 
-<fig/Ex1_IA.jpg, id=382, 3011.25pt x 1578.89874pt>
+[12]
+<fig/Ex1_IA.jpg, id=357, 3011.25pt x 1578.89874pt>
 File: fig/Ex1_IA.jpg Graphic file (type jpg)
 <use fig/Ex1_IA.jpg>
-Package pdftex.def Info: fig/Ex1_IA.jpg  used on input line 207.
+Package pdftex.def Info: fig/Ex1_IA.jpg  used on input line 132.
 (pdftex.def)             Requested size: 441.01773pt x 231.23524pt.
-<fig/Ex1_IAbad.jpg, id=386, 3011.25pt x 1578.89874pt>
+<fig/Ex1_IAbad.jpg, id=361, 3011.25pt x 1578.89874pt>
 File: fig/Ex1_IAbad.jpg Graphic file (type jpg)
 <use fig/Ex1_IAbad.jpg>
-Package pdftex.def Info: fig/Ex1_IAbad.jpg  used on input line 215.
+Package pdftex.def Info: fig/Ex1_IAbad.jpg  used on input line 140.
 (pdftex.def)             Requested size: 441.01773pt x 231.23524pt.
 
-LaTeX Warning: Citation 'LAAG' on page 15 undefined on input line 226.
 
-[15] [16 <./fig/Ex1_IA.jpg> <./fig/Ex1_IAbad.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 272--272
+LaTeX Warning: Citation 'LAAG' on page 13 undefined on input line 150.
+
+[13 <./fig/Ex1_IA.jpg>] [14 <./fig/Ex1_IAbad.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 196--196
 
  []
 
-
-Underfull \vbox (badness 1048) has occurred while \output is active []
-
- [17]
-<fig/Ex1_PIA.jpg, id=423, 3011.25pt x 1578.89874pt>
+<fig/Ex1_PIA.jpg, id=387, 3011.25pt x 1578.89874pt>
 File: fig/Ex1_PIA.jpg Graphic file (type jpg)
 <use fig/Ex1_PIA.jpg>
-Package pdftex.def Info: fig/Ex1_PIA.jpg  used on input line 312.
+Package pdftex.def Info: fig/Ex1_PIA.jpg  used on input line 237.
 (pdftex.def)             Requested size: 441.01773pt x 231.23524pt.
+[15]
+Underfull \vbox (badness 1838) has occurred while \output is active []
 
-[18 <./fig/Ex1_PIA.jpg>] [19] [20] [21]
-Underfull \hbox (badness 10000) in paragraph at lines 531--531
+ [16 <./fig/Ex1_PIA.jpg>] [17] [18] [19]
+Underfull \hbox (badness 10000) in paragraph at lines 456--456
 
  []
 
-[22]
 
-LaTeX Warning: Citation 'ILC' on page 23 undefined on input line 573.
+Underfull \vbox (badness 1033) has occurred while \output is active []
 
+ [20]
 
-Underfull \vbox (badness 1342) has occurred while \output is active []
+LaTeX Warning: Citation 'ILC' on page 21 undefined on input line 498.
 
- [23]
-<fig/Ex1_SDA.jpg, id=497, 3011.25pt x 1578.89874pt>
+<fig/Ex1_SDA.jpg, id=460, 3011.25pt x 1578.89874pt>
 File: fig/Ex1_SDA.jpg Graphic file (type jpg)
 <use fig/Ex1_SDA.jpg>
-Package pdftex.def Info: fig/Ex1_SDA.jpg  used on input line 599.
+Package pdftex.def Info: fig/Ex1_SDA.jpg  used on input line 524.
 (pdftex.def)             Requested size: 441.01773pt x 231.23524pt.
+[21] [22 <./fig/Ex1_SDA.jpg>]
+Underfull \vbox (badness 6348) has occurred while \output is active []
 
-[24 <./fig/Ex1_SDA.jpg>] [25]
-<fig/Ex1_SDAvsSoE.jpg, id=520, 3011.25pt x 1578.89874pt>
+ [23]
+<fig/Ex1_SDAvsSoE.jpg, id=492, 3011.25pt x 1578.89874pt>
 File: fig/Ex1_SDAvsSoE.jpg Graphic file (type jpg)
 <use fig/Ex1_SDAvsSoE.jpg>
-Package pdftex.def Info: fig/Ex1_SDAvsSoE.jpg  used on input line 712.
+Package pdftex.def Info: fig/Ex1_SDAvsSoE.jpg  used on input line 637.
 (pdftex.def)             Requested size: 441.01773pt x 231.23524pt.
 
 
-LaTeX Warning: Citation 'ILC' on page 26 undefined on input line 721.
+LaTeX Warning: Citation 'ILC' on page 24 undefined on input line 646.
 
-[26]
+[24 <./fig/Ex1_SDAvsSoE.jpg>]
 
-LaTeX Warning: Reference `eq:GP' on page 27 undefined on input line 726.
+LaTeX Warning: Reference `eq:GP' on page 25 undefined on input line 651.
 
-[27 <./fig/Ex1_SDAvsSoE.jpg>]
+[25]
 
-LaTeX Warning: Citation 'ILC' on page 28 undefined on input line 778.
+LaTeX Warning: Citation 'ILC' on page 26 undefined on input line 703.
 
-) [28]
+) [26]
 \openout2 = `Robustness.aux'.
 
  (Robustness.tex
 Chapter 4.
 
-LaTeX Warning: Reference `eq:GP' on page 29 undefined on input line 60.
+LaTeX Warning: Reference `eq:GP' on page 27 undefined on input line 60.
 
-[29
+[27
 
 
 
 ]
 
-LaTeX Warning: Reference `eq:GP' on page 30 undefined on input line 101.
+LaTeX Warning: Reference `eq:GP' on page 28 undefined on input line 101.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [28]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [29]
+
+LaTeX Warning: Citation 'SchRC' on page 30 undefined on input line 222.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [30]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [31]
-
-LaTeX Warning: Citation 'SchRC' on page 32 undefined on input line 222.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [32]
-[33] [34] [35]
+[31] [32] [33]
 Overfull \hbox (21.63585pt too wide) detected at line 533
 []
  []
@@ -1718,11 +1686,15 @@ Overfull \hbox (21.63585pt too wide) detected at line 533
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [36])
-[37]
+ [34]
+
+LaTeX Warning: Reference `eq:ILC:Sys_ex1_origin' on page 35 undefined on input 
+line 659.
+
+) [35]
 \openout2 = `Application.aux'.
 
- (Application.tex [38
+ (Application.tex [36
 
 
 
@@ -1737,20 +1709,20 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 7.
 
 
-LaTeX Warning: Citation 'SchRC' on page 39 undefined on input line 9.
+LaTeX Warning: Citation 'SchRC' on page 37 undefined on input line 9.
 
-[39]
-<fig/ExSat_LQR.jpg, id=683, 3011.25pt x 1578.89874pt>
+[37]
+<fig/ExSat_LQR.jpg, id=652, 3011.25pt x 1578.89874pt>
 File: fig/ExSat_LQR.jpg Graphic file (type jpg)
 <use fig/ExSat_LQR.jpg>
 Package pdftex.def Info: fig/ExSat_LQR.jpg  used on input line 68.
 (pdftex.def)             Requested size: 441.01773pt x 231.23524pt.
- [40 <./fig/ExSat_LQR.jpg>]
+ [38 <./fig/ExSat_LQR.jpg>]
 Overfull \hbox (7.94307pt too wide) detected at line 130
 []
  []
 
-[41]
+[39]
 Overfull \hbox (7.88675pt too wide) in paragraph at lines 158--160
 []\OT1/cmr/m/it/12 Four our sys-tem [] we have for $\OMS/cmsy/m/n/12 jj\OML/cmm
 /m/it/12 u[]\OMS/cmsy/m/n/12 jj  \OT1/cmr/m/n/12 1\OML/cmm/m/it/12 :\OT1/cmr/m
@@ -1760,12 +1732,12 @@ T1/cmr/m/n/12 )\OMS/cmsy/m/n/12 jj \OML/cmm/m/it/12 < \OT1/cmr/m/n/12 5\OML/cmm
 /m/it/12 :\OT1/cmr/m/n/12 13 10[]$\OT1/cmr/m/it/12 . 
  []
 
-[42] [43]) [44]
+[40] [41]) [42]
 \openout2 = `Questions.aux'.
 
  (Questions.tex
 Chapter 6.
-) [45
+) [43
 
 
 
@@ -1773,13 +1745,13 @@ Chapter 6.
 
 LaTeX Warning: Empty bibliography on input line 283.
 
-[46
+[44
 
-] [47
+] [45
 
-] [48]
+] [46]
 Appendix A.
-[49
+[47
 
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 330.
@@ -1789,13 +1761,10 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 330.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 330.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 330.
 Package rerunfilecheck Info: File `ProjectILC.out' has not changed.
-(rerunfilecheck)             Checksum: 155BB8B75AE5D5BC7AFF4518C8467D4D;2150.
+(rerunfilecheck)             Checksum: 1EBEF55B3CCE2EF44E8F3581661E791E;2081.
 
 
 LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: There were multiply-defined labels.
 
 
 Package biblatex Warning: Please (re)run Biber on the file:
@@ -1808,10 +1777,10 @@ Package logreq Info: Writing requests to 'ProjectILC.run.xml'.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 330.
  ) 
 Here is how much of TeX's memory you used:
- 32135 strings out of 480799
- 604073 string characters out of 2895784
- 1261652 words of memory out of 3000000
- 47175 multiletter control sequences out of 15000+200000
+ 32111 strings out of 480799
+ 603722 string characters out of 2895784
+ 1261379 words of memory out of 3000000
+ 47166 multiletter control sequences out of 15000+200000
  559852 words of font info for 137 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,27n,66p,941b,1806s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1840,9 +1809,9 @@ rel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb
 ><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/
 symbols/msam10.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type
 1/public/amsfonts/symbols/msbm10.pfb>
-Output written on ProjectILC.pdf (58 pages, 1739671 bytes).
+Output written on ProjectILC.pdf (56 pages, 1561441 bytes).
 PDF statistics:
- 901 PDF objects out of 1000 (max. 8388607)
- 303 named destinations out of 1000 (max. 500000)
- 320 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 868 PDF objects out of 1000 (max. 8388607)
+ 289 named destinations out of 1000 (max. 500000)
+ 307 words of extra memory for PDF output out of 10000 (max. 10000000)
 

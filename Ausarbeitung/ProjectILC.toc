@@ -28,42 +28,40 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {3}ILC Algorithms}{11}{chapter.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.1}Supervector description}{13}{section.3.1}%
+\contentsline {section}{\numberline {3.1}Inverse Model Algorithms}{12}{section.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.2}Inverse Model Algorithms}{14}{section.3.2}%
+\contentsline {section}{\numberline {3.2}Unit Memory Algorithms}{16}{section.3.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.3}Unit Memory Algorithm}{19}{section.3.3}%
+\contentsline {section}{\numberline {3.3}Gradient Algorithms}{18}{section.3.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.4}Gradient Algorithms}{20}{section.3.4}%
+\contentsline {subsection}{\numberline {3.3.1}Steepest Descent Algorithm}{19}{subsection.3.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.4.1}Steepest Descent Algorithm}{22}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.3.2}Suppression of eigenvalues}{21}{subsection.3.3.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.4.2}Suppression of eigenvalues}{24}{subsection.3.4.2}%
+\contentsline {section}{\numberline {3.4}Feedback Design}{25}{section.3.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.5}Feedback Design}{27}{section.3.5}%
+\contentsline {chapter}{\numberline {4}Robustness of the ILC Algorithms}{27}{chapter.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Robustness of the ILC Algorithms}{29}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Uncertain Lifted System}{27}{section.4.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.1}Uncertain Lifted System}{29}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Full-Block S-Procedure}{31}{section.4.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}Full-Block S-Procedure}{33}{section.4.2}%
+\contentsline {chapter}{\numberline {5}Application}{37}{chapter.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Application}{39}{chapter.5}%
+\contentsline {section}{\numberline {5.1}The case $D = 0$}{37}{section.5.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.1}The case $D = 0$}{39}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Long time horizon}{39}{section.5.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.2}Long time horizon}{41}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Online and Offline learning}{41}{section.5.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.3}Online and Offline learning}{43}{section.5.3}%
+\contentsline {chapter}{\numberline {6}Questions}{43}{chapter.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {6}Questions}{45}{chapter.6}%
+\contentsline {section}{Anhang}{45}{equation.6.0.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Anhang}{47}{equation.6.0.2}%
+\contentsline {section}{\numberline {.1}Beweise}{45}{section.Alph0.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {.1}Beweise}{47}{section.Alph0.1}%
+\contentsline {subsection}{\numberline {.1.1}Beweis 1}{45}{subsection.Alph0.1.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {.1.1}Beweis 1}{47}{subsection.Alph0.1.1}%
+\contentsline {section}{Eidesstattliche Erkl\"arung}{46}{section*.14}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Eidesstattliche Erkl\"arung}{48}{section*.15}%
-\defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {A}Zusammenfassung und Ausblick}{49}{appendix.A}%
+\contentsline {chapter}{\numberline {A}Zusammenfassung und Ausblick}{47}{appendix.A}%

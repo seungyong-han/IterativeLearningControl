@@ -1,40 +1,30 @@
 \chapter{ILC Algorithms}
 \label{ch:ILCAlg}
-{\color{red} $<$Einfuerung$>$}
 
 \newcommand{\IAgood}{30}
 \newcommand{\IAbad}{50}
-\newcommand{\badCondNb}{1.353$10^{16}$}
+\newcommand{\badCondNb}{$1.353\, 10^{16}$}
+
+{\color{red} Braucht man hier mehr Einfuehrung?}
 
 Let us imagine that we need to process the same action multiple times. 
 For example, a robot manipulator must put some objects in a box with high accuracy, while the objects to put are always located in the same place. If we already have some input sequence, which solves this issue, we can use the same data for the next iteration and get the same precision. The other possibility is to ''learn'' from the previous iteration and try to enhance the exactness, while the tracking objective $r(\cdot)$ stays the same over all iterations.
 
-More formally, we consider the system \eqref{eq:GP} over a \textit{finite time horizon} $t = 0, 1, 2, \dots, N$, $N \in \N$. As we discussed in the previous chapter, we are interested in good tracking of the signal $r(\cdot)$. At first glance, the stability concept seems to be not necessary for $N < \infty$ . Still, in this thesis, it is the requirement we presuppose on considered system. The reason is that also the discrete system over finite horizon can produce vast signals for large $N$, if the system is not stable. Especially, it means, that $A$ has at least one eigenvalue larger that one, which implies very large norm of the matrices $A^t$ for $t \gg 1$. This makes difficult the numerical calculations, since the solution of the difference equation \eqref{eq:GP} includes it. 
-
-Moreover, for our purposes, for stabilizable systems we can assume stability without loss of generality.    
-If the system is stabilizable, we can find such a matrix $F$, such that $(A - B F )$ is stable. 
-We define $u(t) := - Fx(t) + \t{u}(t)$, $t = 0,1,2, \dots, N$ with a new input signal $\t u (t) \in \R^l$. Then the system \eqref{eq:GP} results in
-\begin{align}
-\begin{split}
-x(t+1) &= (A - B F)x(t) + B \t u (t), \\
-y(t)   &= (C - D F) x(t) + D\t u(t), \; t = 0, 1 ,2, \dots, N. 
-\end{split}
-\end{align}
-
-We can set 
-\begin{align}
-\begin{array}{c c c c}
-\t{A} &= (A - B F), &\t B &= B\\
-\t C  & = (C - D F),&\t B & = D.
-\end{array}
-\end{align}
-The shifted system $(\t A, \t B , \t C, \t D)$ is stable and we still can improve the input signal by considering $\t u(\cdot)$.
+We assume the system \eqref{eq:Intro:GP} to be stable. Moreover, for our purposes, for stabilizable systems we can assume it without loss of generality. Let $(\t A, \t B, \t C, \t D)$ be the stabilized closed loop system (with $r(\cdot)$ as input and $e(\cdot)$ as output). We define a new intput $\t u(\cdot):=u(\cdot) + v(\cdot)$. Then the system $(\t A, B, \t C, D)$ is stable, and with new input signal $v(\cdot)$ is still has the room for improvement. 
+%
+%On example of LQR controllers, we define $\t u(t) := - Fx(t) + v(t)$, $t = 0,1,2, \dots, N$ with an additional input signal $v (t) \in \R^l$. Then the system \eqref{eq:Intro:GP} results in
+%\begin{align}
+%\begin{split}
+%x(t+1) &= \underbrace{(A - B F)}_{ = \t A}x(t) + B v (t), \\
+%y(t)   &= \underbrace{(C - D F)}_{ = \t C} x(t) + v u(t), \; t = 0, 1 ,2, \dots, N. 
+%\end{split}
+%\end{align}
 
 \begin{exam}
 	\label{ex:ILC:LQR}
 Let us consider the system $(A,B,C,D)$ with 
 \begin{align}
-\label{eq:ILC:Sys_ex1_origin}
+\label{eq:ILC:Sys_ex1}
 A = \begin{pmatrix}
 2 & 1 \\  4 & 3
 \end{pmatrix}, B = \begin{pmatrix}
@@ -44,7 +34,7 @@ A = \begin{pmatrix}
 \end{pmatrix}, D = 2.
 \end{align}
 
-This system is asymptotically stabilizable and detectable. We choose the weights $Q = 3$ and $R = 2$ and can design an LQR controller with 
+This system is asymptotically stabilizable and detectable. We choose the weights $Q = 3$ and $R = 2$ and design an LQR controller with 
 \begin{align}
 F =\begin{pmatrix}
 1.9674  &  1.3042
@@ -54,9 +44,8 @@ J = \begin{pmatrix}
 \end{pmatrix}. 
 \end{align}
 
-To make the considered system stable we re-describe our system as
+We modify the system to 
 \begin{align}
-\label{eq:ILC:Sys_ex1}
 \begin{array}{c c c c c c c c c}
 x(t+1) &=&
 \begin{pmatrix}
@@ -67,85 +56,22 @@ x(t+1) &=&
 \begin{pmatrix}
 1 \\ 2
 \end{pmatrix}
-\t {u}(t)& &
+v(t)& &
 \\ 
 y(t)   &=& \begin{pmatrix}
 	-3.9348  & -1.6084
 \end{pmatrix}
 & x(t)& +&
- 2 \t {u} (t),& &\; t = 0, 1, 2, \dots, N. 
+ 2 v (t),& &\; t = 0, 1, 2, \dots, N
 \end{array}
-\end{align} 
+\end{align} with an  addition input signal $v(\cdot)$. 
 
-We choose a piecewise constant reference $r(\cdot)$  and set $N = \IAgood$. 
-
-With controller based on separation principle, we get the tracking illustrated in  Figure \ref{img:ILC:LQR_control}.
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width=\textwidth]{fig/Ex1_LQR.jpg}
-	\caption{Tracking with LQR controller for system \eqref{eq:ILC:Sys_ex1}}
-	\label{img:ILC:LQR_control}
-\end{figure}
 \end{exam}
 
+\section{Inverse Model Algorithms}
 
-
-As one can see, the tracking in Example \ref{ex:ILC:LQR} is not perfect. However, we can extract a bunch of information from this controlled system. For example, we get the input and output sequences 
-\begin{align}
-&\{u(0), \, u(1), \,  u(2) \, \dots , \, u(N)\} \subset \R^l \label{eq:ILC:u_seq}, \\
-&\{y(0), \, y(1), \, y(2) , \, \dots , \, y(N)\}\subset \R^m.\label{eq:ILC:y_seq}
-\end{align}
-On the finite time horizon of interest the behavior of system is described by the finite input and output sequences. It seems to be an advantage. 
-
-If we put the signals we got from simulation together, we get a large, but finite dimensional vector. That means, the standard tools from linear algebra can be applied. 
-
-As a matter of fact, we can express our whole simulated system as a linear equation. We call such vectors \textit{supervectors}, and the whole system is said to be \textit{lifted}. This notation can describe the whole system dynamic in a compact form, and is a useful tool for ILC algorithms. 
-
-\section{Supervector description} 
-
-\begin{defi}
-	Let $\{s(0), s(1), s(2), \dots s(N)\} \subset \R^{d}$ be a finite sequence. Then the supervector corresponding to this sequence is denoted by $s$ and is defined as 
-\begin{align}
-s: = \begin{pmatrix}
-s(0) \\ s(1) \\ s(2) \\ \vdots \\ s(N)
-\end{pmatrix}.
-\end{align}
-\end{defi}
-
-In this way we define the supervectors $u \in \R^{l(N+1)} $ and $e$, $y$, $r \in \R^{m(N+1)}$. 
-Analogously, we determine supervectors $r\in \R^{m(N+1)}$ and $e\in \R^{m(N+1)}$. 
-
-For system \eqref{eq:GP} the relation between $u$ and $y$, and the error $e$ can be written in a linear matrix form 
-\begin{align}
-\label{eq:Gu + d}
-y &= Gu + d, \\
-e &= r - y.
-\end{align}
-The \textit{supermatrix} $G$ represents the state-space model and is given via  
-\begin{align}
-\label{eq:Gmatrix}
-\begin{split}
-G &= G(A,B,C,D) = \\
-&=  \begin{pmatrix}
-D & 0 & \cdots & 0 & 0 & 0 \\
-CB & D & \cdots & 0 & 0 & 0\\
-CAB & CB & \cdots & 0 & 0 & 0\\
-\vdots & \vdots & \ddots & \vdots  & \vdots & \vdots \\
-CA^{N-2} B & CA^{N-3} B &\dots &CB & D& 0\\
-CA^{N-1} B & CA^{N-2} B &\dots &CAB & CB& D\\
-\end{pmatrix} \in \R^{m(N+1)\times l(N+1)}.
-\end{split}
-\end{align}
-The vector $d$ depends on the initial condition $x_0$:
-\begin{align}
-d = d(C,A,x_0) = \begin{pmatrix}
-C x_0 \\ CA x_0 \\ CA^2 x_0 \\ \vdots \\ CA^Nx_0
-\end{pmatrix} \in \R^{m(N+1)}.
-\end{align}
-
-The stability requirement for $A$ is highlighted here. In opposite to vast values for unstable matrices, we get very small terms if $N \gg 1$. Intuitive, this terms can be neglected for all $p > p^\star$ for some $1<p^\star<N$. This is usable since we can apply the sparse matrices. In the Chapter \ref{ch:Allpication} we will see, that a good estimation can be derived. 
-
-For the system \eqref{eq:Gu + d}, the tracking problem seems to be straightforward.
+Let us go back to the equation \eqref{eq:Gu + d}. 
+The tracking problem here seems to be straightforward.
 If we know the reference signal $r$, we can find a perfect solution by choosing 
 \begin{align}
 u_\infty = G^{-1} r -d.
@@ -161,11 +87,10 @@ for some non-zero vector $w \in \R^{m(N+1)}$ and small $\varepsilon > 0$.
 Also for uncertain models this method might be not applicable. 
 If we could reformulate this idea in a more robust way, we may get a good and simple applicable algorithm, which we call the \textit{Inverse Model Algorithm.}
 
-\section{Inverse Model Algorithms}
 
 \begin{alg}
 	\label{alg:ILC:IA}
-	Let the matrix $D$ in \eqref{eq:GP} have an inverse. Then the matrix $G = G(A, B, C, D)$ is non-singular as well, and the Inverse Model Algorithm (IA) is given via input update law 
+	Let the matrix $D$ in \eqref{eq:Intro:GP} have an inverse. Then the matrix $G = G(A, B, C, D)$ is non-singular as well, and the Inverse Model Algorithm (IA) is given via input update law 
 	\begin{align}
 	\label{eq:errRightInv}
 	\begin{split}
@@ -173,7 +98,7 @@ If we could reformulate this idea in a more robust way, we may get a good and si
 	u_0 & \in \R^{l (N+1)},
 	\end{split}	
 	\end{align}
-	with error evolution
+	The error evolution follows
 	\begin{align}
 	\label{eq:Alg:e_k+1 = (1 - beta) e_k}
 	\begin{split}
@@ -201,14 +126,14 @@ We apply this algorithm on the system from Example \ref{ex:ILC:LQR} to see the a
 
 \begin{exam}
 	\label{ex:ILC:badIA}
-	In the system \eqref{eq:ILC:Sys_ex1} the matrix $D = 2$ is invertible, and we can apply IA. We choose as $u_0$ the input sequence of LQR controller, and $\beta = 0.1$. Convergence to 0 with tolerance $10^{-8}$ is achieved after 74 iterations.The result is illustrated in Figure \ref{img:ILC:Ex1_IA}
+	In the system \eqref{eq:ILC:Sys_ex1} the matrix $D = 2$ is invertible, and we can apply IA. We choose as $u_0$ the input sequence of LQR controller, and $\beta = 0.1$. Convergence to 0 with tolerance $10^{-8}$ is achieved after 74 iterations.The result is illustrated in Figure \ref{img:ILC:Ex1_IA}.
 			
 	\begin{figure}[ht]
 		\includegraphics[width=\textwidth]{fig/Ex1_IA.jpg}
-		\caption{Tracking with LQR Controller (without ILC Algorithm), and tracking with IA for the system \eqref{eq:ILC:Sys_ex1} for $N = \IAgood$}. 		\label{img:ILC:Ex1_IA}
+		\caption{Tracking with LQR Controller (without ILC algorithm), and tracking with IA for the system \eqref{eq:ILC:Sys_ex1} for $N = \IAgood$} 		\label{img:ILC:Ex1_IA}
 	\end{figure}
 	
-	But if we try to increase the length of the time horizon $N$, for example to \IAbad steps, we can see a wrong system behavior (Figure \ref{img:ILC:Ex1_IAbad}). 
+	But if we try to increase the length of the time horizon $N$, for example to {\IAbad} steps, we can see a wrong system behavior (Figure \ref{img:ILC:Ex1_IAbad}). 
 		
 			\begin{figure}[ht!]
 			\centering
@@ -217,8 +142,7 @@ We apply this algorithm on the system from Example \ref{ex:ILC:LQR} to see the a
 			\label{img:ILC:Ex1_IAbad}
 		\end{figure}
 	
-	The reason is the condition number of the matrix $G$, which equals \badCondNb. We see: even for a triangular matrix with non-zero eigenvalues, the matrix inversion can be numerically unstable.
-		
+	The reason is the condition number of the matrix $G$, which equals \badCondNb. We see: even for a triangular matrix with non-zero eigenvalues, the numerically disturbances can lead to an unexpected algorithm behaviour. 
 		
 \end{exam}
 
@@ -228,13 +152,13 @@ We can modify this algorithm by taking the Moore-Penrose inverse. This is the so
 \begin{defi}
 	For a matrix $G \in \R^{m(N+1) \times l(N+1)}$ a psedo inverse is defined by matrix $G^+ \in \R^{l(N+1) \times m(N+1)}$, satisfying the criteria: 
 	\begin{enumerate}
-		\item $G G^+ G  = G $
-		\item $G^+ G G^+ = G^+$
-		\item $(G G^+)^T = G G^+$
-		\item $(G^+ G)^T = G^+ G$
+		\item $G G^+ G  = G $,
+		\item $G^+ G G^+ = G^+$,
+		\item $(G G^+)^T = G G^+$,
+		\item $(G^+ G)^T = G^+ G$.
 	\end{enumerate}
 \end{defi}
-
+{\color{red} Soll man in der Liste oben die Kommas stellen? Und wenn nicht, dann ist es okay, dass der Satz keinen Punkt hat?} 
 
 
 \begin{alg}
@@ -263,16 +187,17 @@ We can modify this algorithm by taking the Moore-Penrose inverse. This is the so
 	\end{align} 
 	is guaranteed if
 	\begin{align*}
-	0 <\beta < 2
+	0 <\beta < 2.
 	\end{align*}
 	$P_{\ker[G^+]}$ denotes the positive orthogonal projection operator onto $\ker[G^+]$.
-	In particular, the zero convergence is attainable, if and only if the tracking signal $r$ is feasible, that is there exists an input $\hat u$, such that $r = G \hat u$. %$e_0 \in \im [G G^\star]$. 
+	In particular, the zero convergence is attainable, if and only if the tracking signal $r$ is feasible. That is, there exists an input $\hat u$, such that $r = G \hat u$. %$e_0 \in \im [G G^\star]$. 
 \end{alg}
 \begin{proof}
 	
-	Recap the relation $(GG^+)^2 = GG^+GG^+ = GG^+$ the error evolution formula can be proven by mathematical induction: 
+	Because of pseudo inverse definition, it holds
+	$(GG^+)^2 = GG^+GG^+ = GG^+$.  Then the error evolution formula can be proven by mathematical induction over $k$. 
 	
-	for $k = 1$ it follows: 
+	For $k = 1$ it follows: 
 	\begin{align*}
 	e_1 = (I - \beta G G^+)e_0 = (I + GG^+ - GG^+ - \beta G G^+)e_0 = (I + \left[(1 - \beta) + 1\right]GG^+)e_0.
 	\end{align*}
@@ -290,16 +215,16 @@ We can modify this algorithm by taking the Moore-Penrose inverse. This is the so
 	\begin{align*}
 	\R^{m(N+1)} = \im(G)\oplus \ker (G^+),
 	\end{align*}
-	$\oplus$ denotes here the direct sum of two vector spaces. 
-	Hence $e_0$ can be written as 
-	\begin{align*}
+	The symbol $\oplus$ denotes here the direct sum of two vector spaces. %TODO: Laag als Quelle 
+	Hence, $e_0$ can be written as 
+	\begin{align*}  
 	e_0 = G w_0 + v_0,
 	\end{align*}
 	where $v_0 = (I - G G^+)e_0 \in \ker (G^+)$  is uniquely defined and $w_0 = G^+ e_0 \in \R^{l(N+1)}$. It follows: 
 	\begin{align*}
 	e_{k} = (1+ \left[(1 - \beta)^{k-1} - 1\right]GG^+)e_0 = (1-\beta)^{k-1} G w_0 + v_0.
 	\end{align*}
-	Then for $\beta \in (0,2)$ the error $e_k$ converges to $v_0$ for $k \to \infty$. 
+	For $\beta \in (0,2)$ the error $e_k$ converges to $v_0$ for $k \to \infty$. 
 \end{proof}
 
 \begin{exam}
@@ -326,7 +251,7 @@ The Algorithm \ref{alg:ILC:IA} is a special case of PIA. However, numerically th
 
 (Pseudo) Inverse Algorithm belongs to the class of so-called Unit Memory Algorithms -- these are the algorithms we assume to  ''remember'' the last trial. 
 
-\section{Unit Memory Algorithm}
+\section{Unit Memory Algorithms}
 
 We are interested in  the processes, which are executed repetitively. Let $k = 0, \, 1, \, 2, \, \dots $ be the number of completed iterations. Then we get a system 
 \begin{align}
