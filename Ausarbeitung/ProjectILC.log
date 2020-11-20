@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.26)  1 NOV 2020 17:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.26)  20 NOV 2020 08:57
 entering extended mode
 **./ProjectILC.tex
 (ProjectILC.tex
@@ -1233,8 +1233,8 @@ d-pdfmode.def"
 File: l3backend-pdfmode.def 2020-05-05 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count460
 \l__pdf_internal_box=\box91
-) (ProjectILC.aux (Basics.aux) (ILC_Algorithms.aux)
-(Application.aux) (Robustness.aux) (Questions.aux))
+) (ProjectILC.aux (Introduction20.aux) (Basics20.aux)
+(ILC_Algorithms.aux) (Robustness.aux) (Application.aux) (Questions.aux))
 \openout1 = `ProjectILC.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 88.
@@ -1416,13 +1416,20 @@ LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
 {C:/Users/Strel/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2
 
 ]
-(ProjectILC.toc)
+(ProjectILC.toc [3
+
+])
 \tf@toc=\write6
 \openout6 = `ProjectILC.toc'.
 
- [3
 
-]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+Make it at least 14.49998pt.
+We now make it that large for the rest of the document.
+This may cause the page layout to be inconsistent, however.
+
+[4]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\new@ifnextchar' on input line 171.
@@ -1442,12 +1449,6 @@ l.177 \newpage
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\new@ifnextchar' on input line 178.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
-Make it at least 14.49998pt.
-We now make it that large for the rest of the document.
-This may cause the page layout to be inconsistent, however.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.II}) has
  been already used, duplicate ignored
@@ -1484,7 +1485,12 @@ Make it at least 15.34767pt.
 We now make it that large for the rest of the document.
 This may cause the page layout to be inconsistent, however.
 
-[4]
+pdfTeX warning (ext4): destination with the same identifier (name{page.IV}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.223 \newpage
+               [4]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\new@ifnextchar' on input line 226.
@@ -1502,123 +1508,180 @@ LaTeX Warning: Hyper reference `acro:R' on page V undefined on input line 231.
 LaTeX Warning: Hyper reference `acro:R' on page V undefined on input line 231.
 
 [5]
-\openout2 = `Basics.aux'.
+\openout2 = `Introduction20.aux'.
 
- (Basics.tex
+ (Introduction20.tex
 Chapter 1.
 
-Underfull \vbox (badness 3219) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [1
 
 
 ]
-Overfull \hbox (3.87999pt too wide) in paragraph at lines 120--120
-[]\OT1/cmr/bx/n/17.28 Stabilizing Con-troller based on Sep-a-ra-tion Prin-
+Overfull \hbox (24.52443pt too wide) in paragraph at lines 50--52
+\OT1/cmr/m/n/12 form. We ''stock'' the se-quences $\OMS/cmsy/m/n/12 f\OML/cmm/m
+/it/12 u\OT1/cmr/m/n/12 (0)\OML/cmm/m/it/12 ; u\OT1/cmr/m/n/12 (1)\OML/cmm/m/it
+/12 ; u\OT1/cmr/m/n/12 (2)\OML/cmm/m/it/12 ; [] ; u\OT1/cmr/m/n/12 (\OML/cmm/m/
+it/12 N\OT1/cmr/m/n/12 )\OMS/cmsy/m/n/12 g$ \OT1/cmr/m/n/12 and $\OMS/cmsy/m/n/
+12 f\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 (0)\OML/cmm/m/it/12 ; y\OT1/cmr/m/n/12 (1
+)\OML/cmm/m/it/12 ; y\OT1/cmr/m/n/12 (2)\OML/cmm/m/it/12 ; [] ; y\OT1/cmr/m/n/1
+2 (\OML/cmm/m/it/12 N\OT1/cmr/m/n/12 )\OMS/cmsy/m/n/12 g$
  []
 
-[2]) [3]
-\openout2 = `ILC_Algorithms.aux'.
 
- (ILC_Algorithms.tex [4
+Underfull \vbox (badness 4726) has occurred while \output is active []
+
+ [2]
+Overfull \hbox (9.19005pt too wide) in paragraph at lines 87--89
+\OT1/cmr/m/n/12 With other words, we put all the in-for-ma-tion about the sys-t
+em over time $\OML/cmm/m/it/12 t \OT1/cmr/m/n/12 = 0\OML/cmm/m/it/12 ; \OT1/cmr
+/m/n/12 1\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 2\OML/cmm/m/it/12 ; [] ; N$
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [3])
+[4]
+\openout2 = `Basics20.aux'.
+
+ (Basics20.tex
+Chapter 2.
+
+Underfull \vbox (badness 3219) has occurred while \output is active []
+
+ [5
 
 
 
 ]
-Chapter 2.
-[5]
-<fig/Ex1_LQR.jpg, id=269, 3011.25pt x 1578.89874pt>
+[6]) [7]
+\openout2 = `ILC_Algorithms.aux'.
+
+ (ILC_Algorithms.tex [8
+
+
+
+]
+Chapter 3.
+[9]
+<fig/Ex1_LQR.jpg, id=331, 3011.25pt x 1578.89874pt>
 File: fig/Ex1_LQR.jpg Graphic file (type jpg)
 <use fig/Ex1_LQR.jpg>
 Package pdftex.def Info: fig/Ex1_LQR.jpg  used on input line 85.
 (pdftex.def)             Requested size: 441.01773pt x 231.23524pt.
- [6 <./fig/Ex1_LQR.jpg>]
+ [10 <./fig/Ex1_LQR.jpg>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [7]
-[8]
+ [11]
+[12]
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
 (Font)              Font shape `U/lasy/m/n' tried instead on input line 196.
-<fig/Ex1_IA.jpg, id=308, 3011.25pt x 1578.89874pt>
+<fig/Ex1_IA.jpg, id=371, 3011.25pt x 1578.89874pt>
 File: fig/Ex1_IA.jpg Graphic file (type jpg)
 <use fig/Ex1_IA.jpg>
 Package pdftex.def Info: fig/Ex1_IA.jpg  used on input line 207.
 (pdftex.def)             Requested size: 441.01773pt x 231.23524pt.
-<fig/Ex1_IAbad.jpg, id=312, 3011.25pt x 1578.89874pt>
+<fig/Ex1_IAbad.jpg, id=375, 3011.25pt x 1578.89874pt>
 File: fig/Ex1_IAbad.jpg Graphic file (type jpg)
 <use fig/Ex1_IAbad.jpg>
 Package pdftex.def Info: fig/Ex1_IAbad.jpg  used on input line 215.
 (pdftex.def)             Requested size: 441.01773pt x 231.23524pt.
- [9] [10 <./fig/Ex1_IA.jpg> <./fig/Ex1_IAbad.jpg>]
+ [13] [14 <./fig/Ex1_IA.jpg> <./fig/Ex1_IAbad.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 272--272
 
  []
 
 
-LaTeX Warning: Reference `eq:ILC:errevol_PIA' on page 11 undefined on input lin
-e 273.
-
-
 Underfull \vbox (badness 1048) has occurred while \output is active []
 
- [11]
-<fig/Ex1_PIA.jpg, id=352, 3011.25pt x 1578.89874pt>
+ [15]
+<fig/Ex1_PIA.jpg, id=413, 3011.25pt x 1578.89874pt>
 File: fig/Ex1_PIA.jpg Graphic file (type jpg)
 <use fig/Ex1_PIA.jpg>
 Package pdftex.def Info: fig/Ex1_PIA.jpg  used on input line 312.
 (pdftex.def)             Requested size: 441.01773pt x 231.23524pt.
 
-[12 <./fig/Ex1_PIA.jpg>] [13] [14] [15]
+[16 <./fig/Ex1_PIA.jpg>] [17] [18] [19]
 Underfull \hbox (badness 10000) in paragraph at lines 531--531
 
  []
 
-[16]
+[20]
 Underfull \vbox (badness 1342) has occurred while \output is active []
 
- [17]
-<fig/Ex1_SDA.jpg, id=427, 3011.25pt x 1578.89874pt>
+ [21]
+<fig/Ex1_SDA.jpg, id=488, 3011.25pt x 1578.89874pt>
 File: fig/Ex1_SDA.jpg Graphic file (type jpg)
 <use fig/Ex1_SDA.jpg>
 Package pdftex.def Info: fig/Ex1_SDA.jpg  used on input line 599.
 (pdftex.def)             Requested size: 441.01773pt x 231.23524pt.
 
-[18 <./fig/Ex1_SDA.jpg>] [19]
-<fig/Ex1_SDAvsSoE.jpg, id=450, 3011.25pt x 1578.89874pt>
+[22 <./fig/Ex1_SDA.jpg>] [23]
+<fig/Ex1_SDAvsSoE.jpg, id=512, 3011.25pt x 1578.89874pt>
 File: fig/Ex1_SDAvsSoE.jpg Graphic file (type jpg)
 <use fig/Ex1_SDAvsSoE.jpg>
 Package pdftex.def Info: fig/Ex1_SDAvsSoE.jpg  used on input line 712.
 (pdftex.def)             Requested size: 441.01773pt x 231.23524pt.
- [20] [21 <./fig/Ex1_SDAvsSoE.jpg>]) [22]
-\openout2 = `Application.aux'.
+ [24] [25 <./fig/Ex1_SDAvsSoE.jpg>]) [26]
+\openout2 = `Robustness.aux'.
 
 
-(Application.tex
-Chapter 3.
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 7.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 7.
-
-[23
+(Robustness.tex
+Chapter 4.
+[27
 
 
 
 ]
-<fig/ExSat_LQR.jpg, id=498, 3011.25pt x 1578.89874pt>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [28]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [29]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [30]
+[31] [32] [33]
+Overfull \hbox (21.63585pt too wide) detected at line 533
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [34])
+[35]
+\openout2 = `Application.aux'.
+
+ (Application.tex [36
+
+
+
+]
+Chapter 5.
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 7.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 7.
+
+[37]
+<fig/ExSat_LQR.jpg, id=683, 3011.25pt x 1578.89874pt>
 File: fig/ExSat_LQR.jpg Graphic file (type jpg)
 <use fig/ExSat_LQR.jpg>
 Package pdftex.def Info: fig/ExSat_LQR.jpg  used on input line 68.
 (pdftex.def)             Requested size: 441.01773pt x 231.23524pt.
- [24 <./fig/ExSat_LQR.jpg>]
+ [38 <./fig/ExSat_LQR.jpg>]
 Overfull \hbox (7.94307pt too wide) detected at line 130
 []
  []
 
-[25]
+[39]
 Overfull \hbox (7.88675pt too wide) in paragraph at lines 158--160
 []\OT1/cmr/m/it/12 Four our sys-tem [] we have for $\OMS/cmsy/m/n/12 jj\OML/cmm
 /m/it/12 u[]\OMS/cmsy/m/n/12 jj  \OT1/cmr/m/n/12 1\OML/cmm/m/it/12 :\OT1/cmr/m
@@ -1628,62 +1691,34 @@ T1/cmr/m/n/12 )\OMS/cmsy/m/n/12 jj \OML/cmm/m/it/12 < \OT1/cmr/m/n/12 5\OML/cmm
 /m/it/12 :\OT1/cmr/m/n/12 13 10[]$\OT1/cmr/m/it/12 . 
  []
 
-[26]) [27]
-\openout2 = `Robustness.aux'.
-
- (Robustness.tex [28
-
-
-
-]
-Chapter 4.
-[29]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [30]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [31]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [32]
-[33] [34] [35]
-Overfull \hbox (21.63585pt too wide) detected at line 532
-[]
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [36])
-[37]
+[40] [41]) [42]
 \openout2 = `Questions.aux'.
 
- (Questions.tex [38
+ (Questions.tex
+Chapter 6.
+) [43
 
 
 
-]
-Chapter 5.
-) [39] [40
+] [44
 
-] [41
+] [45
 
-] [42
+] [46
 
-] [43] [44
+] [47] [48
 
 ]
 Appendix A.
-[45]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 329.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 329.
- (ProjectILC.aux (Basics.aux) (ILC_Algorithms.aux) (Application.aux)
-(Robustness.aux) (Questions.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 329.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 329.
+[49]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 330.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 330.
+ (ProjectILC.aux (Introduction20.aux) (Basics20.aux) (ILC_Algorithms.aux)
+(Robustness.aux) (Application.aux) (Questions.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 330.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 330.
 Package rerunfilecheck Info: File `ProjectILC.out' has not changed.
-(rerunfilecheck)             Checksum: 812A32A22B464C25AAD2426E678267AF;1723.
+(rerunfilecheck)             Checksum: C141419D6534E4344759FCE9AAB4C8FA;1992.
 
 
 LaTeX Warning: There were undefined references.
@@ -1691,43 +1726,45 @@ LaTeX Warning: There were undefined references.
 Package logreq Info: Writing requests to 'ProjectILC.run.xml'.
 \openout1 = `ProjectILC.run.xml'.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 329.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 330.
  ) 
 Here is how much of TeX's memory you used:
- 31851 strings out of 480799
- 601870 string characters out of 2895784
- 1258956 words of memory out of 3000000
- 46926 multiletter control sequences out of 15000+200000
- 559515 words of font info for 136 fonts, out of 3000000 for 9000
+ 32171 strings out of 480799
+ 604988 string characters out of 2895784
+ 1261846 words of memory out of 3000000
+ 47206 multiletter control sequences out of 15000+200000
+ 560021 words of font info for 138 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,27n,66p,941b,1190s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmbx12.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cm/cmbxti10.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9
-/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Strel/AppData/Local/Progr
-ams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Strel/AppDat
-a/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users
-/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.
-pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfon
-ts/cm/cmmi6.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/p
-ublic/amsfonts/cm/cmmi8.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/f
-onts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Strel/AppData/Local/Programs/
-MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Strel/AppData/Loc
-al/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Strel
-/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/
-Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
-r8.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/ams
-fonts/cm/cmsl12.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 
-2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Strel/AppData/Local/Prog
-rams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Strel/AppDat
-a/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users
-/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/ms
-am10.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/a
-msfonts/symbols/msbm10.pfb>
-Output written on ProjectILC.pdf (53 pages, 1714797 bytes).
+ 60i,27n,66p,941b,1806s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\Strel\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\
+tcrm1200.pk><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publi
+c/amsfonts/cm/cmbx12.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/Strel/AppData/Local/Programs/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Strel/AppData/L
+ocal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/St
+rel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/
+cm/cmmi12.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pub
+lic/amsfonts/cm/cmmi6.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Strel/AppData/Local/Programs/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Strel/AppData/Local
+/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Strel/A
+ppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/U
+sers/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr
+6.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsf
+onts/cm/cmr8.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmsl12.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Strel/AppData/Local/Progra
+ms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Strel/AppData/
+Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/St
+rel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb
+><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/
+cm/cmtt12.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pub
+lic/amsfonts/symbols/msam10.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2
+.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on ProjectILC.pdf (58 pages, 1744057 bytes).
 PDF statistics:
- 823 PDF objects out of 1000 (max. 8388607)
- 276 named destinations out of 1000 (max. 500000)
- 264 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 919 PDF objects out of 1000 (max. 8388607)
+ 307 named destinations out of 1000 (max. 500000)
+ 304 words of extra memory for PDF output out of 10000 (max. 10000000)
 

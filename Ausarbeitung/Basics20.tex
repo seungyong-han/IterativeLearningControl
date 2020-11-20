@@ -1,0 +1,301 @@
+\chapter{Basics} 
+\label{ch:Basics}
+{\color{red}$<$Einfuehrung$>$}
+
+We consider a  discrete time iteration
+\begin{align}
+\label{eq:GP}
+\begin{split}
+&\begin{array}{c c c c c}
+x(t+1) &= &A x(t)& + &B u(t)  \\
+y ( t) &= &C x(t)&  + &D u(t),\\ 
+\end{array}\\
+&\; \;\;x(0) =x_0 , \; \;  t \geq 0,
+\end{split}
+\end{align}
+ with error 
+\begin{align}
+\label{eq:error}
+e(t) =r(t) - y(t)
+\end{align}
+at time $t  = 0, 1, 2, \dots$.
+
+Here $A \in \mathbb{R}^{n\times n}$, $B \in \mathbb{R}^{n \times l}$, $C \in \R^{m \times n}$, and $D \in \R^{m\times l}$ are real matrices, $r(t) \in \R^{m}$ is a reference signal at time $t$. For notation simplification, we write $(A, B,C,D)$ and mean it to be the discrete-time control system \eqref{eq:GP}.
+
+
+
+We aim to find a ''good'' input signal $u(t)$, such that the reference $r(t)$ is tracked possibly well for all $t \geq 0$. With other words, it means, that the error norm $||e(\cdot)||$ must stay small in some  $||\cdot||$, e.g. the $L_2$-norm.
+To find it we usually design a stabilizing controller 
+ -- such that our system state goes not to infinity over time $t$. 
+To design it, we must first clearly define what stability means. Since let us first formulate the common definitions and entertain ideas of a stabilizing controller design. 
+
+\section{Definitions}
+
+\begin{defi}
+	A discrete time dynamical system
+	\begin{align}
+	\label{eq:x=Ax}
+	x(t+1) = A x(t)
+	\end{align}
+	for $t \geq 0$ 
+	is said to be asymptotically stable, if for all initial condition $x(0) \in \R^n$
+	\begin{align}
+	\lim_{t \to \infty} x(t) = 0
+	\end{align}	
+    is satisfied. 
+	It is said to be stable, if 
+	\begin{align}
+	\limsup_{t \to \infty} ||x(t)|| < \infty
+	\end{align}
+	for all	 initial condition $x(0) \in \R^n$.
+	We call the matrix $A$ (asymptotically) stable, if the dynamical system \eqref{eq:x=Ax} is (asymptotically) stable.
+\end{defi}
+
+
+%\begin{theo}
+%	A discrete time dynamical system \eqref{eq:x=Ax} is
+%	asymptotically stable, if and only if each eigenvalue $\lambda$ of the matrix $A$ lies within the unit circle: $\lambda \in \{x \in \R: \; |x|<1\}$.
+%	
+%%	It is stable if for each eigenvalue $\lambda$ is satisfied: 
+%%	\begin{align}
+%%	\label{eq:stability}
+%%	\begin{split}
+%%	&\lambda \in \{z \in \C: \; |z|\leq 1\} \text{ and for all } \lambda \text{ with } |\lambda| = 1 \\
+%%	&\text{ the Jordan Block \cite{LAAG} of the eigenvalue has dimension 1}. 
+%%	\end{split} 
+%%	\end{align}
+%\end{theo}
+%\begin{proof}
+%	The solution of \eqref{eq:x=Ax} is 
+%	\begin{align}
+%	x(t) = A^t x_0.
+%	\end{align}
+%	
+%	With Jordan Normal Form we can find a matrix $T \in \GL_n(\R)$, and triangular matrix $\Lambda$, such that $\Lambda$ has the eigenvalues of $A$ on its diagonal and the following is fulfilled: 
+%\begin{align}
+%	A &= T^{-1} \Lambda T ,\\
+%	A^t &= T^{-1} \Lambda^t T. 
+%\end{align}
+%
+%Since all the eigenvalues of $A$ are smaller then one in its absolute value, $\Lambda^t \to 0$ for $t \to \infty$, and hence 
+%\begin{align}
+%\lim_{t \to \infty}x(t) =\lim_{t \to \infty} A^t x_0 =\lim_{t \to \infty} T^{-1} \Lambda^t T x_0 = 0.
+%\end{align}
+%	
+%\end{proof}
+%
+%We want to have an easy criteria to check, if a system is stable. This is possible, by examine the eigenvalues of the matrix $A$. 
+%But we formulate a more restrictive criteria, which is rather usable for us. 
+%%The less strong criteria can be defined via spectral norm
+%%\begin{align}
+%%\label{eq:specNorm}
+%%||A||_\lambda = \sigma_{\max}(A) = \sqrt{\lama (A^*A)} \text{ for } A \in \C^{m\times n}.
+%%\end{align}
+%%Here $A^*$ means complex conjugate transpose of matrix $A$, and $\lama$ is the maximal eigenvalue.
+%
+%\begin{theo}
+%	\label{thm:||A||<1}
+%	Let $||\cdot||: \C^{m \times n} \to \R^+$ be a consistent matrix norm . 
+%	
+%	A discrete dynamical system \eqref{eq:x=Ax} is asymptotically stable if the norm of the matrix $A$ is less unit: 
+%	\begin{align}
+%		||A|| <1.
+%	\end{align}
+%	It is stable, if 
+%	\begin{align}
+%	||A|| \leq 1.
+%	\end{align}
+%\end{theo}
+
+
+
+In the same way we want to define (asymptotic) stabilizability and detectability. 
+\begin{defi}
+A a discrete time system $(A, B, C, D)$ or the pair $(A, B)$ is (asymptotically) stabilizable, if there exists a matrix $F$, such that $A - BF$ is (asymptotically) stable.
+The system or the pair $(A,C)$ is detectable, if $(A^T, C^T)$ is assymptotically stabilizable. 
+\end{defi}
+
+
+
+\section{Stabilizing Controller}
+\label{sch:stabilizingController}
+
+Following from its name the stabilizing controller is a one, which stabilizes the given system $(A,B,C,D)$. There are a bunch of different design methods, as a linear quadratic regulator, $H_\infty$ design or pole placement. 
+
+In our case we are more interested in better stabilizing properties, as in a good performance. The algorithms we will consider guarantee the convergence to a good input, but to apply this algorithms we also need some numerically stability. 
+
+We can find a stabilizing controller for \eqref{eq:GP} using feedback control.
+First let us consider the case $y(\cdot) = x(\cdot)$.
+
+%It is very important, that we work with the (asymptotically) stable systems: if $||A||\geq 1$, the solution $x(\cdot)$ will diverge  for $t \to \infty$. 
+%
+%
+%It is also important for finite time horizon: as we have seen before, the supervector description contains terms $A^j$ of power $j = 0, 1, 2, \dots , N-1$. For large $N$ the elements of the matrix $G$ become very large (in its absolute value) and are numerically not achievable. 
+
+Then the system \eqref{eq:GP} becomes stable, if we choose $u(t) = -Fx(t)$, $t \geq 0$, with some matrix $F$, such that $(A - BF)$ is stable.
+
+Clearly, if the system is (asymptotically) stabilizable, we can find such matrix $F$. 
+
+But what is a ''good'' choice for $F$? One option is the so-called Linear-Quadratic-Regulator (LQR), which minimizes the cost function 
+\begin{align}
+\label{eq:costFcn}
+V(u(\cdot)) = \sum_{t = 0}^\infty \left( (x(t))^T Q (x(t)) + u(t)^T R u(t)\right),
+\end{align}
+overall stabilizing piecewise constant input signals $u(\cdot) \in \R^m$, and with $x(\cdot)$ satisfying \eqref{eq:GP} (for $C = I$ and $D = 0$). 
+$Q \succ 0$ and $R \succ 0$ are here weighing matrices, which allow us to decide how ''important'' the elements of the in- and output signals are.  
+Using them, we can make one input signal impact the system more than another or drive one of the output signals faster. 
+
+Choosing the weighting matrices always depends on the system we work with and allows us to affect closed-loop behavior.   
+
+The optimal $u(\cdot)$ for minimizing of the cost function \eqref{eq:costFcn} is given via $u(t) = F x(t)$ with
+\begin{align}
+\label{eq:Basics:F}
+F = (R + B^T P B)^{-1}B^TPA.
+\end{align}
+The matrix $P$ is a unique symmetric positive definite matrix, the stabilizing solution of the discrete time algebraic Riccati equation
+\begin{align}
+ A^TA - A^T P B (R + B^T P B)^{-1} B^T P A + Q - P = 0.%TODO: QUELLE!!!!!
+\end{align}
+Stabilizing solution means, that from \eqref{eq:Basics:F} resulting matrix $(A - BF)$ is stable, and hence this solution stabilizes our system. 
+
+
+
+
+ 
+%We set 
+%\begin{align}
+%\label{eq:Q=(Q(t)...),R=(R(t)...)}
+%Q = \diag\left(Q(0), Q(1), \dots, Q(N)\right) \text{ and }R = \diag\left(R(0), R(1), R(2), \dots, R(N)\right).
+%\end{align}
+
+
+
+%The solution of this problem is given by choosing
+%\begin{align}
+%u(t) = -F(t) x(t),
+%\end{align}
+%where 
+%\begin{align}
+%F(t) = (R +B^TP(t+1)B)^{-1}(B^TP(t+1)A).
+%\end{align}
+%$P(t)$ is found iteratively by solving dynamic Riccati equation: 
+%\begin{align}
+%\begin{split}
+%P(t-1) &= A^TP(t) A - (A^T P(t) B)(R + B^TP(t)B)^{-1}(B^T P(t)A) + Q,\\
+%P(N) &= Q.
+%\end{split}
+%\end{align}
+%{\color{red} Quelle? Wiki sagt Chow, Gregory C. (1986). Analysis and Control of Dynamic Economic Systems. Krieger Publ. Co. Das Buch fand ich aber nicht.} 
+
+%The other way to find an optimal $u(\cdot)$ goes via supervectors: 
+%
+%Then the cost function $V$ can be rewritten as 
+%\begin{align}
+%V = ||x||_Q^2 + ||u||_R^2,
+%\end{align}
+%with norms $||\cdot||_Q$ and $||\cdot ||_R$ associated with scalar products 
+%\begin{align}
+%\label{eq:SkPrQR}
+%\langle y,z\rangle_Q = \sum_{t = 0}^N y(t)^TQ(t)z(t), \text{ and } \langle u,v\rangle_R = \sum_{t = 0}^N u(t)^T R(t) v(t).
+%\end{align}
+%
+%
+%Then the optimal solution is given \cite{ILCBook}, pp. 104-105, via 
+%\begin{align}
+%u = G^*x, \text{ where } G^* =R^{-1} G^T Q. 
+%\end{align}
+
+For the case $y(\cdot) \neq x(\cdot)$, we can additionally construct an observer to approximate the signal $x(\cdot)$. The  controller we get is said to be based on \textit{separation principle}.
+It requires the pair $(A,C)$ to be detectable. So, we can find a matrix $J$, for which $A - JC$ is asymptotically stable.
+
+We set 
+\begin{align}
+u(\cdot)= -F \hat{x}(\cdot), \text{ with } \hat{x}(\cdot) \text{ given via dynamical system }
+\end{align}
+\begin{align}
+\hat{x}(t+1) &= A\hat{x}(t) + B u(t) + J (y - \hat{y}(t)), \\
+\hat{y}(t) & = C\hat{x}(t) + D u(t), \\
+\hat{x}(0)& = x_0, \; t \geq 0. 
+\end{align}
+With this observer system the estimation error can be calculated as \begin{align}
+\tilde{x}(t+1) = x(t+1) - \hat{x}(t+1) = (A - JC) \tilde{x}(t), \, t \geq 0,
+\end{align} and hence $\hat{x} (\cdot)$ converges to $x(\cdot)$ at least asymptotically. 
+
+We elect
+\begin{align}
+u(\cdot) = -F\hat{x}(\cdot) + Mr(\cdot), 
+\end{align}
+where $M$ is a right inverse of the matrix 
+\begin{align}
+D + (C - D F) (I - A + B F)^{-1} B.
+\end{align}
+
+This choice of input signal 
+solves tracking issue for constant $r(\cdot)$. It still can be used for piecewise constant $r(\cdot)$, if the signal does not change too fast.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+%
+%
+%The form \eqref{eq:Gu + d} has a lot of useful properties, some of them we are going get to know in the next section. 
+%
+%\section{Properties of the Supervector Description} 
+%{\color{red}Wird kommen, wenn klar ist, welche Eigenschaften ich sicher brauche. Hier sind die ungefähre }
+%
+%Let $(A, B, C, D)$ be an $l-$input, $m-$output, state dimension $n$, linear, time-invariant, discrete, state space model of a dynamical system given as 
+%\begin{align}
+%x(t+1) &= A x(t) + B u (t), \: x(0) = x_0, \: t = 0, \, 1, \, 2, \, \dots, \, N-1\\
+%y(t)& = Cx(t) + D u(t), \: t = 0, \, 1, \, 2, \, \dots, \, N. 
+%\end{align}
+%
+%The benefit of the form \eqref{eq:Gu + d} is the possibility to work with the matrices $G$ in a similar way as with transfer matrices:
+%
+%\begin{theo}{}
+%	Let the systems  $(A_1, B_1, C_1, D_1)$ and $(A_2, B_2, C_2, D_2)$ be related in parallel interconnection: they both have the input $u(t)$, and the outputs $\hat{y}(t)$ and $\tilde{y}(t)$ are added to common output $y(t) = \hat{y}(t) + \tilde{y}(t)$. Then the supervector representation of the interconnection is given by 
+%		\begin{align}
+%		G(A_1, B_1, C_1, D_1) + G(A_2, B_2, C_2, D_2). 
+%		\end{align}
+%		
+%	Let the $r$-input $m$-ouput system $(A_1, B_1, C_1, D_1)$ and $l$-input $r$-ouput system $(A_2, B_2, C_2, D_2)$ be connected in the parallel interconnection. Then the supervector representation of the interconnection is given by 
+%	\begin{align}
+%	G(A_1, B_1, C_1, D_1)G(A_2, B_2, C_2, D_2). 
+%	\end{align}
+%\end{theo}
+%
+%The rank of $G(A,B,C,D)$ is closely related to the rank of $D$ matrix as follows: 
+%\begin{theo}
+%	\label{thm: relGandK}
+%	\begin{enumerate}
+%		\item $\ker (G) = \{0\}$ if and only if $\ker(D) = \{0\}$.
+%		\item $\im (G) = \R^{m(N+1)}$ if and only if $\im (D) = m$. 
+%	\end{enumerate}
+%\end{theo} 
+%
+%
+%\section{Noch ein schoenes Section}
+%{\color{red} Soll wohl noch irgendein Section kommen}
+

@@ -1,0 +1,102 @@
+\chapter{Introduction}
+
+It is well known that repetition is the mother of learning. A student learning a piano piece repeat it till he or she can play it well, and, possibly, without errors. 
+A gymnastic tries to make a perfect move by exercising it douses and hundreds of times. 
+
+In control theory, this concept can be of use as well. 
+The idea of Iterating Learning Control (ILC) is, that, if our system has to execute a single repeated task, performance of a system can be improved by ''learning'' from previous passes.
+
+The techniques of ILC found application in industrial systems, robotics as well in chemical processing. For example, it was successfully applied to industrial robots, aluminium extruders and rapid thermal processing.  TODO: Quelle 
+
+ILC can be introduced on the following example: let us imagine that a robot arm needs to take the same path, again and again, with high accuracy. We can possibly find a controller, which might run the robot arm along this route. However, to achieve good precision, a simple controller might not be enough, and we need to apply other techniques to improve the result. 
+
+The other possibility is to take the result we get from the initial controller, and try to adjust it for the next trial. Improving the signal by each program run, we can achieve a perfect result with less effort if the signals are adapted with a proper algorithm. 
+In this work, we consider some of such algorithms and see, that under certain conditions we can achieve monotonic convergence to an input signal, which renders an optimal tracking. 
+
+The aim of this work is the studying of the so-called unit memory algorithms on example of discrete-time dynamical systems over a finite time horizon. The unit memory algorithms are the ones, which can ''remember'' on the last pass. Mathematically speaking, if $u_k$ is the input signal and $e_k$ is the tracking error at trial $k$, then
+\begin{align}
+u_{k+1} = f(e_k, e_{k+1}, u_k)
+\end{align}
+where $f$ is some function independent on $k$ \cite{ILC}. 
+
+
+We consider the system of the form 
+\begin{align}
+\label{eq:Intro:GP}
+\begin{split}
+&\begin{array}{c c c c c}
+x(t+1) &= &A x(t)& + &B u(t)  \\
+y ( t) &= &C x(t)&  + &D u(t),\\ 
+x(0)& = &x_0, & &
+\end{array}\\
+\end{split}
+\end{align}
+over a time horizon $t = 0, 1, 2, \dots, N$.
+The error is given as
+\begin{align}
+\label{eq:Intro:error}
+e(t) = r(t) - y(t), \; t  = 0, 1, 2, \dots, N. 
+\end{align}
+
+The finale time horizon and discreteness of the the system invite us to consider this system in a more compact form. We can ''stock'' the sequences $\{u(0), u(1), u(2), \dots, u(N)\}$ and $\{y(0), y(1), y(2), \dots, y(N)\}$ as 
+\begin{align*}
+u = \begin{pmatrix}
+u(0) \\ u(1) \\ \vdots \\ u(N)
+\end{pmatrix} \text{ and }
+y = \begin{pmatrix}
+y(0) \\ y(1) \\ \vdots \\ y(N)
+\end{pmatrix}. 
+\end{align*}
+
+The whole system \eqref{eq:Intro:GP} can be then expressed as 
+\begin{align}
+\label{eq:Intro:y = Gu + d}
+y = G u + d, 
+\end{align}
+where 
+\begin{align}
+\label{eq:Intro:Gmatrix}
+\begin{split}
+G &= G(A,B,C,D) = \\
+&=  \begin{pmatrix}
+D & 0 & \cdots & 0 & 0 & 0 \\
+CB & D & \cdots & 0 & 0 & 0\\
+CAB & CB & \cdots & 0 & 0 & 0\\
+\vdots & \vdots & \ddots & \vdots  & \vdots & \vdots \\
+CA^{N-2} B & CA^{N-3} B &\dots &CB & D& 0\\
+CA^{N-1} B & CA^{N-2} B &\dots &CAB & CB& D\\
+\end{pmatrix} \in \R^{m(N+1)\times l(N+1)}.
+\end{split}
+\end{align}
+and 
+\begin{align}
+d = d(C,A,x_0) = \begin{pmatrix}
+C x_0 \\ CA x_0 \\ CA^2 x_0 \\ \vdots \\ CA^Nx_0
+\end{pmatrix} \in \R^{m(N+1)}.
+\end{align}
+With other words, we put all the information about the system run over time $t = 0, 1, 2, \dots, N$ in one linear equation. This form already inspires some of ILC algorithms, for example Pseudo Inverse Model Algorithm 
+\begin{align}
+u_{k+1} = u_k + \beta G G^+ e_k, 
+\end{align}
+where $G^+$ is the pseudo inverse of $G$ and $k$ denotes the trial of system run, $\beta \in (0,2)$. 
+
+To make the notation less confusing, we denote with $x(t)$ the value of signal $x(\cdot)$ at time $t$, and with $x$ the corresponding supervector form. $x_k$ denotes the supervector at trial $k$ of program running.
+
+Five different algorithms are illustrated in this work. Two of them are derived on considering of inverse model, steepest descent algorithms inspire two algorithms, and one is based on feedback design. 
+
+Besides, we consider the robustness property of Unit Memory Algorithms despite the parametric uncertainty. Using Lyapunov techniques and 
+Full-Block S-Procedure we derive a method, which allows us to check if the given algorithm stays stable if the parameter of the system is uncertain. 
+
+Furthermore, we discuss the issues appearing by the application of the algorithms. With the supervector description, the ILC algorithms need an amount of computational memory and lead to significant numerical errors. We need to modify the algorithms in the way that we can apply them on the real problems.
+
+The algorithms in this thesis are taken from \cite{ILC}. However, some of them were modified to make them more practically. The robustness proof was a task of this work. The application chapter with algorithms modifications was a  work part as well. 
+
+The thesis is composed as follows: first, we recap the crucial basics for understanding the considered algorithms. Then, we introduce the supervector notation and inspired by it, derive the ILC algorithms. In chapter X, with Full-S-Procedure, we succeed the requirements, under which the algorithms stay robust despite the parametric uncertainty. Finally, we want to apply ILC algorithms on a real system. We face the issues the real problems yield, and suggest the remedies. The summary concludes this thesis, where further work is suggested. 
+
+
+
+
+
+
+
+

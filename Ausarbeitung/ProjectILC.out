@@ -2,26 +2,31 @@
 \BOOKMARK [1][-]{chapter*.3}{Tabellenverzeichnis0pt}{}% 2
 \BOOKMARK [1][-]{section*.5}{Abk\374rzungsverzeichnis0pt}{}% 3
 \BOOKMARK [1][-]{section*.6}{Symbolverzeichnis0pt}{}% 4
-\BOOKMARK [0][-]{chapter.1}{Basics}{}% 5
-\BOOKMARK [1][-]{section.1.1}{Definitions}{chapter.1}% 6
-\BOOKMARK [1][-]{section.1.2}{Stabilizing Controller based on Separation Principle}{chapter.1}% 7
-\BOOKMARK [0][-]{chapter.2}{ILC Algorithms}{}% 8
-\BOOKMARK [1][-]{section.2.1}{Supervector description}{chapter.2}% 9
-\BOOKMARK [1][-]{section.2.2}{Inverse Model Algorithms}{chapter.2}% 10
-\BOOKMARK [1][-]{section.2.3}{Unit Memory Algorithm}{chapter.2}% 11
-\BOOKMARK [1][-]{section.2.4}{Gradient Algorithms}{chapter.2}% 12
-\BOOKMARK [2][-]{subsection.2.4.1}{Steepest Descent Algorithm}{section.2.4}% 13
-\BOOKMARK [2][-]{subsection.2.4.2}{Suppression of eigenvalues}{section.2.4}% 14
-\BOOKMARK [1][-]{section.2.5}{Feedback Design}{chapter.2}% 15
-\BOOKMARK [0][-]{chapter.3}{Application}{}% 16
-\BOOKMARK [1][-]{section.3.1}{The case D = 0}{chapter.3}% 17
-\BOOKMARK [1][-]{section.3.2}{Long time horizon}{chapter.3}% 18
-\BOOKMARK [0][-]{chapter.4}{Robustness of the ILC Algorithms}{}% 19
-\BOOKMARK [1][-]{section.4.1}{Uncertain Lifted System}{chapter.4}% 20
-\BOOKMARK [1][-]{section.4.2}{Full-Block S-Procedure}{chapter.4}% 21
-\BOOKMARK [0][-]{chapter.5}{Questions}{}% 22
-\BOOKMARK [1][-]{chapter*.15}{Anhang}{chapter.5}% 23
-\BOOKMARK [1][-]{section.Alph0.1}{Beweise}{chapter.5}% 24
-\BOOKMARK [2][-]{subsection.Alph0.1.1}{Beweis 1}{section.Alph0.1}% 25
-\BOOKMARK [1][-]{section*.16}{Eidesstattliche Erkl\344rung}{chapter.5}% 26
-\BOOKMARK [0][-]{appendix.A}{Zusammenfassung und Ausblick}{}% 27
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 5
+\BOOKMARK [1][-]{section.1.1}{Motivation}{chapter.1}% 6
+\BOOKMARK [1][-]{section.1.2}{Problem Statement}{chapter.1}% 7
+\BOOKMARK [1][-]{section.1.3}{Structure}{chapter.1}% 8
+\BOOKMARK [0][-]{chapter.2}{Basics}{}% 9
+\BOOKMARK [1][-]{section.2.1}{Definitions}{chapter.2}% 10
+\BOOKMARK [1][-]{section.2.2}{Stabilizing Controller}{chapter.2}% 11
+\BOOKMARK [0][-]{chapter.3}{ILC Algorithms}{}% 12
+\BOOKMARK [1][-]{section.3.1}{Supervector description}{chapter.3}% 13
+\BOOKMARK [1][-]{section.3.2}{Inverse Model Algorithms}{chapter.3}% 14
+\BOOKMARK [1][-]{section.3.3}{Unit Memory Algorithm}{chapter.3}% 15
+\BOOKMARK [1][-]{section.3.4}{Gradient Algorithms}{chapter.3}% 16
+\BOOKMARK [2][-]{subsection.3.4.1}{Steepest Descent Algorithm}{section.3.4}% 17
+\BOOKMARK [2][-]{subsection.3.4.2}{Suppression of eigenvalues}{section.3.4}% 18
+\BOOKMARK [1][-]{section.3.5}{Feedback Design}{chapter.3}% 19
+\BOOKMARK [0][-]{chapter.4}{Robustness of the ILC Algorithms}{}% 20
+\BOOKMARK [1][-]{section.4.1}{Uncertain Lifted System}{chapter.4}% 21
+\BOOKMARK [1][-]{section.4.2}{Full-Block S-Procedure}{chapter.4}% 22
+\BOOKMARK [0][-]{chapter.5}{Application}{}% 23
+\BOOKMARK [1][-]{section.5.1}{The case D = 0}{chapter.5}% 24
+\BOOKMARK [1][-]{section.5.2}{Long time horizon}{chapter.5}% 25
+\BOOKMARK [1][-]{section.5.3}{Online and Offline learning}{chapter.5}% 26
+\BOOKMARK [0][-]{chapter.6}{Questions}{}% 27
+\BOOKMARK [1][-]{chapter*.15}{Anhang}{chapter.6}% 28
+\BOOKMARK [1][-]{section.Alph0.1}{Beweise}{chapter.6}% 29
+\BOOKMARK [2][-]{subsection.Alph0.1.1}{Beweis 1}{section.Alph0.1}% 30
+\BOOKMARK [1][-]{section*.16}{Eidesstattliche Erkl\344rung}{chapter.6}% 31
+\BOOKMARK [0][-]{appendix.A}{Zusammenfassung und Ausblick}{}% 32

@@ -1,17 +1,19 @@
 [0] Config.pm:304> INFO - This is Biber 2.14
-[1] Config.pm:307> INFO - Logfile is 'ProjectILC.blg'
-[91] biber-MSWIN64:322> INFO - === 
-[160] Biber.pm:415> INFO - Reading 'ProjectILC.bcf'
-[288] Biber.pm:943> INFO - Found 4 citekeys in bib section 0
-[338] Biber.pm:4256> INFO - Processing section 0
-[339] Utils.pm:75> INFO - Globbing data source 'Bib.bib'
-[368] Utils.pm:91> INFO - Globbed data source 'Bib.bib' to Bib.bib
-[400] Biber.pm:4455> INFO - Looking for bibtex format file 'Bib.bib' for section 0
-[408] bibtex.pm:1653> INFO - LaTeX decoding ...
+[0] Config.pm:307> INFO - Logfile is 'ProjectILC.blg'
+[103] biber-MSWIN64:322> INFO - === 
+[136] Biber.pm:415> INFO - Reading 'ProjectILC.bcf'
+[307] Biber.pm:943> INFO - Found 5 citekeys in bib section 0
+[329] Biber.pm:4256> INFO - Processing section 0
+[329] Utils.pm:75> INFO - Globbing data source 'Bib.bib'
+[363] Utils.pm:91> INFO - Globbed data source 'Bib.bib' to Bib.bib
+[387] Biber.pm:4455> INFO - Looking for bibtex format file 'Bib.bib' for section 0
+[398] bibtex.pm:1653> INFO - LaTeX decoding ...
 [418] bibtex.pm:1471> INFO - Found BibTeX data source 'Bib.bib'
-[490] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[490] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[490] Biber.pm:4084> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
-[490] Biber.pm:4090> INFO - No sort tailoring available for locale 'en-US'
-[495] bbl.pm:652> INFO - Writing 'ProjectILC.bbl' with encoding 'latin1'
-[497] bbl.pm:755> INFO - Output to ProjectILC.bbl
+[474] Utils.pm:304> WARN - BibTeX subsystem: C:\Users\Strel\AppData\Local\Temp\biber_tmp_O36h\Bib.bib_7584.utf8, line 35, warning: 17 characters of junk seen at toplevel
+[502] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[502] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[502] Biber.pm:4084> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[502] Biber.pm:4090> INFO - No sort tailoring available for locale 'en-US'
+[514] bbl.pm:652> INFO - Writing 'ProjectILC.bbl' with encoding 'latin1'
+[520] bbl.pm:755> INFO - Output to ProjectILC.bbl
+[526] Biber.pm:128> INFO - WARNINGS: 1

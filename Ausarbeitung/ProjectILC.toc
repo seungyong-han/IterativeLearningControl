@@ -8,48 +8,58 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{Symbolverzeichnis\vspace {0pt}}{V}{section*.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {1}Basics}{1}{chapter.1}%
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.1}Definitions}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.2}Stabilizing Controller based on Separation Principle}{2}{section.1.2}%
+\contentsline {section}{\numberline {1.2}Problem Statement}{2}{section.1.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {2}ILC Algorithms}{5}{chapter.2}%
+\contentsline {section}{\numberline {1.3}Structure}{4}{section.1.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.1}Supervector description}{7}{section.2.1}%
+\contentsline {chapter}{\numberline {2}Basics}{5}{chapter.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.2}Inverse Model Algorithms}{8}{section.2.2}%
+\contentsline {section}{\numberline {2.1}Definitions}{5}{section.2.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.3}Unit Memory Algorithm}{13}{section.2.3}%
+\contentsline {section}{\numberline {2.2}Stabilizing Controller}{6}{section.2.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.4}Gradient Algorithms}{14}{section.2.4}%
+\contentsline {chapter}{\numberline {3}ILC Algorithms}{9}{chapter.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.4.1}Steepest Descent Algorithm}{16}{subsection.2.4.1}%
+\contentsline {section}{\numberline {3.1}Supervector description}{11}{section.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.4.2}Suppression of eigenvalues}{18}{subsection.2.4.2}%
+\contentsline {section}{\numberline {3.2}Inverse Model Algorithms}{12}{section.3.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.5}Feedback Design}{21}{section.2.5}%
+\contentsline {section}{\numberline {3.3}Unit Memory Algorithm}{17}{section.3.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {3}Application}{23}{chapter.3}%
+\contentsline {section}{\numberline {3.4}Gradient Algorithms}{18}{section.3.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.1}The case $D = 0$}{23}{section.3.1}%
+\contentsline {subsection}{\numberline {3.4.1}Steepest Descent Algorithm}{20}{subsection.3.4.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.2}Long time horizon}{25}{section.3.2}%
+\contentsline {subsection}{\numberline {3.4.2}Suppression of eigenvalues}{22}{subsection.3.4.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Robustness of the ILC Algorithms}{29}{chapter.4}%
+\contentsline {section}{\numberline {3.5}Feedback Design}{25}{section.3.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.1}Uncertain Lifted System}{29}{section.4.1}%
+\contentsline {chapter}{\numberline {4}Robustness of the ILC Algorithms}{27}{chapter.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}Full-Block S-Procedure}{33}{section.4.2}%
+\contentsline {section}{\numberline {4.1}Uncertain Lifted System}{27}{section.4.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Questions}{39}{chapter.5}%
+\contentsline {section}{\numberline {4.2}Full-Block S-Procedure}{31}{section.4.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Anhang}{42}{chapter*.15}%
+\contentsline {chapter}{\numberline {5}Application}{37}{chapter.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {.1}Beweise}{42}{section.Alph0.1}%
+\contentsline {section}{\numberline {5.1}The case $D = 0$}{37}{section.5.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {.1.1}Beweis 1}{42}{subsection.Alph0.1.1}%
+\contentsline {section}{\numberline {5.2}Long time horizon}{39}{section.5.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Eidesstattliche Erkl\"arung}{43}{section*.16}%
+\contentsline {section}{\numberline {5.3}Online and Offline learning}{41}{section.5.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {A}Zusammenfassung und Ausblick}{45}{appendix.A}%
+\contentsline {chapter}{\numberline {6}Questions}{43}{chapter.6}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Anhang}{46}{chapter*.15}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {.1}Beweise}{46}{section.Alph0.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {.1.1}Beweis 1}{46}{subsection.Alph0.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Eidesstattliche Erkl\"arung}{47}{section*.16}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {A}Zusammenfassung und Ausblick}{49}{appendix.A}%
