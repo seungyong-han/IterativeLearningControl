@@ -1,199 +1,81 @@
 %% Apply ILC algorithms
 
-iteration_number = 0;
 N = 0;
-u_inf = [];
-e_inf = [];
-y_inf = [];
-impr = [];
-act_trValue = [];
-tic
-colNb = 1;
-plots = {};
-plots{1} = [];
-plots{2} = [];
-plots{3} = [];
-plots{4} = [];
-plots{5} = [];
-count = 100;
-Astr = {eye(length(A))}; 
-for i = 1:count
-    [G,d] = get_redG(A-B*F, B, C-D*F, D, x0, i);
-    Gstr{i} = G;
-    dstr{i} = d; 
-    Astr{i+1} = Astr{i}*A; 
-    K0str{i} = pinv(G); 
-end
-
-Gmdl = Gstr;
-dmdl = dstr; 
-
-
 
 %l-input m-output system; in supervector description l*(N+1) - input
 %m*(N+1)-output
 l = length(B(1,:));
 m = length(C(:,1));
 
-beta = .3;
-
-do_plot = 0;
-do_print = 0;
-u_hist = {};
-
-N = count; 
-
-r = r_vec(1:N+1); 
-u0 = u_sv(1:N+1); 
-
+beta = .6;
 
 %% IA
-beta_max = 2;
-beta = beta*beta_max;
+u_inf = {}; 
 
-for i = 1:cont
+
+Gstr=  {}; 
+dstr = {}; 
+
+%Apply the algorithm for count first elements 
+%and add Gstr, dstr
+[An,Bn,Cn,Dn, Nnew] = get_non0D_system(A, B, C, D, cont);
+diff = cont - Nnew; 
+
+u_sv = reshape(u_sv, [(Nmax+1)*m, 1]);
+r_vec = reshape(r_vec, [(Nmax+1)*m, 1]);
+x_sv2 = x0; 
+for i = 1:cont - diff
+    u = u_sv(diff*m+1:(i+1+diff)*m); 
+    r = r_vec(diff*m+1:(i+1+diff)*m); 
     
-end
-
-
-u = u0;
-e0 = r - G*u - d; 
-e = e0;
-cont = 1;
-iteration_number = 0;
-error_history = [norm(e0)];
-input_history = [norm(u0)];
-
-u_inf = {};
-e_inf = {};
-y_inf = {};
-cell_nb = 0;
-while cont
-    iteration_number = iteration_number + 1;
-    u_new = u + beta*K0*e;
-    %e_new = (1 - beta)*e;
-    e_new = r - G*u_new - d; %for demonstration non-stability
-
-    if norm(e - e_new)<10^-8
-        cont = 0;
-    end
-    error_history = [error_history, norm(e_new)];
-    input_history = [input_history, norm(u_new)];
-    if(mod(iteration_number, 10000) == 0)
-        disp("currErrordiff:")
-        norm(e_new - e)
-    end
-    u = u_new;
-    e = e_new;
-
-    if mod(iteration_number,5) == 0
-        cell_nb = cell_nb + 1;
-        u_inf{cell_nb} = u_new;
-        e_inf{cell_nb} = norm(e_new);
-        y_inf{cell_nb} = G*u_new + d;
-    end
-
-
-  end
-
-if mod(iteration_number,5) ~= 0
-        cell_nb = cell_nb + 1;
-        u_inf{cell_nb} = u_new;
-        e_inf{cell_nb} = norm(e_new);
-        y_inf{cell_nb} = G*u_new + d;
-end
-
-impr = norm(e0)/e_inf{length(e_inf)};
-
-if do_plot
-    plot(0:iteration_number, error_history);
-end
-
-
-
-
-
-
-%%
-while N < Nmax - 1
-    N = N + 1; 
-    u0 = u_sv(N - count+1:N+1); 
-    r = r_vec(N - count+1:N+1);
-    [u_inf, e_inf, y_inf, impr,iteration_number, error_history] = RIA(Gstr{end},dstr{end}, beta,r, u0, 0);
-
-end
-
-
-
-
-while N < Nmax-1
+    [G, d] = get_G(An, Bn, Cn, Dn, x0, i); 
+      
+    [u_inf, e_inf, y_inf, impr,iteration_number, error_history] =SDA(G,d, beta,r, u, 1, 1, 0);% RIA(G,d, beta,r, u, 0);%
+    u_sv(diff*m+1:(i+1+diff)*m) = u_inf{end}; 
     
-    
-    N = N + count;
+    x0 = A*x0 + B*u_sv(diff*m+1:(diff*m + 1)*m);
+    x_sv2 = [x_sv2; x0]; 
+end
 
-    %need to calculate new x0 
-%     for i = 1:count
-%         [G,d] = get_redG(A-B*F, B, C-D*F, D, x0, i);
-%         Gstr{i} = G;
-%         dstr{i} = d; 
+
+N = cont - diff; 
+%N = cont; 
+while N<Nmax
+    N = N+1;
+    
+    u = u_sv((diff + N-cont)*m + 1:(N + diff + 1)*m);
+    r = r_vec((diff + N-cont)*m + 1:(N + diff + 1)*m);
+    x0 = An*x0 + Bn*u_sv((diff + N - cont)*m + 1:(N+1 - cont+diff)*m);
+    [G, d] = get_G(An, Bn, Cn, Dn, x0, Nnew); 
+    x_sv2 = [x_sv2; x0]; 
+    
+    [u_inf, e_inf, y_inf, impr,iteration_number, error_history] = SDA(G,d, beta,r, u, 1, 1, 0);%RIA(G,d, beta,r, u, 0);
+%     if(all(r>0))
+%     close all
+%     plot(1:length(r), r);
+%     hold on 
+%     plot(1:length(y_inf{end}), y_inf{end}, '--');
+%     hold off
 %     end
-%     Gmdl = Gstr;
-%     dmdl = dstr; 
-
+   
     
-    u0 = u(N - count + 1:N+1, :);
-    r = r_vec(N - count + 1:N+1, :);
-    for i = 1:count
-        u_curr = u0(1:i+1);    
-        r_curr = r(1:i+1); 
-        G = Gstr{i};
-        d = dstr{i};
-        e = r_curr - G*u_curr -d; 
-        
-        error_history = norm(e);
-        R = eye(l*(i+1));
-        Q = eye(m*(i+1));
-        cont = 1;
-        iteration_number = 0;
-        
-        K0 = pinv(G); 
-        while cont
-            iteration_number = iteration_number + 1;
-            u_new = u_curr + beta*K0*e;
-        
-            e_new = r_curr - Gmdl{i}*u_new - dmdl{i}; %for demonstration non-stability
-
-            if norm(e - e_new)<10^-6
-                cont = 0;
-            end
-            error_history = [error_history, norm(e_new)];
-            if(mod(iteration_number, 100) == 0)
-                disp("currErrordiff:")
-                norm(e_new - e)
-            end
-            u_curr = u_new; 
-            e = e_new;
-            
-            if i == count
-                if iteration_number == 20
-                    u_hist{1} = [u_hist{1}, u_curr]; 
-                end
-                if iteration_number == 40
-                    u_hist{2} = [u_hist{2}, u_curr]; 
-                end
-                if iteration_number == 80
-                    u_hist{3} = [u_hist{3}, u_curr]; 
-                end
-            end
-        end
-        u0(1:i+1) = u_curr; 
-    end
-    
+    u_sv((diff + N-cont)*m + 1:(N + diff + 1)*m) = u_inf{end}; 
     if mod(N, 1000) == 0
-        disp(['Iteration ', num2str(N), ' of ', num2str(Nmax)]); 
+        disp(['Iteration ', num2str(N), ' of ',num2str(Nmax)]); 
     end
+end
+%%
+x = zeros(length(A),1); 
+for i = 1:Nmax
+    x = A*x + Bn*u_sv(i); 
+    
+    y(i) = Cn*x + Dn*u_sv(i); 
+    
+end
 
-end 
-ell_time = toc;
+plot(1:length(y), y); 
+hold on
+plot(1:length(r_vec), r_vec)
+hold off
 
 

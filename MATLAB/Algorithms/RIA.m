@@ -50,10 +50,14 @@ function [u_inf, e_inf, y_inf, impr,iteration_number, error_history] = RIA(G,d, 
     while cont
         iteration_number = iteration_number + 1;
         u_new = u + beta*K0*e;
+%         if norm(u_new)>10
+%             u_new(u_new>10) = 10;
+%             u_new(u_new<-10) = -10;
+%         end
         %e_new = (1 - beta)*e;
         e_new = r - G*u_new - d; %for demonstration non-stability
 
-        if norm(e - e_new)<10^-8
+        if norm(e - e_new)<10^-6
             cont = 0;
         end
         error_history = [error_history, norm(e_new)];
@@ -65,6 +69,7 @@ function [u_inf, e_inf, y_inf, impr,iteration_number, error_history] = RIA(G,d, 
         u = u_new;
         e = e_new;
 
+        %Save for history
         if mod(iteration_number,5) == 0
             cell_nb = cell_nb + 1;
             u_inf{cell_nb} = u_new;
@@ -72,8 +77,7 @@ function [u_inf, e_inf, y_inf, impr,iteration_number, error_history] = RIA(G,d, 
             y_inf{cell_nb} = G*u_new + d;
         end
 
-
- %   end
+    end
 
     if mod(iteration_number,5) ~= 0
             cell_nb = cell_nb + 1;
@@ -88,7 +92,7 @@ function [u_inf, e_inf, y_inf, impr,iteration_number, error_history] = RIA(G,d, 
         plot(0:iteration_number, error_history);
     end
 
-end
+
 end
 
 

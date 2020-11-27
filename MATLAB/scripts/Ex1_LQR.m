@@ -52,6 +52,24 @@ if(N == 20)
     r_vec = [r_vec; 1];
 end
 
+if(N == 430)
+    r_vec = .5*ones(100, 1); 
+    r_vec = [r_vec; ones(120, 1)]; 
+    r_vec = [r_vec; 1.2*ones(110, 1)];
+    r_vec = [r_vec; .7*ones(100,1)]; 
+    r_vec = [r_vec; r_vec(end)]; 
+end
+
+if(N == 1000)
+    r_vec = .5*ones(150, 1); 
+    r_vec = [r_vec; ones(200, 1)]; 
+    r_vec = [r_vec; 1.2*ones(350, 1)];
+    r_vec = [r_vec; .7*ones(150,1)]; 
+    r_vec = [r_vec; -.2*ones(150,1)]; 
+    r_vec = [r_vec; r_vec(end)]; 
+end
+
+
 
 x0 = [0 ; 0 ];
 

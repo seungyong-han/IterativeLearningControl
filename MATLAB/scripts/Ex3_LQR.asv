@@ -18,8 +18,8 @@ J = J';
 
 
 r_vec = 2*ones(length(time),1);%log(time/300+1)'; 
-%r_vec = [r_vec zeros(length(time),1)]; 
-%r_vec = [r_vec zeros(length(time),1)]; 
+r_vec = [r_vec zeros(length(time),1)]; 
+r_vec = [r_vec zeros(length(time),1)]; 
 
 x0 = zeros(length(A), 1);
 
@@ -38,7 +38,7 @@ x = x0;
 x_sv = x; 
 for i = 1:N+1
     r = r_vec(i, :);
-    u = -F*x_hat + M*r'; 
+    u = -F*x_hat + M*r; 
     y = C*x + D*u;
     x_hat = (A - J*C)*x_hat + (B - J*D)*u + J*y;
     
@@ -59,8 +59,8 @@ x_sv = x_sv(:, 1:N+1);
 
 close all
 hold on
-plot(time, r_vec(:,1));
-plot(time, y_sv(1,:));
+plot(time, r_vec(1,1));
+plot(time, y_sv(:,1));
 %grid off
 %plot(time, zeros(length(time),1), '--', 'color', 'black', 'LineWidth', 2)
 legend('reference', 'output $y(t)$', 'interpreter', 'latex');
