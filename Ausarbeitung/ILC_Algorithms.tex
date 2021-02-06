@@ -210,7 +210,7 @@ We can modify this algorithm by taking the Moore-Penrose inverse. This is the so
 	& = \left(I - \left(\beta - (1-\beta)^{k-1} + 1 + \beta(1-\beta)^{k-1} - \beta\right)GG^+\right)e_0\\
 	& = (I+  \left[(1-\beta)^k - 1\right] G G^+) e_0
 	\end{align*}
-	
+	         
 	To prove \eqref{eq:ILC:einfPIA}  recall that 
 	\begin{align*}
 	\R^{m(N+1)} = \im(G)\oplus \ker (G^+),
@@ -224,7 +224,7 @@ We can modify this algorithm by taking the Moore-Penrose inverse. This is the so
 	\begin{align*}
 	e_{k} = (1+ \left[(1 - \beta)^{k-1} - 1\right]GG^+)e_0 = (1-\beta)^{k-1} G w_0 + v_0.
 	\end{align*}
-	For $\beta \in (0,2)$ the error $e_k$ converges to $v_0$ for $k \to \infty$. 
+	For $\beta \in (0,2)$ the error $e_k$ converges to $v_0$ for $k \to \infty$. %TODO: feasability proof 
 \end{proof}
 
 \begin{exam}
@@ -241,9 +241,7 @@ We can modify this algorithm by taking the Moore-Penrose inverse. This is the so
 \end{exam}
 
 
-We can replace the use of pseudo inverse by taking a left or right inverse, if it exists. 
-However, it  only makes sense if the calculating afford or numerical stability are better for left or right inverse calculation. 
-
+In \cite{ILC} Owens chooses the left and right inverse matrix instead of the pseudo inverse. 
 The pseudo inverse has its advantage to equal the right/left inverse, if it exists. Moreover, for right/left inverse we need to restrict the rank requirements, as it exists not for every matrix. 
 The algorithm in this formulation can be applied for any matrix $G$. 
 
@@ -267,6 +265,7 @@ $u_{0} \in \R^{l(N+1)},  \; k =0, \,  1, \, 2, \dots $.
 To achieve a good tracking at trial $k$ we need to ensure that the norm $||e_k||$ is small. 
 The tracking behavior improves for consecutive iterations if the sequence $||e_k||$ is monotonically decreasing, i.e., 
 \begin{align}
+\label{eq:ILC:monotonisity}
 ||e_{k+1} || < ||e_k|| \text{ for all } k \geq 0.
 \end{align}
 Note that in this case the sequence $||e_k||$ is guaranteed to converge. If the sequence even converges to zero we say that perfect tracking is achieved asymptotically.
@@ -347,39 +346,28 @@ An algorithm, which does not require the model inversion, might be here of use.
 
 	 \section{Gradient Algorithms}
 We want a new algorithm to render monotonic convergence. 
-The direct calculation provides 
-\begin{align}
-\label{eq:monConv}
-||e_{k+1}|| < ||e_k|| \text{ for all } k >0,
-\end{align}
+That means, the relation \eqref{eq:ILC:monotonisity} must be hold in some norm $|| \cdot || $ in $\R^{m(N+1)}$. 
 
-in some norm $|| \cdot || $ in $\R^{m(N+1)}$. 
-
-We chose positive definite weighting matrices $Q(t)$ and $R(t)$, $t = 0, 1, 2, \dots ,N$, and define the scalar products
+We choose the norm by defining the weighting matrices  $Q(t)$ and $R(t)$, $t = 0, 1, 2, \dots ,N$. Let the norms $||\cdot||_Q$ $||\cdot||_R$ to be defined associated with scalar products 
 \begin{align}
 \label{eq:SkPrQR}
 \langle y,z\rangle_Q = \sum_{t = 0}^N y(t)^TQ(t)z(t), \; \langle u,v\rangle_R = \sum_{t = 0}^N u(t)^T R(t) v(t),
 \end{align}
 with $y(t), z(t) \in \R^{m}$, $u(t), v(t) \in \R^l$ for $t = 0,1,2, \dots, N$.
-
-We denote with $||\cdot||_Q$ and $||\cdot||_R$ the associated norms, and set
+Furthermore, we define the matrix 
 \begin{align*}
-G^\star &= R^{-1} G^T Q \text{ for all } G \in \R^{m(N+1)\times l(N+1)},\\
-K^\star &= Q^{-1} K^T R \text{ for all } K \in \R^{l(N+1)\times m(N+1)},
+G^\star &= R^{-1} G^T Q \text{ for all } G \in \R^{m(N+1)\times l(N+1)},
+%\\ K^\star &= Q^{-1} K^T R \text{ for all } K \in \R^{l(N+1)\times m(N+1)},
 \end{align*}
 where 
 \begin{align}
 Q := \diag(Q(0), Q(1), Q(2) ,\dots, Q(N)) \text{ and } R:= \diag(R(0), R(1), R(2), \dots, R(N)).
 \end{align}
-%In the same way, we can define 
-%\begin{align}
-%L^\star &= Q^{-1} L^T Q \text{ for all } L \in \R^{m(N+1)\times m(N+1)} \text{ and }\\
-%M^\star &= R^{-1} M^T R \text{ for all } M \in \R^{l(N+1)\times l(N+1)}.
-%\end{align}
+
 
 Recall, that for $R = I$ and $Q = I$ the matrices $G^\star$ and $K^\star$ are just the conjugate transpose. The notation from above can be seen as conjugate transpose in the vector space with scalar products \eqref{eq:SkPrQR}.
 
-Applying the weighted norms on \eqref{eq:monConv} provides
+Applying the weighted norms on \eqref{eq:ILC:monotonisity} provides
 \begin{align}
 \begin{split}
 ||e_{k+1} ||_Q^2 &= ||e_k - G K e_k||_Q^2 = ||e_k||_Q - 2\langle e_k , G K e_k \rangle_Q + ||G K e_k||_Q^2 \\ 
@@ -466,7 +454,7 @@ Substituting $e_0$ in error evolution by this expression we get
 e_{k+1} = (I - \beta G G^\star) e_k = (I - \beta G G^\star)^k e_{\im} + e_{\ker}.
 \end{align}
 
-For convergence to $e_{\ker}$ it is enough  to show that $\lama(I - \beta G G^\star) < 1$: as $(I - \beta G G^\star)$ is a symmetric matrix, the convergence is guaranteed if and only if all the eigenvalues of $(I - \beta G G^\star)$ are less than 1 in its absolute value. 
+For convergence to $e_{\ker}$ it is enough  to show that $\lama(I - \beta G G^\star) < 1$. As $(I - \beta G G^\star)$ is a symmetric matrix, the convergence is guaranteed if and only if all the eigenvalues of $(I - \beta G G^\star)$ are less than 1 in its absolute value. 
 
 If $\lama(I - \beta G G^\star) = 0$, then $(I - \beta G G^\star) = 0$  and convergence follows trivially. 
 
@@ -491,7 +479,7 @@ It concludes $|\mu|<1$ and proves the convergence.
 
 
 
-An interesting observation is, that via this algorithms got input signal $u_\infty$ is the unique solution of the (minimum norm) optimization problem 
+An interesting observation is, that provided by this algorithm signal $u_\infty$ is the unique solution of the (minimum norm) optimization problem 
 \begin{align}
 u_\infty = \arg \min_{u \in \R^l(N+1)} \{|| u - u_0||_R^2: \text{ subject to } r = Gu + d\}.
 \end{align}
@@ -551,10 +539,13 @@ Let us consider the eigenvalues of the matrix $GG^\star$ and choose the gains $\
 	\begin{align}
 	\label{eq:cl_var0}
 	\begin{split}
-	u_{k+1} &= u_k + \beta_k G^\star e_k, \\
-	e _{k+1} &= (I - \beta_{k+1}  GG^\star) e_{k}  = \prod_{l = 0}^{k+1} (I - \beta_{l}  GG^\star) e_0, \; k\geq 0,\\
+	u_{k+1} &= u_k + \beta_k G^\star e_k, \; k \geq 0\\
 	u_0 &\in \R^{l (N+1)}.
 	\end{split}
+	\end{align}
+	with error evolution 
+	\begin{align}
+	e _{k+1} &= (I - \beta_{k+1}  GG^\star) e_{k}  = \prod_{l = 0}^{k+1} (I - \beta_{l}  GG^\star) e_0, \; k\geq 0. 
 	\end{align}
 	Then the error sequence $(e_k)_{k\geq 0}$ converges in a finite number of iterations.     
 \end{theo}
@@ -593,6 +584,7 @@ Also computing the eigenvalues can be numerically questionable. Moreover, to ach
 If our model is inaccurate, and some eigenvalues are uncertain, it has directly impact on the algorithm result. 
 
 That all makes this algorithm not solid. Still, we can use the idea to apply the eigenvalues of $G G^{\star}$ -- but not directly. We can try to ''pick'' the compatible eigenvalues.
+%TODO: Die Algorithmen umbenennen? Damit es konsistent ist 
 \begin{alg}
 	Choose a finite number $N_p + 1$ of points $p_0, p_1, \dots$ spread over the half-open interval $(\frac{1}{2}\lama(H), \lama(H)]$. 
 	The Gradient Algorithm with Suppression of Eigenvalues (SoE Algorithm) is defined via choosing of the iteration-depending control law  $K_k = \beta_k G^\star e_k$, where 
@@ -613,7 +605,7 @@ That all makes this algorithm not solid. Still, we can use the idea to apply the
 	\begin{align}
 	\begin{split}
 	e _{k} &= \left[\prod_{l = 0}^k (I - \beta_l  GG^\star) \right] e_{0}, \;  k = 0 , 1, \dots , N_p,\\
-	e _{k} &=  (I - \beta GG^\star)^{k - N_p} e_{N_p}, \;  k > N_p, \\
+	e _{k} &=  (I - \beta GG^\star)^{k - N_p} e_{N_p}, \;  k > N_p.
 	\end{split}
 	\end{align}	
 \end{alg}
@@ -648,7 +640,7 @@ If we consider the plant structure and construct a feedback controller, and then
 
 Let us denote with $G(z)$ the transfer matrix in variable $z$ of the system $(A,B,C,D)$, and with $G$ the supervector matrix. 
 
-More precisely, we consider a forward path compensator $K_c(z)$ in a unity negative feedback system for \eqref{eq:GP}. 
+More precisely, we consider a forward path compensator $K_c(z)$ in a unity negative feedback system for \eqref{eq:Intro:GP}. 
 The design criteria for $K_c(z)$ include the closed-loop stability and the ability to track, albeit approximately, the reference signal $r$. With this compensator, depending on the model, we can remedy the plant properties such as oscillation, loop interaction, or the effects of non-minimum-phase zeros. 
 
 We denote the complementary sensitivity of the resulting closed loop with $T(z)$ and its sensitivity with $S(z)$:
@@ -666,7 +658,7 @@ Then the compensated Steepest Descent Algorithm is given as follows.
 \begin{alg}
 	\label{alg: FBDesign}
 	Write the transfer functions in supervector description as 
-	$K_0$, $K_c$, $T$ and $S$. The compensated Steepest Descent Algorithm is  is characterized by choosing  $K = \beta K_0$, $\beta \in \R$. 
+	$K_0$, $K_c$, $T$ and $S$. The compensated Steepest Descent Algorithm is characterized by choosing  $K = \beta K_0$, $\beta \in \R$. 
 	The iterative law is given via 
 	\begin{align}
 	\label{eq:errFBDesign}

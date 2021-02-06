@@ -20,14 +20,14 @@
 \BOOKMARK [1][-]{section.3.4}{Feedback Design}{chapter.3}% 20
 \BOOKMARK [0][-]{chapter.4}{Robustness of the ILC Algorithms}{}% 21
 \BOOKMARK [1][-]{section.4.1}{Uncertain Lifted System}{chapter.4}% 22
-\BOOKMARK [1][-]{section.4.2}{Full-Block S-Procedure}{chapter.4}% 23
+\BOOKMARK [1][-]{section.4.2}{Robustness Proof with LMI}{chapter.4}% 23
 \BOOKMARK [0][-]{chapter.5}{Application}{}% 24
 \BOOKMARK [1][-]{section.5.1}{The case D = 0}{chapter.5}% 25
 \BOOKMARK [1][-]{section.5.2}{Long time horizon}{chapter.5}% 26
 \BOOKMARK [1][-]{section.5.3}{Online and Offline learning}{chapter.5}% 27
 \BOOKMARK [0][-]{chapter.6}{Questions}{}% 28
-\BOOKMARK [1][-]{equation.6.0.2}{Anhang}{chapter.6}% 29
+\BOOKMARK [1][-]{section*.14}{Anhang}{chapter.6}% 29
 \BOOKMARK [1][-]{section.Alph0.1}{Beweise}{chapter.6}% 30
 \BOOKMARK [2][-]{subsection.Alph0.1.1}{Beweis 1}{section.Alph0.1}% 31
-\BOOKMARK [1][-]{section*.14}{Eidesstattliche Erkl\344rung}{chapter.6}% 32
+\BOOKMARK [1][-]{section*.15}{Eidesstattliche Erkl\344rung}{chapter.6}% 32
 \BOOKMARK [0][-]{appendix.A}{Zusammenfassung und Ausblick}{}% 33

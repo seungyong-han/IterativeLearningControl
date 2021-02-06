@@ -1,36 +1,97 @@
 \chapter{Questions} 
 
 
-For SDA: 
 
-\begin{align}
-\begin{pmatrix}
-y_1 \\ y_2
-\end{pmatrix} = \begin{pmatrix}
-G_1 & 0 \\ G_3 & G_1
-\end{pmatrix}\begin{pmatrix}
-u_1 \\ u_2 
-\end{pmatrix} + \begin{pmatrix}
-d_1\\d_2
-\end{pmatrix}.
-\end{align}
-
-\begin{align}
-\begin{pmatrix}
-u_1 \\ u_2
-\end{pmatrix}_{k+1} =
-\begin{pmatrix}
-u_1 \\ u_2
-\end{pmatrix}_k + 
-\begin{pmatrix}
-G_1^* & G_3^* \\0 & G_1^*
-\end{pmatrix}\begin{pmatrix}
-e_1 \\ e_2
-\end{pmatrix}_k.
-\end{align}
-
-
-
-
+%\begin{figure}
+%	\begin{center}
+%		\begin{tikzpicture}[>=stealth]
+%		%coordinates
+%
+%		%nodes
+%		\node[draw, minimum width=2cm, minimum height=2cm, anchor=south west, align=center, fill = gray!20](G){$G$};
+%		\node[draw, below = of G,minimum width=1cm, minimum height=1cm](K){$K$};
+%		
+%		\node[draw, fit = (G)(K)](Gt){}; 		
+%		
+%		\node[draw, below = of Gt,minimum width=1cm, minimum height=1cm](tK){$\t K$};
+%		
+%		\draw[->](G.170)--($(G.170) + (-1,0)$)node[left]{$-e$};
+%		\draw[->](G.190)--($(G.190) + (-1,0)$)node[left]{$e$} |-(K.180);
+%		\draw[->](G.190)--($(G.190) + (-1,0)$)node[left]{} |-(tK.180);
+%		
+%		\draw[->](K.180)--($(G.190) + (-1,0)$)node[left]{} |-(tK.180);
+%		
+%		
+%		
+%		
+%
+%		\end{tikzpicture}
+%		
+%	\end{center}
+%	\caption{} 
+%\end{figure}
 
 
+
+%
+%
+%For SDA: 
+%
+%\begin{align}
+%\begin{pmatrix}
+%y_1 \\ y_2
+%\end{pmatrix} = \begin{pmatrix}
+%G_1 & 0 \\ G_3 & G_1
+%\end{pmatrix}\begin{pmatrix}
+%u_1 \\ u_2 
+%\end{pmatrix} + \begin{pmatrix}
+%d_1\\d_2
+%\end{pmatrix}.
+%\end{align}
+%
+%\begin{align}
+%\begin{pmatrix}
+%u_1 \\ u_2
+%\end{pmatrix}_{k+1} =
+%\begin{pmatrix}
+%u_1 \\ u_2
+%\end{pmatrix}_k + 
+%\begin{pmatrix}
+%G_1^* & G_3^* \\0 & G_1^*
+%\end{pmatrix}\begin{pmatrix}
+%e_1 \\ e_2
+%\end{pmatrix}_k.
+%\end{align}
+%
+%\begin{align*}
+%\begin{split}
+%G &= G(A,B,C,D) = \\
+%&=  \begin{pmatrix}
+%D & 0 & \cdots & 0 & 0 & 0 \\
+%CB & D & \cdots & 0 & 0 & 0\\
+%CAB & CB & \cdots & 0 & 0 & 0\\
+%\vdots & \vdots & \ddots & \vdots  & \vdots & \vdots \\
+%CA^{N-2} B & CA^{N-3} B &\dots &CB & D& 0\\
+%CA^{N-1} B & CA^{N-2} B &\dots &CAB & CB& D\\
+%\end{pmatrix} \in \R^{m(N+1)\times l(N+1)}.
+%\end{split}
+%\end{align*}
+%
+%\begin{align}
+%\begin{pmatrix}
+%\dot x \\\dot x_K\\
+%z \\
+%y_K\\
+%y
+%\end{pmatrix}
+%= 
+%\begin{pmatrix}
+%A x + B_1 w + B_2 u + B_2 v\\
+%... \\...\\...\\...
+%\end{pmatrix}
+%\end{align}
+%
+%
+%
+%
+%
