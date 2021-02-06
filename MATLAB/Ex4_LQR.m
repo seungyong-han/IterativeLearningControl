@@ -3,13 +3,13 @@
 
 % Calculate stabilizing solutions for discrete algebraic Riccati equation
 
-%Rw = diag([1, .1, 2]);
-%Qw = diag([.1, .2,1, 1, 1]);
-Qw = eye(length(A)); 
-Rw = eye(l); 
+Rw = diag([1, .1, 2]);
+Qw = diag([.1, .2,1, 1, 1]);
+%Qw = eye(length(A)); 
+%Rw = eye(l); 
 
-P = dare(A, B, 1 , 1);
-Q = dare(A', C', 1 , 1);
+P = dare(A, B, Qw , Rw);
+Q = dare(A', C', Qw , Rw);
 
 
 %Calculate the matrices for separation principle based controller

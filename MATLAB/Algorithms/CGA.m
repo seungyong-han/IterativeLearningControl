@@ -47,18 +47,25 @@ while cont
     if(mod(iteration_number, 10000) == 0)
         disp("currErrordiff:")
         norm(e_new - e)
+        
     end
+    if norm(e_new)>norm(e)
+        keyboard; 
+    end
+    
+u_inf{iteration_number} = u_new;
+y_inf{iteration_number} = G*u_new + d;
+e_inf{iteration_number} = e_new;
 
     
-
-    
-    %save data over each 5 iteration for plots
-    if mod(iteration_number,5) == 0
-        cell_nb = cell_nb + 1;
-        u_inf{cell_nb} = u_new;
-        e_inf{cell_nb} = norm(e_new);
-        y_inf{cell_nb} = G*u_new + d;
-    end
+%     %save data over each 5 iteration for plots
+%     if mod(iteration_number,5) == 0
+%         cell_nb = cell_nb + 1;
+%         u_inf{cell_nb} = u_new;
+%         y_inf{iteration_number} = G*u_new + d;
+%{cell_nb} = norm(e_new);
+%         y_inf{cell_nb} = G*u_new + d;
+%     end
     
     e = e_new; 
     u = u_new;
@@ -75,7 +82,7 @@ if mod(iteration_number,5) ~= 0
         y_inf{cell_nb} = G*u_new + d;
 end
 
-impr = norm(e0)/e_inf{end};
+impr = norm(e0)/error_history(end);
 
 
 if do_plot
