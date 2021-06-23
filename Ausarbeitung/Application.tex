@@ -221,9 +221,6 @@ It looks like something we can improve. However, for $Ts = 10^{-3}$s we get $N =
 	\begin{exam}
 		Four our system \eqref{eq:ILC:Sys_ex1} we have for $||u_{\max}||\leq 1.5$ 
 		$||y(t) - \t y(t)|| < 3.4033\, 10^{-11}$ for $N = 40$. Hence, we can apply the algorithms for very long time horizon without getting a large error. 
-		
-		TODO: Beispiel 
-		
 	\end{exam}
 
 \begin{exam}
@@ -245,40 +242,40 @@ But before we illustrate the result, let us consider one more issue.
 	
 \end{exam}
 
-\section{Online and Offline learning}
-
-In the real problems we often can not have all the information immediately. If we apply the input sequences on the real system, we might have only the results at current time step and the previous ones. 
-
-This is the difference between online and offline learning. In online mode we only have the information from previous iterations. We can not see in the feature and know what results we will get. In opposite, with offline learning we first calculate the new input sequence with an algorithm, and after that send the calculated result into the system and obtain the output. 
-
-In the case of offline learning no more modification are required. We can discretize the system if it is required, split it in the smaller intervals and apply the algorithms. Especially for simulation this might be a good solution, as we can improve the whole sequence at once. 
-
-The online learning requires a bit more effort. Here we apply a chosen ILC algorithm at each time step. This might need more iterations as offline learning, but still the number might rise not too large: since w already applied the algorithm on te previous steps, the new approach should probably need less trials. 
-
-For online learning, the following pseudo code can be used: 
-\begin{lstlisting}
-x0new = x0
-for i = 1 to N 
-	x0new = A x0new + B u(i)
-	unew = ILC(S, x0, i)
-	u(1:i) = unew
-end for
-
-for i = N+1 to Nmax
-	x0 := A x0new + B u(i) 
-	unew = ILC(S, x0, N)
-	u(i-N:i) = unew
-end for
-\end{lstlisting}	
-
-$ILC(S, x0, k)$
- represents here an ILC algorithm over a system $S$, with initial condition $x_0$ and with $k$ -- given time horizon. 
-
-
-\begin{exam}
-	We continue Example \ref{ex:Appl:redN}, and apply the online learning on it. 
-	The result for IA is illustrrated in the figure TODO. 
-\end{exam}
+%\section{Online and Offline learning}
+%
+%In the real problems we often can not have all the information immediately. If we apply the input sequences on the real system, we might have only the results at current time step and the previous ones. 
+%
+%This is the difference between online and offline learning. In online mode we only have the information from previous iterations. We can not see in the feature and know what results we will get. In opposite, with offline learning we first calculate the new input sequence with an algorithm, and after that send the calculated result into the system and obtain the output. 
+%
+%In the case of offline learning no more modification are required. We can discretize the system if it is required, split it in the smaller intervals and apply the algorithms. Especially for simulation this might be a good solution, as we can improve the whole sequence at once. 
+%
+%The online learning requires a bit more effort. Here we apply a chosen ILC algorithm at each time step. This might need more iterations as offline learning, but still the number might rise not too large: since w already applied the algorithm on te previous steps, the new approach should probably need less trials. 
+%
+%For online learning, the following pseudo code can be used: 
+%\begin{lstlisting}
+%x0new = x0
+%for i = 1 to N 
+%	x0new = A x0new + B u(i)
+%	unew = ILC(S, x0, i)
+%	u(1:i) = unew
+%end for
+%
+%for i = N+1 to Nmax
+%	x0 := A x0new + B u(i) 
+%	unew = ILC(S, x0, N)
+%	u(i-N:i) = unew
+%end for
+%\end{lstlisting}	
+%
+%$ILC(S, x0, k)$
+% represents here an ILC algorithm over a system $S$, with initial condition $x_0$ and with $k$ -- given time horizon. 
+%
+%
+%\begin{exam}
+%	We continue Example \ref{ex:Appl:redN}, and apply the online learning on it. 
+%	The result for IA is illustrrated in the figure TODO. 
+%\end{exam}
 	
 	
 	

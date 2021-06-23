@@ -7,27 +7,23 @@
 \BOOKMARK [1][-]{section.1.2}{Problem Statement}{chapter.1}% 7
 \BOOKMARK [1][-]{section.1.3}{Structure}{chapter.1}% 8
 \BOOKMARK [0][-]{chapter.2}{Basics}{}% 9
-\BOOKMARK [1][-]{section.2.1}{Stability and stabilizability}{chapter.2}% 10
-\BOOKMARK [1][-]{section.2.2}{Supervector description}{chapter.2}% 11
-\BOOKMARK [1][-]{section.2.3}{Stabilizing Controller}{chapter.2}% 12
-\BOOKMARK [1][-]{section.2.4}{Separation Principle}{chapter.2}% 13
-\BOOKMARK [0][-]{chapter.3}{ILC Algorithms}{}% 14
-\BOOKMARK [1][-]{section.3.1}{Inverse Model Algorithms}{chapter.3}% 15
-\BOOKMARK [1][-]{section.3.2}{Unit Memory Algorithms}{chapter.3}% 16
-\BOOKMARK [1][-]{section.3.3}{Gradient Algorithms}{chapter.3}% 17
-\BOOKMARK [2][-]{subsection.3.3.1}{Steepest Descent Algorithm}{section.3.3}% 18
-\BOOKMARK [2][-]{subsection.3.3.2}{Suppression of eigenvalues}{section.3.3}% 19
-\BOOKMARK [1][-]{section.3.4}{Feedback Design}{chapter.3}% 20
-\BOOKMARK [0][-]{chapter.4}{Robustness of the ILC Algorithms}{}% 21
-\BOOKMARK [1][-]{section.4.1}{Uncertain Lifted System}{chapter.4}% 22
-\BOOKMARK [1][-]{section.4.2}{Robustness Proof with LMI}{chapter.4}% 23
-\BOOKMARK [0][-]{chapter.5}{Application}{}% 24
-\BOOKMARK [1][-]{section.5.1}{The case D = 0}{chapter.5}% 25
-\BOOKMARK [1][-]{section.5.2}{Long time horizon}{chapter.5}% 26
-\BOOKMARK [1][-]{section.5.3}{Online and Offline learning}{chapter.5}% 27
-\BOOKMARK [0][-]{chapter.6}{Questions}{}% 28
-\BOOKMARK [1][-]{section*.14}{Anhang}{chapter.6}% 29
-\BOOKMARK [1][-]{section.Alph0.1}{Beweise}{chapter.6}% 30
-\BOOKMARK [2][-]{subsection.Alph0.1.1}{Beweis 1}{section.Alph0.1}% 31
-\BOOKMARK [1][-]{section*.15}{Eidesstattliche Erkl\344rung}{chapter.6}% 32
-\BOOKMARK [0][-]{appendix.A}{Zusammenfassung und Ausblick}{}% 33
+\BOOKMARK [1][-]{section.2.1}{Supervector description}{chapter.2}% 10
+\BOOKMARK [1][-]{section.2.2}{Separation Principle}{chapter.2}% 11
+\BOOKMARK [0][-]{chapter.3}{ILC Algorithms}{}% 12
+\BOOKMARK [1][-]{section.3.1}{Inverse Model Algorithms}{chapter.3}% 13
+\BOOKMARK [1][-]{section.3.2}{Unit Memory Algorithms}{chapter.3}% 14
+\BOOKMARK [1][-]{section.3.3}{Gradient Algorithms}{chapter.3}% 15
+\BOOKMARK [2][-]{subsection.3.3.1}{Steepest Descent Algorithm}{section.3.3}% 16
+\BOOKMARK [2][-]{subsection.3.3.2}{Suppression of eigenvalues}{section.3.3}% 17
+\BOOKMARK [1][-]{section.3.4}{Feedback Design}{chapter.3}% 18
+\BOOKMARK [0][-]{chapter.4}{Robustness of the ILC Algorithms}{}% 19
+\BOOKMARK [1][-]{section.4.1}{Uncertain Lifted System}{chapter.4}% 20
+\BOOKMARK [1][-]{section.4.2}{Robustness Proof with LMI}{chapter.4}% 21
+\BOOKMARK [0][-]{chapter.5}{Application}{}% 22
+\BOOKMARK [1][-]{section.5.1}{The case D = 0}{chapter.5}% 23
+\BOOKMARK [1][-]{section.5.2}{Long time horizon}{chapter.5}% 24
+\BOOKMARK [1][-]{chapter*.14}{Anhang}{chapter.5}% 25
+\BOOKMARK [1][-]{section.Alph0.1}{Beweise}{chapter.5}% 26
+\BOOKMARK [2][-]{subsection.Alph0.1.1}{Beweis 1}{section.Alph0.1}% 27
+\BOOKMARK [1][-]{section*.15}{Eidesstattliche Erkl\344rung}{chapter.5}% 28
+\BOOKMARK [0][-]{appendix.A}{Zusammenfassung und Ausblick}{}% 29

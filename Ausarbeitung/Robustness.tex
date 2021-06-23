@@ -2,7 +2,7 @@
 \label{ch:Robustness}
 If our model is not precisely known, a chosen ILC algorithm might not provide the desired result. 
 Therefore it is useful to consider how robust the algorithms are. 
-In this thesis, we are going to consider the parametric uncertainty. That means, we do not know the true value of a real parameter (or the parameters) but know some range in which this parameter should lie. 
+In this thesis, we are going to consider the parametric uncertainty. That means, we do not know the true value of a real parameter (or the parameters) but know some range in which this parameter must lie. 
 
 We can normalize such uncertainties without loss of generality, as any uncertainty $\delta \in [a,b] \subset \R$ can be expressed as 
 \begin{align}
@@ -15,9 +15,9 @@ with $\hat{\delta} \in [-1,1]$, nominal value $\delta_0 \in \R$ and weight $w\in
 % with a matrix norm $|| \cdot ||$. With this norm, we can measure ''how much'' robust is our algorithm or system. Typically, one can bound this norm with 1, and put the scalings into the weights. {\color{red} Hier kommt vielleicht ein Beispiel, wie man das mit dem Rausziehen und den Weights macht}.
 %
 
-In order to guarantee the convergence of the algorithms despite such parametric uncertainties it is required that \eqref{eq:e_k}  stays stable for all possible value of parameters.
+In order to guarantee the convergence of the algorithms despite such parametric uncertainties it is required that \eqref{eq:e_k}  stays stable for all possible parameter values.
 
-Let us consider, how the uncertainty looks in the lifted system like and deliberate over the method to solve the robustness issue. 
+Let us consider how the uncertainty looks like in the lifted system and deliberate over the method to solve the robustness issue.
 
 
 %\begin{align}
@@ -52,7 +52,7 @@ Let us consider, how the uncertainty looks in the lifted system like and deliber
 
 
 
-{\color{red}$<$Einfuehrung$>$}
+
 
 
 \section{Uncertain Lifted System} 
@@ -74,7 +74,7 @@ $\tau \in \N$ is the number of the uncertain parameter.
 Each uncertain system $\left[\begin{array}{c|c}
 A & B \\\hline C &D
 \end{array}\right]\left(\hat{\Delta}\right)$
-we can rewritten as a feedback interconnection of the system 
+we can rewrite as a feedback interconnection of the system 
 $
 \left[\begin{array}{c|c c}
 A_1 & B_1 & B_2 \\\hline
@@ -83,7 +83,7 @@ C_2 & D_{21} & D_{22}
 \end{array}\right]
 $
 and $\hat{\Delta}$. 
-Then the original system can be find as star product (also called linear fractional transformation or LFT)
+Then the original system can be found as star product (also called linear fractional transformation or LFT)
 \begin{align}
 \left[\begin{array}{c|c}
 A & B \\\hline C &D
@@ -271,9 +271,9 @@ L(\Delta) = \Delta \star \left(\begin{array}{c| c}
 \c{C} & \c{D}
 \end{array}\right) = \c{A} + \c{B} \Delta (I - \c{D}\Delta)^{-1}\c{C}. 
 \end{align}
- We are interested in ensuring of the stability for the system \eqref{eq:LekUnc}. 
+ We are interested in stability ensuring for the system \eqref{eq:LekUnc}. 
  
- The most obviously way is to ensure $||L(\Delta)||<1$ for all uncertainties $\Delta \in \Delf$.
+ The most intuitive way is to ensure $||L(\Delta)||<1$ for all uncertainties $\Delta \in \Delf$.
  %, since this implies 
 % \begin{align}
 % ||e_{k+1}|| = 	||L(\Delta)^ke_0|| \leq ||L(\Delta)||^k ||e_0|| \to 0 \text{ for } k \to \infty||.
@@ -288,7 +288,7 @@ e_{k+1}  = L(\alpha) e_k = \begin{pmatrix}
 .1 & \alpha \\ 0 & .1
 \end{pmatrix}e_k
 \end{align}
-with uncertain parameter $\alpha \in \R$.
+with an  uncertain parameter $\alpha \in \R$.
 Then the norm $||L(\alpha)||$ is proportional to $|\alpha|$.
 
 For example, with the spectral norm, we can ensure stability only for $|\alpha|<1$. 
@@ -297,8 +297,8 @@ For example, with the spectral norm, we can ensure stability only for $|\alpha|<
 On the other hand, one can directly see, that the system is stable for all $\alpha \in \R$, since the eigenvalues of the matrix equal $.1$. 	
 \end{exam}
 
-This example motivates to devise an another method for ensuring the stability of the such uncertain systems. 
-Much more elegant results we can reach by considering stability using Lyapunov techniques. 
+This example motivates to devise another method for ensuring the stability of  such uncertain systems. 
+We can reach much more elegant results by considering stability using Lyapunov techniques. 
 
  
 
@@ -306,7 +306,6 @@ Much more elegant results we can reach by considering stability using Lyapunov t
 
 First, let us consider the uncertainty $\Delta$ without taking into account its structure. 
 Using the Lyapunov Linear Matrix Inequality (LMI) we formulate the following Theorem. 
-
 \begin{theo}
 	\label{thm:Lyap}
 	Suppose that there exists some positive definite matrix $X$ satisfying 
@@ -366,7 +365,7 @@ Using the Lyapunov Linear Matrix Inequality (LMI) we formulate the following The
 	
 	Since $\gamma \in (0,\;1)$, $||e_k||^2 \to 0$ for $k \to \infty$, and taking the square root yields the proof. 
 	
-	For not strict case, we set in \eqref{eq:proof2} and \eqref{eq:proof3} $\gamma = 1$, and replace in \eqref{eq:proof0} ''$\prec$'' with ''$\preceq$''. Then $||e_k||^2$ (and hence $||e_k||$) is bounded over all $k\geq 0$ and hence the system \eqref{eq:LekUnc} is stable. 
+	For not the strict case, we set in \eqref{eq:proof2} and \eqref{eq:proof3} $\gamma = 1$, and replace in \eqref{eq:proof0} ''$\prec$'' with ''$\preceq$''. Then $||e_k||^2$ (and hence $||e_k||$) is bounded over all $k\geq 0$ and hence the system \eqref{eq:LekUnc} is stable. 
 	
 \end{proof}
 
@@ -411,7 +410,7 @@ We formulate it as a Theorem.
 	\label{thm:stabViaP}
 	Let $\mathbb{P}$ be a subset of the symmetric matrices, and $X \succ 0 $ be fixed.
 	Then the system \eqref{eq:LekUnc} is stable if there exists a matrix $P = P^T \in \mathbb{P}$, such that \eqref{eq:PDelta} and \eqref{eq:strangeMatrix} are fulfilled. 
-	If the inequality \eqref{eq:strangeMatrix} is strict, system becomes asymptotic stable. 
+	If the inequality \eqref{eq:strangeMatrix} is strict, the system becomes asymptotic stable. 
 \end{theo}
 
 \begin{proof}	
@@ -471,7 +470,7 @@ So, the robustness issue can be reduced to a certain LMI over a multiplier set $
 The choosing of the set $\mathbb{P}$ is here the cornerstone. It must be large enough, to be able to find such multiplier $P$, if the system is stable, but also adequate small, such that the searching action is not too costly. 
  
 Let us begin with a single uncertain parameter $\delta$. Then the uncertainty $\Delta = \delta I$ with $\delta \in [-1,\; 1]$. 
-A possible choice for multiplier set is 
+A possible choice for a multiplier set is 
 \begin{align}
 \mathbb{P}= \{ \begin{pmatrix}
 S & R \\ R^T & -S
@@ -633,15 +632,15 @@ e_{k+1} \\ z_k
 \end{pmatrix} = 
 \begin{pmatrix}
 0 & 0 & 1 \\
-1 & .1 & 1 \\
-0 & 0 & .1
+1 & 0.1 & 1 \\
+0 & 0 & 0.1
 \end{pmatrix} \begin{pmatrix}
 e_k \\ w
 \end{pmatrix}. 
 \end{align}
 With the choice 
 \begin{align}
-X = \diag(2, .5)
+X = \diag(2, 0.5)
 \end{align}
 we can compute with MATLAB the solution 
 \begin{align}
@@ -649,13 +648,13 @@ P = \diag(4.61, -4.61),
 \end{align}
 which renders the eigenvalues of the left side term in the relation \eqref{eq:strangeMatrix} to 
 \begin{align}
-\lambda_1 = -2.35, \; \lambda_2 = -1.21 \text{ and } \lambda_3 = -.488.
+\lambda_1 = -2.35, \; \lambda_2 = -1.21 \text{ and } \lambda_3 = -0.488.
 \end{align}
 Hence, according to the Theorem \ref{thm:stabViaP}, the system is stable for all $\alpha \in [0,2]$. 
 
 \begin{exam}
 	\label{ex:Rob:robvsN}
-	In the chapter \ref{ch:ILCAlg} we said, that the choice of $\beta$ might impact the robustness properties of the Inverse Model Algorithms.
+	In Chapter \ref{ch:ILCAlg} we said, that the choice of $\beta$ might impact the robustness properties of the Inverse Model Algorithms.
 	Let us illustrate it on the system \eqref{eq:ILC:Sys_ex1}, but with uncertain parameter $a \in [\underline{a}, \; \overline{a}]$ and nominal value $a_0 = 4$: 
 	\begin{align}
 	A = \begin{pmatrix}

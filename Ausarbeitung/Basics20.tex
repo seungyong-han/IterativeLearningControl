@@ -1,42 +1,24 @@
 \chapter{Basics} 
 \label{ch:Basics}
 
-To understand the following Iterative Learning Control (ILC) algorithms, we need to make a departure to basic definitions we will use. 
-We consider the system \eqref{eq:Intro:GP}. Here $A \in \mathbb{R}^{n\times n}$, $B \in \mathbb{R}^{n \times l}$, $C \in \R^{m \times n}$, and $D \in \R^{m\times l}$ are real matrices, $r(t) \in \R^{m}$ is a reference signal at time $t$. For notation simplification, we write $(A, B,C,D)$ and mean it to be the discrete-time control system \eqref{eq:Intro:GP}.
+To understand the following Iterative Learning Control (ILC) algorithms, a few basic definitions are presented in this chapter. 
+Again, the considered system is given via 
+\begin{align}
+\label{eq:Basics:GP}
+\begin{split}
+&\begin{array}{c c c c c}
+x(t+1) &= &A x(t)& + &B u(t)  \\
+y ( t) &= &C x(t)&  + &D u(t),\\ 
+x(0)& = &x_0. & &
+\end{array}\\
+\end{split}
+\end{align}
+ Here $A \in \mathbb{R}^{n\times n}$, $B \in \mathbb{R}^{n \times l}$, $C \in \R^{m \times n}$, and $D \in \R^{m\times l}$ are real matrices, $r(t) \in \R^{m}$ is a reference signal at time $t$. For notation simplification, a short description for the discrete-time control system \eqref{eq:Basics:GP} is denoted with $(A, B,C,D)$. 
 
+In the basic tracking issue, there is sought an input $u(\cdot)$, which renders the output $y(\cdot)$ of a system \eqref{eq:Basics:GP} to lie close to the tracking signal $r(\cdot)$. That means, that the error $e(\cdot):= y(\cdot) - r(\cdot)$ must stay small in some norm  $||\cdot||$, e.g. the $L_2$-norm. To find it usually a stabilizing controller is designed -- such that the system state $x(\cdot)$ goes not to infinity over time $t$. 
+To design it, the stability needs a clear definition. 
 
-
-%We consider a  discrete time iteration
-%\begin{align}
-%\label{eq:GP}
-%\begin{split}
-%&\begin{array}{c c c c c}
-%x(t+1) &= &A x(t)& + &B u(t)  \\
-%y ( t) &= &C x(t)&  + &D u(t),\\ 
-%\end{array}\\
-%&\; \;\;x(0) =x_0 , \; \;  t \geq 0,
-%\end{split}
-%\end{align}
-% with error 
-%\begin{align}
-%\label{eq:error}
-%e(t) =r(t) - y(t)
-%\end{align}
-%at time $t  = 0, 1, 2, \dots$.
-
-
-
-
-
-We aim to find a ''good'' input signal $u(t)$, such that the reference $r(t)$ is tracked possibly well for all $t \geq 0$. With other words, it means, that the error norm $||e(\cdot)||$ must stay small in some  $||\cdot||$, e.g. the $L_2$-norm.
-To find it we usually design a stabilizing controller 
- -- such that our system state goes not to infinity over time $t$. 
-To design it, we must first clearly define what stability means. Since let us first formulate the common definitions and entertain ideas of a stabilizing controller design. 
-
-\section{Stability and stabilizability}
-
-
-The stability definition is usually given asymptotically. That means, we assume $N = \infty$. Only for definitions in this section, we make this assumption. We will see, that it quite make sense also for finite time horizon problems.  
+The stability definition is usually given asymptotically, i.e. $t \to \infty$. Though in this thesis there are the systems over a finite time horizon of interest, it still makes sense to take this ''classical'' definition of stability, as it is discussed later.  
 
 \begin{defi}
 	A discrete time dynamical system
@@ -55,20 +37,38 @@ The stability definition is usually given asymptotically. That means, we assume 
 	\limsup_{t \to \infty} ||x(t)|| < \infty
 	\end{align}
 	for all	 initial conditions $x(0) \in \R^n$.
-	We call the matrix $A$ (asymptotically) stable, if the dynamical system \eqref{eq:x=Ax} is (asymptotically) stable.
+	The matrix $A$ is (asymptotically) stable, if the dynamical system \eqref{eq:x=Ax} is (asymptotically) stable.
 \end{defi}
 
 
-In the same way we want to define (asymptotic) stabilizability and detectability. 
+
 \begin{defi}
-A a discrete time system $(A, B, C, D)$ or the pair $(A, B)$ is (asymptotically) stabilizable, if there exists a matrix $F$, such that $A - BF$ is (asymptotically) stable.
+A discrete time system $(A, B, C, D)$ or the pair $(A, B)$ is (asymptotically) stabilizable, if there exists a matrix $F$, such that $A - BF$ is (asymptotically) stable.
 The system or the pair $(A,C)$ is detectable, if $(A^T, C^T)$ is assymptotically stabilizable. 
+\end{defi}
+
+Another useful definition is the definiteness of a matrix. This is given as follows. 
+\begin{defi}
+	A symmetric matrix $A \in \R^{n \times n}$ is negative definite if $x^T A x < 0$ for all $x \in \R^n$, $x \neq 0$. It is negative semi-definite, if $x^T A x \leq 0$ for all $x \in \R^n$. 
+	In the same way, the matrix $A$ is positive definite, if $x^T A x >0$ for all $x \in \R^n$, $x \neq 0$, and positive semi-definite, if $x^T A x \geq 0$ for all $x \in \R^n$. 
+	
+	The symbols $\prec, \preceq, \succ, \succeq$ for two symmetric matrices $A, B \in \R^{n \times n}$ are defined as follows:
+	\begin{subequations}
+		\begin{align}
+		A \prec B & \text{ \; \; if } A - B \text{ is negative definite},
+		\\
+		A \preceq B & \text{ \; \; if } A - B \text{ is negative semi-definite},		
+		\\
+		A \succ B & \text{ \; \; if } A - B \text{ is positive definite},
+		\\
+		A \succeq B & \text{ \; \; if } A - B \text{ is positive semi-definite}.
+		\end{align}
+	\end{subequations}
 \end{defi}
 
 \section{Supervector description} 
 
-The supervectors are our most useful tool in this thesis. By ''stocking'' the signals together, we get a compact system representation in linear form. More precise, let us define what a supervector means.  
-
+The supervectors are the most useful tool in this thesis. By ''stocking'' the signals together, it surrenders a compact system representation in linear form.
 
 \begin{defi}
 	Let $\{s(0), s(1), s(2), \dots s(N)\} \subset \R^{d}$ be a finite sequence. Then the supervector corresponding to this sequence is denoted by $s$ and is defined as 
@@ -79,9 +79,8 @@ The supervectors are our most useful tool in this thesis. By ''stocking'' the si
 	\end{align}
 \end{defi}
 
-In this way we define the supervectors $u \in \R^{l(N+1)} $ and $e$, $y$, $r \in \R^{m(N+1)}$.  
-
-For system \eqref{eq:Intro:GP} the relation between $u$ and $y$, and the error $e$ can be written as
+In this way are defined the supervectors $u \in \R^{l(N+1)} $ and $e$, $y$, $r \in \R^{m(N+1)}$.  
+Then for system \eqref{eq:Basics:GP} the relation between $u$, $y$, and the error $e$ can be written as
 \begin{align}
 \label{eq:Gu + d}
 y &= Gu + d, \\
@@ -109,79 +108,107 @@ C x_0 \\ CA x_0 \\ CA^2 x_0 \\ \vdots \\ CA^Nx_0
 \end{pmatrix} \in \R^{m(N+1)}.
 \end{align}
 
-The stability requirement for $A$ is highlighted here. In opposite to vast values for unstable matrices, we get very small terms if $N \gg 1$. Intuitive, this terms can be neglected for all $p > p^\star$ for some $1<p^\star<N$. This is usable since we can apply the sparse matrices. In the Chapter \ref{ch:Allpication} we will derive an estimation in case of small terms neglecting. 
+The stability requirement for $A$ is highlighted here. As for the system \eqref{eq:x=Ax} holds
+\begin{align}
+x(t) = A^{t-1}x(0) \text{ for } t\geq 1, 
+\end{align}
+the matrix $A^t$ gets very large terms for the growing time $t$. 
+In opposite, for a stable matrix $A$, $A^t$ gets small terms for $t \gg 1$\footnote{The symbol $\gg$ means much greater}. Intuitive, those terms can be neglected for all $p > p^\star$ for some $1<p^\star<N$. This allows to reduce the amount of computer memory needed, if use the sparse matrices. In Chapter \ref{ch:Allpication} an estimation based on neglecting of small terms is derived. 
 
 
-\section{Stabilizing Controller}
+\section{Separation Principle}
 \label{ch:stabilizingController}
 
-There are several ways to construct a stabilizing controller for the system $(A, B, C, D)$. It could be an LQR controller, $\c H_{\infty}$ design, pole placement or other methods.
+There are several ways to construct a stabilizing controller for a system $(A, B, C, D)$. For example the $\c H_\infty$ design \cite{discrHinf}, pole placement \cite{LKT} or the separation principle. The latest is presented here. Though it might render worse performance than the more advanced techniques, it offers a simple implementation. The tracking accuracy of the initial stabilizing controller (that is, implemented before using the ILC algorithms), is here not a deciding factor. The tracking accuracy will be improved later by using the ILC techniques. 
 
-
-
-At first glance, the stability concept seems to be not necessary for $N < \infty$ . Still, in this thesis, it is the requirement we presuppose on considered system. The reason is that also the discrete system over finite horizon can produce vast signals for large $N$, if the system is not stable. Especially, it means, that $A$ has at least one eigenvalue larger that one, which implies very large norm of the matrices $A^t$ for $t \gg 1$. This makes difficult the numerical calculations for matrix $G$, as well as the for the solution of \eqref{eq:Intro:GP}. 
-
- A good tracking is mostly the main goal in controller design. However, in our case we are more interested in better stabilizing properties, as in a good performance. The algorithms we will consider guarantee the convergence to a good input, but to apply this algorithms we also need some numerically stability. 
-
-The placement method is described in \cite{LKT}. More about $\c H_{\infty}$ design for discrete systems one finds in \cite{discrHinf} (TODO: change?). 
-We present here only the controller based on Separation Principle, as a most simple solution. Nevertheless, one should keep in mind, Separation Principle might be not the best solution for preparation to ILC algorithms. In the Chapter \ref{ch:Allpication} we will consider an example where it is the case. 
-
-\section{Separation Principle} 
-
-We can find a stabilizing controller for \eqref{eq:Intro:GP} using feedback control.
-Let us first consider the case $y(\cdot) = x(\cdot)$.
-
-Then the system \eqref{eq:Intro:GP} becomes stable, if we choose $u(t) = -Fx(t)$, $t \geq 0$, with some matrix $F$, such that $(A - BF)$ is stable.
-
-Clearly, if the system is (asymptotically) stabilizable, we can find such matrix $F$. 
+First consider the case $y(\cdot) = x(\cdot)$.
+Then the system \eqref{eq:Basics:GP} becomes stable, if $u(t) = -Fx(t)$, $t \geq 0$, with some matrix $F$, such that $(A - BF)$ is stable.
+Clearly, if the system is (asymptotically) stabilizable, there exists such a matrix $F$. 
 
 But what is a ''good'' choice for $F$? One option is the so-called Linear-Quadratic-Regulator (LQR), which minimizes the cost function 
 \begin{align}
 \label{eq:costFcn}
 V(u(\cdot)) = \sum_{t = 0}^\infty \left( (x(t))^T Q (x(t)) + u(t)^T R u(t)\right),
 \end{align}
-overall stabilizing piecewise constant input signals $u(\cdot) \in \R^m$, and with $x(\cdot)$ satisfying \eqref{eq:GP} (for $C = I$ and $D = 0$). 
-$Q \succ 0$ and $R \succ 0$ are here weighing matrices, which allow us to decide how ''important'' the elements of the in- and output signals are.  
-Using them, we can make one input signal impact the system more than another or drive one of the output signals faster. 
+overall stabilizing piecewise constant input signals $u(\cdot) \in \R^m$, and with $x(\cdot)$ satisfying \eqref{eq:Basics:GP} (for $C = I$ and $D = 0$). 
+The matrices $Q \in \R^{n \times n}$ and $R \in \R^{m \times m}$ are positive definite weighing matrices, which allow to decide how ''important'' the elements of the in- and output signals are.  
+By using them, one input signal can be made to impact the system more than another or drive one of the output signals faster. 
+Choosing the weighting matrices always depends on the considered system and allows to affect the closed-loop behaviour.
 
-Choosing the weighting matrices always depends on the system we work with and allows us to affect closed-loop behavior.   
 
-The optimal $u(\cdot)$ for minimizing of the cost function \eqref{eq:costFcn} is given via $u(t) = F x(t)$ with
+The optimal $u(\cdot)$ for minimizing  the cost function \eqref{eq:costFcn} is given via $u(t) = F x(t)$ with
 \begin{align}
 \label{eq:Basics:F}
-F = (R + B^T P B)^{-1}B^TPA.
+F = (R + B^T P B)^{-1}B^TPA \text{ \cite{KostovaIvanov2013}}.
 \end{align}
 The matrix $P$ is a unique symmetric positive definite matrix, the stabilizing solution of the discrete time algebraic Riccati equation
 \begin{align}
- A^TA - A^T P B (R + B^T P B)^{-1} B^T P A + Q - P = 0 \text{ \cite{DAREandLMI} }.
+ A^TA - A^T P B (R + B^T P B)^{-1} B^T P A + Q - P = 0 \text{ \cite{DAREandLMI}}.
 \end{align}
-Stabilizing solution means, that from \eqref{eq:Basics:F} resulting matrix $(A - BF)$ is stable, and hence this solution stabilizes our system. 
+Stabilizing solution means, that the matrix  $(A - BF)$ resulting from \eqref{eq:Basics:F} is stable, and hence this solution stabilizes the system. 
 
 
-For the case $y(\cdot) \neq x(\cdot)$, we can additionally construct an observer to approximate the signal $x(\cdot)$. The  controller we get is said to be based on \textit{separation principle}.
-It requires the pair $(A,C)$ to be detectable. So, we can find a matrix $J$, for which $A - JC$ is asymptotically stable.
+For the case $y(\cdot) \neq x(\cdot)$, an additional observer can be implemented to approximate the signal $x(\cdot)$. Then the resulting  controller is said to be based on \textit{separation principle}.
+It requires the pair $(A,C)$ to be detectable, i.e. there exists a matrix $J$, for which the matrix $A - JC$ is asymptotically stable.
 
-We set 
+Set 
 \begin{align}
-u(\cdot)= -F \hat{x}(\cdot), \text{ with } \hat{x}(\cdot) \text{ given via dynamical system }
+u(\cdot)= -F \hat{x}(\cdot), \text{ with } \hat{x}(\cdot) \text{ given via the dynamical system }
 \end{align}
 \begin{align}
+\begin{split}
 \hat{x}(t+1) &= A\hat{x}(t) + B u(t) + J (y - \hat{y}(t)), \\
 \hat{y}(t) & = C\hat{x}(t) + D u(t), \\
 \hat{x}(0)& = x_0, \; t \geq 0. 
+\end{split}
 \end{align}
-With this observer system the estimation error can be calculated as \begin{align}
+With this observer system, the estimation error can be calculated as \begin{align}
 \tilde{x}(t+1) = x(t+1) - \hat{x}(t+1) = (A - JC) \tilde{x}(t), \, t \geq 0,
-\end{align} and hence $\hat{x} (\cdot)$ converges to $x(\cdot)$ at least asymptotically. 
+\end{align} and as $(A - JC)$ is asymptotic stable,  the error $\tilde{x}(t+1)$ asymptotically converges to zero. 
 
-We elect
+For a constant reference signal $r(t) = r_0 \in \R^m$, $t \geq 0$, choose the input signal as 
 \begin{align}
-u(\cdot) = -F\hat{x}(\cdot) + Mr(\cdot), 
+u(t) = -F\hat{x}(t) + Mr_0, \; t \geq 0,
 \end{align}
-where $M$ is a right inverse of the matrix 
+with some matrix $M$ of a fitting dimension. 
+Then the dynamical system 
 \begin{align}
-D + (C - D F) (I - A + B F)^{-1} B.
+\begin{split}
+\begin{pmatrix}
+x(t+1) \\ \t x(t+1)
+\end{pmatrix} = 
+\begin{pmatrix}
+A - BF & BF \\ 0 & A-J
+\end{pmatrix}
+\begin{pmatrix}
+x(t) \\ \t x(t)
+\end{pmatrix} + 
+\begin{pmatrix}
+B M \\ 0
+\end{pmatrix}r(t), \; t\geq 0
+\end{split}
+\end{align}
+is asymptotically stable. With straightforward calculation, the steady state results in  
+\begin{align}
+\lim_{t \to \infty}\begin{pmatrix}
+x(t) \\ \t x(t)
+\end{pmatrix} = \begin{pmatrix}
+(I - A + BF)^{-1 }BM \\ 0
+\end{pmatrix}r_0.
 \end{align}
 
-This choice of input signal 
-solves tracking issue for constant $r(\cdot)$. It still can be used for piecewise constant $r(\cdot)$, if the signal does not change too fast.
+Choose $M$ as a right inverse of the matrix 
+\begin{align}
+D + (C - D F) (I - A + B F)^{-1} B,
+\end{align}
+then \begin{align}
+\lim_{t \to \infty} y(t) = 
+\begin{pmatrix}
+C - DF & DF
+\end{pmatrix}
+\begin{pmatrix}
+(I - A + BF)BM \\ 0
+\end{pmatrix}
+r_0 + D M r_0 = r_0.
+\end{align}
+This controller design can also be used for the piecewise constant signals $r(\cdot)$, if the tracking signal does not change too fast. 

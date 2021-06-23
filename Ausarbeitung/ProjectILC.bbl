@@ -1,0 +1,276 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{Bristov06}{article}{}
+      \name{author}{3}{}{%
+        {{hash=09670a9b44b51b3230bf65f37732fc58}{%
+           family={{Bristow}},
+           familyi={B\bibinitperiod},
+           given={D.\bibnamedelimi A.},
+           giveni={D\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=b6c9859a96aac0eb9bc92da51c095085}{%
+           family={{Tharayil}},
+           familyi={T\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=4c494c63a9b9256e1b500a099b5f79cf}{%
+           family={{Alleyne}},
+           familyi={A\bibinitperiod},
+           given={A.\bibnamedelimi G.},
+           giveni={A\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+      }
+      \strng{namehash}{23289d869358ea5fec6f8ee4db0191bf}
+      \strng{fullhash}{23289d869358ea5fec6f8ee4db0191bf}
+      \strng{bibnamehash}{23289d869358ea5fec6f8ee4db0191bf}
+      \strng{authorbibnamehash}{23289d869358ea5fec6f8ee4db0191bf}
+      \strng{authornamehash}{23289d869358ea5fec6f8ee4db0191bf}
+      \strng{authorfullhash}{23289d869358ea5fec6f8ee4db0191bf}
+      \field{sortinit}{B}
+      \field{sortinithash}{8de16967003c7207dae369d874f1456e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Control Systems Magazine}
+      \field{number}{3}
+      \field{title}{A survey of iterative learning control}
+      \field{volume}{26}
+      \field{year}{2006}
+      \field{pages}{96\bibrangedash 114}
+      \range{pages}{19}
+      \verb{doi}
+      \verb 10.1109/MCS.2006.1636313
+      \endverb
+    \endentry
+    \entry{discrHinf}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{hash=b5003dc23b6fc69e02b3b50971d67784}{%
+           family={Gershon},
+           familyi={G\bibinitperiod},
+           given={Eli},
+           giveni={E\bibinitperiod}}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=a101ce86c41d75ca3326edbcd515c299}{%
+           family={Gusikhin},
+           familyi={G\bibinitperiod},
+           given={Oleg},
+           giveni={O\bibinitperiod}}}%
+        {{hash=0507178ea209cef13a73e905829e3a64}{%
+           family={Madani},
+           familyi={M\bibinitperiod},
+           given={Kurosh},
+           giveni={K\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cham}%
+      }
+      \list{publisher}{1}{%
+        {Springer International Publishing}%
+      }
+      \strng{namehash}{b5003dc23b6fc69e02b3b50971d67784}
+      \strng{fullhash}{b5003dc23b6fc69e02b3b50971d67784}
+      \strng{bibnamehash}{b5003dc23b6fc69e02b3b50971d67784}
+      \strng{authorbibnamehash}{b5003dc23b6fc69e02b3b50971d67784}
+      \strng{authornamehash}{b5003dc23b6fc69e02b3b50971d67784}
+      \strng{authorfullhash}{b5003dc23b6fc69e02b3b50971d67784}
+      \strng{editorbibnamehash}{ab6de2b3efb95b230690a84405acce0e}
+      \strng{editornamehash}{ab6de2b3efb95b230690a84405acce0e}
+      \strng{editorfullhash}{ab6de2b3efb95b230690a84405acce0e}
+      \field{sortinit}{G}
+      \field{sortinithash}{62eb2aa29549e4fdbd3cb154ec5711cb}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Informatics in Control, Automation and Robotics}
+      \field{title}{{Linear Discrete-Time Systems - $H_\infty$ Dynamic Output-Feedback Control with Preview}}
+      \field{year}{2020}
+      \field{pages}{464\bibrangedash 481}
+      \range{pages}{18}
+    \endentry
+    \entry{KostovaIvanov2013}{article}{}
+      \name{author}{4}{}{%
+        {{hash=72ba4ca26287daff6aa221f44e1da101}{%
+           family={Kostova},
+           familyi={K\bibinitperiod},
+           given={Snezhana},
+           giveni={S\bibinitperiod}}}%
+        {{hash=b6497e1c74d2368b0c66aeb8c7057b68}{%
+           family={Ivanov},
+           familyi={I\bibinitperiod},
+           given={Ivan},
+           giveni={I\bibinitperiod}}}%
+        {{hash=489f828fd0423c4e0fdbd2c3e3944341}{%
+           family={Imsland},
+           familyi={I\bibinitperiod},
+           given={Lars},
+           giveni={L\bibinitperiod}}}%
+        {{hash=ddbccb4445e25f9e67bb3273c9ae6a4d}{%
+           family={Georgieva},
+           familyi={G\bibinitperiod},
+           given={Nonka},
+           giveni={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{ec9183d88e622dd0dd7ac5f5153d24ad}
+      \strng{fullhash}{4e62b2969b8816aa7664b3f276e56db0}
+      \strng{bibnamehash}{ec9183d88e622dd0dd7ac5f5153d24ad}
+      \strng{authorbibnamehash}{ec9183d88e622dd0dd7ac5f5153d24ad}
+      \strng{authornamehash}{ec9183d88e622dd0dd7ac5f5153d24ad}
+      \strng{authorfullhash}{4e62b2969b8816aa7664b3f276e56db0}
+      \field{sortinit}{K}
+      \field{sortinithash}{d3edc18d54b9438a72c24c925bfb38f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Comptes Rendus De L Academie Bulgare Des Sciences}
+      \field{number}{8}
+      \field{title}{Infinite horizon {LQR} problem of linear discrete time positive systems}
+      \field{volume}{66}
+      \field{year}{2013}
+      \field{pages}{1167\bibrangedash 1174}
+      \range{pages}{8}
+    \endentry
+    \entry{CompLeib}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=45f61722fff251c6356293777ab30da9}{%
+           family={Leibfritz},
+           familyi={L\bibinitperiod},
+           given={Friedemann},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{45f61722fff251c6356293777ab30da9}
+      \strng{fullhash}{45f61722fff251c6356293777ab30da9}
+      \strng{bibnamehash}{45f61722fff251c6356293777ab30da9}
+      \strng{authorbibnamehash}{45f61722fff251c6356293777ab30da9}
+      \strng{authornamehash}{45f61722fff251c6356293777ab30da9}
+      \strng{authorfullhash}{45f61722fff251c6356293777ab30da9}
+      \field{sortinit}{L}
+      \field{sortinithash}{dad3efd0836470093a7b4a7bb756eb8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{COMPl$_{e^i}$b: COnstraint Matrix-optimization Problem library}}
+      \field{version}{1.1}
+      \verb{urlraw}
+      \verb http://www.complib.de/
+      \endverb
+      \verb{url}
+      \verb http://www.complib.de/
+      \endverb
+    \endentry
+    \entry{ILC}{book}{}
+      \name{author}{1}{}{%
+        {{hash=77b8d1be6e484bde9789719f1dd817bc}{%
+           family={Owens},
+           familyi={O\bibinitperiod},
+           given={David\bibnamedelima H.},
+           giveni={D\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{77b8d1be6e484bde9789719f1dd817bc}
+      \strng{fullhash}{77b8d1be6e484bde9789719f1dd817bc}
+      \strng{bibnamehash}{77b8d1be6e484bde9789719f1dd817bc}
+      \strng{authorbibnamehash}{77b8d1be6e484bde9789719f1dd817bc}
+      \strng{authornamehash}{77b8d1be6e484bde9789719f1dd817bc}
+      \strng{authorfullhash}{77b8d1be6e484bde9789719f1dd817bc}
+      \field{sortinit}{O}
+      \field{sortinithash}{ff8d4eeb5101e3cf3809959b3592d942}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Iterative Learning Control}
+      \field{year}{2016}
+    \endentry
+    \entry{SchRC}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=bd5b3a8e42f635040868ca0b8dfff31a}{%
+           family={Scherer},
+           familyi={S\bibinitperiod},
+           given={Carsten\bibnamedelima W.},
+           giveni={C\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \strng{namehash}{bd5b3a8e42f635040868ca0b8dfff31a}
+      \strng{fullhash}{bd5b3a8e42f635040868ca0b8dfff31a}
+      \strng{bibnamehash}{bd5b3a8e42f635040868ca0b8dfff31a}
+      \strng{authorbibnamehash}{bd5b3a8e42f635040868ca0b8dfff31a}
+      \strng{authornamehash}{bd5b3a8e42f635040868ca0b8dfff31a}
+      \strng{authorfullhash}{bd5b3a8e42f635040868ca0b8dfff31a}
+      \field{extraname}{1}
+      \field{sortinit}{S}
+      \field{sortinithash}{c319cff79d99c853d775f88277d4e45f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Lecture Notes Robust Control}
+    \endentry
+    \entry{LKT}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=bd5b3a8e42f635040868ca0b8dfff31a}{%
+           family={Scherer},
+           familyi={S\bibinitperiod},
+           given={Carsten\bibnamedelima W.},
+           giveni={C\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \strng{namehash}{bd5b3a8e42f635040868ca0b8dfff31a}
+      \strng{fullhash}{bd5b3a8e42f635040868ca0b8dfff31a}
+      \strng{bibnamehash}{bd5b3a8e42f635040868ca0b8dfff31a}
+      \strng{authorbibnamehash}{bd5b3a8e42f635040868ca0b8dfff31a}
+      \strng{authornamehash}{bd5b3a8e42f635040868ca0b8dfff31a}
+      \strng{authorfullhash}{bd5b3a8e42f635040868ca0b8dfff31a}
+      \field{extraname}{2}
+      \field{sortinit}{S}
+      \field{sortinithash}{c319cff79d99c853d775f88277d4e45f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Linear Control Theory}
+    \endentry
+    \entry{LAAG}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=bd5b3a8e42f635040868ca0b8dfff31a}{%
+           family={Scherer},
+           familyi={S\bibinitperiod},
+           given={Carsten\bibnamedelima W.},
+           giveni={C\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \strng{namehash}{bd5b3a8e42f635040868ca0b8dfff31a}
+      \strng{fullhash}{bd5b3a8e42f635040868ca0b8dfff31a}
+      \strng{bibnamehash}{bd5b3a8e42f635040868ca0b8dfff31a}
+      \strng{authorbibnamehash}{bd5b3a8e42f635040868ca0b8dfff31a}
+      \strng{authornamehash}{bd5b3a8e42f635040868ca0b8dfff31a}
+      \strng{authorfullhash}{bd5b3a8e42f635040868ca0b8dfff31a}
+      \field{extraname}{3}
+      \field{sortinit}{S}
+      \field{sortinithash}{c319cff79d99c853d775f88277d4e45f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Lineare Algebra and Analytische Geometrie}
+    \endentry
+    \entry{DAREandLMI}{article}{}
+      \field{sortinit}{T}
+      \field{sortinithash}{51f9faf24c60c62ca764a77f78cf5666}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Linear Algebra and its Applications}
+      \field{number}{1}
+      \field{title}{The discrete algebraic Riccati equation and linear matrix inequality}
+      \field{volume}{274}
+      \field{year}{1998}
+      \field{pages}{317\bibrangedash 365}
+      \range{pages}{49}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

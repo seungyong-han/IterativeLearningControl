@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.26)  12 DEC 2020 22:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7440 64-bit) (preloaded format=pdflatex 2020.5.26)  23 JUN 2021 13:42
 entering extended mode
 **./ProjectILC.tex
 (ProjectILC.tex
@@ -940,6 +940,13 @@ File: listings.cfg 2020/03/24 1.8d listings configuration
 ))
 Package: listings 2020/03/24 1.8d (Carsten Heinz)
 
+("C:\Users\Strel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\afterpage.st
+y"
+Package: afterpage 2014/10/28 v1.08 After-Page Package (DPC)
+\AP@output=\toks44
+\AP@partial=\box89
+\AP@footins=\box90
+)
 ("C:\Users\Strel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/biblatex\biblatex.
 sty"
 Package: biblatex 2019/12/01 v3.14 programmable bibliographies (PK/MW)
@@ -1188,7 +1195,7 @@ sty"
 Package: arydshln 2019/02/21 v1.76 
 \dashlinedash=\dimen292
 \dashlinegap=\dimen293
-\adl@box=\box89
+\adl@box=\box91
 \adl@height=\dimen294
 \adl@heightsave=\dimen295
 \adl@depth=\dimen296
@@ -1204,7 +1211,7 @@ Package: arydshln 2019/02/21 v1.76
 \adl@gap=\count452
 \adl@cla=\count453
 \adl@clb=\count454
-\adl@everyvbox=\toks44
+\adl@everyvbox=\toks45
 \adl@LTpagetotal=\dimen299
 )
 ("C:\Users\Strel\AppData\Local\Programs\MiKTeX 2.9\tex/generic/mathdots\mathdot
@@ -1212,7 +1219,7 @@ s.sty"
 Package: mathdots 2014/06/11 v0.9 Improve and add various macros for dots in ma
 th.
 \MDo@unit=\dimen300
-\MDo@dotsbox=\box90
+\MDo@dotsbox=\box92
 \MDoprekern=\muskip22
 \MDopostkern=\muskip23
 \MDodotkern=\muskip24
@@ -1232,42 +1239,42 @@ LaTeX Info: Redefining \ker on input line 257.
 d-pdfmode.def"
 File: l3backend-pdfmode.def 2020-05-05 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count460
-\l__pdf_internal_box=\box91
+\l__pdf_internal_box=\box93
 ) (ProjectILC.aux (Introduction20.aux) (Basics20.aux)
-(ILC_Algorithms.aux) (Robustness.aux) (Application.aux) (Questions.aux))
+(ILC_Algorithms.aux) (Robustness.aux) (Application.aux))
 \openout1 = `ProjectILC.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
 
 ("C:\Users\Strel\AppData\Local\Programs\MiKTeX 2.9\tex/context/base/mkii\supp-p
 df.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count461
 \scratchdimen=\dimen301
-\scratchbox=\box92
+\scratchbox=\box94
 \nofMPsegments=\count462
 \nofMParguments=\count463
-\everyMPshowfont=\toks45
+\everyMPshowfont=\toks46
 \MPscratchCnt=\count464
 \MPscratchDim=\dimen302
 \MPnumerator=\count465
 \makeMPintoPDFobject=\count466
-\everyMPtoPDFconversion=\toks46
+\everyMPtoPDFconversion=\toks47
 )
 ("C:\Users\Strel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/epstopdf-pkg\epsto
 pdf-base.sty"
@@ -1275,7 +1282,7 @@ Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
 )
-\AtBeginShipoutBox=\box93
+\AtBeginShipoutBox=\box95
 
 ("C:\Users\Strel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pdflscape\pdflscap
 e.sty"
@@ -1328,7 +1335,7 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 88.
+Package hyperref Info: Link coloring OFF on input line 96.
 
 ("C:\Users\Strel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\nameref.s
 ty"
@@ -1344,9 +1351,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count467
 )
-LaTeX Info: Redefining \ref on input line 88.
-LaTeX Info: Redefining \pageref on input line 88.
-LaTeX Info: Redefining \nameref on input line 88.
+LaTeX Info: Redefining \ref on input line 96.
+LaTeX Info: Redefining \pageref on input line 96.
+LaTeX Info: Redefining \nameref on input line 96.
  (ProjectILC.out) (ProjectILC.out)
 \@outlinefile=\write5
 \openout5 = `ProjectILC.out'.
@@ -1369,46 +1376,46 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'ProjectILC.bbl' found.
  (ProjectILC.bbl)
-Package biblatex Info: Reference section=0 on input line 88.
-Package biblatex Info: Reference segment=0 on input line 88.
+Package biblatex Info: Reference section=0 on input line 96.
+Package biblatex Info: Reference segment=0 on input line 96.
 LaTeX Font Info:    Trying to load font information for U+lasy on input line 12
-1.
+9.
 
 ("C:\Users\Strel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\ulasy.fd"
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 121
+LaTeX Font Info:    Trying to load font information for U+msa on input line 129
 .
 
 ("C:\Users\Strel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 121
+LaTeX Font Info:    Trying to load font information for U+msb on input line 129
 .
 ("C:\Users\Strel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for U+wasy on input line 12
-1.
+9.
 ("C:\Users\Strel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/wasysym\uwasy.fd"
 File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
 )
 LaTeX Font Info:    Trying to load font information for U+rsfs on input line 12
-1.
+9.
 ("C:\Users\Strel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/jknappen\ursfs.fd"
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 121.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 129.
 
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 121--122
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 129--131
  [][] 
  []
 
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 127.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 141.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 127.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 141.
 [1
 
 
@@ -1416,7 +1423,25 @@ LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
 {C:/Users/Strel/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2
 
 ]
-(ProjectILC.toc [3
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 175--176
+ [][] 
+ []
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.I}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.202 \end{titlepage}
+                      [1
+
+]pdfTeX warning (ext4): destination with the same identifier (name{page.II}) ha
+s been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.210 \newpage
+               [2
+
+] (ProjectILC.toc [3
 
 ])
 \tf@toc=\write6
@@ -1432,7 +1457,7 @@ This may cause the page layout to be inconsistent, however.
 [4]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 171.
+(hyperref)                removing `\new@ifnextchar' on input line 225.
 
 (ProjectILC.lof)
 \tf@lof=\write7
@@ -1442,19 +1467,19 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.I}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.177 \newpage
+l.231 \newpage
                [1
 
 ]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 178.
+(hyperref)                removing `\new@ifnextchar' on input line 232.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.II}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.179 \listoftables
+l.233 \listoftables
                     [2
 
 ] (ProjectILC.lot)
@@ -1465,19 +1490,19 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.III}) ha
 s been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.184 \newpage
+l.238 \newpage
                [3]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 187.
+(hyperref)                removing `\new@ifnextchar' on input line 241.
 
 
 LaTeX Warning: Hyper reference `acro:O.B.d.A' on page IV undefined on input lin
-e 192.
+e 246.
 
 
 LaTeX Warning: Hyper reference `acro:O.B.d.A' on page IV undefined on input lin
-e 192.
+e 246.
 
 
 Package Fancyhdr Warning: \headheight is too small (14.49998pt): 
@@ -1489,32 +1514,29 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.IV}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.223 \newpage
+l.252 \newpage
                [4]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 226.
+(hyperref)                removing `\new@ifnextchar' on input line 255.
 
 
-LaTeX Warning: Hyper reference `acro:G' on page V undefined on input line 230.
+LaTeX Warning: Hyper reference `acro:G' on page V undefined on input line 259.
 
 
-LaTeX Warning: Hyper reference `acro:G' on page V undefined on input line 230.
+LaTeX Warning: Hyper reference `acro:G' on page V undefined on input line 259.
 
 
-LaTeX Warning: Hyper reference `acro:R' on page V undefined on input line 231.
+LaTeX Warning: Hyper reference `acro:R' on page V undefined on input line 260.
 
 
-LaTeX Warning: Hyper reference `acro:R' on page V undefined on input line 231.
+LaTeX Warning: Hyper reference `acro:R' on page V undefined on input line 260.
 
 [5]
 \openout2 = `Introduction20.aux'.
 
  (Introduction20.tex
 Chapter 1.
-
-LaTeX Warning: Citation 'Bristov06' on page 1 undefined on input line 22.
-
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1523,17 +1545,16 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 ]
 
-LaTeX Warning: Citation 'ILC' on page 2 undefined on input line 30.
+LaTeX Warning: Reference `eq:Intro:GP' on page 2 undefined on input line 50.
 
 
-Underfull \vbox (badness 1472) has occurred while \output is active []
+LaTeX Warning: Reference `eq:Intro:GP' on page 2 undefined on input line 63.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
-
-LaTeX Warning: Citation 'ILC' on page 3 undefined on input line 96.
-
-
-Underfull \vbox (badness 2269) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [3])
 [4]
@@ -1546,24 +1567,10 @@ Chapter 2.
 
 
 ] [6]
-
-LaTeX Warning: Citation 'LKT' on page 7 undefined on input line 126.
-
-
-LaTeX Warning: Citation 'discrHinf' on page 7 undefined on input line 126.
-
-[7]
-
-LaTeX Warning: Reference `eq:GP' on page 8 undefined on input line 143.
-
-
-LaTeX Warning: Citation 'DAREandLMI' on page 8 undefined on input line 157.
-
-
-LaTeX Warning: Citation 'DAREandLMI' on page 8 undefined on input line 157.
-
-
-Underfull \vbox (badness 7291) has occurred while \output is active []
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 116.
+ [7]
+Underfull \vbox (badness 5878) has occurred while \output is active []
 
  [8])
 [9]
@@ -1575,43 +1582,39 @@ Underfull \vbox (badness 7291) has occurred while \output is active []
 
 ]
 Chapter 3.
+
+LaTeX Warning: Reference `eq:Intro:GP' on page 11 undefined on input line 14.
+
 [11]
-LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 121.
 
-
-LaTeX Warning: Citation 'ILC' on page 12 undefined on input line 123.
+LaTeX Warning: Reference `eq:Intro:GP' on page 12 undefined on input line 94.
 
 [12]
-<fig/Ex1_IA.jpg, id=357, 3011.25pt x 1578.89874pt>
+<fig/Ex1_IA.jpg, id=377, 3011.25pt x 1578.89874pt>
 File: fig/Ex1_IA.jpg Graphic file (type jpg)
 <use fig/Ex1_IA.jpg>
-Package pdftex.def Info: fig/Ex1_IA.jpg  used on input line 132.
+Package pdftex.def Info: fig/Ex1_IA.jpg  used on input line 133.
 (pdftex.def)             Requested size: 441.01773pt x 231.23524pt.
-<fig/Ex1_IAbad.jpg, id=361, 3011.25pt x 1578.89874pt>
+<fig/Ex1_IAbad.jpg, id=381, 3011.25pt x 1578.89874pt>
 File: fig/Ex1_IAbad.jpg Graphic file (type jpg)
 <use fig/Ex1_IAbad.jpg>
-Package pdftex.def Info: fig/Ex1_IAbad.jpg  used on input line 140.
+Package pdftex.def Info: fig/Ex1_IAbad.jpg  used on input line 141.
 (pdftex.def)             Requested size: 441.01773pt x 231.23524pt.
-
-
-LaTeX Warning: Citation 'LAAG' on page 13 undefined on input line 150.
-
-[13 <./fig/Ex1_IA.jpg>] [14 <./fig/Ex1_IAbad.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 196--196
+ [13 <./fig/Ex1_IA.jpg>] [14 <./fig/Ex1_IAbad.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 197--197
 
  []
 
-<fig/Ex1_PIA.jpg, id=387, 3011.25pt x 1578.89874pt>
+<fig/Ex1_PIA.jpg, id=410, 3011.25pt x 1578.89874pt>
 File: fig/Ex1_PIA.jpg Graphic file (type jpg)
 <use fig/Ex1_PIA.jpg>
-Package pdftex.def Info: fig/Ex1_PIA.jpg  used on input line 237.
+Package pdftex.def Info: fig/Ex1_PIA.jpg  used on input line 238.
 (pdftex.def)             Requested size: 441.01773pt x 231.23524pt.
+[15] [16 <./fig/Ex1_PIA.jpg>]
+Underfull \vbox (badness 1152) has occurred while \output is active []
 
-LaTeX Warning: Citation 'ILC' on page 15 undefined on input line 244.
-
-[15] [16 <./fig/Ex1_PIA.jpg>] [17]
-Overfull \hbox (0.38309pt too wide) in paragraph at lines 351--352
+ [17]
+Overfull \hbox (0.38309pt too wide) in paragraph at lines 355--356
 []\OT1/cmr/m/n/12 We choose the norm by defin-ing the weight-ing ma-tri-ces $\O
 ML/cmm/m/it/12 Q\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 )$ and $\OML
 /cmm/m/it/12 R\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 )$, $\OML/cmm/
@@ -1619,60 +1622,73 @@ m/it/12 t \OT1/cmr/m/n/12 = 0\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 1\OML/cmm/m/it/
 12 ; \OT1/cmr/m/n/12 2\OML/cmm/m/it/12 ; [] ; N$\OT1/cmr/m/n/12 .
  []
 
-[18]
-Underfull \hbox (badness 10000) in paragraph at lines 444--444
+
+Underfull \vbox (badness 4739) has occurred while \output is active []
+
+ [18]
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 448--448
 
  []
 
-[19]
-
-LaTeX Warning: Citation 'ILC' on page 20 undefined on input line 486.
-
 [20]
-<fig/Ex1_SDA.jpg, id=461, 3011.25pt x 1578.89874pt>
+Underfull \hbox (badness 10000) in paragraph at lines 488--489
+
+ []
+
+<fig/Ex1_SDA.jpg, id=487, 3011.25pt x 1578.89874pt>
 File: fig/Ex1_SDA.jpg Graphic file (type jpg)
 <use fig/Ex1_SDA.jpg>
-Package pdftex.def Info: fig/Ex1_SDA.jpg  used on input line 512.
+Package pdftex.def Info: fig/Ex1_SDA.jpg  used on input line 515.
 (pdftex.def)             Requested size: 441.01773pt x 231.23524pt.
- [21 <./fig/Ex1_SDA.jpg>] [22] [23]
-<fig/Ex1_SDAvsSoE.jpg, id=496, 3011.25pt x 1578.89874pt>
+[21] [22 <./fig/Ex1_SDA.jpg>]
+Underfull \vbox (badness 1303) has occurred while \output is active []
+
+ [23]
+<fig/Ex1_SDAvsSoE.jpg, id=518, 3011.25pt x 1578.89874pt>
 File: fig/Ex1_SDAvsSoE.jpg Graphic file (type jpg)
 <use fig/Ex1_SDAvsSoE.jpg>
-Package pdftex.def Info: fig/Ex1_SDAvsSoE.jpg  used on input line 629.
+Package pdftex.def Info: fig/Ex1_SDAvsSoE.jpg  used on input line 632.
 (pdftex.def)             Requested size: 441.01773pt x 231.23524pt.
 
+[24 <./fig/Ex1_SDAvsSoE.jpg>]
 
-LaTeX Warning: Citation 'ILC' on page 24 undefined on input line 638.
+LaTeX Warning: Reference `eq:Intro:GP' on page 25 undefined on input line 646.
 
-[24 <./fig/Ex1_SDAvsSoE.jpg>] [25]
-
-LaTeX Warning: Citation 'ILC' on page 26 undefined on input line 695.
-
-) [26]
+[25]) [26]
 \openout2 = `Robustness.aux'.
 
  (Robustness.tex
 Chapter 4.
-[27
+
+LaTeX Warning: Reference `eq:Intro:GP' on page 27 undefined on input line 60.
+
+
+Underfull \vbox (badness 2662) has occurred while \output is active []
+
+ [27
 
 
 
 ]
+
+LaTeX Warning: Reference `eq:Intro:GP' on page 28 undefined on input line 101.
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [28]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [29]
-
-LaTeX Warning: Citation 'SchRC' on page 30 undefined on input line 222.
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [30]
-[31] [32] [33]
-Overfull \hbox (21.63585pt too wide) detected at line 533
+[31] [32]
+Underfull \vbox (badness 1173) has occurred while \output is active []
+
+ [33]
+Overfull \hbox (21.63585pt too wide) detected at line 532
 []
  []
 
@@ -1689,9 +1705,6 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 ]
 Chapter 5.
-
-LaTeX Warning: Citation 'CompLeib' on page 37 undefined on input line 6.
-
 
 Overfull \hbox (17.14194pt too wide) detected at line 31
 []
@@ -1718,17 +1731,17 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Underfull \vbox (badness 3977) has occurred while \output is active []
 
  [38]
-<fig/AC1_LQR_1.jpg, id=665, 3011.25pt x 1586.92876pt>
+<fig/AC1_LQR_1.jpg, id=694, 3011.25pt x 1586.92876pt>
 File: fig/AC1_LQR_1.jpg Graphic file (type jpg)
 <use fig/AC1_LQR_1.jpg>
 Package pdftex.def Info: fig/AC1_LQR_1.jpg  used on input line 98.
 (pdftex.def)             Requested size: 132.30666pt x 69.71368pt.
-<fig/AC1_LQR_2.jpg, id=666, 3011.25pt x 1586.92876pt>
+<fig/AC1_LQR_2.jpg, id=695, 3011.25pt x 1586.92876pt>
 File: fig/AC1_LQR_2.jpg Graphic file (type jpg)
 <use fig/AC1_LQR_2.jpg>
 Package pdftex.def Info: fig/AC1_LQR_2.jpg  used on input line 104.
 (pdftex.def)             Requested size: 132.30666pt x 69.71368pt.
-<fig/AC1_LQR_3.jpg, id=667, 3011.25pt x 1586.92876pt>
+<fig/AC1_LQR_3.jpg, id=696, 3011.25pt x 1586.92876pt>
 File: fig/AC1_LQR_3.jpg Graphic file (type jpg)
 <use fig/AC1_LQR_3.jpg>
 Package pdftex.def Info: fig/AC1_LQR_3.jpg  used on input line 110.
@@ -1754,65 +1767,50 @@ T1/cmr/m/n/12 )\OMS/cmsy/m/n/12 jj \OML/cmm/m/it/12 < \OT1/cmr/m/n/12 3\OML/cmm
 
 
 LaTeX Warning: Reference `eq:Appl:satellite_sys' on page 41 undefined on input 
-line 231.
+line 228.
 
-[41] [42]) [43]
-\openout2 = `Questions.aux'.
+[41]) [42] [43
 
- (Questions.tex [44
-
-
+] [44
 
 ]
-Chapter 6.
-) [45]
+Overfull \hbox (0.22113pt too wide) in paragraph at lines 314--314
+[]\OT1/cmr/m/n/12 Friedemann Leibfritz. \OT1/cmr/m/it/12 COMPl$[]$b: COn-strain
+t Matrix-optimization Prob-lem li-brary\OT1/cmr/m/n/12 .
+ []
 
-LaTeX Warning: Empty bibliography on input line 283.
+[45] [46
 
-[46
+] [47] [48
 
 ]
-
-Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 291.
-
-[47
-
-] [48]
 Appendix A.
-[49
-
-]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 330.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 330.
+[49]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 360.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 360.
  (ProjectILC.aux (Introduction20.aux) (Basics20.aux) (ILC_Algorithms.aux)
-(Robustness.aux) (Application.aux) (Questions.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 330.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 330.
+(Robustness.aux) (Application.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 360.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 360.
 Package rerunfilecheck Info: File `ProjectILC.out' has not changed.
-(rerunfilecheck)             Checksum: CE060D6E8BD512B9AB08F75E6A8F8CE1;2081.
+(rerunfilecheck)             Checksum: 2E4BD6D4D9027D01A643B66EB14E80F2;1817.
 
 
 LaTeX Warning: There were undefined references.
 
-
-Package biblatex Warning: Please (re)run Biber on the file:
-(biblatex)                ProjectILC
-(biblatex)                and rerun LaTeX afterwards.
-
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 360.
 Package logreq Info: Writing requests to 'ProjectILC.run.xml'.
 \openout1 = `ProjectILC.run.xml'.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 330.
  ) 
 Here is how much of TeX's memory you used:
- 32133 strings out of 480799
- 604112 string characters out of 2895784
- 1261476 words of memory out of 3000000
- 47184 multiletter control sequences out of 15000+200000
+ 32179 strings out of 480799
+ 605331 string characters out of 2895784
+ 1259427 words of memory out of 3000000
+ 47236 multiletter control sequences out of 15000+200000
  559684 words of font info for 137 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,27n,66p,941b,1833s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 60i,27n,66p,745b,1264s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts
 /cm/cmbx12.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
 blic/amsfonts/cm/cmbxti10.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9
@@ -1839,9 +1837,9 @@ b><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts
 /cm/cmtt12.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
 blic/amsfonts/symbols/msam10.pfb><C:/Users/Strel/AppData/Local/Programs/MiKTeX 
 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on ProjectILC.pdf (58 pages, 1927455 bytes).
+Output written on ProjectILC.pdf (60 pages, 1928011 bytes).
 PDF statistics:
- 887 PDF objects out of 1000 (max. 8388607)
- 291 named destinations out of 1000 (max. 500000)
- 317 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 902 PDF objects out of 1000 (max. 8388607)
+ 289 named destinations out of 1000 (max. 500000)
+ 285 words of extra memory for PDF output out of 10000 (max. 10000000)
 

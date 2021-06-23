@@ -18,13 +18,9 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {2}Basics}{5}{chapter.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.1}Stability and stabilizability}{5}{section.2.1}%
+\contentsline {section}{\numberline {2.1}Supervector description}{6}{section.2.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.2}Supervector description}{6}{section.2.2}%
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.3}Stabilizing Controller}{7}{section.2.3}%
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.4}Separation Principle}{7}{section.2.4}%
+\contentsline {section}{\numberline {2.2}Separation Principle}{7}{section.2.2}%
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {3}ILC Algorithms}{11}{chapter.3}%
 \defcounter {refsection}{0}\relax 
@@ -36,9 +32,9 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.3.1}Steepest Descent Algorithm}{19}{subsection.3.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3.2}Suppression of eigenvalues}{22}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.2}Suppression of eigenvalues}{21}{subsection.3.3.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.4}Feedback Design}{24}{section.3.4}%
+\contentsline {section}{\numberline {3.4}Feedback Design}{25}{section.3.4}%
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {4}Robustness of the ILC Algorithms}{27}{chapter.4}%
 \defcounter {refsection}{0}\relax 
@@ -52,16 +48,12 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {5.2}Long time horizon}{39}{section.5.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.3}Online and Offline learning}{42}{section.5.3}%
+\contentsline {section}{Anhang}{46}{chapter*.14}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {6}Questions}{45}{chapter.6}%
+\contentsline {section}{\numberline {.1}Beweise}{46}{section.Alph0.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Anhang}{47}{section*.14}%
+\contentsline {subsection}{\numberline {.1.1}Beweis 1}{46}{subsection.Alph0.1.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {.1}Beweise}{47}{section.Alph0.1}%
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {.1.1}Beweis 1}{47}{subsection.Alph0.1.1}%
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{Eidesstattliche Erkl\"arung}{48}{section*.15}%
+\contentsline {section}{Eidesstattliche Erkl\"arung}{47}{section*.15}%
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {A}Zusammenfassung und Ausblick}{49}{appendix.A}%

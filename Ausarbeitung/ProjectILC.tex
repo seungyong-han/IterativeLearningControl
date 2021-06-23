@@ -53,10 +53,12 @@
 \usepackage{xspace} 
 \usepackage{subcaption}
 \usepackage{listings}
+\usepackage{afterpage}
 
 
-\usepackage[citestyle=numeric,bibstyle=numeric]{biblatex}
-\addbibresource{Bib.bib} 
+
+\usepackage[citestyle=numeric,bibstyle=numeric, backend = biber]{biblatex}
+\addbibresource{bib.bib} 
 \lstset{basicstyle=\ttfamily}
 \newcommand{\comp}[1]{\lstinline|#1|}
 
@@ -77,13 +79,19 @@
 \setcounter{tocdepth}{3}
 \onehalfspacing
 %\setstretch{1.5} %Zeilenabstand (1,5)
-
 %\includeonly{Application}
 %\includeonly{DiscreteTimeController}
 %\includeonly{Basics}
 %\includeonly{Questions}
 %\includeonly{Robustness}
 %\includeonly{TikZ}
+
+\newcommand{\leer}{\phantom{text}\\}
+\newcommand\blankpage{%
+	\null
+	\thispagestyle{empty}%
+	\addtocounter{page}{-1}%
+	\newpage}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -102,16 +110,16 @@
 
 \begin{center}
 \smc
-Lehrstuhl für Mathematische Systemtheorie\\
-Universität Stuttgart\\
+SimTech Chair for Mathematical Systems Theory\\
+University of Stuttgart\\
 
 \vspace{2.5cm}
 
-\Large \textbf{Projektarbeit}
+\Large \textbf{Project Thesis}
 
 \vspace{2cm}
 
-\large\textbf{im Bachelorstudiengang \\Simulation Technology}\\
+\large\textbf{in Bachelor Degree \\Simulation Technology}\\
 
 \vspace{3cm}
 
@@ -119,34 +127,80 @@ Universität Stuttgart\\
 \begin{center}
 \large \textbf{Iterative Learning Control}
 \end{center}}}
+\vspace{.5cm}
 
 
-\vspace{3cm}
-\begin{table}[h]
-	\centering
-		\begin{tabular}{ll}
-Erstgutachter/in:  & Prof. Dr. Carsten W. Scherer\\
-Zweitgutachter/in: & ....\\
-		\end{tabular}
-\end{table}
+by
+Tatiana Strelnikova
 
-\vspace{3cm}
-\normalsize vorgelegt von
 \end{center}
+\vspace{8.5cm}
 
-\vfill
-\parbox{5cm}{\footnotesize
-            Name\\
-            Straße\\
-            PLZ + Ort\\
-            E-mail}
-\hfill
-\parbox{5cm}{\footnotesize
-            Studienfach\\
-            Fachsemester\\
-            Matrikelnummer\\
-            Abgabetermin: XX.XX.201X}
+
+
+\begin{tabular}{l l}
+\textbf{Examiner:} &   Prof. Dr. Carsten W. Scherer\\
+\textbf{Examination Date:} & 20.06.2021
+\end{tabular}
+\normalsize  
 \end{titlepage}
+
+\clearpage
+\setlength{\hoffset}{0mm}
+\newpage
+\thispagestyle{empty}
+\mbox{}
+
+\begin{titlepage}
+	\setlength{\hoffset}{-15mm}
+	\newfont{\smc}{cmcsc10 at 16pt}
+	\begin{center}
+		\smc
+		Lehrstuhl für Mathematische Systemtheorie\\
+		Universität Stuttgart\\
+		
+		\vspace{2.5cm}
+		
+		\Large \textbf{Projektarbeit}
+		
+		\vspace{2cm}
+		
+		\large\textbf{im Bachelorstudiengang \\Simulation Technology}\\
+		
+		\vspace{3cm}
+		
+		\fbox{\parbox{\columnwidth}{
+				\begin{center}
+					\large \textbf{Iterative Learning Control}
+		\end{center}}}
+		
+		
+		\vspace{3cm}
+		\begin{table}[h]
+			\centering
+			\begin{tabular}{ll}
+				Prüfer:  & Prof. Dr. Carsten W. Scherer
+			\end{tabular}
+		\end{table}
+		
+		\vspace{3cm}
+		\normalsize vorgelegt von
+	\end{center}
+	
+	\vfill
+	\parbox{5cm}{\footnotesize
+		Name\\
+		Straße\\
+		PLZ + Ort\\
+		E-mail}
+	\hfill
+	\parbox{5cm}{\footnotesize
+		Studienfach\\
+		Fachsemester\\
+		Matrikelnummer\\
+		Abgabetermin: XX.XX.201X}
+\end{titlepage}
+
 
 \clearpage
 \setlength{\hoffset}{0mm}
@@ -190,31 +244,6 @@ Zweitgutachter/in: & ....\\
 \setlength{\itemsep}{-\parsep}
 	% A
 	\acro{O.B.d.A}{...}
-	% B
-	% C
-	% D
-	% E
-	% F
-	% G
-	% H
-	% I
-	% J
-	% K
-	% L
-	% M
-	% N
-	% O
-	% P
-	% Q
-	% R
-	% S
-	% T
-	% U
-	% V
-	% W
-	% X
-	% Y
-	% Z
 \end{acronym}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -268,7 +297,7 @@ Zweitgutachter/in: & ....\\
 \include{Application}
 %\include{Examples}
 %\include{TikZ}
-\include{Questions}
+%\include{Questions}
 
 Hier können auch Schlußfolgerungen präsentiert und ein Ausblick gegeben werden.
 
@@ -279,8 +308,9 @@ Hier können auch Schlußfolgerungen präsentiert und ein Ausblick gegeben werden.
 %\newpage\pagenumbering{Roman}
 %\setcounter{page}{5}
 
-%\bibliography{ProjectILC}
-\printbibliography
+
+	
+	\printbibliography
 
 
 
