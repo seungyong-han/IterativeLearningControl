@@ -45,6 +45,8 @@ The stability definition is usually given asymptotically, i.e. $t \to \infty$. T
 \begin{defi}
 A discrete time system $(A, B, C, D)$ or the pair $(A, B)$ is (asymptotically) stabilizable, if there exists a matrix $F$, such that $A - BF$ is (asymptotically) stable.
 The system or the pair $(A,C)$ is detectable, if $(A^T, C^T)$ is assymptotically stabilizable. 
+
+The system $(A,B,C,D)$ is said to be stable, if the matrix $A$ is stable. 
 \end{defi}
 
 Another useful definition is the definiteness of a matrix. This is given as follows. 
@@ -163,7 +165,7 @@ u(\cdot)= -F \hat{x}(\cdot), \text{ with } \hat{x}(\cdot) \text{ given via the d
 \end{split}
 \end{align}
 With this observer system, the estimation error can be calculated as \begin{align}
-\tilde{x}(t+1) = x(t+1) - \hat{x}(t+1) = (A - JC) \tilde{x}(t), \, t \geq 0,
+\tilde{x}(t+1) = x(t+1) - \hat{x}(t+1) = (A - JC) \tilde{x}(t), \, t \geq 1,
 \end{align} and as $(A - JC)$ is asymptotic stable,  the error $\tilde{x}(t+1)$ asymptotically converges to zero. 
 
 For a constant reference signal $r(t) = r_0 \in \R^m$, $t \geq 0$, choose the input signal as 
@@ -171,7 +173,7 @@ For a constant reference signal $r(t) = r_0 \in \R^m$, $t \geq 0$, choose the in
 u(t) = -F\hat{x}(t) + Mr_0, \; t \geq 0,
 \end{align}
 with some matrix $M$ of a fitting dimension. 
-Then the dynamical system 
+Then in the dynamical system 
 \begin{align}
 \begin{split}
 \begin{pmatrix}
@@ -185,10 +187,12 @@ x(t) \\ \t x(t)
 \end{pmatrix} + 
 \begin{pmatrix}
 B M \\ 0
-\end{pmatrix}r(t), \; t\geq 0
+\end{pmatrix}r_0, \; t\geq 0
 \end{split}
 \end{align}
-is asymptotically stable. With straightforward calculation, the steady state results in  
+the matrix $\begin{pmatrix}
+A - BF & BF \\ 0 & A-J
+\end{pmatrix}$ is asymptotically stable. With straightforward calculation, the steady state results in  
 \begin{align}
 \lim_{t \to \infty}\begin{pmatrix}
 x(t) \\ \t x(t)

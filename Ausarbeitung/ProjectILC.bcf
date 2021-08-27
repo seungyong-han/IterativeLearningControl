@@ -2182,37 +2182,11 @@
     <bcf:datasource type="file" datatype="bibtex">bib.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1">Bristov06</bcf:citekey>
-    <bcf:citekey order="2">Bristov06</bcf:citekey>
+    <bcf:citekey order="1">ILC</bcf:citekey>
+    <bcf:citekey order="2">ILC</bcf:citekey>
     <bcf:citekey order="3">ILC</bcf:citekey>
     <bcf:citekey order="4">ILC</bcf:citekey>
-    <bcf:citekey order="5">discrHinf</bcf:citekey>
-    <bcf:citekey order="6">LKT</bcf:citekey>
-    <bcf:citekey order="7">KostovaIvanov2013</bcf:citekey>
-    <bcf:citekey order="8">KostovaIvanov2013</bcf:citekey>
-    <bcf:citekey order="9">KostovaIvanov2013</bcf:citekey>
-    <bcf:citekey order="10">KostovaIvanov2013</bcf:citekey>
-    <bcf:citekey order="11">KostovaIvanov2013</bcf:citekey>
-    <bcf:citekey order="12">KostovaIvanov2013</bcf:citekey>
-    <bcf:citekey order="13">KostovaIvanov2013</bcf:citekey>
-    <bcf:citekey order="14">KostovaIvanov2013</bcf:citekey>
-    <bcf:citekey order="15">DAREandLMI</bcf:citekey>
-    <bcf:citekey order="16">DAREandLMI</bcf:citekey>
-    <bcf:citekey order="17">DAREandLMI</bcf:citekey>
-    <bcf:citekey order="18">DAREandLMI</bcf:citekey>
-    <bcf:citekey order="19">DAREandLMI</bcf:citekey>
-    <bcf:citekey order="20">DAREandLMI</bcf:citekey>
-    <bcf:citekey order="21">DAREandLMI</bcf:citekey>
-    <bcf:citekey order="22">DAREandLMI</bcf:citekey>
-    <bcf:citekey order="23">ILC</bcf:citekey>
-    <bcf:citekey order="24">LAAG</bcf:citekey>
-    <bcf:citekey order="25">ILC</bcf:citekey>
-    <bcf:citekey order="26">ILC</bcf:citekey>
-    <bcf:citekey order="27">ILC</bcf:citekey>
-    <bcf:citekey order="28">ILC</bcf:citekey>
-    <bcf:citekey order="29">ILC</bcf:citekey>
-    <bcf:citekey order="30">SchRC</bcf:citekey>
-    <bcf:citekey order="31">CompLeib</bcf:citekey>
+    <bcf:citekey order="5">ILC</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">

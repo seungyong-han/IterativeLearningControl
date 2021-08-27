@@ -1,0 +1,40 @@
+\tikzstyle{block} = [draw, fill=white, rectangle,
+minimum height=3em, minimum width=3cm, align=center]
+\tikzset{    sum/.style      = {draw, circle, node distance = 2cm}, % Adder
+}
+
+\begin{tikzpicture}[auto, node distance=2cm,>=latex', align=center]
+    \node[block](sys){$\left [  \begin{array}{c c}
+		A & B \\ C & D 
+    	\end{array}\right]$}; 
+	\node[block, below = of sys](ctrl){$\left [  \begin{array}{c c}
+		A_K & B_K \\ C_K & D_K 
+		\end{array}\right]$}; 
+	\node[draw, circle, left = 1cm of sys](plus){};
+	\node[right = 1cm of sys](phantom){};
+	
+	\node[draw,dashed,minimum height = 5cm, minimum width = 6.5cm, fit = (sys)(ctrl)(plus)(phantom)](box){}; 
+	\node[below = .1cm of box]{Closed loop \eqref{eq:ILC:stablecloop}};
+
+	%y: system output
+	\draw[->](sys.0)--($(sys.0) + (1,0)$) node[above]{$y(\cdot)$} -- ($(sys.0) + (1,0)$) -| ($(sys.0) + (1,-1.5)$) -- ($(ctrl.0) + (1,0)$) -- (ctrl.0);
+	\draw[->](sys.0) -- ($(sys.0) + (2.2,0)$);
+	
+	 %u: controller output
+	\draw[->](ctrl.180) -- ($(ctrl.180) + (-1.2, 0)$) |- ($(ctrl.180) + (-1.2,1.7)$)node[right]{$u(\cdot)$} -- (plus.270); 
+
+	%input sum
+    \draw[->]($(plus.180) + (-2.2, 0)$) -- ($(plus.180) + (-1, 0)$)node[above]{$v(\cdot)$} -- (plus.180);
+    \draw[->](plus.0) -- ($(plus.0) + (.5, 0)$)node[above]{$\t u(\cdot)$} -- (sys.180);
+    
+	
+	
+	
+	
+	
+	
+	
+\end{tikzpicture}
+
+
+

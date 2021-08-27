@@ -85,6 +85,8 @@
 %\includeonly{Questions}
 %\includeonly{Robustness}
 %\includeonly{TikZ}
+\includeonly{ILC_Algorithms}
+\usetikzlibrary{backgrounds, calc,patterns,angles,quotes, babel}
 
 \newcommand{\leer}{\phantom{text}\\}
 \newcommand\blankpage{%
@@ -92,6 +94,14 @@
 	\thispagestyle{empty}%
 	\addtocounter{page}{-1}%
 	\newpage}
+
+\newenvironment{mtrx}[1]
+{
+	\left( \begin{array}{#1}{}
+	}
+	{ 
+	\end{array} \right)
+}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -285,6 +295,7 @@ Tatiana Strelnikova
 \addtolength{\headheight}{2.0pt}
 \newpage
 \pagenumbering{arabic}
+\renewcommand{\k}{k \to \infty}
 
 
 %\newcommand{\comp}[1]{\begin{lstlisting}#1\end{lstlisting}}

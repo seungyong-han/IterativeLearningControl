@@ -6,22 +6,22 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Tracking with LQR Controller (without ILC algorithm), and tracking with IA for the system \textup {\hbox {\mathsurround \z@ \normalfont (\ignorespaces \ref {eq:ILC:Sys_ex1}\unskip \@@italiccorr )}} for $N = 30$\relax }}{13}{figure.caption.7}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Tracking with LQR Controller (without ILC algorithm), and tracking with IA for the system \textup {\hbox {\mathsurround \z@ \normalfont (\ignorespaces \ref {eq:ILC:Sys_ex1}\unskip \@@italiccorr )}} for $N = 30$\relax }}{14}{figure.caption.7}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Tracking with IA for the system \textup {\hbox {\mathsurround \z@ \normalfont (\ignorespaces \ref {eq:ILC:Sys_ex1}\unskip \@@italiccorr )}} for $N = 50$\relax }}{14}{figure.caption.8}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Tracking with IA for the system \textup {\hbox {\mathsurround \z@ \normalfont (\ignorespaces \ref {eq:ILC:Sys_ex1}\unskip \@@italiccorr )}} for $N = 50$\relax }}{15}{figure.caption.8}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Reference signal tracking with LQR and PIA for the sysytem \textup {\hbox {\mathsurround \z@ \normalfont (\ignorespaces \ref {eq:ILC:Sys_ex1}\unskip \@@italiccorr )}} for $N = 50$ \relax }}{16}{figure.caption.9}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Reference signal tracking with LQR and PIA for the sysytem \textup {\hbox {\mathsurround \z@ \normalfont (\ignorespaces \ref {eq:ILC:Sys_ex1}\unskip \@@italiccorr )}} for $N = 50$ \relax }}{17}{figure.caption.9}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Reference signal tracking with LQR and SDA for the system \textup {\hbox {\mathsurround \z@ \normalfont (\ignorespaces \ref {eq:ILC:Sys_ex1}\unskip \@@italiccorr )}}\relax }}{22}{figure.caption.10}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Reference signal tracking with SP and SDA for the system \textup {\hbox {\mathsurround \z@ \normalfont (\ignorespaces \ref {eq:ILC:Sys_ex1}\unskip \@@italiccorr )}}\relax }}{23}{figure.caption.10}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Error evolution for SDA and SoE for system \textup {\hbox {\mathsurround \z@ \normalfont (\ignorespaces \ref {eq:ILC:Sys_ex1}\unskip \@@italiccorr )}}\relax }}{24}{figure.caption.11}%
-\defcounter {refsection}{0}\relax 
-\addvspace {10\p@ }
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Uncertain system as feedback interconnection of LFR and the uncertainty $\hat {\Delta }$\relax }}{28}{figure.caption.12}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Error evolution for SDA and SoEA for system \textup {\hbox {\mathsurround \z@ \normalfont (\ignorespaces \ref {eq:ILC:Sys_ex1}\unskip \@@italiccorr )}}\relax }}{26}{figure.caption.11}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.1}{\ignorespaces LQR tracking for the system \textup {\hbox {\mathsurround \z@ \normalfont (\ignorespaces \ref {eq:Appl:discr_sys}\unskip \@@italiccorr )}}\relax }}{39}{figure.caption.13}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Uncertain system as feedback interconnection of LFR and the uncertainty $\hat {\Delta }$\relax }}{30}{figure.caption.12}%
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.1}{\ignorespaces LQR tracking for the system \textup {\hbox {\mathsurround \z@ \normalfont (\ignorespaces \ref {eq:Appl:discr_sys}\unskip \@@italiccorr )}}\relax }}{41}{figure.caption.13}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
